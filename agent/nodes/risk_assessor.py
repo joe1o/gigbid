@@ -64,6 +64,7 @@ async def risk_assessor(state, config):
         flags.append("llm_scam_opinion")
     level = "high" if score >= 0.7 else "medium" if score >= 0.4 else "low"
     report = RiskReport(score=round(score, 2), level=level, flags=flags,
-                        explanation="; ".join(reasons) + (f". Model: {opinion.explanation}" if opinion.explanation else ""),
+                        explanation=". ".join(x for x in ["; ".join(reasons).capitalize(),
+                                                          f"Model: {opinion.explanation}" if opinion.explanation else ""] if x),
                         client=client)
     return {"risk": report.model_dump(), "usage": [usage]}

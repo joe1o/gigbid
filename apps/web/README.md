@@ -1,4 +1,12 @@
-Create the required React or Next.js + TypeScript application here.
-Required screens include onboarding, job inbox/detail, proposal studio, pipeline,
-messages, agent run viewer, analytics and settings. Stream progress and preserve pending
-approvals across refreshes. Streamlit and Gradio are not accepted for this assignment.
+# GigBid web app (React + Vite + TypeScript)
+
+Screens (src/app): sign-in, onboarding, inbox, job detail, proposal studio, pipeline,
+messages, agent run viewer, analytics, settings. Design: docs/DESIGN.md.
+
+```bash
+npm install
+npm run gen:api      # regenerate src/lib/api/schema.d.ts from the FastAPI schema (never hand-edit it)
+npm run dev          # http://localhost:5173 (proxies /api to the API on :8000)
+npm run build        # dist/, served by FastAPI at /
+npx playwright test  # 5 end-to-end tests against a throwaway server (scripts/e2e_server.py)
+```

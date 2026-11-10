@@ -14,6 +14,7 @@ and the marketplace's rate limits.
 """
 
 import asyncio
+import os
 import time
 
 from agent import runtime as R
@@ -22,7 +23,8 @@ from agent.mcp_client import GigBidMCP, ServerUnavailable
 from agent.nodes.scout import scout
 from apps.api.streaming import hub
 
-RUN_SLOTS = asyncio.Semaphore(2)
+# How many graphs may run at once (keeps us inside the model provider's rate limits).
+RUN_SLOTS = asyncio.Semaphore(int(os.getenv("GIGBID_RUN_SLOTS", "2")))
 _tasks: set[asyncio.Task] = set()
 
 
