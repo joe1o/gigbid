@@ -1,4 +1,5 @@
-from agent.handoffs import RiskReport, FitReport
+from agent.handoffs import FitReport, RiskReport
+
 
 def test_risk_score_is_bounded():
     report = RiskReport(score=0.5, flags=[], explanation="sample")

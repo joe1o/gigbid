@@ -1,4 +1,5 @@
-from typing import Protocol, Any
+from typing import Any, Protocol
+
 
 class MarketplacePort(Protocol):
     async def search_jobs(self, query: str) -> list[dict[str, Any]]: ...
