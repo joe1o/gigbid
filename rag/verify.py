@@ -33,8 +33,11 @@ FIRST_PERSON = re.compile(r"\b(i|i've|i'm|my|me|we|our)\b", re.IGNORECASE)
 PAST_OR_FACT = re.compile(
     r"\b(\w+ed|built|led|made|wrote|ran|cut|won|shipped|taught|grew|rebuilt|have|has|had|years?|"
     r"experience|delivered|worked|reached|saved)\b", re.IGNORECASE)
-PLAN = re.compile(r"\b(i would|i will|i'll|i can|i could|i'd|i'm happy|happy to|let's|i plan|i suggest|"
-                  r"i'm available|i'm keen|could we|would you|shall we)\b", re.IGNORECASE)
+# A sentence is a PLAN only if it STARTS with a plan phrase. ("My 4 years of X ensure I can do Y"
+# is still a claim about the past and must be checked.)
+PLAN = re.compile(r"^\W*(then |next |so |and |first,? |for (you|your \w+),? )?(i would|i will|i'll|i can|i could|"
+                  r"i'd|i'm happy|happy to|let's|i plan|i suggest|i'm available|i'm keen|could we|would you|"
+                  r"shall we|my plan|the next step)\b", re.IGNORECASE)
 NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
 
 

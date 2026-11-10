@@ -1,0 +1,63 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	intake(intake)
+	job_analyst(job_analyst)
+	risk_assessor(risk_assessor)
+	fit_matcher(fit_matcher)
+	decide(decide)
+	pricing(pricing)
+	writer(writer)
+	verify_claims(verify_claims)
+	critic(critic)
+	compliance(compliance)
+	prepare_approval(prepare_approval)
+	approval(approval)
+	compliance_edit(compliance_edit)
+	submit(submit)
+	needs_attention(needs_attention)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> intake;
+	approval -.-> __end__;
+	approval -.-> compliance_edit;
+	approval -.-> submit;
+	compliance -.-> __end__;
+	compliance -.-> needs_attention;
+	compliance -.-> prepare_approval;
+	compliance_edit -.-> __end__;
+	compliance_edit -.-> needs_attention;
+	compliance_edit -.-> prepare_approval;
+	critic -.-> __end__;
+	critic -.-> compliance;
+	critic -.-> needs_attention;
+	critic -.-> writer;
+	decide -.-> __end__;
+	decide -.-> needs_attention;
+	decide -.-> pricing;
+	fit_matcher --> decide;
+	intake -.-> fit_matcher;
+	intake -.-> job_analyst;
+	intake -.-> risk_assessor;
+	job_analyst --> decide;
+	prepare_approval -.-> __end__;
+	prepare_approval -.-> approval;
+	prepare_approval -.-> needs_attention;
+	pricing -.-> __end__;
+	pricing -.-> needs_attention;
+	pricing -.-> writer;
+	risk_assessor --> decide;
+	verify_claims -.-> __end__;
+	verify_claims -.-> critic;
+	verify_claims -.-> needs_attention;
+	writer -.-> __end__;
+	writer -.-> needs_attention;
+	writer -.-> verify_claims;
+	needs_attention --> __end__;
+	submit --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

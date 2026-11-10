@@ -1,3 +1,67 @@
-"""TODO: Enforce the supplied policy pack before approval."""
+"""
+Compliance Guard - enforces the platform policy pack. No LLM: rules are exact.
 
-# Implement this node and add focused unit tests.
+On the Writer's draft it REMOVES sentences with:
+    contact details (email, phone, WhatsApp/Telegram/Skype), guarantees ("100% satisfaction"),
+    off-platform payment or contact.
+It BLOCKS (with a reason shown in the UI) when:
+    the job itself asks for free work or off-platform contact, or too little text is left.
+
+On the USER's edits it does not silently change their words: it re-checks them
+(same rules + claim verification) and, if something is wrong, sends the draft back to
+the approval screen with the reasons.
+"""
+
+from agent.handoffs import ComplianceVerdict
+from agent.nodes.base import node
+from agent.safety import CONTACT, GUARANTEE, OFF_PLATFORM, sentences
+from rag.verify import verify_claims
+
+RULES = [(CONTACT, "contact details"), (GUARANTEE, "a guarantee"), (OFF_PLATFORM, "off-platform contact/payment")]
+
+
+def scan(text: str) -> tuple[str, list[str]]:
+    """Returns (text without violating sentences, list of violations found)."""
+    kept, found = [], []
+    for s in sentences(text):
+        hits = [name for rx, name in RULES if rx.search(s)]
+        if hits:
+            found.append(f"removed sentence with {', '.join(hits)}: \"{s.strip()[:80]}\"")
+        else:
+            kept.append(s.strip())
+    return " ".join(kept), found
+
+
+@node("compliance")
+async def compliance(state, config):
+    d = state["draft"]
+    letter, fixes = scan(d["cover_letter"])
+    answers = []
+    for a in d["screening_answers"]:
+        clean, f = scan(a)
+        answers.append(clean)
+        fixes += f
+    blocked = None
+    bad_flags = {"free_work_request", "off_platform"} & set(state["risk"]["flags"])
+    if bad_flags:
+        blocked = f"job violates platform policy ({', '.join(sorted(bad_flags))})"
+    elif len(letter.split()) < 40:
+        blocked = "too little text left after removing policy violations"
+    verdict = ComplianceVerdict(passed=blocked is None, violations=[], fixes=fixes, blocked_reason=blocked)
+    out = {"draft": {**d, "cover_letter": letter, "screening_answers": answers}, "compliance": verdict.model_dump()}
+    if blocked:
+        out["status"] = "blocked"
+    return out
+
+
+@node("compliance_edit")
+async def compliance_edit(state, config):
+    """Re-check the user's edited draft. Violations are reported, not silently fixed."""
+    d = state["draft"]
+    full = d["cover_letter"] + " " + " ".join(d["screening_answers"])
+    _, found = scan(full)
+    violations = [f.replace("removed sentence with", "contains") for f in found]
+    unsupported = [c["text"] for c in verify_claims(full, state["evidence"])["claims"] if c["label"] == "unsupported"]
+    violations += [f'claim not supported by your portfolio: "{u[:80]}"' for u in unsupported]
+    verdict = ComplianceVerdict(passed=not violations, violations=violations)
+    return {"compliance": verdict.model_dump()}

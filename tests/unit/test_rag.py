@@ -57,3 +57,11 @@ def test_verify_keeps_true_claims_and_removes_invented_ones():
 def test_verify_with_no_evidence_marks_claims_unsupported():
     r = verify.verify_claims("I built a churn model with 0.71 PR-AUC.", [])
     assert r["unsupported_rate"] == 1.0
+
+
+def test_claim_inside_a_plan_sentence_is_still_checked():
+    """Regression: 'my N years ... ensures I can ...' was skipped as a plan because of 'I can'."""
+    ev = [corpus.get_item("ml_engineer", i) for i in ["ml-cv"]]
+    fake = "Additionally, my ten years of experience with Kubernetes ensures I can scale it."
+    assert verify.is_claim(fake) and verify.check_claim(fake, ev)["label"] == "unsupported"
+    assert not verify.is_claim("My plan is to containerize the model with a Dockerfile.")

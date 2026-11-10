@@ -25,6 +25,7 @@ LETTER = ("Churn on imbalanced data is where most models fail. I built a scikit-
 def wired(monkeypatch):
     """Fresh GigSim, and point the MCP server's adapter at the in-process GigSim."""
     TestClient(gigsim_app.app).post("/admin/reset", headers={"Authorization": "Bearer gigsim-admin-token"})
+    server.limiter.calls.clear()                      # each test starts with a fresh rate-limit window
     transport = httpx.ASGITransport(app=gigsim_app.app)
     monkeypatch.setattr(server, "get_port",
                         lambda user: GigSimAdapter("http://gigsim", "gigsim-ml-token", transport=transport))

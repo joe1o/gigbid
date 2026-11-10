@@ -68,7 +68,8 @@ def graph():
     g.add_edge("retrieve", "grade")
     g.add_conditional_edges("grade", route, {"rewrite": "rewrite", END: END})
     g.add_edge("rewrite", "retrieve")
-    return g.compile()
+    # checkpointer=False: a stateless helper graph; never inherit a parent graph's saver.
+    return g.compile(checkpointer=False)
 
 
 def corrective_search(persona_id: str, requirement: str, job: dict, cfg: RagConfig):

@@ -1235,6 +1235,94 @@
         "type": "object"
       }
     },
+    "map_requirements": {
+      "annotations": {
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "input": {
+        "properties": {
+          "job_title": {
+            "default": "",
+            "maxLength": 200,
+            "title": "Job Title",
+            "type": "string"
+          },
+          "requirements": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 12,
+            "minItems": 1,
+            "title": "Requirements",
+            "type": "array"
+          }
+        },
+        "required": [
+          "requirements"
+        ],
+        "title": "map_requirementsArguments",
+        "type": "object"
+      },
+      "output": {
+        "$defs": {
+          "RequirementMatch": {
+            "properties": {
+              "evidence_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence Ids",
+                "type": "array"
+              },
+              "requirement": {
+                "title": "Requirement",
+                "type": "string"
+              },
+              "status": {
+                "description": "found | none (none = no trustworthy evidence: do not claim it)",
+                "title": "Status",
+                "type": "string"
+              },
+              "top_score": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Top Score"
+              }
+            },
+            "required": [
+              "requirement",
+              "evidence_ids",
+              "status",
+              "top_score"
+            ],
+            "title": "RequirementMatch",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "result": {
+            "items": {
+              "$ref": "#/$defs/RequirementMatch"
+            },
+            "title": "Result",
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "title": "map_requirementsOutput",
+        "type": "object"
+      }
+    },
     "search_evidence": {
       "annotations": {
         "idempotentHint": true,

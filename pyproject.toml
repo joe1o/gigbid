@@ -19,6 +19,8 @@ dependencies = [
   "langgraph",                       # the multi-agent graph library
   "langgraph-checkpoint-postgres",   # saves graph state in Postgres (survives crashes)
   "psycopg[binary,pool]",            # Postgres driver
+  "langgraph-checkpoint-sqlite",     # local/dev checkpointer (SQLite) when no Postgres is set
+  "aiosqlite",
   "langchain-core",                  # base LLM interfaces
   "langchain-openai",                # talks to any OpenAI-compatible API (Groq, Gemini)
   "langchain-mcp-adapters",          # lets LangGraph agents use MCP tools

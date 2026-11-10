@@ -40,25 +40,55 @@ rag:
   corrective_threshold: -7.0
   verify_threshold: -2.0            # claim verification: min reranker score to count as support
 
+# LLMs. Every node's model is set HERE, never in code ("route by node").
+# Only nodes that need language understanding call an LLM; Scout, Fit Matcher,
+# Pricing and Compliance are rules + tools (cheaper, deterministic).
 models:
-  profile: open
-  nodes:
-    scout: qwen3-4b
-    analyst: qwen3-4b
-    risk_assessor: qwen3-4b
-    fit_matcher: qwen3-4b
-    pricing: qwen3-4b
-    writer: configure-your-model
-    critic: configure-your-model
-    client_liaison: configure-your-model
-  embeddings: nomic-embed-text
-  reranker: bge-reranker-v2-m3
+  profile: open                     # env: MODEL_PROFILE   open (required) | paid (optional)
+  profiles:
+    open:                           # open-weight models on Groq (hosted open-model provider)
+      base_url: https://api.groq.com/openai/v1
+      api_key_env: GROQ_API_KEY
+      nodes:
+        job_analyst: openai/gpt-oss-20b        # cheap + frequent -> small model
+        risk_assessor: openai/gpt-oss-20b
+        liaison_intent: openai/gpt-oss-20b
+        writer: openai/gpt-oss-120b            # quality matters -> strongest affordable model
+        critic: openai/gpt-oss-120b
+        liaison_reply: openai/gpt-oss-120b
+      fallback: openai/gpt-oss-120b            # used if a cheap node's model fails
+      extra: {reasoning_effort: low}           # gpt-oss: think briefly (fewer tokens, faster)
+    open_small:                     # 2nd open configuration for the comparison: 20b everywhere
+      base_url: https://api.groq.com/openai/v1
+      api_key_env: GROQ_API_KEY
+      nodes: {job_analyst: openai/gpt-oss-20b, risk_assessor: openai/gpt-oss-20b, liaison_intent: openai/gpt-oss-20b,
+              writer: openai/gpt-oss-20b, critic: openai/gpt-oss-20b, liaison_reply: openai/gpt-oss-20b}
+      fallback: openai/gpt-oss-120b
+      extra: {reasoning_effort: low}
+    paid:                           # optional: Gemini through its OpenAI-compatible endpoint
+      base_url: https://generativelanguage.googleapis.com/v1beta/openai/
+      api_key_env: GEMINI_API_KEY
+      nodes: {job_analyst: gemini-flash-latest, risk_assessor: gemini-flash-latest, liaison_intent: gemini-flash-latest,
+              writer: gemini-flash-latest, critic: gemini-flash-latest, liaison_reply: gemini-flash-latest}
+      fallback: gemini-flash-latest
+      extra: {}
+  # USD per million tokens [input, output], for cost reporting (Groq list prices; check console.groq.com).
+  prices:
+    openai/gpt-oss-20b: [0.075, 0.30]
+    openai/gpt-oss-120b: [0.15, 0.60]
+    gemini-flash-latest: [0.30, 2.50]
+  timeout_seconds: 60
 
 budgets:
-  max_graph_steps: 30
-  max_revisions: 2
-  max_tokens_per_job: 12000
+  max_graph_steps: 30               # more node runs than this -> "needs attention"
+  max_revisions: 2                  # Critic may send a draft back at most twice
+  max_tokens_per_job: 40000         # more tokens than this -> "needs attention"
+
+safety:
+  injection_defence: true           # false only for the "attack success before defences" experiment
 
 thresholds:
-  minimum_fit_score: 0.60
+  minimum_fit_score: 0.60           # below -> skip
+  watch_fit_score: 0.40             # between watch and minimum -> watch
+  proposal_words: [80, 300]         # Critic's length range
   maximum_risk_score: 0.70

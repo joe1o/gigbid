@@ -101,6 +101,27 @@ def get_case_study(ctx: Context, id: Annotated[str, Field(pattern=r"^[\w-]{1,64}
     return to_evidence(item)
 
 
+class RequirementMatch(BaseModel):
+    requirement: str
+    evidence_ids: list[str]
+    status: str = Field(description="found | none (none = no trustworthy evidence: do not claim it)")
+    top_score: float | None
+
+
+@mcp.tool(annotations=READ)
+def map_requirements(ctx: Context,
+                     requirements: Annotated[list[str], Field(min_length=1, max_length=12)],
+                     job_title: Annotated[str, Field(max_length=200)] = "") -> list[RequirementMatch]:
+    """For each job requirement, the portfolio items that prove it - or 'none' if nothing does
+    (uses the corrective retrieval design, rag.fit_variant)."""
+    from agent.settings import CONFIG
+
+    res = retriever.retrieve_for_job(persona(ctx), {"title": job_title, "description": ""},
+                                     requirements=requirements, variant=CONFIG["rag"]["fit_variant"])
+    return [RequirementMatch(requirement=p["requirement"], evidence_ids=p["evidence"], status=p["status"],
+                             top_score=p["top_score"]) for p in res["per_requirement"]]
+
+
 @mcp.tool(annotations=READ)
 def list_skills(ctx: Context) -> list[Skill]:
     """Every skill in the portfolio, how many items show it, and which ones."""

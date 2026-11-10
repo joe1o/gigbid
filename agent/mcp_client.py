@@ -19,7 +19,7 @@ import asyncio
 import os
 import uuid
 from datetime import timedelta
-from typing import Any
+from typing import Any, ClassVar
 
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
@@ -33,13 +33,13 @@ AGENT_TOOLS: dict[str, dict[str, list[str]]] = {
     "scout":          {"marketplace": ["search_jobs", "get_job"]},
     "job_analyst":    {},                                             # no tools: reads the job text only
     "risk_assessor":  {"marketplace": ["get_client_history", "get_policy"]},
-    "fit_matcher":    {"portfolio": ["search_evidence", "list_skills"]},
+    "fit_matcher":    {"portfolio": ["map_requirements", "search_evidence", "list_skills"]},
     "pricing":        {"marketplace": ["market_stats", "get_connects_balance", "get_policy"]},
     "writer":         {"portfolio": ["search_evidence", "get_case_study"]},
     "critic":         {"portfolio": ["search_evidence", "get_case_study"]},
     "compliance":     {},                                             # no tools: checks text against policy
     "submitter":      {"marketplace": ["create_proposal_draft", "submit_proposal"]},   # runs only after approval
-    "client_liaison": {"marketplace": ["list_threads", "list_messages", "send_message"],
+    "client_liaison": {"marketplace": ["list_threads", "list_messages", "get_job", "send_message"],
                        "workspace": ["get_free_slots", "create_interview_hold", "create_email_draft"]},
     "pipeline":       {"marketplace": ["list_proposals", "list_threads"]},             # UI board refresh
 }
@@ -61,6 +61,9 @@ class ServerUnavailable(Exception):
 
 
 class GigBidMCP:
+    # Tests set this to {server_name: FastMCP} so every client runs in-memory (no HTTP).
+    default_in_memory: ClassVar[dict] = {}
+
     def __init__(self, user_id: str, trace_id: str | None = None, in_memory: dict | None = None):
         """
         user_id   : whose data (sent as X-GigBid-User)
@@ -69,7 +72,7 @@ class GigBidMCP:
         """
         self.user_id = user_id
         self.trace_id = trace_id or uuid.uuid4().hex
-        self.in_memory = in_memory or {}
+        self.in_memory = in_memory if in_memory is not None else GigBidMCP.default_in_memory
         headers = {"Authorization": f"Bearer {os.getenv('MCP_AUTH_TOKEN', '')}",
                    "X-GigBid-User": user_id, "X-Trace-Id": self.trace_id}
         self.client = MultiServerMCPClient({
