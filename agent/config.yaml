@@ -1,6 +1,30 @@
+# agent/config.yaml - the ONE place for settings: which marketplace, which models,
+# budgets and thresholds. Code reads this file; nothing is hard-coded.
+# Any value marked "env:" can be overridden by that environment variable.
+
 marketplace:
-  mode: gigsim
-  max_requests_per_minute: 20
+  mode: gigsim                      # env: MARKETPLACE_MODE   gigsim | upwork_live
+  gigsim_base_url: http://localhost:8081   # env: GIGSIM_BASE_URL
+  # Dev logins for the three simulated GigSim accounts (fake simulator tokens).
+  # In the web app a user connects their own account; these are the fallback.
+  dev_accounts:
+    ml_engineer: gigsim-ml-token
+    web_developer: gigsim-web-token
+    data_analyst: gigsim-data-token
+  max_requests_per_minute: 40       # stay under GigSim's 60/min limit
+  timeout_seconds: 10
+  max_retries: 3                    # bounded retries with backoff
+  upwork_mcp_url: https://mcp.upwork.com/mcp
+
+# Where each MCP server listens (agents connect over Streamable HTTP).
+mcp_servers:
+  portfolio:   {url: http://localhost:8091/mcp}   # env: PORTFOLIO_MCP_URL
+  marketplace: {url: http://localhost:8092/mcp}   # env: MARKETPLACE_MCP_URL
+  workspace:   {url: http://localhost:8093/mcp}   # env: WORKSPACE_MCP_URL
+
+workspace:
+  timezone_offset_hours: 5          # Pakistan time (UTC+5)
+  work_hours: [9, 17]
 
 models:
   profile: open

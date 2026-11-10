@@ -3,15 +3,7 @@ Tests for GigSim (our marketplace simulator).
 FastAPI's TestClient calls the API in-process, so no server needs to be running.
 """
 
-import os
-import tempfile
-
-# Test settings MUST be set before gigsim.app is imported (it reads them at import time).
-os.environ["GIGSIM_ERROR_RATE"] = "0"           # no random 503s in tests
-os.environ["GIGSIM_REVEAL_SECONDS"] = "0"       # clients react instantly
-os.environ["GIGSIM_RELEASE_ALL"] = "true"       # every job visible
-os.environ["GIGSIM_DB_PATH"] = os.path.join(tempfile.mkdtemp(), "test.sqlite")
-
+# Test settings (no random errors, instant clients, temp database) live in conftest.py.
 import pytest
 from fastapi.testclient import TestClient
 
