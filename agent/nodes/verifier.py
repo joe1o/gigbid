@@ -6,6 +6,8 @@ evidence the Writer was given (rag/verify.py). Unsupported claims are REMOVED be
 the Critic sees the draft. The rate BEFORE removal is kept for the report.
 """
 
+import asyncio
+
 from agent.handoffs import ClaimReport
 from agent.nodes.base import node
 from rag.verify import verify_claims
@@ -14,8 +16,9 @@ from rag.verify import verify_claims
 @node("verify_claims")
 async def verify_claims_node(state, config):
     raw, evidence = state["draft_raw"], state["evidence"]
-    letter = verify_claims(raw["cover_letter"], evidence)
-    answers = [verify_claims(a, evidence) for a in raw["screening_answers"]]
+    # The reranker is CPU work: run it in a worker thread so the API stays responsive.
+    letter = await asyncio.to_thread(verify_claims, raw["cover_letter"], evidence)
+    answers = [await asyncio.to_thread(verify_claims, a, evidence) for a in raw["screening_answers"]]
     claims = letter["claims"] + [c for a in answers for c in a["claims"]]
     removed = letter["removed"] + [r for a in answers for r in a["removed"]]
     rate = sum(c["label"] == "unsupported" for c in claims) / len(claims) if claims else 0.0

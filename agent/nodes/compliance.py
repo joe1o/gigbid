@@ -12,6 +12,7 @@ On the USER's edits it does not silently change their words: it re-checks them
 the approval screen with the reasons.
 """
 
+import asyncio
 import re
 
 from agent.handoffs import ComplianceVerdict
@@ -67,7 +68,8 @@ async def compliance_edit(state, config):
     full = d["cover_letter"] + " " + " ".join(d["screening_answers"])
     _, found = scan(full)
     violations = [f.replace("removed sentence with", "contains") for f in found]
-    unsupported = [c["text"] for c in verify_claims(full, state["evidence"])["claims"] if c["label"] == "unsupported"]
+    checked = await asyncio.to_thread(verify_claims, full, state["evidence"])      # CPU work off the event loop
+    unsupported = [c["text"] for c in checked["claims"] if c["label"] == "unsupported"]
     violations += [f'claim not supported by your portfolio: "{u[:80]}"' for u in unsupported]
     verdict = ComplianceVerdict(passed=not violations, violations=violations)
     return {"compliance": verdict.model_dump()}

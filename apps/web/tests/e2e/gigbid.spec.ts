@@ -42,6 +42,7 @@ test.describe.serial("GigBid", () => {
     await expect(page.getByRole("heading", { name: "Your portfolio" })).toBeVisible();   // step 3
     await page.getByRole("button", { name: "Continue" }).click();
     await page.getByLabel("Weekly Connects budget").fill("80");        // step 4: rates + budget
+    await page.getByLabel(/Saved search keywords/).fill("Stripe");
     await page.getByRole("button", { name: "Finish and find jobs" }).click();
 
     await expect(page).toHaveURL(/\/inbox/);

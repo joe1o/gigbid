@@ -11,6 +11,7 @@ models.py - the two small open models RAG uses. Both run on a normal CPU.
 Models download once (from Hugging Face) into data/processed/models/.
 """
 
+import threading
 from functools import lru_cache
 
 import numpy as np
@@ -27,18 +28,23 @@ DOC_PREFIX = "search_document: " if _IS_NOMIC else ""
 QUERY_PREFIX = "search_query: " if _IS_NOMIC else ""
 
 
+_load_lock = threading.Lock()      # two threads must not load (or download) the same model at once
+
+
 @lru_cache(maxsize=1)
 def _embedder():
     from fastembed import TextEmbedding
 
-    return TextEmbedding(EMB_MODEL, cache_dir=CACHE)
+    with _load_lock:
+        return TextEmbedding(EMB_MODEL, cache_dir=CACHE)
 
 
 @lru_cache(maxsize=1)
 def _reranker():
     from fastembed.rerank.cross_encoder import TextCrossEncoder
 
-    return TextCrossEncoder(RERANK_MODEL, cache_dir=CACHE)
+    with _load_lock:
+        return TextCrossEncoder(RERANK_MODEL, cache_dir=CACHE)
 
 
 def _normalise(m: np.ndarray) -> np.ndarray:

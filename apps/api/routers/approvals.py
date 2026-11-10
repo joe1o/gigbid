@@ -6,6 +6,7 @@ background. Because the pause lives in the checkpointer, it works after a page r
 or a server restart.
 """
 
+import asyncio
 import re
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -58,5 +59,5 @@ async def regenerate(job_id: str, body: RegenerateIn, user=Depends(onboarded_use
                                   instruction=body.instruction or "make it more specific to the client",
                                   summary=v["job_spec"]["summary"], letter=v["draft"]["cover_letter"],
                                   paragraph=paragraphs[body.paragraph_index], evidence=evidence_block(v["evidence"]))
-    checked = verify_claims(text, v["evidence"])                  # unsupported claims are dropped here too
+    checked = await asyncio.to_thread(verify_claims, text, v["evidence"])                  # unsupported claims are dropped here too
     return RegenerateOut(paragraph=checked["cleaned_draft"], claims=checked["claims"])

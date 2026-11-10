@@ -18,6 +18,7 @@ Run over HTTP:      python -m mcp_servers.portfolio.server          (port 8091)
 Run for Claude Desktop (stdio): python -m mcp_servers.portfolio.server --stdio
 """
 
+import asyncio
 import os
 import sys
 from collections import defaultdict
@@ -81,13 +82,15 @@ def to_evidence(item: dict) -> Evidence:
 # Tools
 # ---------------------------------------------------------------------------
 @mcp.tool(annotations=READ)
-def search_evidence(ctx: Context,
+async def search_evidence(ctx: Context,
                     requirement: Annotated[str, Field(min_length=2, max_length=500,
                                                       description="one job requirement, e.g. 'Stripe webhooks'")],
                     k: Annotated[int, Field(ge=1, le=20)] = 5,
                     filters: EvidenceFilters | None = None) -> list[Evidence]:
     """Find portfolio items that prove a requirement, best match first. Each has type, source, date and outcome."""
-    hits = retriever.search(persona(ctx), requirement, k, filters.model_dump() if filters else None)
+    # Models run in a worker thread so this server keeps answering other requests meanwhile.
+    hits = await asyncio.to_thread(retriever.search, persona(ctx), requirement, k,
+                                   filters.model_dump() if filters else None)
     return [to_evidence(h) for h in hits]
 
 
@@ -108,14 +111,14 @@ class RequirementMatch(BaseModel):
 
 
 @mcp.tool(annotations=READ)
-def map_requirements(ctx: Context,
+async def map_requirements(ctx: Context,
                      requirements: Annotated[list[str], Field(min_length=1, max_length=12)],
                      job_title: Annotated[str, Field(max_length=200)] = "") -> list[RequirementMatch]:
     """For each job requirement, the portfolio items that prove it - or 'none' if nothing does
     (uses the corrective retrieval design, rag.fit_variant)."""
     from agent.settings import CONFIG
 
-    res = retriever.retrieve_for_job(persona(ctx), {"title": job_title, "description": ""},
+    res = await asyncio.to_thread(retriever.retrieve_for_job, persona(ctx), {"title": job_title, "description": ""},
                                      requirements=requirements, variant=CONFIG["rag"]["fit_variant"])
     return [RequirementMatch(requirement=p["requirement"], evidence_ids=p["evidence"], status=p["status"],
                              top_score=p["top_score"]) for p in res["per_requirement"]]
