@@ -64,17 +64,21 @@ class GigBidMCP:
     # Tests set this to {server_name: FastMCP} so every client runs in-memory (no HTTP).
     default_in_memory: ClassVar[dict] = {}
 
-    def __init__(self, user_id: str, trace_id: str | None = None, in_memory: dict | None = None):
+    def __init__(self, user_id: str, trace_id: str | None = None, in_memory: dict | None = None,
+                 persona: str | None = None, account: str | None = None):
         """
         user_id   : whose data (sent as X-GigBid-User)
         trace_id  : one id for the whole run (sent as X-Trace-Id)
         in_memory : tests only - {server_name: FastMCP object} to call without HTTP
         """
         self.user_id = user_id
+        self.persona = persona or user_id
+        self.account = account or self.persona
         self.trace_id = trace_id or uuid.uuid4().hex
         self.in_memory = in_memory if in_memory is not None else GigBidMCP.default_in_memory
         headers = {"Authorization": f"Bearer {os.getenv('MCP_AUTH_TOKEN', '')}",
-                   "X-GigBid-User": user_id, "X-Trace-Id": self.trace_id}
+                   "X-GigBid-User": user_id, "X-GigBid-Persona": self.persona, "X-GigBid-Account": self.account,
+                   "X-Trace-Id": self.trace_id}
         self.client = MultiServerMCPClient({
             name: {"transport": "streamable_http", "url": mcp_url(name), "headers": headers,
                    "timeout": timedelta(seconds=TIMEOUT_S)}
@@ -93,13 +97,33 @@ class GigBidMCP:
         if server in self.in_memory:                     # unit tests: no network
             from mcp.shared.memory import create_connected_server_and_client_session
 
-            async with create_connected_server_and_client_session(self.in_memory[server]) as s:
-                return await s.call_tool(tool, args)
+            from mcp_servers.common import IN_PROCESS_CALLER
+
+            token = IN_PROCESS_CALLER.set({"user": self.user_id, "persona": self.persona,
+                                             "account": self.account, "trace": self.trace_id})
+            try:
+                async with create_connected_server_and_client_session(self.in_memory[server]) as s:
+                    return await s.call_tool(tool, args)
+            finally:
+                IN_PROCESS_CALLER.reset(token)
         async with self.client.session(server) as s:
             return await s.call_tool(tool, args)
 
     async def call(self, agent: str, tool: str, args: dict | None = None) -> Any:
-        """Call one tool as `agent`. Returns the tool's structured output (dict or list)."""
+        """
+        Call one tool as `agent`. Returns the tool's structured output (dict or list).
+        Polite pacing: if the server says RATE_LIMITED we wait and try again (up to ~1 minute)
+        instead of failing - many jobs at once must slow down, not break.
+        """
+        for wait in (2, 4, 8, 15, 30, None):
+            try:
+                return await self._call(agent, tool, args)
+            except ToolCallError as e:
+                if "RATE_LIMITED" not in str(e) or wait is None:
+                    raise
+                await asyncio.sleep(wait)
+
+    async def _call(self, agent: str, tool: str, args: dict | None = None) -> Any:
         server = self.server_for(agent, tool)
         last_error: Exception | None = None
         for attempt in range(RETRIES + 1):

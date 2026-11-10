@@ -57,7 +57,9 @@ async def open_runtime(db_url: str | None = None):
         from langgraph.store.sqlite.aio import AsyncSqliteStore
 
         path = url.removeprefix("sqlite:///") if url.startswith("sqlite") else str(PROCESSED / "graph.sqlite")
-        async with AsyncSqliteSaver.from_conn_string(path) as saver, AsyncSqliteStore.from_conn_string(path) as store:
+        # SQLite allows one writer per file, so checkpoints and memory get separate files.
+        store_path = path.rsplit(".", 1)[0] + "-store.sqlite"
+        async with AsyncSqliteSaver.from_conn_string(path) as saver, AsyncSqliteStore.from_conn_string(store_path) as store:
             await saver.setup()
             await store.setup()
             yield Runtime(build_bid_graph().compile(checkpointer=saver, store=store),
@@ -70,7 +72,7 @@ async def open_runtime(db_url: str | None = None):
 def default_settings(persona_id: str) -> dict:
     """Defaults for a persona (the web app's onboarding overrides these per user)."""
     p = json.loads((ROOT / "data" / "personas" / persona_id / "portfolio.json").read_text(encoding="utf-8"))
-    return {"name": p["name"], "headline": p["headline"], "fixed_floor_usd": p["fixed_floor_usd"],
+    return {"persona": persona_id, "account": persona_id, "name": p["name"], "headline": p["headline"], "fixed_floor_usd": p["fixed_floor_usd"],
             "hourly_floor_usd": p["hourly_floor_usd"], "autonomy": "manual", "connects_weekly_budget": 60,
             "searches": [{"query": "", "category": p["category"]}]}
 

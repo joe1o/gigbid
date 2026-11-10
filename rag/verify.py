@@ -105,16 +105,20 @@ def verify_claims(draft: str, evidence: list[dict]) -> dict:
       "removed":           the sentences that were removed
     }
     """
-    results, removed, kept = [], [], []
-    for sentence in split_sentences(draft):
-        if is_claim(sentence):
-            r = check_claim(sentence, evidence)
-            results.append(r)
-            if r["label"] == "unsupported":
-                removed.append(sentence)
-                continue
-        kept.append(sentence)
+    results, removed, paragraphs = [], [], []
+    for para in re.split(r"\n\s*\n", draft.strip()):          # keep the writer's paragraphs
+        kept = []
+        for sentence in split_sentences(para):
+            if is_claim(sentence):
+                r = check_claim(sentence, evidence)
+                results.append(r)
+                if r["label"] == "unsupported":
+                    removed.append(sentence)
+                    continue
+            kept.append(sentence)
+        if kept:
+            paragraphs.append(" ".join(kept))
     n = len(results)
     return {"claims": results,
             "unsupported_rate": round(sum(r["label"] == "unsupported" for r in results) / n, 3) if n else 0.0,
-            "cleaned_draft": " ".join(kept), "removed": removed}
+            "cleaned_draft": "\n\n".join(paragraphs), "removed": removed}

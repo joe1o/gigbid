@@ -1,0 +1,1 @@
+"""GigBid web API."""

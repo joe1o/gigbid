@@ -28,7 +28,7 @@ from mcp.server.fastmcp.exceptions import ToolError
 from mcp.types import ToolAnnotations
 from pydantic import BaseModel, Field
 
-from mcp_servers.common import caller
+from mcp_servers.common import caller_persona
 from rag import corpus, retriever
 
 mcp = FastMCP("gigbid-portfolio", instructions=(
@@ -40,8 +40,7 @@ READ = ToolAnnotations(readOnlyHint=True, idempotentHint=True, openWorldHint=Fal
 
 def persona(ctx: Context | None) -> str:
     """Whose portfolio? The calling user (HTTP header) or PORTFOLIO_PERSONA / default."""
-    user, _ = caller(ctx)
-    return os.getenv("PORTFOLIO_PERSONA", user)
+    return os.getenv("PORTFOLIO_PERSONA", caller_persona(ctx))
 
 
 # ---------------------------------------------------------------------------

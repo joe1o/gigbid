@@ -46,3 +46,7 @@ asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
 pythonpath = ["."]          # lets tests import our folders (agent, gigsim, rag...)
 testpaths = ["tests", "mcp_servers"]
+
+# FastAPI's `x = Depends(...)` in a signature is the framework's normal pattern, not a bug.
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query", "fastapi.Header"]

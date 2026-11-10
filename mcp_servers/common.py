@@ -14,6 +14,7 @@ import re
 import time
 import uuid
 from collections import defaultdict, deque
+from contextvars import ContextVar
 from pathlib import Path
 
 from mcp.server.fastmcp import Context, FastMCP
@@ -27,23 +28,43 @@ import agent.settings  # noqa: F401  (importing it loads the .env file for every
 # ---------------------------------------------------------------------------
 DEFAULT_USER = os.getenv("MCP_DEFAULT_USER", "ml_engineer")
 
+# When servers run IN-PROCESS (tests, the API's test mode) there are no HTTP headers,
+# so the client puts the same information here instead: {"user", "persona", "trace"}.
+IN_PROCESS_CALLER: ContextVar[dict | None] = ContextVar("in_process_caller", default=None)
 
-def caller(ctx: Context | None) -> tuple[str, str]:
-    """
-    Return (user_id, trace_id) for the current tool call.
-    Over HTTP, GigBid sends them as headers: X-GigBid-User and X-Trace-Id.
-    In unit tests (in-memory, no HTTP) we fall back to a default user and a new trace id.
-    """
-    request = None
+
+def _headers(ctx: Context | None) -> dict:
     try:
         request = ctx.request_context.request if ctx else None
     except (AttributeError, ValueError, LookupError):
         request = None
     if request is not None:
-        user = request.headers.get("x-gigbid-user") or DEFAULT_USER
-        trace = request.headers.get("x-trace-id") or uuid.uuid4().hex
-        return user, trace
-    return DEFAULT_USER, uuid.uuid4().hex
+        return {"user": request.headers.get("x-gigbid-user"), "persona": request.headers.get("x-gigbid-persona"),
+                "account": request.headers.get("x-gigbid-account"),
+                "trace": request.headers.get("x-trace-id")}
+    return IN_PROCESS_CALLER.get() or {}
+
+
+def caller(ctx: Context | None) -> tuple[str, str]:
+    """
+    Return (user_id, trace_id) for the current tool call.
+    Over HTTP, GigBid sends them as headers: X-GigBid-User and X-Trace-Id.
+    Without them (unit tests) we fall back to a default user and a new trace id.
+    """
+    h = _headers(ctx)
+    return h.get("user") or DEFAULT_USER, h.get("trace") or uuid.uuid4().hex
+
+
+def caller_account(ctx: Context | None) -> str:
+    """Which MARKETPLACE account to act as (X-GigBid-Account); defaults to the persona."""
+    h = _headers(ctx)
+    return h.get("account") or h.get("persona") or h.get("user") or DEFAULT_USER
+
+
+def caller_persona(ctx: Context | None) -> str:
+    """Which persona/portfolio + marketplace account this user works as (X-GigBid-Persona)."""
+    h = _headers(ctx)
+    return h.get("persona") or h.get("user") or DEFAULT_USER
 
 
 # ---------------------------------------------------------------------------

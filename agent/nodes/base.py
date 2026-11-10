@@ -20,7 +20,7 @@ from langgraph.errors import GraphBubbleUp
 from langgraph.graph import END
 
 from agent.marketplace_port import MarketplaceUnavailable
-from agent.mcp_client import GigBidMCP
+from agent.mcp_client import GigBidMCP, ServerUnavailable
 from agent.settings import CONFIG
 
 # Statuses after which the graph stops.
@@ -41,7 +41,8 @@ def user_settings(config) -> dict:
 
 def tools(state, config) -> GigBidMCP:
     """An MCP client for this user; the thread id doubles as the trace id."""
-    return GigBidMCP(state["user_id"], trace_id=configurable(config).get("thread_id"))
+    return GigBidMCP(state["user_id"], trace_id=configurable(config).get("thread_id"),
+                     persona=user_settings(config).get("persona"), account=user_settings(config).get("account"))
 
 
 def node(name: str, attempts: int = 2, timeout: float | None = NODE_TIMEOUT_S):
@@ -57,7 +58,7 @@ def node(name: str, attempts: int = 2, timeout: float | None = NODE_TIMEOUT_S):
                     out = (await asyncio.wait_for(coro, timeout) if timeout else await coro) or {}
                     out["steps"] = out.get("steps", 0) + 1
                     return out
-                except (GraphBubbleUp, MarketplaceUnavailable):
+                except (GraphBubbleUp, MarketplaceUnavailable, ServerUnavailable):
                     raise                            # human-approval pause / degraded mode: not an error
                 except Exception as e:  # noqa: BLE001
                     last = e

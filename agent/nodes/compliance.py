@@ -12,6 +12,8 @@ On the USER's edits it does not silently change their words: it re-checks them
 the approval screen with the reasons.
 """
 
+import re
+
 from agent.handoffs import ComplianceVerdict
 from agent.nodes.base import node
 from agent.safety import CONTACT, GUARANTEE, OFF_PLATFORM, sentences
@@ -22,14 +24,18 @@ RULES = [(CONTACT, "contact details"), (GUARANTEE, "a guarantee"), (OFF_PLATFORM
 
 def scan(text: str) -> tuple[str, list[str]]:
     """Returns (text without violating sentences, list of violations found)."""
-    kept, found = [], []
-    for s in sentences(text):
-        hits = [name for rx, name in RULES if rx.search(s)]
-        if hits:
-            found.append(f"removed sentence with {', '.join(hits)}: \"{s.strip()[:80]}\"")
-        else:
-            kept.append(s.strip())
-    return " ".join(kept), found
+    paragraphs, found = [], []
+    for para in re.split(r"\n\s*\n", text.strip()):      # keep paragraph breaks
+        kept = []
+        for s in sentences(para):
+            hits = [name for rx, name in RULES if rx.search(s)]
+            if hits:
+                found.append(f"removed sentence with {', '.join(hits)}: \"{s.strip()[:80]}\"")
+            else:
+                kept.append(s.strip())
+        if kept:
+            paragraphs.append(" ".join(kept))
+    return "\n\n".join(paragraphs), found
 
 
 @node("compliance")

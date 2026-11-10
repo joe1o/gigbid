@@ -12,10 +12,10 @@ from agent.handoffs import CritiqueLLM, IntentOut, JobExtract, RiskOpinion, Writ
 
 FAKE_LETTER = (
     "Your project needs a reliable result that your team can keep using after handover, so I would start by "
-    "agreeing on the exact success measure with you and checking a sample of your data in the first two days. "
+    "agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\n"
     "Then I would build a simple first version, share it early so you can react, and improve it step by step "
     "with short written updates. At the end you would get clean, documented code, a short guide for your team "
-    "and a call to walk through it. If that plan sounds right, I can start this week and send the first "
+    "and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first "
     "version within five working days."
 )
 

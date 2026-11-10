@@ -16,7 +16,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def portfolio_path(persona_id: str) -> Path:
     custom = os.getenv("PORTFOLIO_PATH")
-    return Path(custom) if custom else ROOT / "data" / "personas" / persona_id / "portfolio.json"
+    if custom:
+        return Path(custom)
+    private = ROOT / "data" / "processed" / "portfolios" / persona_id / "portfolio.json"   # a user's own copy
+    return private if private.exists() else ROOT / "data" / "personas" / persona_id / "portfolio.json"
 
 
 def load_portfolio(persona_id: str) -> dict:

@@ -19,9 +19,10 @@ def fingerprint(job: dict) -> str:
     return hashlib.sha1(" ".join(text.split()).encode()).hexdigest()
 
 
-async def scout(store, user_id: str, searches: list[dict], posted_after: str | None = None) -> dict:
+async def scout(store, user_id: str, searches: list[dict], posted_after: str | None = None,
+                persona: str | None = None, account: str | None = None) -> dict:
     """Returns {"new": [jobs], "duplicates": [job ids]}. `searches`: [{"query": "...", "category": "ml"}]."""
-    mcp = GigBidMCP(user_id)
+    mcp = GigBidMCP(user_id, persona=persona, account=account)
     new, dups = [], []
     for s in searches:
         jobs = await mcp.call("scout", "search_jobs", {"query": s.get("query", ""), "category": s.get("category"),
