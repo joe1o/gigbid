@@ -27,3 +27,4 @@ data/processed/
 
 # Local Claude skills copied from my other project (not part of the app)
 .claude/
+.neon
