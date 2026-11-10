@@ -1,0 +1,26 @@
+# .gitignore = files Git must NEVER upload to GitHub.
+
+# Secrets (API keys, database passwords). Only .env.example is committed.
+.env
+
+# Python virtual environment + caches (big, machine-specific, re-creatable)
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Frontend build output + installed npm packages
+node_modules/
+dist/
+build/
+apps/web/playwright-report/
+apps/web/test-results/
+
+# Generated data (indexes, embeddings) - rebuilt by `make seed`
+data/processed/
+*.sqlite
+
+# NOTE: evals/results/ is NOT ignored: the assignment says every number in the
+# report must point to a committed results file.

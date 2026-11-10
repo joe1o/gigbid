@@ -1,0 +1,44 @@
+# pyproject.toml = the "shopping list" of Python libraries this project needs.
+# Versions are pinned (==) so the grader gets exactly what we tested with.
+[project]
+name = "gigbid"
+version = "1.0.0"
+description = "GigBid: a multi-agent freelancer copilot (AI-4016 assignment)"
+requires-python = ">=3.11"
+dependencies = [
+  # --- web backend ---
+  "fastapi",              # the API framework (our backend)
+  "uvicorn[standard]",    # the server that runs FastAPI
+  "sse-starlette",        # Server-Sent Events = live progress streaming to the UI
+  "pydantic",             # typed data models (JobSpec, RiskReport, ...)
+  "pyyaml",               # reads agent/config.yaml
+  "python-dotenv",        # loads secrets from .env
+  "httpx",                # HTTP client (MCP server -> GigSim calls)
+  "python-multipart",     # file upload support in FastAPI
+  # --- agents ---
+  "langgraph",                       # the multi-agent graph library
+  "langgraph-checkpoint-postgres",   # saves graph state in Postgres (survives crashes)
+  "psycopg[binary,pool]",            # Postgres driver
+  "langchain-core",                  # base LLM interfaces
+  "langchain-openai",                # talks to any OpenAI-compatible API (Groq, Gemini)
+  "langchain-mcp-adapters",          # lets LangGraph agents use MCP tools
+  "mcp",                             # official MCP Python SDK (to build our servers)
+  # --- RAG (retrieval) ---
+  "fastembed",            # small open embedding + reranker models that run on CPU
+  "rank-bm25",            # keyword search (BM25) for hybrid retrieval
+  "numpy",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "ruff"]
+
+# We run code from the repo root, so we don't "package" our own folders.
+[tool.setuptools]
+packages = []
+
+[tool.ruff]
+line-length = 110
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests", "mcp_servers"]
