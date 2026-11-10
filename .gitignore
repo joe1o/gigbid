@@ -24,3 +24,6 @@ data/processed/
 
 # NOTE: evals/results/ is NOT ignored: the assignment says every number in the
 # report must point to a committed results file.
+
+# Local Claude skills copied from my other project (not part of the app)
+.claude/
