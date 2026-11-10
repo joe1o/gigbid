@@ -1,0 +1,142 @@
+{
+  "persona_id": "data_analyst",
+  "name": "Hina Javed",
+  "headline": "Data analyst: SQL, BI dashboards and experiment analysis",
+  "category": "data",
+  "hourly_floor_usd": 25,
+  "fixed_floor_usd": 200,
+  "items": [
+    {
+      "id": "data-cv",
+      "type": "cv",
+      "title": "CV: Hina Javed",
+      "project": null,
+      "skills": ["SQL", "Python", "pandas", "Power BI", "DAX", "Tableau", "Excel", "dbt", "statistics", "A/B testing"],
+      "date": "2026-09",
+      "client_industry": null,
+      "outcome": null,
+      "text": "Data analyst with 3 years of experience turning messy business data into dashboards and decisions. Strong SQL and Python (pandas). Power BI with DAX, some Tableau. Modelling with dbt. Statistics background: hypothesis tests, A/B testing, cohort analysis."
+    },
+    {
+      "id": "data-cs-powerbi",
+      "type": "case_study",
+      "title": "Power BI sales dashboard for a retail chain",
+      "project": "retail-powerbi",
+      "skills": ["Power BI", "DAX", "SQL", "data modelling"],
+      "date": "2025-01",
+      "client_industry": "retail",
+      "outcome": null,
+      "text": "Built a Power BI sales dashboard for a 40-store retail chain. Star-schema model in SQL Server, DAX measures for like-for-like growth and margin, row-level security per region. Replaced 12 weekly Excel reports; managers now check it daily."
+    },
+    {
+      "id": "data-cs-dbt",
+      "type": "case_study",
+      "title": "Marketing data models with dbt and Snowflake",
+      "project": "marketing-dbt",
+      "skills": ["dbt", "Snowflake", "SQL", "data pipelines"],
+      "date": "2025-06",
+      "client_industry": "marketing",
+      "outcome": null,
+      "text": "Rebuilt a marketing agency's reporting layer as dbt models on Snowflake: staging, intermediate and mart layers with tests on every key. Channel spend and conversions now reconcile to the cent; report build time fell from 3 hours to 12 minutes."
+    },
+    {
+      "id": "data-cs-abtest",
+      "type": "case_study",
+      "title": "A/B test analysis for an e-commerce checkout",
+      "project": "checkout-abtest",
+      "skills": ["A/B testing", "statistics", "Python", "hypothesis testing"],
+      "date": "2024-09",
+      "client_industry": "ecommerce",
+      "outcome": null,
+      "text": "Analysed a checkout redesign test with 48k sessions. Checked sample-ratio mismatch first, then a two-proportion z-test and a 95% confidence interval. The new design lifted conversion by 2.1 points (p = 0.01). Wrote a one-page decision memo the founders could read in two minutes."
+    },
+    {
+      "id": "data-cs-excel",
+      "type": "case_study",
+      "title": "Cleaning and automating messy Excel reports",
+      "project": "excel-automation",
+      "skills": ["Excel", "Python", "pandas", "automation"],
+      "date": "2024-04",
+      "client_industry": "manufacturing",
+      "outcome": null,
+      "text": "A manufacturer had 30 inconsistent Excel files from different plants. Wrote a pandas script that cleans, merges and validates them into one tidy workbook every Monday, with a log of rejected rows. Saved the finance team a full day each week."
+    },
+    {
+      "id": "data-rd-cohort",
+      "type": "repo_readme",
+      "title": "sql-cohort-analysis (GitHub README)",
+      "project": "cohort-analysis",
+      "skills": ["SQL", "cohort analysis", "retention"],
+      "date": "2025-03",
+      "client_industry": null,
+      "outcome": null,
+      "text": "sql-cohort-analysis: SQL templates for monthly retention cohorts, plus a notebook that draws the retention triangle."
+    },
+    {
+      "id": "data-code-cohort",
+      "type": "code",
+      "title": "sql-cohort-analysis/cohort.py",
+      "project": "cohort-analysis",
+      "skills": ["pandas", "Python", "retention"],
+      "date": "2025-03",
+      "client_industry": null,
+      "outcome": null,
+      "text": "import pandas as pd\n# each user's cohort = the month of their first order\ndf['cohort'] = df.groupby('user_id')['order_date'].transform('min').dt.to_period('M')\nretention = df.pivot_table(index='cohort', columns='months_since', values='user_id', aggfunc='nunique')"
+    },
+    {
+      "id": "data-rv-retail",
+      "type": "review",
+      "title": "Client review (retail)",
+      "project": "retail-powerbi",
+      "skills": ["Power BI"],
+      "date": "2025-02",
+      "client_industry": "retail",
+      "outcome": null,
+      "text": "5 stars. Hina's dashboard replaced a mess of spreadsheets. Clear, fast and accurate."
+    },
+    {
+      "id": "data-rv-marketing",
+      "type": "review",
+      "title": "Client review (marketing)",
+      "project": "marketing-dbt",
+      "skills": ["dbt"],
+      "date": "2025-07",
+      "client_industry": "marketing",
+      "outcome": null,
+      "text": "5 stars. Our numbers finally match across tools. Hina documented every model."
+    },
+    {
+      "id": "data-pp-won",
+      "type": "past_proposal",
+      "title": "Proposal: pricing experiment analysis",
+      "project": "checkout-abtest",
+      "skills": ["A/B testing"],
+      "date": "2025-05",
+      "client_industry": "saas",
+      "outcome": "won",
+      "text": "Before trusting the result I would check the traffic split, because a sample-ratio mismatch silently breaks tests. On a 48k-session checkout test I did exactly that, then found a 2.1-point lift with a clear confidence interval. You'd get a one-page memo with the decision, not just numbers."
+    },
+    {
+      "id": "data-pp-replied",
+      "type": "past_proposal",
+      "title": "Proposal: sales dashboard",
+      "project": "retail-powerbi",
+      "skills": ["Power BI"],
+      "date": "2025-08",
+      "client_industry": "wholesale",
+      "outcome": "replied",
+      "text": "I replaced 12 weekly Excel reports with one Power BI dashboard for a 40-store chain, with security per region. Could you share which numbers your managers look at first?"
+    },
+    {
+      "id": "data-pp-ignored",
+      "type": "past_proposal",
+      "title": "Proposal: data entry",
+      "project": null,
+      "skills": [],
+      "date": "2024-12",
+      "client_industry": "real estate",
+      "outcome": "ignored",
+      "text": "Dear hiring manager, I am passionate about data and I am a hard worker. I can do this job perfectly. Kindly consider me."
+    }
+  ]
+}

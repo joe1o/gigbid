@@ -1,0 +1,153 @@
+{
+  "persona_id": "web_developer",
+  "name": "Omar Raza",
+  "headline": "Full-stack web developer: React, Next.js and Node",
+  "category": "web",
+  "hourly_floor_usd": 30,
+  "fixed_floor_usd": 400,
+  "items": [
+    {
+      "id": "web-cv",
+      "type": "cv",
+      "title": "CV: Omar Raza",
+      "project": null,
+      "skills": ["React", "Next.js", "TypeScript", "Node.js", "Express", "PostgreSQL", "Stripe", "Tailwind", "Docker", "AWS"],
+      "date": "2026-09",
+      "client_industry": null,
+      "outcome": null,
+      "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel."
+    },
+    {
+      "id": "web-cs-shop",
+      "type": "case_study",
+      "title": "Next.js storefront with Stripe for a clothing brand",
+      "project": "next-shop",
+      "skills": ["Next.js", "React", "Stripe", "TypeScript", "e-commerce"],
+      "date": "2025-04",
+      "client_industry": "retail",
+      "outcome": null,
+      "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock."
+    },
+    {
+      "id": "web-cs-dashboard",
+      "type": "case_study",
+      "title": "Analytics dashboard for a fintech SaaS",
+      "project": "fintech-dashboard",
+      "skills": ["React", "TypeScript", "PostgreSQL", "charts", "Recharts", "REST API"],
+      "date": "2024-10",
+      "client_industry": "fintech",
+      "outcome": null,
+      "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows."
+    },
+    {
+      "id": "web-cs-booking",
+      "type": "case_study",
+      "title": "Appointment booking system for a clinic chain",
+      "project": "clinic-booking",
+      "skills": ["Node.js", "Express", "PostgreSQL", "email notifications", "calendar"],
+      "date": "2024-03",
+      "client_industry": "healthcare",
+      "outcome": null,
+      "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders."
+    },
+    {
+      "id": "web-rd-shop",
+      "type": "repo_readme",
+      "title": "next-shop-starter (GitHub README)",
+      "project": "next-shop",
+      "skills": ["Next.js", "Stripe"],
+      "date": "2025-05",
+      "client_industry": null,
+      "outcome": null,
+      "text": "next-shop-starter: an open-source Next.js e-commerce starter with cart, Stripe checkout and order webhooks. 300+ GitHub stars."
+    },
+    {
+      "id": "web-code-shop",
+      "type": "code",
+      "title": "next-shop-starter/prisma/schema.prisma",
+      "project": "next-shop",
+      "skills": ["Prisma", "PostgreSQL", "database migrations"],
+      "date": "2025-05",
+      "client_industry": null,
+      "outcome": null,
+      "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}"
+    },
+    {
+      "id": "web-rd-chat",
+      "type": "repo_readme",
+      "title": "realtime-chat (GitHub README)",
+      "project": "realtime-chat",
+      "skills": ["WebSockets", "Socket.io", "Node.js"],
+      "date": "2025-08",
+      "client_industry": null,
+      "outcome": null,
+      "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included."
+    },
+    {
+      "id": "web-code-chat",
+      "type": "code",
+      "title": "realtime-chat/server.js",
+      "project": "realtime-chat",
+      "skills": ["Redis", "Socket.io", "pub/sub"],
+      "date": "2025-08",
+      "client_industry": null,
+      "outcome": null,
+      "text": "const { createAdapter } = require('@socket.io/redis-adapter');\n// the Redis adapter lets several server instances share the same chat rooms\nio.adapter(createAdapter(pubClient, subClient));"
+    },
+    {
+      "id": "web-rv-fintech",
+      "type": "review",
+      "title": "Client review (fintech)",
+      "project": "fintech-dashboard",
+      "skills": ["React"],
+      "date": "2024-11",
+      "client_industry": "fintech",
+      "outcome": null,
+      "text": "5 stars. Omar shipped our dashboard ahead of schedule and the charts are fast even on huge accounts."
+    },
+    {
+      "id": "web-rv-clinic",
+      "type": "review",
+      "title": "Client review (healthcare)",
+      "project": "clinic-booking",
+      "skills": ["Node.js"],
+      "date": "2024-04",
+      "client_industry": "healthcare",
+      "outcome": null,
+      "text": "4.8 stars. Booking system works flawlessly across all our clinics. Good communicator."
+    },
+    {
+      "id": "web-pp-won",
+      "type": "past_proposal",
+      "title": "Proposal: Stripe checkout for a candle shop",
+      "project": "next-shop",
+      "skills": ["Stripe", "Next.js"],
+      "date": "2025-07",
+      "client_industry": "retail",
+      "outcome": "won",
+      "text": "Slow checkout loses sales, so speed is where I'd start. For a clothing brand I moved to a custom Next.js store with Stripe Checkout; load time went from 4.1s to 1.3s and conversion rose 18%. I can set up the same checkout with webhooks for your order emails within two weeks."
+    },
+    {
+      "id": "web-pp-replied",
+      "type": "past_proposal",
+      "title": "Proposal: admin panel for logistics startup",
+      "project": "fintech-dashboard",
+      "skills": ["React", "PostgreSQL"],
+      "date": "2025-09",
+      "client_industry": "logistics",
+      "outcome": "replied",
+      "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours."
+    },
+    {
+      "id": "web-pp-ignored",
+      "type": "past_proposal",
+      "title": "Proposal: website redesign",
+      "project": null,
+      "skills": [],
+      "date": "2025-02",
+      "client_industry": "education",
+      "outcome": "ignored",
+      "text": "Hello, I have read your job post and I am very interested. I am an expert web developer with many years of experience and I guarantee 100% satisfaction."
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "persona_id": "ml_engineer",
+  "name": "Sara Malik",
+  "headline": "AI/ML engineer: NLP, RAG systems and classical ML",
+  "category": "ml",
+  "hourly_floor_usd": 35,
+  "fixed_floor_usd": 300,
+  "items": [
+    {
+      "id": "ml-cv",
+      "type": "cv",
+      "title": "CV: Sara Malik",
+      "project": null,
+      "skills": ["Python", "PyTorch", "scikit-learn", "LangChain", "RAG", "FastAPI", "Docker", "AWS", "NLP", "SQL"],
+      "date": "2026-09",
+      "client_industry": null,
+      "outcome": null,
+      "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain."
+    },
+    {
+      "id": "ml-cs-churn",
+      "type": "case_study",
+      "title": "Churn prediction for a telecom operator",
+      "project": "telecom-churn",
+      "skills": ["Python", "scikit-learn", "XGBoost", "classification", "model evaluation", "imbalanced data"],
+      "date": "2024-11",
+      "client_industry": "telecom",
+      "outcome": null,
+      "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report."
+    },
+    {
+      "id": "ml-cs-legal-rag",
+      "type": "case_study",
+      "title": "Document Q&A chatbot for a law firm",
+      "project": "legal-rag",
+      "skills": ["RAG", "LangChain", "Pinecone", "FastAPI", "OpenAI", "embeddings"],
+      "date": "2025-06",
+      "client_industry": "legal",
+      "outcome": null,
+      "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed."
+    },
+    {
+      "id": "ml-cs-contract-qa",
+      "type": "case_study",
+      "title": "Contract assistant (internal write-up)",
+      "project": "legal-rag",
+      "skills": ["vector search", "LLM", "citations"],
+      "date": "2025-06",
+      "client_industry": "legal",
+      "outcome": null,
+      "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions."
+    },
+    {
+      "id": "ml-cs-invoice-ocr",
+      "type": "case_study",
+      "title": "Invoice field extraction for a logistics company",
+      "project": "invoice-ocr",
+      "skills": ["OCR", "PyTorch", "LayoutLM", "Tesseract", "document AI"],
+      "date": "2024-05",
+      "client_industry": "logistics",
+      "outcome": null,
+      "text": "Automated reading of scanned supplier invoices. Tesseract for OCR, then a fine-tuned LayoutLM model to pull out invoice number, date, totals and supplier name. Field accuracy 94% on a 500-invoice test set. Saved the accounts team about 30 hours a month."
+    },
+    {
+      "id": "ml-rd-sentiment",
+      "type": "repo_readme",
+      "title": "sentiment-api (GitHub README)",
+      "project": "sentiment-api",
+      "skills": ["FastAPI", "Hugging Face", "Docker", "NLP"],
+      "date": "2025-02",
+      "client_industry": null,
+      "outcome": null,
+      "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box)."
+    },
+    {
+      "id": "ml-code-sentiment",
+      "type": "code",
+      "title": "sentiment-api/worker.py",
+      "project": "sentiment-api",
+      "skills": ["Celery", "Redis", "background jobs"],
+      "date": "2025-02",
+      "client_industry": null,
+      "outcome": null,
+      "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)"
+    },
+    {
+      "id": "ml-rd-rag-eval",
+      "type": "repo_readme",
+      "title": "rag-eval-kit (GitHub README)",
+      "project": "rag-eval-kit",
+      "skills": ["information retrieval", "BM25", "embeddings", "evaluation metrics", "Recall@k", "nDCG"],
+      "date": "2025-09",
+      "client_industry": null,
+      "outcome": null,
+      "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries."
+    },
+    {
+      "id": "ml-rv-telecom",
+      "type": "review",
+      "title": "Client review (telecom)",
+      "project": "telecom-churn",
+      "skills": ["communication", "documentation"],
+      "date": "2024-12",
+      "client_industry": "telecom",
+      "outcome": null,
+      "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation."
+    },
+    {
+      "id": "ml-rv-legal",
+      "type": "review",
+      "title": "Client review (legal)",
+      "project": "legal-rag",
+      "skills": ["RAG"],
+      "date": "2025-07",
+      "client_industry": "legal",
+      "outcome": null,
+      "text": "5 stars. The contract chatbot is used daily by our associates. Sara was careful about accuracy and made sure it cites sources."
+    },
+    {
+      "id": "ml-pp-churn-won",
+      "type": "past_proposal",
+      "title": "Proposal: churn model for subscription box",
+      "project": "telecom-churn",
+      "skills": ["classification", "imbalanced data"],
+      "date": "2025-03",
+      "client_industry": "ecommerce",
+      "outcome": "won",
+      "text": "Your churn rate is the number that matters, so I would start by checking how imbalanced it is. In a telecom project I faced 6% churn and used PR-AUC rather than accuracy; the final model helped cut churn 9% in a quarter. For you I would compare two models, report precision and recall at the top decile and hand over a reproducible notebook."
+    },
+    {
+      "id": "ml-pp-rag-replied",
+      "type": "past_proposal",
+      "title": "Proposal: internal knowledge chatbot",
+      "project": "legal-rag",
+      "skills": ["RAG"],
+      "date": "2025-08",
+      "client_industry": "consulting",
+      "outcome": "replied",
+      "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks."
+    },
+    {
+      "id": "ml-pp-generic-ignored",
+      "type": "past_proposal",
+      "title": "Proposal: computer vision app",
+      "project": null,
+      "skills": [],
+      "date": "2025-01",
+      "client_industry": "retail",
+      "outcome": "ignored",
+      "text": "Dear Sir, I am passionate about AI and I have read your job carefully. I am the best fit for this job and can deliver high quality work on time. Please message me to discuss."
+    }
+  ]
+}

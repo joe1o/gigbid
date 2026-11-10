@@ -1,0 +1,17 @@
+# GigSim settings. Every value can be overridden by an environment variable
+# (shown on the right) so tests and the deployed app can change behaviour
+# without editing code.
+
+# Login tokens for the three simulated freelancer accounts.
+# These are fake simulator credentials, not real secrets.
+accounts:
+  gigsim-ml-token: ml_engineer
+  gigsim-web-token: web_developer
+  gigsim-data-token: data_analyst
+admin_token: gigsim-admin-token          # GIGSIM_ADMIN_TOKEN, used only for /admin/reset
+
+rate_limit_per_minute: 60                # GIGSIM_RATE_LIMIT     too many calls -> HTTP 429
+error_rate: 0.02                         # GIGSIM_ERROR_RATE     2% of calls fail with HTTP 503 on purpose
+reveal_seconds: 20                       # GIGSIM_REVEAL_SECONDS how long a "client" takes to react
+release_all_jobs: false                  # GIGSIM_RELEASE_ALL    true = show every job immediately (evals)
+db_path: data/processed/gigsim.sqlite    # GIGSIM_DB_PATH        where proposals/messages are stored
