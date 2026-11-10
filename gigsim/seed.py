@@ -80,6 +80,7 @@ def label(kind, idea, category, should_bid, **extra):
         "duplicate_of": extra.get("duplicate_of"),
         "gold_evidence": idea.get("gold_evidence", []) if idea else [],
         "fair_band": idea.get("fair_band") if idea else None,
+        "post_style": extra.get("style", "detailed"),   # detailed | vague (for results by job type)
     }
 
 
@@ -105,7 +106,7 @@ def build():
                 cat_pairs.append((
                     make_job(cat, idea["title"], idea["vague_description"], idea["required_skills"][:2],
                              b, idea["screening_questions"], RNG.choice(LEGIT_CLIENTS)),
-                    label("good", idea, cat, True),
+                    label("good", idea, cat, True, style="vague"),
                 ))
             else:
                 # poor_fit (skills the persona lacks) or low_budget (budget far too small)

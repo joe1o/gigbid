@@ -8,6 +8,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      # Keep the downloaded open models (embeddings + reranker, ~210 MB) between runs.
+      - uses: actions/cache@v4
+        with:
+          path: data/processed/models
+          key: rag-models-${{ hashFiles('agent/config.yaml') }}
       - run: python -m pip install -e ".[dev]"
       - run: ruff check .
       - run: pytest -q

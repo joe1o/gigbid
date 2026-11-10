@@ -1,26 +1,25 @@
 """
-retriever.py - "find the portfolio items that best match this requirement".
+retriever.py - the factory: "give me the retrieval design named in config".
 
-For Phase 2 this is a simple keyword search (BM25) so the Portfolio MCP server
-works. In Phase 3 this file becomes a factory that picks the RAG variant
-(V0, V1, V2, ...) named in agent/config.yaml - the one our evaluation chose.
+agent/config.yaml -> rag.variant decides which variant ships (chosen by our
+evaluation, evals/results/rag_eval.json - not by default). Everything else in
+GigBid (Portfolio MCP server, Fit Matcher, Writer) calls only these functions.
 """
 
-import re
+import importlib
 
-from rank_bm25 import BM25Okapi
+from agent.settings import CONFIG
+from rag.corpus import get_item
+from rag.pipeline import RagConfig, search_items
+from rag.pipeline import retrieve_for_job as _retrieve_for_job
 
-from rag.corpus import items
-
-
-def tokenize(text: str) -> list[str]:
-    """Lower-case words, keeping things like 'scikit-learn' and 'next.js' together."""
-    return re.findall(r"[a-z0-9][a-z0-9+#.\-]*", text.lower())
+VARIANTS = ["v0_naive", "v1_decompose", "v2_hybrid", "v3_rerank", "v8_corrective"]
 
 
-def item_text(item: dict) -> str:
-    """The text we index for one item: title + skills + body."""
-    return f"{item['title']} {' '.join(item['skills'])} {item['text']}"
+def get_config(name: str | None = None) -> RagConfig:
+    """Load rag/variants/<name>.py and return its CONFIG."""
+    name = name or CONFIG["rag"]["variant"]
+    return importlib.import_module(f"rag.variants.{name}").CONFIG
 
 
 def _passes(item: dict, filters: dict | None) -> bool:
@@ -33,13 +32,21 @@ def _passes(item: dict, filters: dict | None) -> bool:
     return not (filters.get("outcome") and item["outcome"] != filters["outcome"])
 
 
-def search(persona_id: str, query: str, k: int = 5, filters: dict | None = None) -> list[dict]:
-    """Return up to k items (with a 'score'), best first."""
-    # Score against the WHOLE portfolio first (word rarity is measured over everything),
-    # then apply the filters. Filtering first breaks BM25 when only 1-2 items remain.
-    pool = items(persona_id)
-    bm25 = BM25Okapi([tokenize(item_text(i)) for i in pool])
-    scores = bm25.get_scores(tokenize(query))
-    ranked = sorted(zip(pool, scores), key=lambda p: p[1], reverse=True)
-    ranked = [(i, s) for i, s in ranked if s > 0 and _passes(i, filters)]
-    return [{**item, "score": round(float(s), 4)} for item, s in ranked[:k]]
+def search(persona_id: str, query: str, k: int = 5, filters: dict | None = None,
+           variant: str | None = None) -> list[dict]:
+    """One query -> up to k portfolio items (full item + 'score'), best first."""
+    cfg = get_config(variant)
+    out = []
+    for item_id, score in search_items(persona_id, query, cfg):
+        item = get_item(persona_id, item_id)
+        if item and _passes(item, filters):
+            out.append({**item, "score": round(float(score), 4)})
+        if len(out) == k:
+            break
+    return out
+
+
+def retrieve_for_job(persona_id: str, job: dict, k: int = 10, requirements: list[str] | None = None,
+                     variant: str | None = None) -> dict:
+    """Evidence for a whole job (see rag/pipeline.py for the result format)."""
+    return _retrieve_for_job(persona_id, job, get_config(variant), k, requirements)

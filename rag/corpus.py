@@ -14,14 +14,23 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
-@lru_cache(maxsize=16)
-def load_portfolio(persona_id: str) -> dict:
-    """Return {'persona_id', 'name', 'headline', ..., 'items': [...]}."""
+def portfolio_path(persona_id: str) -> Path:
     custom = os.getenv("PORTFOLIO_PATH")
-    path = Path(custom) if custom else ROOT / "data" / "personas" / persona_id / "portfolio.json"
+    return Path(custom) if custom else ROOT / "data" / "personas" / persona_id / "portfolio.json"
+
+
+def load_portfolio(persona_id: str) -> dict:
+    """Return {'persona_id', 'name', 'headline', ..., 'items': [...]}. Re-read if the file changed."""
+    path = portfolio_path(persona_id)
     if not path.exists():
         raise FileNotFoundError(f"no portfolio found for '{persona_id}' at {path}")
-    return json.loads(path.read_text(encoding="utf-8"))
+    return _read(str(path), path.stat().st_mtime_ns)
+
+
+@lru_cache(maxsize=16)
+def _read(path: str, mtime_ns: int) -> dict:
+    """Cached by (path, modified-time): editing the file automatically invalidates the cache."""
+    return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
 def items(persona_id: str) -> list[dict]:

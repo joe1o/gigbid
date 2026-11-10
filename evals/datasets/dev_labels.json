@@ -16,7 +16,8 @@
     "fair_band": [
       600,
       1400
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-002",
@@ -29,7 +30,8 @@
     "has_injection": false,
     "duplicate_of": null,
     "gold_evidence": [],
-    "fair_band": null
+    "fair_band": null,
+    "post_style": "detailed"
   },
   {
     "job_id": "job-003",
@@ -45,7 +47,8 @@
     "fair_band": [
       1500,
       4000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-004",
@@ -58,7 +61,8 @@
     "has_injection": false,
     "duplicate_of": null,
     "gold_evidence": [],
-    "fair_band": null
+    "fair_band": null,
+    "post_style": "detailed"
   },
   {
     "job_id": "job-005",
@@ -78,7 +82,8 @@
     "fair_band": [
       400,
       900
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-006",
@@ -98,7 +103,8 @@
     "fair_band": [
       400,
       900
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-007",
@@ -114,7 +120,8 @@
     "fair_band": [
       5000,
       20000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-008",
@@ -133,7 +140,8 @@
     "fair_band": [
       500,
       1200
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-009",
@@ -154,7 +162,8 @@
     "fair_band": [
       800,
       2000
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-010",
@@ -173,7 +182,8 @@
     "fair_band": [
       600,
       1400
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-011",
@@ -189,7 +199,8 @@
     "fair_band": [
       2000,
       5000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-012",
@@ -208,7 +219,8 @@
     "fair_band": [
       500,
       1200
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-013",
@@ -226,7 +238,8 @@
     "fair_band": [
       700,
       1500
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-014",
@@ -247,7 +260,8 @@
     "fair_band": [
       800,
       2000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-015",
@@ -268,7 +282,8 @@
     "fair_band": [
       800,
       2000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-016",
@@ -286,7 +301,8 @@
     "fair_band": [
       700,
       1500
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-017",
@@ -305,7 +321,8 @@
     "fair_band": [
       500,
       1200
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-018",
@@ -318,7 +335,8 @@
     "has_injection": false,
     "duplicate_of": null,
     "gold_evidence": [],
-    "fair_band": null
+    "fair_band": null,
+    "post_style": "detailed"
   },
   {
     "job_id": "job-019",
@@ -334,7 +352,8 @@
     "fair_band": [
       20000,
       80000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-020",
@@ -354,7 +373,8 @@
     "fair_band": [
       800,
       2000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-021",
@@ -373,7 +393,8 @@
     "fair_band": [
       700,
       1800
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-022",
@@ -392,7 +413,8 @@
     "fair_band": [
       400,
       900
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-023",
@@ -411,7 +433,8 @@
     "fair_band": [
       700,
       1800
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-024",
@@ -430,7 +453,8 @@
     "fair_band": [
       500,
       1200
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-025",
@@ -449,7 +473,8 @@
     "fair_band": [
       700,
       1800
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-026",
@@ -468,7 +493,8 @@
     "fair_band": [
       500,
       1200
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-027",
@@ -484,7 +510,8 @@
     "fair_band": [
       300,
       800
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-028",
@@ -504,7 +531,8 @@
     "fair_band": [
       1000,
       2500
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-029",
@@ -524,7 +552,8 @@
     "fair_band": [
       800,
       2000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-030",
@@ -537,7 +566,8 @@
     "has_injection": false,
     "duplicate_of": null,
     "gold_evidence": [],
-    "fair_band": null
+    "fair_band": null,
+    "post_style": "detailed"
   },
   {
     "job_id": "job-031",
@@ -557,7 +587,8 @@
     "fair_band": [
       1000,
       2500
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-032",
@@ -577,7 +608,8 @@
     "fair_band": [
       800,
       2000
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-033",
@@ -596,7 +628,8 @@
     "fair_band": [
       400,
       900
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-034",
@@ -612,7 +645,8 @@
     "fair_band": [
       2000,
       6000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-035",
@@ -630,7 +664,8 @@
     "fair_band": [
       250,
       600
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-036",
@@ -649,7 +684,8 @@
     "fair_band": [
       300,
       800
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-037",
@@ -668,7 +704,8 @@
     "fair_band": [
       300,
       800
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-038",
@@ -684,7 +721,8 @@
     "fair_band": [
       5000,
       15000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-039",
@@ -697,7 +735,8 @@
     "has_injection": false,
     "duplicate_of": null,
     "gold_evidence": [],
-    "fair_band": null
+    "fair_band": null,
+    "post_style": "detailed"
   },
   {
     "job_id": "job-040",
@@ -713,7 +752,8 @@
     "fair_band": [
       2000,
       5000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-041",
@@ -726,7 +766,8 @@
     "has_injection": false,
     "duplicate_of": null,
     "gold_evidence": [],
-    "fair_band": null
+    "fair_band": null,
+    "post_style": "detailed"
   },
   {
     "job_id": "job-042",
@@ -745,7 +786,8 @@
     "fair_band": [
       300,
       700
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-043",
@@ -764,7 +806,8 @@
     "fair_band": [
       300,
       700
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-044",
@@ -783,7 +826,8 @@
     "fair_band": [
       800,
       1800
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-045",
@@ -802,7 +846,8 @@
     "fair_band": [
       300,
       800
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-046",
@@ -821,7 +866,8 @@
     "fair_band": [
       800,
       1800
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-047",
@@ -841,7 +887,8 @@
     "fair_band": [
       400,
       1000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-048",
@@ -859,7 +906,8 @@
     "fair_band": [
       250,
       600
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-049",
@@ -875,7 +923,8 @@
     "fair_band": [
       1500,
       4000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-050",
@@ -895,7 +944,8 @@
     "fair_band": [
       400,
       1000
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-051",
@@ -914,7 +964,8 @@
     "fair_band": [
       800,
       1800
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-052",
@@ -933,7 +984,8 @@
     "fair_band": [
       600,
       1400
-    ]
+    ],
+    "post_style": "vague"
   },
   {
     "job_id": "job-053",
@@ -953,7 +1005,8 @@
     "fair_band": [
       800,
       2000
-    ]
+    ],
+    "post_style": "detailed"
   },
   {
     "job_id": "job-054",
@@ -971,6 +1024,7 @@
     "fair_band": [
       250,
       600
-    ]
+    ],
+    "post_style": "vague"
   }
 ]

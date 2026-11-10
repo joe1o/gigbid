@@ -1,0 +1,1805 @@
+{
+  "generated_at": "2026-11-10 19:25",
+  "dataset": "evals/datasets/dev_labels.json",
+  "n_jobs_with_gold": 36,
+  "best": "v0_naive",
+  "shipped": "v0_naive",
+  "decision_rule": "simplest variant within 0.02 Recall@5 of the best, p95 < 2000 ms",
+  "variants": {
+    "v0_naive": {
+      "config": {
+        "name": "v0_naive",
+        "query": "whole",
+        "retrieval": "dense",
+        "rerank": false,
+        "corrective": false
+      },
+      "overall": {
+        "n": 36,
+        "recall@5": 0.947,
+        "mrr": 1.0,
+        "ndcg@10": 0.957
+      },
+      "by_persona": {
+        "data_analyst": {
+          "n": 12,
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.967
+        },
+        "ml_engineer": {
+          "n": 12,
+          "recall@5": 0.979,
+          "mrr": 1.0,
+          "ndcg@10": 0.981
+        },
+        "web_developer": {
+          "n": 12,
+          "recall@5": 0.861,
+          "mrr": 1.0,
+          "ndcg@10": 0.923
+        }
+      },
+      "by_style": {
+        "detailed": {
+          "n": 21,
+          "recall@5": 0.933,
+          "mrr": 1.0,
+          "ndcg@10": 0.955
+        },
+        "vague": {
+          "n": 15,
+          "recall@5": 0.967,
+          "mrr": 1.0,
+          "ndcg@10": 0.96
+        }
+      },
+      "latency_ms": {
+        "p50": 23.7,
+        "p95": 47.1
+      },
+      "no_evidence_rate": {},
+      "per_job": [
+        {
+          "job_id": "job-001",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-005",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-006",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-008",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-009",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9828920819566879
+        },
+        {
+          "job_id": "job-010",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-012",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-013",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-014",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9828920819566879
+        },
+        {
+          "job_id": "job-015",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 0.75,
+          "mrr": 1.0,
+          "ndcg@10": 0.9709286432396581
+        },
+        {
+          "job_id": "job-016",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-017",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-020",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.6666666666666666,
+          "mrr": 1.0,
+          "ndcg@10": 0.9325210919548239
+        },
+        {
+          "job_id": "job-021",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-022",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.6131471927654584
+        },
+        {
+          "job_id": "job-023",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-024",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-025",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-026",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-028",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-029",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.6666666666666666,
+          "mrr": 1.0,
+          "ndcg@10": 0.9134015924715543
+        },
+        {
+          "job_id": "job-031",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-032",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-033",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.6131471927654584
+        },
+        {
+          "job_id": "job-035",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-036",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-037",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-042",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-043",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-044",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8772153153380493
+        },
+        {
+          "job_id": "job-045",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-046",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8503449055347546
+        },
+        {
+          "job_id": "job-047",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-048",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-050",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-051",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8772153153380493
+        }
+      ]
+    },
+    "v1_decompose": {
+      "config": {
+        "name": "v1_decompose",
+        "query": "decompose",
+        "retrieval": "dense",
+        "rerank": false,
+        "corrective": false
+      },
+      "overall": {
+        "n": 36,
+        "recall@5": 0.796,
+        "mrr": 0.838,
+        "ndcg@10": 0.823
+      },
+      "by_persona": {
+        "data_analyst": {
+          "n": 12,
+          "recall@5": 0.958,
+          "mrr": 0.958,
+          "ndcg@10": 0.939
+        },
+        "ml_engineer": {
+          "n": 12,
+          "recall@5": 0.75,
+          "mrr": 0.792,
+          "ndcg@10": 0.803
+        },
+        "web_developer": {
+          "n": 12,
+          "recall@5": 0.681,
+          "mrr": 0.764,
+          "ndcg@10": 0.726
+        }
+      },
+      "by_style": {
+        "detailed": {
+          "n": 21,
+          "recall@5": 0.802,
+          "mrr": 0.841,
+          "ndcg@10": 0.824
+        },
+        "vague": {
+          "n": 15,
+          "recall@5": 0.789,
+          "mrr": 0.833,
+          "ndcg@10": 0.821
+        }
+      },
+      "latency_ms": {
+        "p50": 44.9,
+        "p95": 84.8
+      },
+      "no_evidence_rate": {
+        "good": 0.0,
+        "poor_fit": 0.0
+      },
+      "per_job": [
+        {
+          "job_id": "job-001",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-005",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 0.0,
+          "mrr": 0.16666666666666666,
+          "ndcg@10": 0.4716276524567204
+        },
+        {
+          "job_id": "job-006",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8529278650606567
+        },
+        {
+          "job_id": "job-008",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 0.3333333333333333,
+          "ndcg@10": 0.5249810332008933
+        },
+        {
+          "job_id": "job-009",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-010",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-012",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8772153153380493
+        },
+        {
+          "job_id": "job-013",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-014",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.9058653015743079
+        },
+        {
+          "job_id": "job-015",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.810582531061383
+        },
+        {
+          "job_id": "job-016",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6309297535714575
+        },
+        {
+          "job_id": "job-017",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 0.5,
+          "ndcg@10": 0.5640920940185894
+        },
+        {
+          "job_id": "job-020",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.6666666666666666,
+          "mrr": 1.0,
+          "ndcg@10": 0.86034433104172
+        },
+        {
+          "job_id": "job-021",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 0.3333333333333333,
+          "ndcg@10": 0.5249810332008933
+        },
+        {
+          "job_id": "job-022",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 0.5,
+          "ndcg@10": 0.38685280723454163
+        },
+        {
+          "job_id": "job-023",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 0.5,
+          "ndcg@10": 0.5802792108518124
+        },
+        {
+          "job_id": "job-024",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-025",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 0.3333333333333333,
+          "ndcg@10": 0.5249810332008933
+        },
+        {
+          "job_id": "job-026",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-028",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9469024295259745
+        },
+        {
+          "job_id": "job-029",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.6666666666666666,
+          "mrr": 0.5,
+          "ndcg@10": 0.6719882468370725
+        },
+        {
+          "job_id": "job-031",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9674679834891693
+        },
+        {
+          "job_id": "job-032",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.3333333333333333,
+          "mrr": 1.0,
+          "ndcg@10": 0.7928654229965442
+        },
+        {
+          "job_id": "job-033",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.6131471927654584
+        },
+        {
+          "job_id": "job-035",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-036",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-037",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-042",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-043",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-044",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8315546295836225
+        },
+        {
+          "job_id": "job-045",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-046",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6240505200038379
+        },
+        {
+          "job_id": "job-047",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9674679834891693
+        },
+        {
+          "job_id": "job-048",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-050",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-051",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8503449055347546
+        }
+      ]
+    },
+    "v2_hybrid": {
+      "config": {
+        "name": "v2_hybrid",
+        "query": "decompose",
+        "retrieval": "hybrid",
+        "rerank": false,
+        "corrective": false
+      },
+      "overall": {
+        "n": 36,
+        "recall@5": 0.796,
+        "mrr": 0.836,
+        "ndcg@10": 0.802
+      },
+      "by_persona": {
+        "data_analyst": {
+          "n": 12,
+          "recall@5": 0.917,
+          "mrr": 0.875,
+          "ndcg@10": 0.858
+        },
+        "ml_engineer": {
+          "n": 12,
+          "recall@5": 0.736,
+          "mrr": 0.771,
+          "ndcg@10": 0.789
+        },
+        "web_developer": {
+          "n": 12,
+          "recall@5": 0.736,
+          "mrr": 0.861,
+          "ndcg@10": 0.76
+        }
+      },
+      "by_style": {
+        "detailed": {
+          "n": 21,
+          "recall@5": 0.81,
+          "mrr": 0.849,
+          "ndcg@10": 0.81
+        },
+        "vague": {
+          "n": 15,
+          "recall@5": 0.778,
+          "mrr": 0.817,
+          "ndcg@10": 0.791
+        }
+      },
+      "latency_ms": {
+        "p50": 47.7,
+        "p95": 87.6
+      },
+      "no_evidence_rate": {
+        "good": 0.0,
+        "poor_fit": 0.0
+      },
+      "per_job": [
+        {
+          "job_id": "job-001",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8175295903539445
+        },
+        {
+          "job_id": "job-005",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 0.3333333333333333,
+          "mrr": 0.25,
+          "ndcg@10": 0.5105347743265789
+        },
+        {
+          "job_id": "job-006",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.7328286204777911
+        },
+        {
+          "job_id": "job-008",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 0.5,
+          "ndcg@10": 0.6052602440527057
+        },
+        {
+          "job_id": "job-009",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-010",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-012",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6934264036172708
+        },
+        {
+          "job_id": "job-013",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-014",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8036070421010475
+        },
+        {
+          "job_id": "job-015",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.810582531061383
+        },
+        {
+          "job_id": "job-016",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-017",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 0.5,
+          "ndcg@10": 0.5714285040141098
+        },
+        {
+          "job_id": "job-020",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9060254355346823
+        },
+        {
+          "job_id": "job-021",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 0.5,
+          "ndcg@10": 0.6052602440527057
+        },
+        {
+          "job_id": "job-022",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 0.3333333333333333,
+          "ndcg@10": 0.3065735963827292
+        },
+        {
+          "job_id": "job-023",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.7903864795495061
+        },
+        {
+          "job_id": "job-024",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-025",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8065735963827293
+        },
+        {
+          "job_id": "job-026",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6240505200038379
+        },
+        {
+          "job_id": "job-028",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9060254355346823
+        },
+        {
+          "job_id": "job-029",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9469024295259745
+        },
+        {
+          "job_id": "job-031",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9060254355346823
+        },
+        {
+          "job_id": "job-032",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.3333333333333333,
+          "mrr": 1.0,
+          "ndcg@10": 0.7928654229965442
+        },
+        {
+          "job_id": "job-033",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.6131471927654584
+        },
+        {
+          "job_id": "job-035",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-036",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6934264036172708
+        },
+        {
+          "job_id": "job-037",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6934264036172708
+        },
+        {
+          "job_id": "job-042",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8772153153380493
+        },
+        {
+          "job_id": "job-043",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-044",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8065735963827293
+        },
+        {
+          "job_id": "job-045",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-046",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 0.5,
+          "ndcg@10": 0.5640920940185894
+        },
+        {
+          "job_id": "job-047",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8854598815714874
+        },
+        {
+          "job_id": "job-048",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-050",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-051",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8503449055347546
+        }
+      ]
+    },
+    "v3_rerank": {
+      "config": {
+        "name": "v3_rerank",
+        "query": "decompose",
+        "retrieval": "hybrid",
+        "rerank": true,
+        "corrective": false
+      },
+      "overall": {
+        "n": 36,
+        "recall@5": 0.81,
+        "mrr": 0.794,
+        "ndcg@10": 0.783
+      },
+      "by_persona": {
+        "data_analyst": {
+          "n": 12,
+          "recall@5": 0.931,
+          "mrr": 0.778,
+          "ndcg@10": 0.807
+        },
+        "ml_engineer": {
+          "n": 12,
+          "recall@5": 0.75,
+          "mrr": 0.785,
+          "ndcg@10": 0.762
+        },
+        "web_developer": {
+          "n": 12,
+          "recall@5": 0.75,
+          "mrr": 0.819,
+          "ndcg@10": 0.781
+        }
+      },
+      "by_style": {
+        "detailed": {
+          "n": 21,
+          "recall@5": 0.833,
+          "mrr": 0.806,
+          "ndcg@10": 0.804
+        },
+        "vague": {
+          "n": 15,
+          "recall@5": 0.778,
+          "mrr": 0.778,
+          "ndcg@10": 0.754
+        }
+      },
+      "latency_ms": {
+        "p50": 684.7,
+        "p95": 1249.0
+      },
+      "no_evidence_rate": {
+        "good": 0.0,
+        "poor_fit": 0.0
+      },
+      "per_job": [
+        {
+          "job_id": "job-001",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8175295903539445
+        },
+        {
+          "job_id": "job-005",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 0.3333333333333333,
+          "mrr": 1.0,
+          "ndcg@10": 0.6049306994552042
+        },
+        {
+          "job_id": "job-006",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 0.6666666666666666,
+          "mrr": 1.0,
+          "ndcg@10": 0.9325210919548239
+        },
+        {
+          "job_id": "job-008",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-009",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 0.3333333333333333,
+          "ndcg@10": 0.5938524313109838
+        },
+        {
+          "job_id": "job-010",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8772153153380493
+        },
+        {
+          "job_id": "job-012",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-013",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-014",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 0.3333333333333333,
+          "ndcg@10": 0.4852658227346317
+        },
+        {
+          "job_id": "job-015",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 0.25,
+          "ndcg@10": 0.44229834886928765
+        },
+        {
+          "job_id": "job-016",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6309297535714575
+        },
+        {
+          "job_id": "job-017",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-020",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8529278650606567
+        },
+        {
+          "job_id": "job-021",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8315546295836225
+        },
+        {
+          "job_id": "job-022",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8315546295836225
+        },
+        {
+          "job_id": "job-023",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8175295903539445
+        },
+        {
+          "job_id": "job-024",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6934264036172708
+        },
+        {
+          "job_id": "job-025",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8503449055347546
+        },
+        {
+          "job_id": "job-026",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 0.3333333333333333,
+          "ndcg@10": 0.5706417189553201
+        },
+        {
+          "job_id": "job-028",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.7122630665145961
+        },
+        {
+          "job_id": "job-029",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.6666666666666666,
+          "mrr": 1.0,
+          "ndcg@10": 0.8519590445170673
+        },
+        {
+          "job_id": "job-031",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.7328286204777911
+        },
+        {
+          "job_id": "job-032",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.3333333333333333,
+          "mrr": 1.0,
+          "ndcg@10": 0.7928654229965442
+        },
+        {
+          "job_id": "job-033",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8315546295836225
+        },
+        {
+          "job_id": "job-035",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6309297535714575
+        },
+        {
+          "job_id": "job-036",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-037",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6934264036172708
+        },
+        {
+          "job_id": "job-042",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6934264036172708
+        },
+        {
+          "job_id": "job-043",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-044",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 0.5,
+          "ndcg@10": 0.5912352048230277
+        },
+        {
+          "job_id": "job-045",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-046",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 0.3333333333333333,
+          "ndcg@10": 0.5437713091520254
+        },
+        {
+          "job_id": "job-047",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 0.6666666666666666,
+          "mrr": 1.0,
+          "ndcg@10": 0.8519590445170673
+        },
+        {
+          "job_id": "job-048",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-050",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9060254355346823
+        },
+        {
+          "job_id": "job-051",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8503449055347546
+        }
+      ]
+    },
+    "v8_corrective": {
+      "config": {
+        "name": "v8_corrective",
+        "query": "decompose",
+        "retrieval": "hybrid",
+        "rerank": true,
+        "corrective": true
+      },
+      "overall": {
+        "n": 36,
+        "recall@5": 0.854,
+        "mrr": 0.884,
+        "ndcg@10": 0.854
+      },
+      "by_persona": {
+        "data_analyst": {
+          "n": 12,
+          "recall@5": 0.847,
+          "mrr": 0.833,
+          "ndcg@10": 0.828
+        },
+        "ml_engineer": {
+          "n": 12,
+          "recall@5": 0.896,
+          "mrr": 0.903,
+          "ndcg@10": 0.883
+        },
+        "web_developer": {
+          "n": 12,
+          "recall@5": 0.819,
+          "mrr": 0.917,
+          "ndcg@10": 0.85
+        }
+      },
+      "by_style": {
+        "detailed": {
+          "n": 21,
+          "recall@5": 0.877,
+          "mrr": 0.905,
+          "ndcg@10": 0.871
+        },
+        "vague": {
+          "n": 15,
+          "recall@5": 0.822,
+          "mrr": 0.856,
+          "ndcg@10": 0.829
+        }
+      },
+      "latency_ms": {
+        "p50": 882.4,
+        "p95": 1692.6
+      },
+      "no_evidence_rate": {
+        "good": 0.022,
+        "poor_fit": 1.0
+      },
+      "per_job": [
+        {
+          "job_id": "job-001",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-005",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9060254355346823
+        },
+        {
+          "job_id": "job-006",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9469024295259745
+        },
+        {
+          "job_id": "job-008",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-009",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 0.3333333333333333,
+          "ndcg@10": 0.5938524313109838
+        },
+        {
+          "job_id": "job-010",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-012",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-013",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-014",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 0.75,
+          "mrr": 1.0,
+          "ndcg@10": 0.9349366583346496
+        },
+        {
+          "job_id": "job-015",
+          "persona": "ml_engineer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.9058653015743079
+        },
+        {
+          "job_id": "job-016",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6309297535714575
+        },
+        {
+          "job_id": "job-017",
+          "persona": "ml_engineer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-020",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8529278650606567
+        },
+        {
+          "job_id": "job-021",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8315546295836225
+        },
+        {
+          "job_id": "job-022",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8315546295836225
+        },
+        {
+          "job_id": "job-023",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8503449055347546
+        },
+        {
+          "job_id": "job-024",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-025",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.8772153153380493
+        },
+        {
+          "job_id": "job-026",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-028",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.7328286204777911
+        },
+        {
+          "job_id": "job-029",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9469024295259745
+        },
+        {
+          "job_id": "job-031",
+          "persona": "web_developer",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.7328286204777911
+        },
+        {
+          "job_id": "job-032",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.3333333333333333,
+          "mrr": 1.0,
+          "ndcg@10": 0.7928654229965442
+        },
+        {
+          "job_id": "job-033",
+          "persona": "web_developer",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8315546295836225
+        },
+        {
+          "job_id": "job-035",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6309297535714575
+        },
+        {
+          "job_id": "job-036",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-037",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 0.5,
+          "ndcg@10": 0.6934264036172708
+        },
+        {
+          "job_id": "job-042",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-043",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-044",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 0.5,
+          "ndcg@10": 0.5912352048230277
+        },
+        {
+          "job_id": "job-045",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9197207891481876
+        },
+        {
+          "job_id": "job-046",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 0.5,
+          "mrr": 0.5,
+          "ndcg@10": 0.6052602440527057
+        },
+        {
+          "job_id": "job-047",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 0.6666666666666666,
+          "mrr": 1.0,
+          "ndcg@10": 0.8519590445170673
+        },
+        {
+          "job_id": "job-048",
+          "persona": "data_analyst",
+          "style": "detailed",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 1.0
+        },
+        {
+          "job_id": "job-050",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 1.0,
+          "mrr": 1.0,
+          "ndcg@10": 0.9060254355346823
+        },
+        {
+          "job_id": "job-051",
+          "persona": "data_analyst",
+          "style": "vague",
+          "recall@5": 0.5,
+          "mrr": 1.0,
+          "ndcg@10": 0.8175295903539445
+        }
+      ]
+    }
+  },
+  "ablations": {
+    "v8_corrective - decompose": {
+      "overall": {
+        "n": 36,
+        "recall@5": 0.944,
+        "mrr": 1.0,
+        "ndcg@10": 0.962
+      },
+      "latency_ms": {
+        "p50": 207.5,
+        "p95": 293.5
+      },
+      "no_evidence_rate": {}
+    },
+    "v8_corrective - hybrid": {
+      "overall": {
+        "n": 36,
+        "recall@5": 0.854,
+        "mrr": 0.884,
+        "ndcg@10": 0.854
+      },
+      "latency_ms": {
+        "p50": 911.3,
+        "p95": 1729.8
+      },
+      "no_evidence_rate": {
+        "good": 0.022,
+        "poor_fit": 1.0
+      }
+    },
+    "v8_corrective - rerank": {
+      "overall": {
+        "n": 36,
+        "recall@5": 0.796,
+        "mrr": 0.836,
+        "ndcg@10": 0.802
+      },
+      "latency_ms": {
+        "p50": 48.8,
+        "p95": 88.5
+      },
+      "no_evidence_rate": {
+        "good": 0.0,
+        "poor_fit": 0.0
+      }
+    },
+    "v8_corrective - corrective": {
+      "overall": {
+        "n": 36,
+        "recall@5": 0.81,
+        "mrr": 0.794,
+        "ndcg@10": 0.783
+      },
+      "latency_ms": {
+        "p50": 711.5,
+        "p95": 1229.1
+      },
+      "no_evidence_rate": {
+        "good": 0.0,
+        "poor_fit": 0.0
+      }
+    }
+  }
+}

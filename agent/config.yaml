@@ -26,6 +26,20 @@ workspace:
   timezone_offset_hours: 5          # Pakistan time (UTC+5)
   work_hours: [9, 17]
 
+rag:
+  # Chosen by measurement (evals/results/rag_eval.json, docs/adr/001-rag-design.md):
+  variant: v0_naive                 # evidence retrieval for the Writer: best Recall@5 (0.947), fastest
+  fit_variant: v8_corrective        # requirement -> evidence matrix: refuses 100% of poor-fit reqs, 2% of good
+  embedding_model: nomic-ai/nomic-embed-text-v1.5-Q   # open, 130 MB, CPU
+  reranker_model: Xenova/ms-marco-MiniLM-L-6-v2       # open cross-encoder, 80 MB, CPU
+  chunk_words: 40                   # fixed chunk size (words) ...
+  chunk_overlap: 10                 # ... with this much overlap
+  candidates: 20                    # how many chunks the reranker re-scores
+  # V8: reranker score below this = "weak evidence". Picked from the dev-set score
+  # distribution: poor-fit requirements score <= -8.3 (90th pct), good-fit median +0.9.
+  corrective_threshold: -7.0
+  verify_threshold: -2.0            # claim verification: min reranker score to count as support
+
 models:
   profile: open
   nodes:
