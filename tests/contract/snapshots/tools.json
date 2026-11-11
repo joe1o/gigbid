@@ -380,6 +380,14 @@
             "title": "Max Cover Letter Chars",
             "type": "integer"
           },
+          "required_statements": {
+            "description": "sentences every proposal must contain",
+            "items": {
+              "type": "string"
+            },
+            "title": "Required Statements",
+            "type": "array"
+          },
           "rules": {
             "items": {
               "type": "string"

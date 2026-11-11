@@ -5,6 +5,7 @@ version: "v1-2026-10-27"
 weekly_connects: 100            # Connects each freelancer gets per week
 max_cover_letter_chars: 5000
 extra_connects_per_proposal: 0  # flat extra cost added to every proposal
+required_statements: []        # sentences every proposal must contain (enforced by the Compliance Guard)
 rules:
   - No off-platform contact or payment (no emails, phone numbers, WhatsApp, Telegram).
   - No unpaid production work disguised as a test.

@@ -57,6 +57,7 @@ models:
         critic: openai/gpt-oss-120b
         liaison_reply: openai/gpt-oss-120b
       fallback: openai/gpt-oss-120b            # used if a cheap node's model fails
+      fallback_2: openai/gpt-oss-20b           # last resort, e.g. when the 120b daily token cap is reached
       extra: {reasoning_effort: low}           # gpt-oss: think briefly (fewer tokens, faster)
     open_small:                     # 2nd open configuration for the comparison: 20b everywhere
       base_url: https://api.groq.com/openai/v1
@@ -78,6 +79,7 @@ models:
     openai/gpt-oss-120b: [0.15, 0.60]
     gemini-flash-latest: [0.30, 2.50]
   timeout_seconds: 60
+  max_retries: 8                    # wait and retry on provider rate limits (HTTP 429) instead of failing
 
 budgets:
   max_graph_steps: 30               # more node runs than this -> "needs attention"

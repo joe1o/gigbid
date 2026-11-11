@@ -1,3 +1,56 @@
 # Runbook
 
-TODO: Document startup, deployment, rate limits, recovery and degraded mode.
+## Start everything locally
+```bash
+python -m venv .venv && .venv/Scripts/pip install -e ".[dev]"     # Windows (use bin/ on Linux/macOS)
+cd apps/web && npm ci && npm run build && cd ../..
+cp .env.example .env            # fill GROQ_API_KEY, DATABASE_URL (Neon) or leave empty for SQLite
+python scripts/run_all.py       # GigSim :8081, MCP :8091-8093, API + web :8000
+```
+Reviewer login: `REVIEWER_EMAIL` / `REVIEWER_PASSWORD` (environment, never the repo).
+
+## Deployment (Hugging Face Spaces, Docker)
+One image (`Dockerfile`) runs `scripts/run_all.py`, a tiny supervisor that starts and restarts
+the five processes. Secrets are Space secrets: `GROQ_API_KEY`, `DATABASE_URL`, `APP_SECRET_KEY`,
+`TOKEN_ENCRYPTION_KEY`, `MCP_AUTH_TOKEN`, `REVIEWER_EMAIL`, `REVIEWER_PASSWORD`, optional
+`LANGSMITH_API_KEY` + `LANGSMITH_TRACING=true`. Postgres is Neon (outside the container), so
+restarts lose nothing. Hugging Face was chosen over Render's free tier because the two CPU
+models plus five processes need ~700 MB RAM (Render free: 512 MB).
+
+## Scheduling (why no Celery/Redis)
+Scouting runs as a background task inside the API process every
+`scheduling.scout_interval_minutes` (`agent/config.yaml`): **120 min for GigSim, 360 min for live
+Upwork** - a person checking a few times a day, never anything that looks like scraping. Graph runs
+are background tasks too, never inside a web request, limited by `GIGBID_RUN_SLOTS` (default 2).
+Processing is idempotent: the Scout remembers every job id and content fingerprint in the store,
+and every external write carries an idempotency key, so a restart never double-analyses or
+double-submits. A separate Celery/Redis worker would add two services without changing these
+guarantees at this scale (decision in `docs/adr/003-scheduler.md`).
+
+## Rate limits
+| Limit | Value | Where |
+|---|---|---|
+| GigSim | 60 calls/min per account | simulator |
+| Marketplace MCP | 40 calls/min per user (stays under GigSim) | `marketplace.max_requests_per_minute` |
+| Groq free tier | 8,000 tokens/min and 1,000 requests/day per model | provider |
+On HTTP 429 the client waits and retries (Retry-After, exponential backoff); jobs slow down, they do not fail.
+
+## Degraded mode (marketplace unavailable)
+1. Tool calls fail → `MarketplaceUnavailable` → the job pauses at its checkpoint, status `queued`.
+2. The UI banner ("Marketplace unavailable … work is queued") is driven by `/api/health`.
+3. `recovery_loop` checks every 30 s and resumes queued jobs from their checkpoint.
+4. `run_all.py` restarts a crashed server after `RESTART_DELAY` (20 s).
+Rehearse it: `python scripts/degraded_mode_check.py` (kills the marketplace MCP server and times the recovery).
+
+## Crash during approval
+The pause lives in Postgres. Restart the API and press Approve: the submit step uses
+idempotency keys, so the proposal is submitted exactly once (`tests/integration/test_bid_graph.py`).
+
+## Policy change (the change request)
+Edit `gigsim/policy.yaml` (new rule text, `extra_connects_per_proposal`, `required_statements`).
+Pricing reads the cost, the Writer reads the rules, Compliance enforces required statements -
+no code change. See `evals/results/change_request.json`.
+
+## Evaluations
+`python -m evals.runners.rag_eval` · `decision_eval` · `injection_eval` · `judge_calibration --make-sheet/--score`
+· `ab_test` · `rnd_c_compare` · `rnd_a_tools`. Every number in the README and report comes from `evals/results/`.

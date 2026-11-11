@@ -41,6 +41,7 @@ class BidState(TypedDict, total=False):
     claims: dict                        # ClaimReport
     critiques: Annotated[list[dict], operator.add]   # every Critique, in order
     revisions: int                      # how many times the Critic sent it back
+    policy: dict                        # the marketplace's live platform policy (rules + costs)
     compliance: dict                    # ComplianceVerdict
     marketplace_draft: dict             # draft id + dry-run preview (cost, balance)
     approval: dict                      # ApprovalDecision from the human

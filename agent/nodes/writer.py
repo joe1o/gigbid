@@ -9,6 +9,7 @@ Tools: portfolio search_evidence, get_case_study.
 """
 
 import json
+import os
 
 from langgraph.config import get_store
 
@@ -58,7 +59,7 @@ async def writer(state, config):
     words = CONFIG["thresholds"]["proposal_words"]
     spec_view = {k: spec[k] for k in ("title", "summary", "deliverables", "requirements", "hidden_needs", "timeline_days")}
     out, usage = await llm.structured(
-        "writer", "writer", WriterOut,
+        "writer", os.getenv("GIGBID_WRITER_PROMPT", "writer"), WriterOut,   # A/B test can swap the prompt
         name=s.get("name", "the freelancer"), headline=s.get("headline", ""),
         min_words=words[0], max_words=words[1],
         spec=wrap_untrusted("job_spec", json.dumps(spec_view, indent=1)),

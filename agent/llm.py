@@ -52,7 +52,7 @@ def render(name: str, /, **vars) -> str:
 def _chat(model: str) -> ChatOpenAI:
     p = profile()
     return ChatOpenAI(model=model, base_url=p["base_url"], api_key=os.getenv(p["api_key_env"], "missing"),
-                      timeout=MCFG["timeout_seconds"], max_retries=2, temperature=0.3, **p.get("extra", {}))
+                      timeout=MCFG["timeout_seconds"], max_retries=MCFG.get("max_retries", 2), temperature=0.3, **p.get("extra", {}))
 
 
 def cost_usd(model: str, usage: dict) -> float:
@@ -76,7 +76,7 @@ async def structured(node: str, prompt: str, schema: type[BaseModel], /, **vars)
 
         return fake_structured(prompt, schema, vars), {"node": node, "model": "fake", "input_tokens": 0,
                                                        "output_tokens": 0, "cost_usd": 0.0}
-    models = [model_for(node), profile()["fallback"]]
+    models = [model_for(node), profile()["fallback"], profile().get("fallback_2", profile()["fallback"])]
     last = None
     for model in dict.fromkeys(models):                       # primary, then fallback (if different)
         try:
@@ -98,7 +98,7 @@ async def text(node: str, prompt: str, /, **vars) -> tuple[str, dict]:
         return fake_text(prompt, vars), {"node": node, "model": "fake", "input_tokens": 0,
                                          "output_tokens": 0, "cost_usd": 0.0}
     last = None
-    for model in dict.fromkeys([model_for(node), profile()["fallback"]]):
+    for model in dict.fromkeys([model_for(node), profile()["fallback"], profile().get("fallback_2", profile()["fallback"])]):
         try:
             msg = await _chat(model).ainvoke(t)
             return msg.content.strip(), _usage(msg, model, node)

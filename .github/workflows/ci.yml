@@ -38,7 +38,9 @@ jobs:
       - run: python -m pip install -e ".[dev]"
       - run: npm ci
         working-directory: apps/web
-      - run: npx playwright install --with-deps chromium
+      # GitHub's Ubuntu runners already have the system libraries Chrome needs, so we only download
+      # the browser itself (the apt mirror behind --with-deps kept timing out).
+      - run: npx playwright install chromium
         working-directory: apps/web
       - run: npx playwright test
         working-directory: apps/web

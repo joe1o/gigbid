@@ -36,7 +36,7 @@ async def pricing(state, config):
                  f"Costs {cost} Connects of your {balance}.")
     quote = PriceQuote(amount=amount, rationale=rationale, market=market, connects_cost=cost,
                        connects_balance=balance, worth_connects=worth)
-    out = {"price": quote.model_dump()}
+    out = {"price": quote.model_dump(), "policy": policy}     # later steps (Compliance) read the live policy
     if not worth:
         out.update(status="watch", error=f"not enough Connects: need {cost}, have {balance}")
     return out

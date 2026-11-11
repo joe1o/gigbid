@@ -54,6 +54,11 @@ async def compliance(state, config):
         blocked = f"job violates platform policy ({', '.join(sorted(bad_flags))})"
     elif len(letter.split()) < 40:
         blocked = "too little text left after removing policy violations"
+    # Statements the platform policy REQUIRES in every proposal (policy.yaml -> required_statements).
+    for statement in (state.get("policy") or {}).get("required_statements", []):
+        if statement.lower() not in letter.lower():
+            letter = letter.rstrip() + "\n\n" + statement
+            fixes.append(f'added the statement the platform requires: "{statement}"')
     verdict = ComplianceVerdict(passed=blocked is None, violations=[], fixes=fixes, blocked_reason=blocked)
     out = {"draft": {**d, "cover_letter": letter, "screening_answers": answers}, "compliance": verdict.model_dump()}
     if blocked:

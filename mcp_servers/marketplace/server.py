@@ -116,6 +116,7 @@ class Policy(BaseModel):
     weekly_connects: int
     max_cover_letter_chars: int
     extra_connects_per_proposal: int
+    required_statements: list[str] = Field(default_factory=list, description="sentences every proposal must contain")
     rules: list[str]
 
 

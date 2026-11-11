@@ -28,6 +28,7 @@ dependencies = [
   # --- RAG (retrieval) ---
   "fastembed",            # small open embedding + reranker models that run on CPU
   "rank-bm25",            # keyword search (BM25) for hybrid retrieval
+  "langgraph-supervisor",  # prebuilt supervisor (only for the R&D comparison)
   "numpy",
 ]
 
