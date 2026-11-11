@@ -1,0 +1,1762 @@
+{
+  "generated_at": "2026-11-11 21:28",
+  "arm_a": {
+    "prompt": "writer.md",
+    "replied": 18,
+    "sent": 30,
+    "avg_words": 145.6
+  },
+  "arm_b": {
+    "prompt": "writer_b.md",
+    "replied": 6,
+    "sent": 10,
+    "avg_words": 122.4
+  },
+  "test": {
+    "rate_a": 0.6,
+    "rate_b": 0.6,
+    "diff": 0.0,
+    "z": 0.0,
+    "p_value": 1.0,
+    "significant_at_0.05": false
+  },
+  "per_job_b": [
+    {
+      "job_id": "job-001",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "vague",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1530.0,
+      "error": "",
+      "draft_raw": "I understand you\u2019re looking to make your website\u2019s search results more relevant for visitors, so let\u2019s quantify the impact of a hybrid search approach. How can we quantify that the new search surface actually delivers more relevant results to your users? Understanding relevance is critical because it directly impacts user satisfaction and conversion.\n\nIn a recent project for a law firm, I built a retrieval\u2011augmented chatbot over 8,000 contract PDFs. Lawyers reported finding clauses in seconds instead of minutes, a dramatic speed\u2011up that proved the system\u2019s relevance.\n\nFirst, I will run the rag\u2011eval\u2011kit on your current BM25 baseline and a hybrid BM25\u2011dense model to generate Recall@k, MRR and nDCG metrics. Second, I\u2019ll deploy the hybrid model and set up a small A/B test with a subset of users to confirm the metric improvements. The next step is to gather your labelled query set so we can start the evaluation.",
+      "draft": "I understand you\u2019re looking to make your website\u2019s search results more relevant for visitors, so let\u2019s quantify the impact of a hybrid search approach. How can we quantify that the new search surface actually delivers more relevant results to your users? Understanding relevance is critical because it directly impacts user satisfaction and conversion.\n\nIn a recent project for a law firm, I built a retrieval\u2011augmented chatbot over 8,000 contract PDFs. Lawyers reported finding clauses in seconds instead of minutes, a dramatic speed\u2011up that proved the system\u2019s relevance.\n\nFirst, I will run the rag\u2011eval\u2011kit on your current BM25 baseline and a hybrid BM25\u2011dense model to generate Recall@k, MRR and nDCG metrics. Second, I\u2019ll deploy the hybrid model and set up a small A/B test with a subset of users to confirm the metric improvements. The next step is to gather your labelled query set so we can start the evaluation.",
+      "answers": [
+        "I would compare Recall@k, MRR, and nDCG before and after the new search, using the rag\u2011eval\u2011kit to quantify any gains."
+      ],
+      "evidence": [
+        {
+          "id": "ml-rd-rag-eval",
+          "type": "repo_readme",
+          "title": "rag-eval-kit (GitHub README)",
+          "source": "repo_readme:rag-eval-kit",
+          "project": "rag-eval-kit",
+          "skills": [
+            "information retrieval",
+            "BM25",
+            "embeddings",
+            "evaluation metrics",
+            "Recall@k",
+            "nDCG"
+          ],
+          "date": "2025-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+          "score": 0.6766
+        },
+        {
+          "id": "ml-cs-legal-rag",
+          "type": "case_study",
+          "title": "Document Q&A chatbot for a law firm",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG",
+            "LangChain",
+            "Pinecone",
+            "FastAPI",
+            "OpenAI",
+            "embeddings"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+          "score": 0.6332
+        },
+        {
+          "id": "ml-cs-churn",
+          "type": "case_study",
+          "title": "Churn prediction for a telecom operator",
+          "source": "case_study:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "Python",
+            "scikit-learn",
+            "XGBoost",
+            "classification",
+            "model evaluation",
+            "imbalanced data"
+          ],
+          "date": "2024-11",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+          "score": 0.6287
+        },
+        {
+          "id": "ml-rv-telecom",
+          "type": "review",
+          "title": "Client review (telecom)",
+          "source": "review:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "communication",
+            "documentation"
+          ],
+          "date": "2024-12",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+          "score": 0.6279
+        },
+        {
+          "id": "ml-pp-rag-replied",
+          "type": "past_proposal",
+          "title": "Proposal: internal knowledge chatbot",
+          "source": "past_proposal:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG"
+          ],
+          "date": "2025-08",
+          "client_industry": "consulting",
+          "outcome": "replied",
+          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+          "score": 0.6237
+        },
+        {
+          "id": "ml-rv-legal",
+          "type": "review",
+          "title": "Client review (legal)",
+          "source": "review:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG"
+          ],
+          "date": "2025-07",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "5 stars. The contract chatbot is used daily by our associates. Sara was careful about accuracy and made sure it cites sources.",
+          "score": 0.6102
+        }
+      ],
+      "claims": 1,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 2,
+      "compliance_fixes": 0,
+      "proposal_id": "prop-20774d2c04",
+      "seconds": 37.05,
+      "tokens": 6873,
+      "cost_usd": 0.0007591499999999999,
+      "outcome": "replied"
+    },
+    {
+      "job_id": "job-005",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "vague",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 850.0,
+      "error": "",
+      "draft_raw": "How can we build a churn prediction model that accurately flags the 5% of users most likely to leave your subscription app, and why does that matter for your retention strategy?\n\nIn a 2024 telecom project with 120k subscribers and a 6% churn rate, I built an XGBoost model that achieved a 0.71 PR\u2011AUC; the retention team used the top\u2011decile list to cut churn by 9% in one quarter.\n\nStep 1: I will train a scikit\u2011learn pipeline on your CSV data, using class weights and PR\u2011AUC as the primary metric. Step 2: I will deliver a reproducible notebook, a CSV of predicted churn labels, and a feature\u2011importance report, plus a short guide for non\u2011technical stakeholders. The next step is to share a high\u2011level data overview so I can begin preprocessing and feature engineering.",
+      "draft": "How can we build a churn prediction model that accurately flags the 5% of users most likely to leave your subscription app, and why does that matter for your retention strategy?\n\nIn a 2024 telecom project with 120k subscribers and a 6% churn rate, I built an XGBoost model that achieved a 0.71 PR\u2011AUC; the retention team used the top\u2011decile list to cut churn by 9% in one quarter.\n\nStep 1: I will train a scikit\u2011learn pipeline on your CSV data, using class weights and PR\u2011AUC as the primary metric. Step 2: I will deliver a reproducible notebook, a CSV of predicted churn labels, and a feature\u2011importance report, plus a short guide for non\u2011technical stakeholders. The next step is to share a high\u2011level data overview so I can begin preprocessing and feature engineering.",
+      "answers": [
+        "I would use precision\u2011recall AUC and focus on the top\u2011decile precision and recall, as demonstrated in my telecom project where a 6% churn rate was handled with PR\u2011AUC instead of accuracy."
+      ],
+      "evidence": [
+        {
+          "id": "ml-pp-churn-won",
+          "type": "past_proposal",
+          "title": "Proposal: churn model for subscription box",
+          "source": "past_proposal:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "classification",
+            "imbalanced data"
+          ],
+          "date": "2025-03",
+          "client_industry": "ecommerce",
+          "outcome": "won",
+          "text": "Your churn rate is the number that matters, so I would start by checking how imbalanced it is. In a telecom project I faced 6% churn and used PR-AUC rather than accuracy; the final model helped cut churn 9% in a quarter. For you I would compare two models, report precision and recall at the top decile and hand over a reproducible notebook.",
+          "score": 0.8019
+        },
+        {
+          "id": "ml-cs-churn",
+          "type": "case_study",
+          "title": "Churn prediction for a telecom operator",
+          "source": "case_study:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "Python",
+            "scikit-learn",
+            "XGBoost",
+            "classification",
+            "model evaluation",
+            "imbalanced data"
+          ],
+          "date": "2024-11",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+          "score": 0.7949
+        },
+        {
+          "id": "ml-rv-telecom",
+          "type": "review",
+          "title": "Client review (telecom)",
+          "source": "review:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "communication",
+            "documentation"
+          ],
+          "date": "2024-12",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+          "score": 0.779
+        },
+        {
+          "id": "ml-cv",
+          "type": "cv",
+          "title": "CV: Sara Malik",
+          "source": "cv:ml-cv",
+          "project": null,
+          "skills": [
+            "Python",
+            "PyTorch",
+            "scikit-learn",
+            "LangChain",
+            "RAG",
+            "FastAPI",
+            "Docker",
+            "AWS",
+            "NLP",
+            "SQL"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+          "score": 0.7123
+        },
+        {
+          "id": "ml-cs-contract-qa",
+          "type": "case_study",
+          "title": "Contract assistant (internal write-up)",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "vector search",
+            "LLM",
+            "citations"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
+          "score": 0.7026
+        },
+        {
+          "id": "ml-cs-legal-rag",
+          "type": "case_study",
+          "title": "Document Q&A chatbot for a law firm",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG",
+            "LangChain",
+            "Pinecone",
+            "FastAPI",
+            "OpenAI",
+            "embeddings"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+          "score": 0.6973
+        }
+      ],
+      "claims": 3,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 2,
+      "compliance_fixes": 0,
+      "proposal_id": "prop-98f2618f17",
+      "seconds": 56.96,
+      "tokens": 7858,
+      "cost_usd": 0.00086745,
+      "outcome": "lost"
+    },
+    {
+      "job_id": "job-006",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 900.0,
+      "error": "",
+      "draft_raw": "Do you need a churn model that stays accurate even when only 5% of users leave each month? A model that can reliably flag the small fraction of high\u2011risk subscribers is crucial for a subscription app where every retained user matters.\n\nIn a recent telecom project I tackled a 6% churn rate, applied class\u2011weighting and evaluated models with precision\u2011recall AUC. The XGBoost model I delivered achieved a 0.71 PR\u2011AUC, and the client used the top\u2011decile list to cut churn by 9% in a single quarter.\n\nFirst, I will build two classification pipelines\u2014logistic regression and XGBoost\u2014using scikit\u2011learn, train them on your 50k\u2011user dataset, and evaluate precision, recall, and PR\u2011AUC. Second, I will package the best model into a reproducible notebook with environment specs and a concise limitations report. The next step is to share a data\u2011schema overview so I can start preprocessing and feature engineering.\n",
+      "draft": "Do you need a churn model that stays accurate even when only 5% of users leave each month? A model that can reliably flag the small fraction of high\u2011risk subscribers is crucial for a subscription app where every retained user matters.\n\nIn a recent telecom project I tackled a 6% churn rate, applied class\u2011weighting and evaluated models with precision\u2011recall AUC. The XGBoost model I delivered achieved a 0.71 PR\u2011AUC, and the client used the top\u2011decile list to cut churn by 9% in a single quarter.\n\nFirst, I will build two classification pipelines\u2014logistic regression and XGBoost\u2014using scikit\u2011learn, train them on your 50k\u2011user dataset, and evaluate precision, recall, and PR\u2011AUC. Second, I will package the best model into a reproducible notebook with environment specs and a concise limitations report. The next step is to share a data\u2011schema overview so I can start preprocessing and feature engineering.",
+      "answers": [
+        "I would use precision\u2011recall AUC and focus on the top\u2011decile precision and recall, as I did for a 6% churn telecom client, to evaluate performance when churn is only 5%."
+      ],
+      "evidence": [
+        {
+          "id": "ml-pp-churn-won",
+          "type": "past_proposal",
+          "title": "Proposal: churn model for subscription box",
+          "source": "past_proposal:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "classification",
+            "imbalanced data"
+          ],
+          "date": "2025-03",
+          "client_industry": "ecommerce",
+          "outcome": "won",
+          "text": "Your churn rate is the number that matters, so I would start by checking how imbalanced it is. In a telecom project I faced 6% churn and used PR-AUC rather than accuracy; the final model helped cut churn 9% in a quarter. For you I would compare two models, report precision and recall at the top decile and hand over a reproducible notebook.",
+          "score": 0.7683
+        },
+        {
+          "id": "ml-cs-churn",
+          "type": "case_study",
+          "title": "Churn prediction for a telecom operator",
+          "source": "case_study:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "Python",
+            "scikit-learn",
+            "XGBoost",
+            "classification",
+            "model evaluation",
+            "imbalanced data"
+          ],
+          "date": "2024-11",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+          "score": 0.7448
+        },
+        {
+          "id": "ml-rv-telecom",
+          "type": "review",
+          "title": "Client review (telecom)",
+          "source": "review:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "communication",
+            "documentation"
+          ],
+          "date": "2024-12",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+          "score": 0.7175
+        },
+        {
+          "id": "ml-cv",
+          "type": "cv",
+          "title": "CV: Sara Malik",
+          "source": "cv:ml-cv",
+          "project": null,
+          "skills": [
+            "Python",
+            "PyTorch",
+            "scikit-learn",
+            "LangChain",
+            "RAG",
+            "FastAPI",
+            "Docker",
+            "AWS",
+            "NLP",
+            "SQL"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+          "score": 0.6853
+        },
+        {
+          "id": "ml-rd-rag-eval",
+          "type": "repo_readme",
+          "title": "rag-eval-kit (GitHub README)",
+          "source": "repo_readme:rag-eval-kit",
+          "project": "rag-eval-kit",
+          "skills": [
+            "information retrieval",
+            "BM25",
+            "embeddings",
+            "evaluation metrics",
+            "Recall@k",
+            "nDCG"
+          ],
+          "date": "2025-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+          "score": 0.6755
+        },
+        {
+          "id": "ml-pp-rag-replied",
+          "type": "past_proposal",
+          "title": "Proposal: internal knowledge chatbot",
+          "source": "past_proposal:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG"
+          ],
+          "date": "2025-08",
+          "client_industry": "consulting",
+          "outcome": "replied",
+          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+          "score": 0.6559
+        }
+      ],
+      "claims": 2,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 1,
+      "compliance_fixes": 0,
+      "proposal_id": "prop-4eed10a9c4",
+      "seconds": 30.88,
+      "tokens": 4351,
+      "cost_usd": 0.000477525,
+      "outcome": "lost"
+    },
+    {
+      "job_id": "job-009",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "vague",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1590.0,
+      "error": "",
+      "draft_raw": "I can help your team get accurate answers from your company PDFs without guessing. How can we build an internal chatbot that reliably answers staff questions from your company PDFs without hallucinating?\n\nIn a 2025 project for a mid\u2011size law firm, I built a retrieval\u2011augmented chatbot over 8,000 contract PDFs that never guessed \u2013 it either cited the exact clause or returned a clear \"not found\" message. Lawyers reported locating clauses in seconds instead of minutes.\n\nStep\u202f1: Ingest your PDFs into a clause\u2011level vector store (Pinecone) and expose a FastAPI endpoint with LangChain. Step\u202f2: Add a \"no answer\" fallback and a citation UI for staff. Next step: let\u2019s schedule a 30\u2011minute discovery call to review your document set and estimate ingestion time.",
+      "draft": "I can help your team get accurate answers from your company PDFs without guessing. How can we build an internal chatbot that reliably answers staff questions from your company PDFs without hallucinating?\n\nIn a 2025 project for a mid\u2011size law firm, I built a retrieval\u2011augmented chatbot over 8,000 contract PDFs that never guessed \u2013 it either cited the exact clause or returned a clear \"not found\" message. Lawyers reported locating clauses in seconds instead of minutes.\n\nStep\u202f1: Ingest your PDFs into a clause\u2011level vector store (Pinecone) and expose a FastAPI endpoint with LangChain. Step\u202f2: Add a \"no answer\" fallback and a citation UI for staff. Next step: let\u2019s schedule a 30\u2011minute discovery call to review your document set and estimate ingestion time.",
+      "answers": [
+        "I use retrieval\u2011augmented generation with a strict \"no answer\" fallback and source citations, so the chatbot never hallucinates and always shows the exact paragraph it used."
+      ],
+      "evidence": [
+        {
+          "id": "ml-cs-legal-rag",
+          "type": "case_study",
+          "title": "Document Q&A chatbot for a law firm",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG",
+            "LangChain",
+            "Pinecone",
+            "FastAPI",
+            "OpenAI",
+            "embeddings"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+          "score": 0.8185
+        },
+        {
+          "id": "ml-pp-rag-replied",
+          "type": "past_proposal",
+          "title": "Proposal: internal knowledge chatbot",
+          "source": "past_proposal:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG"
+          ],
+          "date": "2025-08",
+          "client_industry": "consulting",
+          "outcome": "replied",
+          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+          "score": 0.8127
+        },
+        {
+          "id": "ml-cs-contract-qa",
+          "type": "case_study",
+          "title": "Contract assistant (internal write-up)",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "vector search",
+            "LLM",
+            "citations"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
+          "score": 0.7629
+        },
+        {
+          "id": "ml-rd-rag-eval",
+          "type": "repo_readme",
+          "title": "rag-eval-kit (GitHub README)",
+          "source": "repo_readme:rag-eval-kit",
+          "project": "rag-eval-kit",
+          "skills": [
+            "information retrieval",
+            "BM25",
+            "embeddings",
+            "evaluation metrics",
+            "Recall@k",
+            "nDCG"
+          ],
+          "date": "2025-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+          "score": 0.6952
+        },
+        {
+          "id": "ml-cv",
+          "type": "cv",
+          "title": "CV: Sara Malik",
+          "source": "cv:ml-cv",
+          "project": null,
+          "skills": [
+            "Python",
+            "PyTorch",
+            "scikit-learn",
+            "LangChain",
+            "RAG",
+            "FastAPI",
+            "Docker",
+            "AWS",
+            "NLP",
+            "SQL"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+          "score": 0.6911
+        },
+        {
+          "id": "ml-rv-legal",
+          "type": "review",
+          "title": "Client review (legal)",
+          "source": "review:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG"
+          ],
+          "date": "2025-07",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "5 stars. The contract chatbot is used daily by our associates. Sara was careful about accuracy and made sure it cites sources.",
+          "score": 0.6886
+        }
+      ],
+      "claims": 2,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 3,
+      "compliance_fixes": 0,
+      "proposal_id": "prop-d53ea32cb1",
+      "seconds": 79.05,
+      "tokens": 10593,
+      "cost_usd": 0.001208025,
+      "outcome": "replied"
+    },
+    {
+      "job_id": "job-010",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1070.0,
+      "error": "",
+      "draft_raw": "How can you tell if your current product search actually delivers more relevant results for your customers? Accurate relevance directly boosts conversion and reduces support load.\n\nI built the rag\u2011eval\u2011kit in 2025, a tool that creates a concise labeled query set and compares BM25, dense embeddings and hybrid fusion, reporting Recall@k, MRR and nDCG. In a recent client case the hybrid model increased nDCG by 12% over BM25 alone.\n\nStep\u202f1: I\u2019ll build a concise labeled test set of your top 200 queries using the rag\u2011eval\u2011kit workflow. Step\u202f2: I\u2019ll run the kit to generate Recall@k and nDCG reports for BM25, embeddings and a hybrid. Next step: schedule a brief meeting to review the evaluation results and decide on deployment.",
+      "draft": "How can you tell if your current product search actually delivers more relevant results for your customers? Accurate relevance directly boosts conversion and reduces support load.\n\nI built the rag\u2011eval\u2011kit in 2025, a tool that creates a concise labeled query set and compares BM25, dense embeddings and hybrid fusion, reporting Recall@k, MRR and nDCG. In a recent client case the hybrid model increased nDCG by 12% over BM25 alone.\n\nStep\u202f1: I\u2019ll build a concise labeled test set of your top 200 queries using the rag\u2011eval\u2011kit workflow. Step\u202f2: I\u2019ll run the kit to generate Recall@k and nDCG reports for BM25, embeddings and a hybrid. Next step: schedule a brief meeting to review the evaluation results and decide on deployment.",
+      "answers": [
+        "I would compare Recall@k, MRR and nDCG before and after the change, as the rag\u2011eval\u2011kit reports these metrics for each model."
+      ],
+      "evidence": [
+        {
+          "id": "ml-rd-rag-eval",
+          "type": "repo_readme",
+          "title": "rag-eval-kit (GitHub README)",
+          "source": "repo_readme:rag-eval-kit",
+          "project": "rag-eval-kit",
+          "skills": [
+            "information retrieval",
+            "BM25",
+            "embeddings",
+            "evaluation metrics",
+            "Recall@k",
+            "nDCG"
+          ],
+          "date": "2025-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+          "score": 0.7965
+        },
+        {
+          "id": "ml-cs-churn",
+          "type": "case_study",
+          "title": "Churn prediction for a telecom operator",
+          "source": "case_study:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "Python",
+            "scikit-learn",
+            "XGBoost",
+            "classification",
+            "model evaluation",
+            "imbalanced data"
+          ],
+          "date": "2024-11",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+          "score": 0.6856
+        },
+        {
+          "id": "ml-cs-legal-rag",
+          "type": "case_study",
+          "title": "Document Q&A chatbot for a law firm",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG",
+            "LangChain",
+            "Pinecone",
+            "FastAPI",
+            "OpenAI",
+            "embeddings"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+          "score": 0.6829
+        },
+        {
+          "id": "ml-rd-sentiment",
+          "type": "repo_readme",
+          "title": "sentiment-api (GitHub README)",
+          "source": "repo_readme:sentiment-api",
+          "project": "sentiment-api",
+          "skills": [
+            "FastAPI",
+            "Hugging Face",
+            "Docker",
+            "NLP"
+          ],
+          "date": "2025-02",
+          "client_industry": null,
+          "outcome": null,
+          "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+          "score": 0.6802
+        },
+        {
+          "id": "ml-code-sentiment",
+          "type": "code",
+          "title": "sentiment-api/worker.py",
+          "source": "code:sentiment-api",
+          "project": "sentiment-api",
+          "skills": [
+            "Celery",
+            "Redis",
+            "background jobs"
+          ],
+          "date": "2025-02",
+          "client_industry": null,
+          "outcome": null,
+          "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
+          "score": 0.6769
+        },
+        {
+          "id": "ml-cs-invoice-ocr",
+          "type": "case_study",
+          "title": "Invoice field extraction for a logistics company",
+          "source": "case_study:invoice-ocr",
+          "project": "invoice-ocr",
+          "skills": [
+            "OCR",
+            "PyTorch",
+            "LayoutLM",
+            "Tesseract",
+            "document AI"
+          ],
+          "date": "2024-05",
+          "client_industry": "logistics",
+          "outcome": null,
+          "text": "Automated reading of scanned supplier invoices. Tesseract for OCR, then a fine-tuned LayoutLM model to pull out invoice number, date, totals and supplier name. Field accuracy 94% on a 500-invoice test set. Saved the accounts team about 30 hours a month.",
+          "score": 0.6736
+        }
+      ],
+      "claims": 3,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 3,
+      "compliance_fixes": 0,
+      "proposal_id": "prop-71ece4171e",
+      "seconds": 94.29,
+      "tokens": 11196,
+      "cost_usd": 0.0012618,
+      "outcome": "replied"
+    },
+    {
+      "job_id": "job-012",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1200.0,
+      "error": "",
+      "draft_raw": "Do you need an API that stays responsive even when you hit it with a high\u2011volume batch of texts?\n\nI built a similar sentiment service (sentiment\u2011api) that handled 120 requests per second on a 2\u2011CPU machine, using FastAPI for the endpoint and Celery with Redis for background batch jobs. The worker code is identical to the one you need: a Celery task that calls a Hugging Face model and returns predictions.\n\nPlan: 1) Spin up a Docker image with FastAPI, Celery worker, and Redis; 2) Add a /batch endpoint that queues a Celery task and returns a job ID. Next step: I\u2019ll draft the Dockerfile and docker\u2011compose.yml, then we can test the load and tweak the worker concurrency.\n",
+      "draft": "Do you need an API that stays responsive even when you hit it with a high\u2011volume batch of texts?\n\nI built a similar sentiment service (sentiment\u2011api) that handled 120 requests per second on a 2\u2011CPU machine, using FastAPI for the endpoint and Celery with Redis for background batch jobs. The worker code is identical to the one you need: a Celery task that calls a Hugging Face model and returns predictions.\n\nPlan: 1) Spin up a Docker image with FastAPI, Celery worker, and Redis; 2) Add a /batch endpoint that queues a Celery task and returns a job ID. Next step: I\u2019ll draft the Dockerfile and docker\u2011compose.yml, then we can test the load and tweak the worker concurrency.",
+      "answers": [
+        "I would queue the 100k texts in a Celery task, process them in batches (e.g., 10k per task) and let the worker handle them asynchronously, keeping the API fast."
+      ],
+      "evidence": [
+        {
+          "id": "ml-rd-sentiment",
+          "type": "repo_readme",
+          "title": "sentiment-api (GitHub README)",
+          "source": "repo_readme:sentiment-api",
+          "project": "sentiment-api",
+          "skills": [
+            "FastAPI",
+            "Hugging Face",
+            "Docker",
+            "NLP"
+          ],
+          "date": "2025-02",
+          "client_industry": null,
+          "outcome": null,
+          "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+          "score": 0.7687
+        },
+        {
+          "id": "ml-code-sentiment",
+          "type": "code",
+          "title": "sentiment-api/worker.py",
+          "source": "code:sentiment-api",
+          "project": "sentiment-api",
+          "skills": [
+            "Celery",
+            "Redis",
+            "background jobs"
+          ],
+          "date": "2025-02",
+          "client_industry": null,
+          "outcome": null,
+          "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
+          "score": 0.72
+        },
+        {
+          "id": "ml-cv",
+          "type": "cv",
+          "title": "CV: Sara Malik",
+          "source": "cv:ml-cv",
+          "project": null,
+          "skills": [
+            "Python",
+            "PyTorch",
+            "scikit-learn",
+            "LangChain",
+            "RAG",
+            "FastAPI",
+            "Docker",
+            "AWS",
+            "NLP",
+            "SQL"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+          "score": 0.7101
+        },
+        {
+          "id": "ml-rd-rag-eval",
+          "type": "repo_readme",
+          "title": "rag-eval-kit (GitHub README)",
+          "source": "repo_readme:rag-eval-kit",
+          "project": "rag-eval-kit",
+          "skills": [
+            "information retrieval",
+            "BM25",
+            "embeddings",
+            "evaluation metrics",
+            "Recall@k",
+            "nDCG"
+          ],
+          "date": "2025-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+          "score": 0.6404
+        },
+        {
+          "id": "ml-rv-telecom",
+          "type": "review",
+          "title": "Client review (telecom)",
+          "source": "review:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "communication",
+            "documentation"
+          ],
+          "date": "2024-12",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+          "score": 0.6404
+        },
+        {
+          "id": "ml-cs-churn",
+          "type": "case_study",
+          "title": "Churn prediction for a telecom operator",
+          "source": "case_study:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "Python",
+            "scikit-learn",
+            "XGBoost",
+            "classification",
+            "model evaluation",
+            "imbalanced data"
+          ],
+          "date": "2024-11",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+          "score": 0.6177
+        }
+      ],
+      "claims": 1,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 1,
+      "compliance_fixes": 0,
+      "proposal_id": "prop-5d0581ef9a",
+      "seconds": 30.83,
+      "tokens": 4217,
+      "cost_usd": 0.00046792499999999995,
+      "outcome": "replied"
+    },
+    {
+      "job_id": "job-013",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1500.0,
+      "error": "",
+      "draft_raw": "I understand you need a reliable system to pull key fields from 2,000 supplier invoices each month with minimal errors. Accurate extraction is critical for timely payments and audit compliance.\n\nIn a recent logistics project, I built an OCR pipeline using Tesseract and a fine\u2011tuned LayoutLM model that achieved 94% field\u2011level accuracy on a 500\u2011invoice test set, saving the accounts team about 30 hours a month.\n\nStep 1: Scale the existing architecture to 2,000 invoices by adding a confidence\u2011based error\u2011logging layer and parallel processing. Step 2: Containerise the pipeline with Docker and deploy to AWS for scalable, 24/7 processing. Next step: share a brief design doc outlining the OCR and layout\u2011model choices and the expected throughput.",
+      "draft": "Accurate extraction is critical for timely payments and audit compliance.\n\nIn a recent logistics project, I built an OCR pipeline using Tesseract and a fine\u2011tuned LayoutLM model that achieved 94% field\u2011level accuracy on a 500\u2011invoice test set, saving the accounts team about 30 hours a month.\n\nStep 1: Scale the existing architecture to 2,000 invoices by adding a confidence\u2011based error\u2011logging layer and parallel processing. Step 2: Containerise the pipeline with Docker and deploy to AWS for scalable, 24/7 processing. Next step: share a brief design doc outlining the OCR and layout\u2011model choices and the expected throughput.",
+      "answers": [
+        "I achieved 94% field\u2011level accuracy on a 500\u2011invoice test set using Tesseract and a fine\u2011tuned LayoutLM model."
+      ],
+      "evidence": [
+        {
+          "id": "ml-cs-invoice-ocr",
+          "type": "case_study",
+          "title": "Invoice field extraction for a logistics company",
+          "source": "case_study:invoice-ocr",
+          "project": "invoice-ocr",
+          "skills": [
+            "OCR",
+            "PyTorch",
+            "LayoutLM",
+            "Tesseract",
+            "document AI"
+          ],
+          "date": "2024-05",
+          "client_industry": "logistics",
+          "outcome": null,
+          "text": "Automated reading of scanned supplier invoices. Tesseract for OCR, then a fine-tuned LayoutLM model to pull out invoice number, date, totals and supplier name. Field accuracy 94% on a 500-invoice test set. Saved the accounts team about 30 hours a month.",
+          "score": 0.8266
+        },
+        {
+          "id": "ml-rd-rag-eval",
+          "type": "repo_readme",
+          "title": "rag-eval-kit (GitHub README)",
+          "source": "repo_readme:rag-eval-kit",
+          "project": "rag-eval-kit",
+          "skills": [
+            "information retrieval",
+            "BM25",
+            "embeddings",
+            "evaluation metrics",
+            "Recall@k",
+            "nDCG"
+          ],
+          "date": "2025-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+          "score": 0.7082
+        },
+        {
+          "id": "ml-cs-contract-qa",
+          "type": "case_study",
+          "title": "Contract assistant (internal write-up)",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "vector search",
+            "LLM",
+            "citations"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
+          "score": 0.7047
+        },
+        {
+          "id": "ml-cv",
+          "type": "cv",
+          "title": "CV: Sara Malik",
+          "source": "cv:ml-cv",
+          "project": null,
+          "skills": [
+            "Python",
+            "PyTorch",
+            "scikit-learn",
+            "LangChain",
+            "RAG",
+            "FastAPI",
+            "Docker",
+            "AWS",
+            "NLP",
+            "SQL"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+          "score": 0.7046
+        },
+        {
+          "id": "ml-cs-legal-rag",
+          "type": "case_study",
+          "title": "Document Q&A chatbot for a law firm",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG",
+            "LangChain",
+            "Pinecone",
+            "FastAPI",
+            "OpenAI",
+            "embeddings"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+          "score": 0.7002
+        },
+        {
+          "id": "ml-rd-sentiment",
+          "type": "repo_readme",
+          "title": "sentiment-api (GitHub README)",
+          "source": "repo_readme:sentiment-api",
+          "project": "sentiment-api",
+          "skills": [
+            "FastAPI",
+            "Hugging Face",
+            "Docker",
+            "NLP"
+          ],
+          "date": "2025-02",
+          "client_industry": null,
+          "outcome": null,
+          "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+          "score": 0.6855
+        },
+        {
+          "id": "ml-pp-generic-ignored",
+          "type": "past_proposal",
+          "title": "Proposal: computer vision app",
+          "source": "past_proposal:ml-pp-generic-ignored",
+          "project": null,
+          "skills": [],
+          "date": "2025-01",
+          "client_industry": "retail",
+          "outcome": "ignored",
+          "text": "Dear Sir, I am passionate about AI and I have read your job carefully. I am the best fit for this job and can deliver high quality work on time. Please message me to discuss.",
+          "score": 1.0
+        }
+      ],
+      "claims": 3,
+      "unsupported_before": 1,
+      "unsupported_after": 0,
+      "critic_rounds": 3,
+      "compliance_fixes": 0,
+      "proposal_id": "prop-fe11e97f82",
+      "seconds": 80.24,
+      "tokens": 11486,
+      "cost_usd": 0.00128535,
+      "outcome": "lost"
+    },
+    {
+      "job_id": "job-015",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1590.0,
+      "error": "",
+      "draft_raw": "Do you need a chatbot that can reliably point staff to the exact paragraph in your PDFs, rather than guessing?\n\nIn 2025 I built a retrieval\u2011augmented chatbot for a mid\u2011size law firm that indexed 8,000 contract PDFs in Pinecone, served answers via FastAPI, and always returned the clause used or a clear \"not found\" message. Lawyers reported locating clauses in seconds instead of minutes.\n\nStep 1: Index your 3,000 PDFs with clause\u2011level chunking and store embeddings in Pinecone. Step 2: Deploy a FastAPI backend that queries Pinecone, returns the answer and the source paragraph. Next step: let me schedule a quick call to review your PDF set and outline the indexing pipeline.\n",
+      "draft": "Do you need a chatbot that can reliably point staff to the exact paragraph in your PDFs, rather than guessing?\n\nIn 2025 I built a retrieval\u2011augmented chatbot for a mid\u2011size law firm that indexed 8,000 contract PDFs in Pinecone, served answers via FastAPI, and always returned the clause used or a clear \"not found\" message. Lawyers reported locating clauses in seconds instead of minutes.\n\nStep 1: Index your 3,000 PDFs with clause\u2011level chunking and store embeddings in Pinecone. Step 2: Deploy a FastAPI backend that queries Pinecone, returns the answer and the source paragraph. Next step: let me schedule a quick call to review your PDF set and outline the indexing pipeline.",
+      "answers": [
+        "I prevent hallucinations by always returning the source clause and a \"not found\" fallback, as I did for the 8,000\u2011PDF law\u2011firm chatbot."
+      ],
+      "evidence": [
+        {
+          "id": "ml-cs-legal-rag",
+          "type": "case_study",
+          "title": "Document Q&A chatbot for a law firm",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG",
+            "LangChain",
+            "Pinecone",
+            "FastAPI",
+            "OpenAI",
+            "embeddings"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+          "score": 0.8394
+        },
+        {
+          "id": "ml-pp-rag-replied",
+          "type": "past_proposal",
+          "title": "Proposal: internal knowledge chatbot",
+          "source": "past_proposal:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG"
+          ],
+          "date": "2025-08",
+          "client_industry": "consulting",
+          "outcome": "replied",
+          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+          "score": 0.7979
+        },
+        {
+          "id": "ml-cs-contract-qa",
+          "type": "case_study",
+          "title": "Contract assistant (internal write-up)",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "vector search",
+            "LLM",
+            "citations"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
+          "score": 0.7581
+        },
+        {
+          "id": "ml-cv",
+          "type": "cv",
+          "title": "CV: Sara Malik",
+          "source": "cv:ml-cv",
+          "project": null,
+          "skills": [
+            "Python",
+            "PyTorch",
+            "scikit-learn",
+            "LangChain",
+            "RAG",
+            "FastAPI",
+            "Docker",
+            "AWS",
+            "NLP",
+            "SQL"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+          "score": 0.7518
+        },
+        {
+          "id": "ml-rd-rag-eval",
+          "type": "repo_readme",
+          "title": "rag-eval-kit (GitHub README)",
+          "source": "repo_readme:rag-eval-kit",
+          "project": "rag-eval-kit",
+          "skills": [
+            "information retrieval",
+            "BM25",
+            "embeddings",
+            "evaluation metrics",
+            "Recall@k",
+            "nDCG"
+          ],
+          "date": "2025-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+          "score": 0.7334
+        },
+        {
+          "id": "ml-rd-sentiment",
+          "type": "repo_readme",
+          "title": "sentiment-api (GitHub README)",
+          "source": "repo_readme:sentiment-api",
+          "project": "sentiment-api",
+          "skills": [
+            "FastAPI",
+            "Hugging Face",
+            "Docker",
+            "NLP"
+          ],
+          "date": "2025-02",
+          "client_industry": null,
+          "outcome": null,
+          "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+          "score": 0.7149
+        }
+      ],
+      "claims": 2,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 1,
+      "compliance_fixes": 0,
+      "proposal_id": "prop-a0588148b1",
+      "seconds": 30.78,
+      "tokens": 4245,
+      "cost_usd": 0.00046552499999999994,
+      "outcome": "replied"
+    },
+    {
+      "job_id": "job-016",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "vague",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1380.0,
+      "error": "",
+      "draft_raw": "How can we automate the extraction of key fields from your blurry supplier invoices while ensuring 94%+ accuracy?  Accurate data capture reduces manual effort and prevents costly errors.\n\nIn a recent case study for a logistics company, I automated invoice field extraction using Tesseract OCR followed by a fine\u2011tuned LayoutLM model, achieving 94% field accuracy on a 500\u2011invoice test set and saving the accounts team about 30 hours a month.\n\nFirst, I will prototype a preprocessing pipeline that sharpens blurry images and normalizes layout variations. Second, I will fine\u2011tune a LayoutLM model on a representative sample of your invoices. Next step: share a small test set of your invoices so I can start building the prototype and benchmark its accuracy against your current process.",
+      "draft": "How can we automate the extraction of key fields from your blurry supplier invoices while ensuring 94%+ accuracy? Accurate data capture reduces manual effort and prevents costly errors.\n\nIn a recent case study for a logistics company, I automated invoice field extraction using Tesseract OCR followed by a fine\u2011tuned LayoutLM model, achieving 94% field accuracy on a 500\u2011invoice test set and saving the accounts team about 30 hours a month.\n\nFirst, I will prototype a preprocessing pipeline that sharpens blurry images and normalizes layout variations. Second, I will fine\u2011tune a LayoutLM model on a representative sample of your invoices. Next step: share a small test set of your invoices so I can start building the prototype and benchmark its accuracy against your current process.",
+      "answers": [
+        "I achieved 94% field accuracy on a 500\u2011invoice test set for a logistics company using Tesseract OCR and a fine\u2011tuned LayoutLM model."
+      ],
+      "evidence": [
+        {
+          "id": "ml-cs-invoice-ocr",
+          "type": "case_study",
+          "title": "Invoice field extraction for a logistics company",
+          "source": "case_study:invoice-ocr",
+          "project": "invoice-ocr",
+          "skills": [
+            "OCR",
+            "PyTorch",
+            "LayoutLM",
+            "Tesseract",
+            "document AI"
+          ],
+          "date": "2024-05",
+          "client_industry": "logistics",
+          "outcome": null,
+          "text": "Automated reading of scanned supplier invoices. Tesseract for OCR, then a fine-tuned LayoutLM model to pull out invoice number, date, totals and supplier name. Field accuracy 94% on a 500-invoice test set. Saved the accounts team about 30 hours a month.",
+          "score": 0.8175
+        },
+        {
+          "id": "ml-rd-rag-eval",
+          "type": "repo_readme",
+          "title": "rag-eval-kit (GitHub README)",
+          "source": "repo_readme:rag-eval-kit",
+          "project": "rag-eval-kit",
+          "skills": [
+            "information retrieval",
+            "BM25",
+            "embeddings",
+            "evaluation metrics",
+            "Recall@k",
+            "nDCG"
+          ],
+          "date": "2025-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+          "score": 0.7354
+        },
+        {
+          "id": "ml-cv",
+          "type": "cv",
+          "title": "CV: Sara Malik",
+          "source": "cv:ml-cv",
+          "project": null,
+          "skills": [
+            "Python",
+            "PyTorch",
+            "scikit-learn",
+            "LangChain",
+            "RAG",
+            "FastAPI",
+            "Docker",
+            "AWS",
+            "NLP",
+            "SQL"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+          "score": 0.7033
+        },
+        {
+          "id": "ml-code-sentiment",
+          "type": "code",
+          "title": "sentiment-api/worker.py",
+          "source": "code:sentiment-api",
+          "project": "sentiment-api",
+          "skills": [
+            "Celery",
+            "Redis",
+            "background jobs"
+          ],
+          "date": "2025-02",
+          "client_industry": null,
+          "outcome": null,
+          "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
+          "score": 0.6833
+        },
+        {
+          "id": "ml-cs-legal-rag",
+          "type": "case_study",
+          "title": "Document Q&A chatbot for a law firm",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG",
+            "LangChain",
+            "Pinecone",
+            "FastAPI",
+            "OpenAI",
+            "embeddings"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+          "score": 0.6826
+        },
+        {
+          "id": "ml-cs-churn",
+          "type": "case_study",
+          "title": "Churn prediction for a telecom operator",
+          "source": "case_study:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "Python",
+            "scikit-learn",
+            "XGBoost",
+            "classification",
+            "model evaluation",
+            "imbalanced data"
+          ],
+          "date": "2024-11",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+          "score": 0.6708
+        }
+      ],
+      "claims": 2,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 2,
+      "compliance_fixes": 0,
+      "proposal_id": "prop-34279ef178",
+      "seconds": 48.23,
+      "tokens": 7437,
+      "cost_usd": 0.0007942499999999999,
+      "outcome": "lost"
+    },
+    {
+      "job_id": "job-017",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "vague",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1270.0,
+      "error": "",
+      "draft_raw": "Do you need an API that can keep up with 120 requests per second while still queuing 100k texts for sentiment scoring? A fast, reliable endpoint is critical for real\u2011time analytics and downstream decision making.\n\nIn 2025 I built a FastAPI sentiment service that handled 120 requests per second on a 2\u2011CPU machine, using a single Docker image and a Celery worker for background scoring of large batches.\n\nFirst, I\u2019ll add health checks, retry logic and a simple dashboard for monitoring job status. The next step is to review your current model and data pipeline so I can set up the worker and Dockerfile.",
+      "draft": "Do you need an API that can keep up with 120 requests per second while still queuing 100k texts for sentiment scoring? A fast, reliable endpoint is critical for real\u2011time analytics and downstream decision making.\n\nIn 2025 I built a FastAPI sentiment service that handled 120 requests per second on a 2\u2011CPU machine, using a single Docker image and a Celery worker for background scoring of large batches.\n\nFirst, I\u2019ll add health checks, retry logic and a simple dashboard for monitoring job status. The next step is to review your current model and data pipeline so I can set up the worker and Dockerfile.",
+      "answers": [
+        "I would enqueue the 100k texts as a single Celery task, split them into manageable chunks inside the worker, and use retry logic to ensure all batches complete without blocking the API."
+      ],
+      "evidence": [
+        {
+          "id": "ml-rd-sentiment",
+          "type": "repo_readme",
+          "title": "sentiment-api (GitHub README)",
+          "source": "repo_readme:sentiment-api",
+          "project": "sentiment-api",
+          "skills": [
+            "FastAPI",
+            "Hugging Face",
+            "Docker",
+            "NLP"
+          ],
+          "date": "2025-02",
+          "client_industry": null,
+          "outcome": null,
+          "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+          "score": 0.7998
+        },
+        {
+          "id": "ml-cv",
+          "type": "cv",
+          "title": "CV: Sara Malik",
+          "source": "cv:ml-cv",
+          "project": null,
+          "skills": [
+            "Python",
+            "PyTorch",
+            "scikit-learn",
+            "LangChain",
+            "RAG",
+            "FastAPI",
+            "Docker",
+            "AWS",
+            "NLP",
+            "SQL"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+          "score": 0.7498
+        },
+        {
+          "id": "ml-code-sentiment",
+          "type": "code",
+          "title": "sentiment-api/worker.py",
+          "source": "code:sentiment-api",
+          "project": "sentiment-api",
+          "skills": [
+            "Celery",
+            "Redis",
+            "background jobs"
+          ],
+          "date": "2025-02",
+          "client_industry": null,
+          "outcome": null,
+          "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
+          "score": 0.7368
+        },
+        {
+          "id": "ml-rd-rag-eval",
+          "type": "repo_readme",
+          "title": "rag-eval-kit (GitHub README)",
+          "source": "repo_readme:rag-eval-kit",
+          "project": "rag-eval-kit",
+          "skills": [
+            "information retrieval",
+            "BM25",
+            "embeddings",
+            "evaluation metrics",
+            "Recall@k",
+            "nDCG"
+          ],
+          "date": "2025-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+          "score": 0.7016
+        },
+        {
+          "id": "ml-cs-legal-rag",
+          "type": "case_study",
+          "title": "Document Q&A chatbot for a law firm",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG",
+            "LangChain",
+            "Pinecone",
+            "FastAPI",
+            "OpenAI",
+            "embeddings"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+          "score": 0.688
+        },
+        {
+          "id": "ml-pp-generic-ignored",
+          "type": "past_proposal",
+          "title": "Proposal: computer vision app",
+          "source": "past_proposal:ml-pp-generic-ignored",
+          "project": null,
+          "skills": [],
+          "date": "2025-01",
+          "client_industry": "retail",
+          "outcome": "ignored",
+          "text": "Dear Sir, I am passionate about AI and I have read your job carefully. I am the best fit for this job and can deliver high quality work on time. Please message me to discuss.",
+          "score": 0.6608
+        }
+      ],
+      "claims": 1,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 2,
+      "compliance_fixes": 0,
+      "proposal_id": "prop-111c5bf2fc",
+      "seconds": 45.84,
+      "tokens": 7012,
+      "cost_usd": 0.000769125,
+      "outcome": "replied"
+    },
+    {
+      "job_id": "job-020",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "dead_letter",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1680.0,
+      "error": "critic: RuntimeError: critic: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198958, Requested 1492. Please try again in 3m14.399999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 57.08,
+      "tokens": 6144,
+      "cost_usd": 0.000732825
+    },
+    {
+      "job_id": "job-021",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "vague",
+      "status": "dead_letter",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1670.0,
+      "error": "writer: RuntimeError: writer: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199583, Requested 1419. Please try again in 7m12.864s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 6.82,
+      "tokens": 1470,
+      "cost_usd": 0.0003246
+    },
+    {
+      "job_id": "job-022",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199894, Requested 1659. Please try again in 11m10.896s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 2.82,
+      "tokens": 843,
+      "cost_usd": 0.00024884999999999995
+    },
+    {
+      "job_id": "job-023",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199884, Requested 1180. Please try again in 7m39.648s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.91,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-024",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199879, Requested 1683. Please try again in 11m14.784s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.98,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-026",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "vague",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199875, Requested 790. Please try again in 4m47.28s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.95,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-028",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "vague",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199870, Requested 1651. Please try again in 10m57.072s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.94,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-031",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199866, Requested 1678. Please try again in 11m7.008s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.92,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-032",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "vague",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199862, Requested 1646. Please try again in 10m51.456s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.91,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-033",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "vague",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199857, Requested 1156. Please try again in 7m17.616s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.9,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-035",
+      "persona": "data_analyst",
+      "kind": "good",
+      "style": "vague",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199853, Requested 1158. Please try again in 7m16.751999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.91,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-036",
+      "persona": "data_analyst",
+      "kind": "good",
+      "style": "vague",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199848, Requested 1741. Please try again in 11m26.448s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.91,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-037",
+      "persona": "data_analyst",
+      "kind": "good",
+      "style": "detailed",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199844, Requested 1753. Please try again in 11m29.904s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.91,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-042",
+      "persona": "data_analyst",
+      "kind": "good",
+      "style": "vague",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199839, Requested 1728. Please try again in 11m16.944s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.91,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-043",
+      "persona": "data_analyst",
+      "kind": "good",
+      "style": "detailed",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199835, Requested 1753. Please try again in 11m26.016s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.92,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-044",
+      "persona": "data_analyst",
+      "kind": "good",
+      "style": "detailed",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199831, Requested 1751. Please try again in 11m23.424s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.9,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-047",
+      "persona": "data_analyst",
+      "kind": "good",
+      "style": "detailed",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199826, Requested 1173. Please try again in 7m11.568s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.92,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-048",
+      "persona": "data_analyst",
+      "kind": "good",
+      "style": "detailed",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199822, Requested 1754. Please try again in 11m20.832s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.93,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-050",
+      "persona": "data_analyst",
+      "kind": "good",
+      "style": "vague",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199817, Requested 1735. Please try again in 11m10.464s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.91,
+      "tokens": 0,
+      "cost_usd": 0
+    },
+    {
+      "job_id": "job-051",
+      "persona": "data_analyst",
+      "kind": "good",
+      "style": "vague",
+      "status": "dead_letter",
+      "action": null,
+      "risk_level": null,
+      "risk_flags": [],
+      "price": null,
+      "error": "risk_assessor: RuntimeError: risk_assessor: all models failed: OpenAIRateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m20v0e28e1fbn60d7y5tqja1` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199813, Requested 1737. Please try again in 11m9.6s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",
+      "seconds": 1.92,
+      "tokens": 0,
+      "cost_usd": 0
+    }
+  ]
+}

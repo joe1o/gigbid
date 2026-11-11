@@ -23,7 +23,10 @@ OFF_PLATFORM = re.compile(
     r"telegram|whatsapp|skype|outside the platform|off[- ]platform|usdt|crypto|bitcoin|"
     r"wire transfer|send your (email|phone|whatsapp)|contact (me|us) (at|on)", re.IGNORECASE)
 FREE_WORK = re.compile(r"for free|unpaid|free (test|trial)|as a test|test task", re.IGNORECASE)
-GUARANTEE = re.compile(r"\bguarantee[sd]?\b|100% (satisfaction|guaranteed|success)|risk[- ]free", re.IGNORECASE)
+# A guarantee is a PROMISE to the client ("I guarantee", "guaranteed delivery/results", "100% satisfaction"),
+# not a technical property ("row locking guarantees no double booking").
+GUARANTEE = re.compile(r"\b(i|we)\s+(can\s+|will\s+)?guarantee|guaranteed?\s+(delivery|results?|success|satisfaction|"
+                       r"quality|on[- ]time)|100% (satisfaction|guaranteed|success)|risk[- ]free|money[- ]back", re.IGNORECASE)
 CONTACT = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+|\+?\d[\d\s()-]{8,}\d|whatsapp|telegram|skype", re.IGNORECASE)
 GENERIC_OPENINGS = ["i am passionate", "dear sir", "dear hiring manager", "i have read your job",
                     "i am the best", "i am very interested", "hello, i am", "i am an expert", "kindly consider"]
