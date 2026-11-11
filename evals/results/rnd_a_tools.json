@@ -1,0 +1,1005 @@
+{
+  "generated_at": "2026-11-11 22:20",
+  "model": "openai/gpt-oss-20b",
+  "n_tasks": 40,
+  "summary": {
+    "fine": {
+      "tool_selection_accuracy": 0.975,
+      "argument_accuracy": 0.975,
+      "tokens_per_task": 1656
+    },
+    "coarse": {
+      "tool_selection_accuracy": 0.825,
+      "argument_accuracy": 0.55,
+      "tokens_per_task": 688
+    },
+    "rewritten": {
+      "tool_selection_accuracy": 0.975,
+      "argument_accuracy": 0.975,
+      "tokens_per_task": 1680
+    }
+  },
+  "results": {
+    "fine": {
+      "tool_selection_accuracy": 0.975,
+      "argument_accuracy": 0.975,
+      "tokens_per_task": 1656,
+      "rows": [
+        {
+          "task": "Find machine learning jobs that mention churn.",
+          "expected": "search_jobs",
+          "got": "search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1657
+        },
+        {
+          "task": "Show me web development jobs about Stripe.",
+          "expected": "search_jobs",
+          "got": "search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1646
+        },
+        {
+          "task": "List the newest data analysis jobs.",
+          "expected": "search_jobs",
+          "got": "search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1649
+        },
+        {
+          "task": "Are there any open jobs mentioning Power BI?",
+          "expected": "search_jobs",
+          "got": "search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1651
+        },
+        {
+          "task": "Search for jobs about RAG chatbots, at most 5 results.",
+          "expected": "search_jobs",
+          "got": "search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1662
+        },
+        {
+          "task": "Look for jobs that need dbt.",
+          "expected": "search_jobs",
+          "got": "search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1649
+        },
+        {
+          "task": "Open the full post for job job-005.",
+          "expected": "get_job",
+          "got": "get_job",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1649
+        },
+        {
+          "task": "What exactly does job job-021 ask for?",
+          "expected": "get_job",
+          "got": "get_job",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1646
+        },
+        {
+          "task": "Read the description of job-040.",
+          "expected": "get_job",
+          "got": "get_job",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1644
+        },
+        {
+          "task": "Is client c13 trustworthy? Check their history.",
+          "expected": "get_client_history",
+          "got": "get_client_history",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1649
+        },
+        {
+          "task": "How much has client c02 spent on the platform?",
+          "expected": "get_client_history",
+          "got": "get_client_history",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1641
+        },
+        {
+          "task": "Has client c08 verified their payment method?",
+          "expected": "get_client_history",
+          "got": "get_client_history",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1639
+        },
+        {
+          "task": "How many Connects do I have left?",
+          "expected": "get_connects_balance",
+          "got": "get_connects_balance",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1638
+        },
+        {
+          "task": "Can I afford to bid this week? Check my bid credits.",
+          "expected": "get_connects_balance",
+          "got": "get_connects_balance",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1641
+        },
+        {
+          "task": "What are the platform's current rules?",
+          "expected": "get_policy",
+          "got": "get_policy",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1632
+        },
+        {
+          "task": "Is there any extra Connects cost per proposal right now?",
+          "expected": "get_policy",
+          "got": "get_policy",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1633
+        },
+        {
+          "task": "What do ML jobs typically pay?",
+          "expected": "market_stats",
+          "got": "market_stats",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1636
+        },
+        {
+          "task": "Give me the median budget for web development jobs.",
+          "expected": "market_stats",
+          "got": "market_stats",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1643
+        },
+        {
+          "task": "What is the 75th percentile budget for data jobs?",
+          "expected": "market_stats",
+          "got": "market_stats",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1645
+        },
+        {
+          "task": "Show the status of all proposals I've sent.",
+          "expected": "list_proposals",
+          "got": "list_proposals",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1639
+        },
+        {
+          "task": "Did any of my submitted proposals get hired?",
+          "expected": "list_proposals",
+          "got": "list_proposals",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1639
+        },
+        {
+          "task": "Which clients have written back to me?",
+          "expected": "list_threads",
+          "got": "list_threads",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1635
+        },
+        {
+          "task": "Do I have unanswered client messages?",
+          "expected": "list_threads",
+          "got": "list_threads",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1637
+        },
+        {
+          "task": "Read the conversation in thread prop-abc1234567.",
+          "expected": "list_messages",
+          "got": "list_messages",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1650
+        },
+        {
+          "task": "What did the client say in thread prop-0011223344?",
+          "expected": "list_messages",
+          "got": "list_messages",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1651
+        },
+        {
+          "task": "Save a draft proposal for job-005 bidding $850 with this letter: 'Your churn problem needs a careful baseline, and I built one for a telecom client that cut churn by 9 percent.' Use key key-00001.",
+          "expected": "create_proposal_draft",
+          "got": "create_proposal_draft",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1726
+        },
+        {
+          "task": "Prepare (do not send) a $1200 proposal for job-012 with letter 'Long batches belong in a background queue; my sentiment API does exactly that with Celery and Redis.' Key key-00002.",
+          "expected": "create_proposal_draft",
+          "got": "create_proposal_draft",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1720
+        },
+        {
+          "task": "The user approved draft draft-0123456789. Submit it with key submit-001.",
+          "expected": "submit_proposal",
+          "got": "submit_proposal",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1670
+        },
+        {
+          "task": "Preview what would be sent for draft draft-aaaaaaaaaa without sending it. Key prev-00001.",
+          "expected": "submit_proposal",
+          "got": "submit_proposal",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1704
+        },
+        {
+          "task": "Send the approved reply 'Tuesday 3pm works for me.' to thread prop-abc1234567 with key msg-00001.",
+          "expected": "send_message",
+          "got": "send_message",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1691
+        },
+        {
+          "task": "Show exactly what would be sent if I replied 'Thanks, happy to help' in thread prop-0011223344 (key msg-00002), without sending.",
+          "expected": "send_message",
+          "got": "send_message",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1695
+        },
+        {
+          "task": "What proof do I have of Stripe webhook experience?",
+          "expected": "search_evidence",
+          "got": "search_evidence",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1650
+        },
+        {
+          "task": "Find my best 3 examples of imbalanced classification work.",
+          "expected": "search_evidence",
+          "got": "search_evidence",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1689
+        },
+        {
+          "task": "Which of my past proposals that won mention churn?",
+          "expected": "search_evidence",
+          "got": "list_proposals",
+          "tool_ok": false,
+          "args_ok": false,
+          "tokens": 1644
+        },
+        {
+          "task": "Open portfolio item ml-cs-churn in full.",
+          "expected": "get_case_study",
+          "got": "get_case_study",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1656
+        },
+        {
+          "task": "Show the case study web-cs-shop.",
+          "expected": "get_case_study",
+          "got": "get_case_study",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1652
+        },
+        {
+          "task": "Which skills does my portfolio show the most?",
+          "expected": "list_skills",
+          "got": "list_skills",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1639
+        },
+        {
+          "task": "For the requirements Python, Celery and Kubernetes, which ones can my portfolio prove?",
+          "expected": "map_requirements",
+          "got": "map_requirements",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1661
+        },
+        {
+          "task": "When am I free for a 30 minute interview this week?",
+          "expected": "get_free_slots",
+          "got": "get_free_slots",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1653
+        },
+        {
+          "task": "Save an email draft to myself titled 'Interview Tuesday' saying 'Call with the client at 15:00.' Key mail-00001.",
+          "expected": "create_email_draft",
+          "got": "create_email_draft",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1694
+        }
+      ]
+    },
+    "coarse": {
+      "tool_selection_accuracy": 0.825,
+      "argument_accuracy": 0.55,
+      "tokens_per_task": 688,
+      "rows": [
+        {
+          "task": "Find machine learning jobs that mention churn.",
+          "expected": "search_jobs",
+          "got": "marketplace.search_jobs",
+          "tool_ok": true,
+          "args_ok": false,
+          "tokens": 762
+        },
+        {
+          "task": "Show me web development jobs about Stripe.",
+          "expected": "search_jobs",
+          "got": "marketplace.search_jobs",
+          "tool_ok": true,
+          "args_ok": false,
+          "tokens": 750
+        },
+        {
+          "task": "List the newest data analysis jobs.",
+          "expected": "search_jobs",
+          "got": "marketplace.search_jobs",
+          "tool_ok": true,
+          "args_ok": false,
+          "tokens": 747
+        },
+        {
+          "task": "Are there any open jobs mentioning Power BI?",
+          "expected": "search_jobs",
+          "got": "marketplace.search_jobs",
+          "tool_ok": true,
+          "args_ok": false,
+          "tokens": 747
+        },
+        {
+          "task": "Search for jobs about RAG chatbots, at most 5 results.",
+          "expected": "search_jobs",
+          "got": "marketplace.search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 766
+        },
+        {
+          "task": "Look for jobs that need dbt.",
+          "expected": "search_jobs",
+          "got": "marketplace.search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 760
+        },
+        {
+          "task": "Open the full post for job job-005.",
+          "expected": "get_job",
+          "got": "marketplace.get_job",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 752
+        },
+        {
+          "task": "What exactly does job job-021 ask for?",
+          "expected": "get_job",
+          "got": "marketplace.get_job",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 759
+        },
+        {
+          "task": "Read the description of job-040.",
+          "expected": "get_job",
+          "got": "marketplace.get_job",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 758
+        },
+        {
+          "task": "Is client c13 trustworthy? Check their history.",
+          "expected": "get_client_history",
+          "got": "marketplace.get_client_history",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 753
+        },
+        {
+          "task": "How much has client c02 spent on the platform?",
+          "expected": "get_client_history",
+          "got": "marketplace.get_client_history",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 754
+        },
+        {
+          "task": "Has client c08 verified their payment method?",
+          "expected": "get_client_history",
+          "got": "marketplace.get_client_history",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 752
+        },
+        {
+          "task": "How many Connects do I have left?",
+          "expected": "get_connects_balance",
+          "got": "marketplace.get_connects_balance",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 753
+        },
+        {
+          "task": "Can I afford to bid this week? Check my bid credits.",
+          "expected": "get_connects_balance",
+          "got": "marketplace.get_connects_balance",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 756
+        },
+        {
+          "task": "What are the platform's current rules?",
+          "expected": "get_policy",
+          "got": "marketplace.get_policy",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 747
+        },
+        {
+          "task": "Is there any extra Connects cost per proposal right now?",
+          "expected": "get_policy",
+          "got": "marketplace.get_policy",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 749
+        },
+        {
+          "task": "What do ML jobs typically pay?",
+          "expected": "market_stats",
+          "got": "marketplace.market_stats",
+          "tool_ok": true,
+          "args_ok": false,
+          "tokens": 772
+        },
+        {
+          "task": "Give me the median budget for web development jobs.",
+          "expected": "market_stats",
+          "got": "marketplace.market_stats",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 757
+        },
+        {
+          "task": "What is the 75th percentile budget for data jobs?",
+          "expected": "market_stats",
+          "got": "marketplace.market_stats",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 760
+        },
+        {
+          "task": "Show the status of all proposals I've sent.",
+          "expected": "list_proposals",
+          "got": "marketplace.list_proposals",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 748
+        },
+        {
+          "task": "Did any of my submitted proposals get hired?",
+          "expected": "list_proposals",
+          "got": "marketplace.list_proposals",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 754
+        },
+        {
+          "task": "Which clients have written back to me?",
+          "expected": "list_threads",
+          "got": "workspace (invalid args)",
+          "tool_ok": false,
+          "args_ok": false,
+          "tokens": 0
+        },
+        {
+          "task": "Do I have unanswered client messages?",
+          "expected": "list_threads",
+          "got": "marketplace.list_threads",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 752
+        },
+        {
+          "task": "Read the conversation in thread prop-abc1234567.",
+          "expected": "list_messages",
+          "got": "workspace (invalid args)",
+          "tool_ok": false,
+          "args_ok": false,
+          "tokens": 0
+        },
+        {
+          "task": "What did the client say in thread prop-0011223344?",
+          "expected": "list_messages",
+          "got": "workspace (invalid args)",
+          "tool_ok": false,
+          "args_ok": false,
+          "tokens": 0
+        },
+        {
+          "task": "Save a draft proposal for job-005 bidding $850 with this letter: 'Your churn problem needs a careful baseline, and I built one for a telecom client that cut churn by 9 percent.' Use key key-00001.",
+          "expected": "create_proposal_draft",
+          "got": "marketplace.create_proposal_draft",
+          "tool_ok": true,
+          "args_ok": false,
+          "tokens": 835
+        },
+        {
+          "task": "Prepare (do not send) a $1200 proposal for job-012 with letter 'Long batches belong in a background queue; my sentiment API does exactly that with Celery and Redis.' Key key-00002.",
+          "expected": "create_proposal_draft",
+          "got": "marketplace.create_proposal_draft",
+          "tool_ok": true,
+          "args_ok": false,
+          "tokens": 825
+        },
+        {
+          "task": "The user approved draft draft-0123456789. Submit it with key submit-001.",
+          "expected": "submit_proposal",
+          "got": "marketplace.submit_proposal",
+          "tool_ok": true,
+          "args_ok": false,
+          "tokens": 782
+        },
+        {
+          "task": "Preview what would be sent for draft draft-aaaaaaaaaa without sending it. Key prev-00001.",
+          "expected": "submit_proposal",
+          "got": "marketplace.create_proposal_draft",
+          "tool_ok": false,
+          "args_ok": false,
+          "tokens": 800
+        },
+        {
+          "task": "Send the approved reply 'Tuesday 3pm works for me.' to thread prop-abc1234567 with key msg-00001.",
+          "expected": "send_message",
+          "got": "marketplace.send_message",
+          "tool_ok": true,
+          "args_ok": false,
+          "tokens": 798
+        },
+        {
+          "task": "Show exactly what would be sent if I replied 'Thanks, happy to help' in thread prop-0011223344 (key msg-00002), without sending.",
+          "expected": "send_message",
+          "got": "None (invalid args)",
+          "tool_ok": false,
+          "args_ok": false,
+          "tokens": 0
+        },
+        {
+          "task": "What proof do I have of Stripe webhook experience?",
+          "expected": "search_evidence",
+          "got": "portfolio.map_requirements",
+          "tool_ok": false,
+          "args_ok": false,
+          "tokens": 761
+        },
+        {
+          "task": "Find my best 3 examples of imbalanced classification work.",
+          "expected": "search_evidence",
+          "got": "portfolio.search_evidence",
+          "tool_ok": true,
+          "args_ok": false,
+          "tokens": 760
+        },
+        {
+          "task": "Which of my past proposals that won mention churn?",
+          "expected": "search_evidence",
+          "got": "marketplace.list_proposals",
+          "tool_ok": false,
+          "args_ok": false,
+          "tokens": 761
+        },
+        {
+          "task": "Open portfolio item ml-cs-churn in full.",
+          "expected": "get_case_study",
+          "got": "portfolio.get_case_study",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 764
+        },
+        {
+          "task": "Show the case study web-cs-shop.",
+          "expected": "get_case_study",
+          "got": "portfolio.get_case_study",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 765
+        },
+        {
+          "task": "Which skills does my portfolio show the most?",
+          "expected": "list_skills",
+          "got": "portfolio.list_skills",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 751
+        },
+        {
+          "task": "For the requirements Python, Celery and Kubernetes, which ones can my portfolio prove?",
+          "expected": "map_requirements",
+          "got": "portfolio.map_requirements",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 774
+        },
+        {
+          "task": "When am I free for a 30 minute interview this week?",
+          "expected": "get_free_slots",
+          "got": "workspace.get_free_slots",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 751
+        },
+        {
+          "task": "Save an email draft to myself titled 'Interview Tuesday' saying 'Call with the client at 15:00.' Key mail-00001.",
+          "expected": "create_email_draft",
+          "got": "workspace.create_email_draft",
+          "tool_ok": true,
+          "args_ok": false,
+          "tokens": 795
+        }
+      ]
+    },
+    "rewritten": {
+      "tool_selection_accuracy": 0.975,
+      "argument_accuracy": 0.975,
+      "tokens_per_task": 1680,
+      "rows": [
+        {
+          "task": "Find machine learning jobs that mention churn.",
+          "expected": "search_jobs",
+          "got": "search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1676
+        },
+        {
+          "task": "Show me web development jobs about Stripe.",
+          "expected": "search_jobs",
+          "got": "search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1673
+        },
+        {
+          "task": "List the newest data analysis jobs.",
+          "expected": "search_jobs",
+          "got": "search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1674
+        },
+        {
+          "task": "Are there any open jobs mentioning Power BI?",
+          "expected": "search_jobs",
+          "got": "search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1684
+        },
+        {
+          "task": "Search for jobs about RAG chatbots, at most 5 results.",
+          "expected": "search_jobs",
+          "got": "search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1686
+        },
+        {
+          "task": "Look for jobs that need dbt.",
+          "expected": "search_jobs",
+          "got": "search_jobs",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1681
+        },
+        {
+          "task": "Open the full post for job job-005.",
+          "expected": "get_job",
+          "got": "get_job",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1672
+        },
+        {
+          "task": "What exactly does job job-021 ask for?",
+          "expected": "get_job",
+          "got": "get_job",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1670
+        },
+        {
+          "task": "Read the description of job-040.",
+          "expected": "get_job",
+          "got": "get_job",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1671
+        },
+        {
+          "task": "Is client c13 trustworthy? Check their history.",
+          "expected": "get_client_history",
+          "got": "get_client_history",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1672
+        },
+        {
+          "task": "How much has client c02 spent on the platform?",
+          "expected": "get_client_history",
+          "got": "get_client_history",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1665
+        },
+        {
+          "task": "Has client c08 verified their payment method?",
+          "expected": "get_client_history",
+          "got": "get_client_history",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1671
+        },
+        {
+          "task": "How many Connects do I have left?",
+          "expected": "get_connects_balance",
+          "got": "get_connects_balance",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1662
+        },
+        {
+          "task": "Can I afford to bid this week? Check my bid credits.",
+          "expected": "get_connects_balance",
+          "got": "get_connects_balance",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1669
+        },
+        {
+          "task": "What are the platform's current rules?",
+          "expected": "get_policy",
+          "got": "get_policy",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1657
+        },
+        {
+          "task": "Is there any extra Connects cost per proposal right now?",
+          "expected": "get_policy",
+          "got": "get_policy",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1661
+        },
+        {
+          "task": "What do ML jobs typically pay?",
+          "expected": "market_stats",
+          "got": "market_stats",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1657
+        },
+        {
+          "task": "Give me the median budget for web development jobs.",
+          "expected": "market_stats",
+          "got": "market_stats",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1667
+        },
+        {
+          "task": "What is the 75th percentile budget for data jobs?",
+          "expected": "market_stats",
+          "got": "market_stats",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1669
+        },
+        {
+          "task": "Show the status of all proposals I've sent.",
+          "expected": "list_proposals",
+          "got": "list_proposals",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1663
+        },
+        {
+          "task": "Did any of my submitted proposals get hired?",
+          "expected": "list_proposals",
+          "got": "list_proposals",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1662
+        },
+        {
+          "task": "Which clients have written back to me?",
+          "expected": "list_threads",
+          "got": "list_threads",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1660
+        },
+        {
+          "task": "Do I have unanswered client messages?",
+          "expected": "list_threads",
+          "got": "list_threads",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1655
+        },
+        {
+          "task": "Read the conversation in thread prop-abc1234567.",
+          "expected": "list_messages",
+          "got": "list_messages",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1680
+        },
+        {
+          "task": "What did the client say in thread prop-0011223344?",
+          "expected": "list_messages",
+          "got": "list_messages",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1682
+        },
+        {
+          "task": "Save a draft proposal for job-005 bidding $850 with this letter: 'Your churn problem needs a careful baseline, and I built one for a telecom client that cut churn by 9 percent.' Use key key-00001.",
+          "expected": "create_proposal_draft",
+          "got": "create_proposal_draft",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1751
+        },
+        {
+          "task": "Prepare (do not send) a $1200 proposal for job-012 with letter 'Long batches belong in a background queue; my sentiment API does exactly that with Celery and Redis.' Key key-00002.",
+          "expected": "create_proposal_draft",
+          "got": "create_proposal_draft",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1741
+        },
+        {
+          "task": "The user approved draft draft-0123456789. Submit it with key submit-001.",
+          "expected": "submit_proposal",
+          "got": "submit_proposal",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1693
+        },
+        {
+          "task": "Preview what would be sent for draft draft-aaaaaaaaaa without sending it. Key prev-00001.",
+          "expected": "submit_proposal",
+          "got": "submit_proposal",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1698
+        },
+        {
+          "task": "Send the approved reply 'Tuesday 3pm works for me.' to thread prop-abc1234567 with key msg-00001.",
+          "expected": "send_message",
+          "got": "send_message",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1711
+        },
+        {
+          "task": "Show exactly what would be sent if I replied 'Thanks, happy to help' in thread prop-0011223344 (key msg-00002), without sending.",
+          "expected": "send_message",
+          "got": "send_message",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1719
+        },
+        {
+          "task": "What proof do I have of Stripe webhook experience?",
+          "expected": "search_evidence",
+          "got": "search_evidence",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1671
+        },
+        {
+          "task": "Find my best 3 examples of imbalanced classification work.",
+          "expected": "search_evidence",
+          "got": "search_evidence",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1708
+        },
+        {
+          "task": "Which of my past proposals that won mention churn?",
+          "expected": "search_evidence",
+          "got": "list_proposals",
+          "tool_ok": false,
+          "args_ok": false,
+          "tokens": 1692
+        },
+        {
+          "task": "Open portfolio item ml-cs-churn in full.",
+          "expected": "get_case_study",
+          "got": "get_case_study",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1680
+        },
+        {
+          "task": "Show the case study web-cs-shop.",
+          "expected": "get_case_study",
+          "got": "get_case_study",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1676
+        },
+        {
+          "task": "Which skills does my portfolio show the most?",
+          "expected": "list_skills",
+          "got": "list_skills",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1660
+        },
+        {
+          "task": "For the requirements Python, Celery and Kubernetes, which ones can my portfolio prove?",
+          "expected": "map_requirements",
+          "got": "map_requirements",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1679
+        },
+        {
+          "task": "When am I free for a 30 minute interview this week?",
+          "expected": "get_free_slots",
+          "got": "get_free_slots",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1677
+        },
+        {
+          "task": "Save an email draft to myself titled 'Interview Tuesday' saying 'Call with the client at 15:00.' Key mail-00001.",
+          "expected": "create_email_draft",
+          "got": "create_email_draft",
+          "tool_ok": true,
+          "args_ok": true,
+          "tokens": 1708
+        }
+      ]
+    }
+  }
+}

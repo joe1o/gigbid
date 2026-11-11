@@ -1,0 +1,315 @@
+{
+  "generated_at": "2026-11-11 22:57",
+  "judge_model": "openai/gpt-oss-20b",
+  "n_labelled": 30,
+  "cohen_kappa": 0.233,
+  "raw_agreement": "19/30",
+  "judge_mean_score_gigbid_final": 4.59,
+  "judge_mean_score_by_source": {
+    "gigbid_final": 4.59,
+    "writer_raw_before_verification": 5.0,
+    "generic_control": 1.0
+  },
+  "disagreements": [
+    {
+      "id": "P01",
+      "source": "gigbid_final",
+      "score": 4,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with relevant evidence, personalized to the dental booking need, clear and concise, but lacks direct answers to screening questions.",
+      "human": 0
+    },
+    {
+      "id": "P05",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is fully grounded with concrete evidence, directly addresses the job\u2019s requirements, is clear and concise, and contains no missing screening questions.",
+      "human": 0
+    },
+    {
+      "id": "P08",
+      "source": "writer_raw_before_verification",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is fully grounded with specific evidence, personalized to the job, clear, and contains no unanswered screening questions.",
+      "human": 0
+    },
+    {
+      "id": "P09",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is fully grounded with specific evidence, personalized to the job, clear, and contains no screening questions.",
+      "human": 0
+    },
+    {
+      "id": "P12",
+      "source": "gigbid_final",
+      "score": 4,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with relevant evidence, personalized to the dental clinic\u2019s needs, and clear, but it lacks a specific next step for the client.",
+      "human": 0
+    },
+    {
+      "id": "P13",
+      "source": "gigbid_final",
+      "score": 3,
+      "would_send": false,
+      "reason": "The proposal cites relevant evidence and follows a clear workflow, but it remains generic and lacks direct answers to the client\u2019s specific pricing test context, so I would not send it as\u2011is.",
+      "human": 1
+    },
+    {
+      "id": "P14",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded, highly personalized, clear, and fully answers the job requirements with no missing screening questions.",
+      "human": 0
+    },
+    {
+      "id": "P16",
+      "source": "gigbid_final",
+      "score": 4,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, personalized to the candle store, clear and concise, but it lacks direct answers to screening questions.",
+      "human": 0
+    },
+    {
+      "id": "P18",
+      "source": "gigbid_final",
+      "score": 4,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, tailored to the PDF RAG task, clear and concise, but it could include a more explicit next step for the client.",
+      "human": 0
+    },
+    {
+      "id": "P23",
+      "source": "writer_raw_before_verification",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, personalized to the job, clear and concise, and contains no unanswered screening questions.",
+      "human": 0
+    },
+    {
+      "id": "P30",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is fully grounded with specific evidence, directly addresses the pricing A/B test, is clear and concise, and contains no screening questions.",
+      "human": 0
+    }
+  ],
+  "verdicts": [
+    {
+      "id": "P01",
+      "source": "gigbid_final",
+      "score": 4,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with relevant evidence, personalized to the dental booking need, clear and concise, but lacks direct answers to screening questions."
+    },
+    {
+      "id": "P02",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with relevant evidence, highly personalized to the job, clear and concise, and contains no screening questions."
+    },
+    {
+      "id": "P03",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is fully grounded with specific evidence, tailored to the invoice\u2011extraction task, clear and concise, and contains no unanswered screening questions."
+    },
+    {
+      "id": "P04",
+      "source": "generic_control",
+      "score": 1,
+      "would_send": false,
+      "reason": "The proposal is a generic template with no evidence, personalization, or clarity, failing all rubric criteria."
+    },
+    {
+      "id": "P05",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is fully grounded with concrete evidence, directly addresses the job\u2019s requirements, is clear and concise, and contains no missing screening questions."
+    },
+    {
+      "id": "P06",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, directly addresses the job\u2019s requirements, is clear and concise, and contains no unanswered screening questions."
+    },
+    {
+      "id": "P07",
+      "source": "writer_raw_before_verification",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, directly addresses the job\u2019s requirements, is concise and clear, and contains no unanswered screening questions."
+    },
+    {
+      "id": "P08",
+      "source": "writer_raw_before_verification",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is fully grounded with specific evidence, personalized to the job, clear, and contains no unanswered screening questions."
+    },
+    {
+      "id": "P09",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is fully grounded with specific evidence, personalized to the job, clear, and contains no screening questions."
+    },
+    {
+      "id": "P10",
+      "source": "generic_control",
+      "score": 1,
+      "would_send": false,
+      "reason": "The proposal is a generic template with no evidence, personalization, or screening answers, failing all rubric criteria."
+    },
+    {
+      "id": "P11",
+      "source": "gigbid_final",
+      "score": 4,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with concrete evidence, directly addresses the job\u2019s requirements, is clear and concise, but lacks direct answers to screening questions."
+    },
+    {
+      "id": "P12",
+      "source": "gigbid_final",
+      "score": 4,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with relevant evidence, personalized to the dental clinic\u2019s needs, and clear, but it lacks a specific next step for the client."
+    },
+    {
+      "id": "P13",
+      "source": "gigbid_final",
+      "score": 3,
+      "would_send": false,
+      "reason": "The proposal cites relevant evidence and follows a clear workflow, but it remains generic and lacks direct answers to the client\u2019s specific pricing test context, so I would not send it as\u2011is."
+    },
+    {
+      "id": "P14",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded, highly personalized, clear, and fully answers the job requirements with no missing screening questions."
+    },
+    {
+      "id": "P15",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, tailored to the invoice\u2011extraction task, clear and concise, and contains no unanswered screening questions."
+    },
+    {
+      "id": "P16",
+      "source": "gigbid_final",
+      "score": 4,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, personalized to the candle store, clear and concise, but it lacks direct answers to screening questions."
+    },
+    {
+      "id": "P17",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, highly personalized to the job, clear and concise, and includes a direct next step."
+    },
+    {
+      "id": "P18",
+      "source": "gigbid_final",
+      "score": 4,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, tailored to the PDF RAG task, clear and concise, but it could include a more explicit next step for the client."
+    },
+    {
+      "id": "P19",
+      "source": "writer_raw_before_verification",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, tailored to the dental clinic\u2019s needs, clear and concise, and includes a direct next step."
+    },
+    {
+      "id": "P20",
+      "source": "gigbid_final",
+      "score": 4,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with concrete evidence, clearly explains the approach, and includes a next step, but it could be more tailored to the specific client\u2019s data and goals."
+    },
+    {
+      "id": "P21",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, directly addresses the client\u2019s Excel cleanup problem, is clear and concise, and contains no screening questions."
+    },
+    {
+      "id": "P22",
+      "source": "generic_control",
+      "score": 1,
+      "would_send": false,
+      "reason": "The proposal is a generic template with no evidence, personalization, or screening answers, failing all rubric criteria."
+    },
+    {
+      "id": "P23",
+      "source": "writer_raw_before_verification",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, personalized to the job, clear and concise, and contains no unanswered screening questions."
+    },
+    {
+      "id": "P24",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, tailored to the job, clear, and includes a direct next step."
+    },
+    {
+      "id": "P25",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with concrete evidence, directly addresses the 5% churn problem, is clear and concise, and contains no screening questions."
+    },
+    {
+      "id": "P26",
+      "source": "gigbid_final",
+      "score": 4,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, tailored to the job, clear and concise, but lacks direct answers to any screening questions."
+    },
+    {
+      "id": "P27",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with specific evidence, highly personalized to the marketing\u2011Snowflake problem, clear and concise, and fully answers all screening questions."
+    },
+    {
+      "id": "P28",
+      "source": "generic_control",
+      "score": 1,
+      "would_send": false,
+      "reason": "The proposal is generic, lacks evidence, personalization, clarity, and does not answer screening questions."
+    },
+    {
+      "id": "P29",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is well\u2011grounded with concrete evidence, directly addresses the specific chat requirement, is clear and concise, and contains no screening questions."
+    },
+    {
+      "id": "P30",
+      "source": "gigbid_final",
+      "score": 5,
+      "would_send": true,
+      "reason": "The proposal is fully grounded with specific evidence, directly addresses the pricing A/B test, is clear and concise, and contains no screening questions."
+    }
+  ]
+}

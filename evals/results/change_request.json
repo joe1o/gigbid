@@ -1,0 +1,459 @@
+{
+  "generated_at": "2026-11-11 22:59",
+  "policy_version": "v2-2026-11-02",
+  "extra_connects_per_proposal": 2,
+  "required_statements": [
+    "This proposal was drafted with AI assistance and reviewed by me."
+  ],
+  "policy_file_diff_numstat": "6\t3\tgigsim/policy.yaml",
+  "code_files_changed": "none",
+  "checks": [
+    {
+      "job_id": "job-006",
+      "status": "awaiting_approval",
+      "job_connects": 8,
+      "charged_connects": 10,
+      "extra_cost_applied": true,
+      "statement_present": true,
+      "writer_included_it_itself": false
+    },
+    {
+      "job_id": "job-020",
+      "status": "awaiting_approval",
+      "job_connects": 12,
+      "charged_connects": 14,
+      "extra_cost_applied": true,
+      "statement_present": true,
+      "writer_included_it_itself": false
+    },
+    {
+      "job_id": "job-037",
+      "status": "awaiting_approval",
+      "job_connects": 8,
+      "charged_connects": 10,
+      "extra_cost_applied": true,
+      "statement_present": true,
+      "writer_included_it_itself": false
+    }
+  ],
+  "per_job": [
+    {
+      "job_id": "job-006",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "awaiting_approval",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 900.0,
+      "error": "",
+      "draft_raw": "I understand you need a reproducible Python model to predict subscription cancellations for your app and compare at least two classifiers with precision and recall metrics. In a telecom churn project with a 6% churn rate, I built a pipeline that used class weights and evaluated models with precision\u2011recall AUC, achieving a 0.71 PR\u2011AUC and helping the retention team cut churn by 9% in one quarter. A 5\u2011star client review highlighted my clear documentation for non\u2011technical stakeholders.\n\nFor this job I will create a notebook that implements two classification models (e.g., logistic regression and XGBoost) using scikit\u2011learn, apply appropriate class\u2011weighting or resampling for the 5% churn imbalance, and evaluate them with precision\u2011recall curves and top\u2011decile precision/recall. I will include a concise limitations section and ensure the code runs end\u2011to\u2011end on your environment.\n\nI will deliver the full package within the 7\u2011day deadline. Next step: please share a sample of the subscription data (or a schema) so I can set up the preprocessing pipeline. This proposal was prepared with AI assistance.",
+      "draft": "I understand you need a reproducible Python model to predict subscription cancellations for your app and compare at least two classifiers with precision and recall metrics. In a telecom churn project with a 6% churn rate, I built a pipeline that used class weights and evaluated models with precision\u2011recall AUC, achieving a 0.71 PR\u2011AUC and helping the retention team cut churn by 9% in one quarter. A 5\u2011star client review highlighted my clear documentation for non\u2011technical stakeholders.\n\nFor this job I will create a notebook that implements two classification models (e.g., logistic regression and XGBoost) using scikit\u2011learn, apply appropriate class\u2011weighting or resampling for the 5% churn imbalance, and evaluate them with precision\u2011recall curves and top\u2011decile precision/recall. I will include a concise limitations section and ensure the code runs end\u2011to\u2011end on your environment.\n\nI will deliver the full package within the 7\u2011day deadline. Next step: please share a sample of the subscription data (or a schema) so I can set up the preprocessing pipeline. This proposal was prepared with AI assistance.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
+      "answers": [
+        "I would handle the 5% churn imbalance by using class\u2011weighting or resampling and evaluate models with precision\u2011recall AUC (PR\u2011AUC) and top\u2011decile precision/recall, as I did in a telecom project with 6% churn."
+      ],
+      "evidence": [
+        {
+          "id": "ml-pp-churn-won",
+          "type": "past_proposal",
+          "title": "Proposal: churn model for subscription box",
+          "source": "past_proposal:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "classification",
+            "imbalanced data"
+          ],
+          "date": "2025-03",
+          "client_industry": "ecommerce",
+          "outcome": "won",
+          "text": "Your churn rate is the number that matters, so I would start by checking how imbalanced it is. In a telecom project I faced 6% churn and used PR-AUC rather than accuracy; the final model helped cut churn 9% in a quarter. For you I would compare two models, report precision and recall at the top decile and hand over a reproducible notebook.",
+          "score": 0.7577
+        },
+        {
+          "id": "ml-rv-telecom",
+          "type": "review",
+          "title": "Client review (telecom)",
+          "source": "review:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "communication",
+            "documentation"
+          ],
+          "date": "2024-12",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+          "score": 0.7394
+        },
+        {
+          "id": "ml-rd-rag-eval",
+          "type": "repo_readme",
+          "title": "rag-eval-kit (GitHub README)",
+          "source": "repo_readme:rag-eval-kit",
+          "project": "rag-eval-kit",
+          "skills": [
+            "information retrieval",
+            "BM25",
+            "embeddings",
+            "evaluation metrics",
+            "Recall@k",
+            "nDCG"
+          ],
+          "date": "2025-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+          "score": 0.7215
+        },
+        {
+          "id": "ml-cs-churn",
+          "type": "case_study",
+          "title": "Churn prediction for a telecom operator",
+          "source": "case_study:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "Python",
+            "scikit-learn",
+            "XGBoost",
+            "classification",
+            "model evaluation",
+            "imbalanced data"
+          ],
+          "date": "2024-11",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+          "score": 0.7175
+        },
+        {
+          "id": "ml-cv",
+          "type": "cv",
+          "title": "CV: Sara Malik",
+          "source": "cv:ml-cv",
+          "project": null,
+          "skills": [
+            "Python",
+            "PyTorch",
+            "scikit-learn",
+            "LangChain",
+            "RAG",
+            "FastAPI",
+            "Docker",
+            "AWS",
+            "NLP",
+            "SQL"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+          "score": 0.6934
+        },
+        {
+          "id": "ml-cs-legal-rag",
+          "type": "case_study",
+          "title": "Document Q&A chatbot for a law firm",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG",
+            "LangChain",
+            "Pinecone",
+            "FastAPI",
+            "OpenAI",
+            "embeddings"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+          "score": 0.6735
+        }
+      ],
+      "claims": 4,
+      "unsupported_before": 0,
+      "unsupported_after": 1,
+      "critic_rounds": 2,
+      "connects_cost_preview": 10,
+      "compliance_fixes": 1,
+      "seconds": 13.44,
+      "tokens": 8551,
+      "cost_usd": 0.0017760749999999998
+    },
+    {
+      "job_id": "job-020",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "awaiting_approval",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1680.0,
+      "error": "",
+      "draft_raw": "I see you need a fast internal admin dashboard for visualizing your PostgreSQL metrics. In a recent fintech SaaS project I built a React/TypeScript analytics dashboard with Recharts and a Node API over PostgreSQL, tuning the queries so every chart loads in under 500\u202fms on a 3\u202fmillion\u2011row table, and the client gave a 5\u2011star review for the chart performance. For your SaaS I will create a React/TypeScript dashboard with reusable chart components, design a scalable API layer that aggregates data server\u2011side, and apply the same query\u2011optimization techniques (indexes, selective columns, caching) to keep load times under 500\u202fms, while delivering clear documentation for non\u2011technical stakeholders and role\u2011based access. I can deliver the full solution, including documentation, within the 30\u2011day deadline. Let\u2019s schedule a brief call to confirm the exact metrics you want to track and agree on the API contract.",
+      "draft": "I see you need a fast internal admin dashboard for visualizing your PostgreSQL metrics. In a recent fintech SaaS project I built a React/TypeScript analytics dashboard with Recharts and a Node API over PostgreSQL, tuning the queries so every chart loads in under 500\u202fms on a 3\u202fmillion\u2011row table, and the client gave a 5\u2011star review for the chart performance. For your SaaS I will create a React/TypeScript dashboard with reusable chart components, design a scalable API layer that aggregates data server\u2011side, and apply the same query\u2011optimization techniques (indexes, selective columns, caching) to keep load times under 500\u202fms, while delivering clear documentation for non\u2011technical stakeholders and role\u2011based access. I can deliver the full solution, including documentation, within the 30\u2011day deadline. Let\u2019s schedule a brief call to confirm the exact metrics you want to track and agree on the API contract.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
+      "answers": [
+        "I keep charts fast by tuning PostgreSQL queries (indexes, selective columns, caching) and using lightweight chart libraries like Recharts, which let every chart load in under 500\u202fms on tables with 3\u202fmillion rows."
+      ],
+      "evidence": [
+        {
+          "id": "web-cs-dashboard",
+          "type": "case_study",
+          "title": "Analytics dashboard for a fintech SaaS",
+          "source": "case_study:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React",
+            "TypeScript",
+            "PostgreSQL",
+            "charts",
+            "Recharts",
+            "REST API"
+          ],
+          "date": "2024-10",
+          "client_industry": "fintech",
+          "outcome": null,
+          "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+          "score": 0.7549
+        },
+        {
+          "id": "web-pp-replied",
+          "type": "past_proposal",
+          "title": "Proposal: admin panel for logistics startup",
+          "source": "past_proposal:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React",
+            "PostgreSQL"
+          ],
+          "date": "2025-09",
+          "client_industry": "logistics",
+          "outcome": "replied",
+          "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours.",
+          "score": 0.7518
+        },
+        {
+          "id": "web-code-shop",
+          "type": "code",
+          "title": "next-shop-starter/prisma/schema.prisma",
+          "source": "code:next-shop",
+          "project": "next-shop",
+          "skills": [
+            "Prisma",
+            "PostgreSQL",
+            "database migrations"
+          ],
+          "date": "2025-05",
+          "client_industry": null,
+          "outcome": null,
+          "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
+          "score": 0.6808
+        },
+        {
+          "id": "web-cs-shop",
+          "type": "case_study",
+          "title": "Next.js storefront with Stripe for a clothing brand",
+          "source": "case_study:next-shop",
+          "project": "next-shop",
+          "skills": [
+            "Next.js",
+            "React",
+            "Stripe",
+            "TypeScript",
+            "e-commerce"
+          ],
+          "date": "2025-04",
+          "client_industry": "retail",
+          "outcome": null,
+          "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
+          "score": 0.6684
+        },
+        {
+          "id": "web-cv",
+          "type": "cv",
+          "title": "CV: Omar Raza",
+          "source": "cv:web-cv",
+          "project": null,
+          "skills": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Node.js",
+            "Express",
+            "PostgreSQL",
+            "Stripe",
+            "Tailwind",
+            "Docker",
+            "AWS"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
+          "score": 0.6663
+        },
+        {
+          "id": "web-rv-fintech",
+          "type": "review",
+          "title": "Client review (fintech)",
+          "source": "review:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React"
+          ],
+          "date": "2024-11",
+          "client_industry": "fintech",
+          "outcome": null,
+          "text": "5 stars. Omar shipped our dashboard ahead of schedule and the charts are fast even on huge accounts.",
+          "score": 0.661
+        }
+      ],
+      "claims": 3,
+      "unsupported_before": 0,
+      "unsupported_after": 1,
+      "critic_rounds": 2,
+      "connects_cost_preview": 14,
+      "compliance_fixes": 1,
+      "seconds": 37.61,
+      "tokens": 7633,
+      "cost_usd": 0.0015831749999999998
+    },
+    {
+      "job_id": "job-037",
+      "persona": "data_analyst",
+      "kind": "good",
+      "style": "detailed",
+      "status": "awaiting_approval",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 800.0,
+      "error": "",
+      "draft_raw": "The client needs a statistically sound analysis of a 3\u2011week pricing page A/B test with 30k visitors, including confidence intervals and a clear recommendation. In a recent 48k\u2011session checkout pricing experiment I first checked for sample\u2011ratio mismatch, then applied a two\u2011proportion z\u2011test that revealed a 2.1\u2011point lift with a 95% confidence interval, and delivered a concise one\u2011page decision memo for non\u2011technical stakeholders. With three years of experience as a data analyst, strong SQL and Python (pandas) skills, and a proven track record of turning messy data into actionable insights, I will follow the same rigorous workflow, produce conversion\u2011rate visualizations, and document the methodology for your team.\n\nI will prepare a statistical analysis report, confidence\u2011interval calculations, a clear pricing recommendation, and visual summaries, packaged in a short business\u2011focused document that non\u2011technical stakeholders can read in minutes. I can deliver within the timeframe you specify and will ensure the methodology is fully documented for your team.\n\nIf you\u2019re ready to proceed, please share the raw data and any tracking specifications, and I\u2019ll start the analysis tomorrow.",
+      "draft": "The client needs a statistically sound analysis of a 3\u2011week pricing page A/B test with 30k visitors, including confidence intervals and a clear recommendation. In a recent 48k\u2011session checkout pricing experiment I first checked for sample\u2011ratio mismatch, then applied a two\u2011proportion z\u2011test that revealed a 2.1\u2011point lift with a 95% confidence interval, and delivered a concise one\u2011page decision memo for non\u2011technical stakeholders. With three years of experience as a data analyst, strong SQL and Python (pandas) skills, and a proven track record of turning messy data into actionable insights, I will follow the same rigorous workflow, produce conversion\u2011rate visualizations, and document the methodology for your team.\n\nI will prepare a statistical analysis report, confidence\u2011interval calculations, a clear pricing recommendation, and visual summaries, packaged in a short business\u2011focused document that non\u2011technical stakeholders can read in minutes. I can deliver within the timeframe you specify and will ensure the methodology is fully documented for your team.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
+      "answers": [
+        "I would first check the traffic split for a sample\u2011ratio mismatch, as an imbalance can silently invalidate the test results."
+      ],
+      "evidence": [
+        {
+          "id": "data-pp-won",
+          "type": "past_proposal",
+          "title": "Proposal: pricing experiment analysis",
+          "source": "past_proposal:checkout-abtest",
+          "project": "checkout-abtest",
+          "skills": [
+            "A/B testing"
+          ],
+          "date": "2025-05",
+          "client_industry": "saas",
+          "outcome": "won",
+          "text": "Before trusting the result I would check the traffic split, because a sample-ratio mismatch silently breaks tests. On a 48k-session checkout test I did exactly that, then found a 2.1-point lift with a clear confidence interval. You'd get a one-page memo with the decision, not just numbers.",
+          "score": 0.7591
+        },
+        {
+          "id": "data-cs-abtest",
+          "type": "case_study",
+          "title": "A/B test analysis for an e-commerce checkout",
+          "source": "case_study:checkout-abtest",
+          "project": "checkout-abtest",
+          "skills": [
+            "A/B testing",
+            "statistics",
+            "Python",
+            "hypothesis testing"
+          ],
+          "date": "2024-09",
+          "client_industry": "ecommerce",
+          "outcome": null,
+          "text": "Analysed a checkout redesign test with 48k sessions. Checked sample-ratio mismatch first, then a two-proportion z-test and a 95% confidence interval. The new design lifted conversion by 2.1 points (p = 0.01). Wrote a one-page decision memo the founders could read in two minutes.",
+          "score": 0.7541
+        },
+        {
+          "id": "data-cv",
+          "type": "cv",
+          "title": "CV: Hina Javed",
+          "source": "cv:data-cv",
+          "project": null,
+          "skills": [
+            "SQL",
+            "Python",
+            "pandas",
+            "Power BI",
+            "DAX",
+            "Tableau",
+            "Excel",
+            "dbt",
+            "statistics",
+            "A/B testing"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "Data analyst with 3 years of experience turning messy business data into dashboards and decisions. Strong SQL and Python (pandas). Power BI with DAX, some Tableau. Modelling with dbt. Statistics background: hypothesis tests, A/B testing, cohort analysis.",
+          "score": 0.6895
+        },
+        {
+          "id": "data-rv-marketing",
+          "type": "review",
+          "title": "Client review (marketing)",
+          "source": "review:marketing-dbt",
+          "project": "marketing-dbt",
+          "skills": [
+            "dbt"
+          ],
+          "date": "2025-07",
+          "client_industry": "marketing",
+          "outcome": null,
+          "text": "5 stars. Our numbers finally match across tools. Hina documented every model.",
+          "score": 0.6855
+        },
+        {
+          "id": "data-cs-dbt",
+          "type": "case_study",
+          "title": "Marketing data models with dbt and Snowflake",
+          "source": "case_study:marketing-dbt",
+          "project": "marketing-dbt",
+          "skills": [
+            "dbt",
+            "Snowflake",
+            "SQL",
+            "data pipelines"
+          ],
+          "date": "2025-06",
+          "client_industry": "marketing",
+          "outcome": null,
+          "text": "Rebuilt a marketing agency's reporting layer as dbt models on Snowflake: staging, intermediate and mart layers with tests on every key. Channel spend and conversions now reconcile to the cent; report build time fell from 3 hours to 12 minutes.",
+          "score": 0.6801
+        },
+        {
+          "id": "data-rd-cohort",
+          "type": "repo_readme",
+          "title": "sql-cohort-analysis (GitHub README)",
+          "source": "repo_readme:cohort-analysis",
+          "project": "cohort-analysis",
+          "skills": [
+            "SQL",
+            "cohort analysis",
+            "retention"
+          ],
+          "date": "2025-03",
+          "client_industry": null,
+          "outcome": null,
+          "text": "sql-cohort-analysis: SQL templates for monthly retention cohorts, plus a notebook that draws the retention triangle.",
+          "score": 0.6477
+        }
+      ],
+      "claims": 3,
+      "unsupported_before": 1,
+      "unsupported_after": 1,
+      "critic_rounds": 3,
+      "connects_cost_preview": 10,
+      "compliance_fixes": 1,
+      "seconds": 74.81,
+      "tokens": 11462,
+      "cost_usd": 0.002635875
+    }
+  ]
+}

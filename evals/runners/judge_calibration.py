@@ -16,6 +16,7 @@ import argparse
 import asyncio
 import csv
 import json
+import os
 import random
 
 from pydantic import BaseModel, Field
@@ -81,7 +82,9 @@ async def judge_all(items: list[dict]) -> list[dict]:
     out = []
     for it in items:
         job = jobs[it["job_id"]]
-        v, _usage = await llm.structured("critic", "judge", Verdict, job=f"{job['title']}\n{job['description']}",
+        # The judge runs on the SMALL model (job_analyst node = gpt-oss-20b) to save the strong model's
+        # quota for the live app; calibration against the human labels tells us if that is good enough.
+        v, _usage = await llm.structured(os.getenv("JUDGE_NODE", "job_analyst"), "judge", Verdict, job=f"{job['title']}\n{job['description']}",
                                         evidence=evidence_block(it["evidence"]), proposal=it["proposal"])
         out.append({"id": it["id"], "source": it["source"], **v.model_dump()})
         print(f"  {it['id']} {it['source']:32} score {v.score} send {v.would_send}", flush=True)
@@ -99,7 +102,9 @@ def score() -> None:
     agree = sum(human[v["id"]] == int(v["would_send"]) for v in labelled)
     ours = [v["score"] for v in verdicts if v["source"] == "gigbid_final"]
     disagreements = [{**v, "human": human[v["id"]]} for v in labelled if human[v["id"]] != int(v["would_send"])]
-    harness.save("judge_calibration", {
+    from agent import llm
+
+    harness.save("judge_calibration", {"judge_model": llm.model_for(os.getenv("JUDGE_NODE", "job_analyst")),
         "n_labelled": len(labelled), "cohen_kappa": kappa, "raw_agreement": f"{agree}/{len(labelled)}",
         "judge_mean_score_gigbid_final": round(sum(ours) / len(ours), 2) if ours else None,
         "judge_mean_score_by_source": {s: round(sum(v["score"] for v in verdicts if v["source"] == s) /
