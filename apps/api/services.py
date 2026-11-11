@@ -155,6 +155,25 @@ async def marketplace_health(force: bool = False) -> dict:
     return _health
 
 
+async def scout_scheduler(app) -> None:
+    """Every N minutes (agent/config.yaml -> scheduling), run every onboarded user's saved searches.
+    The Scout's seen-job store makes this idempotent: a restart never re-analyses a job."""
+    from agent.settings import CONFIG, marketplace_mode
+    from apps.api.auth.users import get_user
+
+    minutes = CONFIG["scheduling"]["scout_interval_minutes"][marketplace_mode()]
+    while True:
+        await asyncio.sleep(minutes * 60)
+        try:
+            rt = app.state.rt
+            for u in await rt.store.asearch(("users",), limit=1000):
+                user = await get_user(rt.store, u.key)
+                if user and user.get("onboarded"):
+                    await scout_now(rt, user)
+        except Exception:  # noqa: BLE001, S112  (the scheduler must keep running)
+            continue
+
+
 async def recovery_loop(app) -> None:
     from apps.api.auth.users import get_user
 

@@ -18,4 +18,5 @@ os.environ.update({
     "MARKETPLACE_MCP_DB": os.path.join(_tmp, "marketplace_mcp.sqlite"),
     "WORKSPACE_DB": os.path.join(_tmp, "workspace.sqlite"),
     "MCP_DEFAULT_USER": "ml_engineer",
+    "GIGBID_SCHEDULER": "0",        # no background scouting during tests
 })

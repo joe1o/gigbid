@@ -10,6 +10,7 @@ safety.py - guardrails used by several agents (requirement R9 / E4).
       the Risk Assessor and the Compliance Guard.
 """
 
+import os
 import re
 
 from agent.settings import CONFIG
@@ -30,6 +31,9 @@ GENERIC_OPENINGS = ["i am passionate", "dear sir", "dear hiring manager", "i hav
 
 def defences_on() -> bool:
     """Switch used to measure attack success with and without defences (config: safety.injection_defence)."""
+    env = os.getenv("GIGBID_DEFENCES")
+    if env is not None:
+        return env != "off"
     return CONFIG.get("safety", {}).get("injection_defence", True)
 
 

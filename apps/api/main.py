@@ -39,9 +39,12 @@ async def lifespan(app: FastAPI):
     async with open_runtime() as rt:
         app.state.rt = rt
         await ensure_reviewer(rt.store)
-        loop = asyncio.create_task(services.recovery_loop(app))
+        loops = [asyncio.create_task(services.recovery_loop(app))]
+        if os.getenv("GIGBID_SCHEDULER", "1") == "1":
+            loops.append(asyncio.create_task(services.scout_scheduler(app)))
         yield
-        loop.cancel()
+        for t in loops:
+            t.cancel()
 
 
 app = FastAPI(title="GigBid API", version="1.0.0", lifespan=lifespan,

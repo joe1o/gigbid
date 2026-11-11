@@ -23,7 +23,7 @@ os.environ.update({
     "DATABASE_URL": f"sqlite:///{tmp}/app.sqlite", "GIGSIM_DB_PATH": f"{tmp}/gigsim.sqlite",
     "MARKETPLACE_MCP_DB": f"{tmp}/marketplace.sqlite", "WORKSPACE_DB": f"{tmp}/workspace.sqlite",
     "REVIEWER_EMAIL": "reviewer@gigbid.app", "REVIEWER_PASSWORD": "review-local-only",
-    "LANGSMITH_TRACING": "false", "GIGBID_RUN_SLOTS": "8",
+    "LANGSMITH_TRACING": "false", "GIGBID_RUN_SLOTS": "8", "GIGBID_SCHEDULER": "0",
 })
 sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)

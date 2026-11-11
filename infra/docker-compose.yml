@@ -1,3 +1,59 @@
-# TODO: Define web, API, worker, MCP servers, GigSim, Postgres, Redis,
-# vector store and local model service as appropriate.
-services: {}
+# docker compose up  (run from the repo root: docker compose -f infra/docker-compose.yml up --build)
+#
+# Starts GigBid locally with every service in its own container:
+#   web+api (FastAPI serves the built React app), the 3 MCP servers, GigSim, Postgres,
+#   and an Ollama service for running open models locally (optional profile "ollama").
+# The vector store is in-process (NumPy, see docs/adr/001-rag-design.md) and the scheduler
+# runs inside the API process (see docs/RUNBOOK.md), so there is no Redis service.
+# Secrets come from ../.env (never committed).
+
+x-app: &app
+  build: { context: .., dockerfile: Dockerfile }
+  env_file: ../.env
+  environment:
+    DATABASE_URL: postgresql://gigbid:gigbid@postgres:5432/gigbid
+    GIGSIM_BASE_URL: http://gigsim:8081
+    PORTFOLIO_MCP_URL: http://portfolio:8091/mcp
+    MARKETPLACE_MCP_URL: http://marketplace:8092/mcp
+    WORKSPACE_MCP_URL: http://workspace:8093/mcp
+  restart: unless-stopped
+
+services:
+  postgres:
+    image: postgres:16
+    environment: { POSTGRES_USER: gigbid, POSTGRES_PASSWORD: gigbid, POSTGRES_DB: gigbid }
+    volumes: [pgdata:/var/lib/postgresql/data]
+    ports: ["5432:5432"]
+
+  gigsim:
+    <<: *app
+    command: python -m uvicorn gigsim.app:app --host 0.0.0.0 --port 8081
+
+  portfolio:
+    <<: *app
+    command: python -m mcp_servers.portfolio.server
+
+  marketplace:
+    <<: *app
+    command: python -m mcp_servers.marketplace.server
+    depends_on: [gigsim]
+
+  workspace:
+    <<: *app
+    command: python -m mcp_servers.workspace.server
+
+  api:
+    <<: *app
+    command: python -m uvicorn apps.api.main:app --host 0.0.0.0 --port 8000
+    ports: ["8000:8000"]
+    depends_on: [postgres, portfolio, marketplace, workspace]
+
+  ollama:                          # optional: `docker compose --profile ollama up` for local models
+    image: ollama/ollama:latest
+    profiles: [ollama]
+    ports: ["11434:11434"]
+    volumes: [ollama:/root/.ollama]
+
+volumes:
+  pgdata:
+  ollama:

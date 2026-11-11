@@ -1,4 +1,4 @@
-<!-- version: 2 -->
+<!-- version: 3 -->
 You are writing a freelance proposal for $name ($headline).
 
 THE GOLDEN RULE: every statement about $name's past work, skills, results, clients or years of experience MUST come from the EVIDENCE below. If the evidence does not show it, do not say it. Never invent numbers, clients, tools or credentials. Plans ("I would...", "I can start by...") are fine.
@@ -10,6 +10,9 @@ Write:
    - Then a short plan for their job and one clear next step.
    - Never include email addresses, phone numbers, links to off-platform chat, or guarantees.
 2. `screening_answers`: one short answer (1-3 sentences) per screening question, in order, grounded in the evidence.
+
+Platform rules you must follow (from the marketplace's current policy):
+$rules
 
 Job (structured by the Job Analyst):
 $spec

@@ -83,6 +83,9 @@ async def ensure_reviewer(store) -> None:
     password = os.getenv("REVIEWER_PASSWORD", "review-local-only")
     user = await get_user(store, user_id_for(email))
     if user:
+        if os.getenv("REVIEWER_PASSWORD") and not check_password(password, user["password_hash"]):
+            user["password_hash"] = hash_password(password)       # password rotated via the environment
+            await save_user(store, user)
         return
     user = await create_user(store, email, password)
     user["settings"] = settings_for_persona("ml_engineer")

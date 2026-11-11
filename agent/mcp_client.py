@@ -35,7 +35,7 @@ AGENT_TOOLS: dict[str, dict[str, list[str]]] = {
     "risk_assessor":  {"marketplace": ["get_client_history", "get_policy"]},
     "fit_matcher":    {"portfolio": ["map_requirements", "search_evidence", "list_skills"]},
     "pricing":        {"marketplace": ["market_stats", "get_connects_balance", "get_policy"]},
-    "writer":         {"portfolio": ["search_evidence", "get_case_study"]},
+    "writer":         {"portfolio": ["search_evidence", "get_case_study"], "marketplace": ["get_policy"]},
     "critic":         {"portfolio": ["search_evidence", "get_case_study"]},
     "compliance":     {},                                             # no tools: checks text against policy
     "submitter":      {"marketplace": ["create_proposal_draft", "submit_proposal"]},   # runs only after approval

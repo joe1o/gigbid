@@ -1,0 +1,7 @@
+# CI quality gates for the smoke eval (evals/runners/decision_eval.py --smoke).
+# A pull request fails if bid/skip F1 or scam recall drop below these, or if unsupported
+# claims survive verification. Set from the first measured runs, with a small margin.
+min_bid_skip_f1: 0.80
+min_scam_recall: 0.80
+max_unsupported_claims_after: 0.0
+min_retrieval_recall_at5: 0.85

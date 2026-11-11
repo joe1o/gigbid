@@ -40,6 +40,9 @@ async def writer(state, config):
             evidence.append(await t.call("writer", "get_case_study", {"id": row["evidence_ids"][0]}))
             have.add(row["evidence_ids"][0])
 
+    # Platform rules come live from the marketplace (a policy change needs no code change).
+    policy = await t.call("writer", "get_policy")
+
     # 2. Long-term memory (promoted rules only).
     store = get_store()
     style = await memory.style_rules(store, state["user_id"]) if store else []
@@ -63,7 +66,8 @@ async def writer(state, config):
         questions="\n".join(f"{i + 1}. {q}" for i, q in enumerate(spec["screening_questions"])) or "(none)",
         evidence=evidence_block(evidence),
         style="\n".join(f"- {r}" for r in style) or "(none learned yet)",
-        outcomes=outcomes or "(none yet)", revision_notes=notes)
+        outcomes=outcomes or "(none yet)", revision_notes=notes,
+        rules="\n".join(f"- {r}" for r in policy["rules"]))
     draft = ProposalDraft(**out.model_dump(), job_id=job["job_id"], version=state.get("revisions", 0) + 1,
                           evidence_ids=sorted(have))
     return {"evidence": evidence, "draft_raw": draft.model_dump(), "usage": [usage]}

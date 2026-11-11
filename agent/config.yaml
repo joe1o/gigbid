@@ -84,6 +84,12 @@ budgets:
   max_revisions: 2                  # Critic may send a draft back at most twice
   max_tokens_per_job: 40000         # more tokens than this -> "needs attention"
 
+# Scheduled scouting (runs in the API process as a background task, never inside a web request).
+scheduling:
+  scout_interval_minutes:
+    gigsim: 120          # simulator: every 2 hours
+    upwork_live: 360     # live: every 6 hours - a person checking a few times a day, never scraping-like polling
+
 safety:
   injection_defence: true           # false only for the "attack success before defences" experiment
 
