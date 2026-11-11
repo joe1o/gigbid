@@ -58,6 +58,7 @@ async def writer(state, config):
 
     words = CONFIG["thresholds"]["proposal_words"]
     spec_view = {k: spec[k] for k in ("title", "summary", "deliverables", "requirements", "hidden_needs", "timeline_days")}
+    spec_view["deadline_days"] = job["duration_days"]          # from the marketplace: any timeline must fit it
     out, usage = await llm.structured(
         "writer", os.getenv("GIGBID_WRITER_PROMPT", "writer"), WriterOut,   # A/B test can swap the prompt
         name=s.get("name", "the freelancer"), headline=s.get("headline", ""),

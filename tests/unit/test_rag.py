@@ -65,3 +65,18 @@ def test_claim_inside_a_plan_sentence_is_still_checked():
     fake = "Additionally, my ten years of experience with Kubernetes ensures I can scale it."
     assert verify.is_claim(fake) and verify.check_claim(fake, ev)["label"] == "unsupported"
     assert not verify.is_claim("My plan is to containerize the model with a Dockerfile.")
+
+
+def test_requests_to_the_client_are_not_claims():
+    """Regression (human labels P05/P12): closing requests were deleted as 'unsupported claims'."""
+    s = ("Please share any preferred base image or deployment constraints so I can tailor the Docker setup, "
+         "and let me know if you would like to discuss details over a quick call.")
+    assert not verify.is_claim(s)
+
+
+def test_unknown_tool_named_in_a_claim_is_caught():
+    """Regression (human label P30): 'scipy' is not in the data analyst's portfolio."""
+    ev = [corpus.get_item("data_analyst", "data-cv")]
+    claim = "My CV shows strong Python (pandas, scipy) and SQL skills."
+    r = verify.check_claim(claim, ev)
+    assert "scipy" in r["missing"] and r["label"] != "supported"

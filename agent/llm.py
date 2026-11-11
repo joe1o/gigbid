@@ -76,17 +76,13 @@ async def structured(node: str, prompt: str, schema: type[BaseModel], /, **vars)
 
         return fake_structured(prompt, schema, vars), {"node": node, "model": "fake", "input_tokens": 0,
                                                        "output_tokens": 0, "cost_usd": 0.0}
-    models = [model_for(node), profile()["fallback"], profile().get("fallback_2", profile()["fallback"])]
-    last = None
-    for model in dict.fromkeys(models):                       # primary, then fallback (if different)
-        try:
-            r = await _chat(model).with_structured_output(schema, method="json_schema", include_raw=True).ainvoke(text)
-            if r["parsed"] is None:
-                raise ValueError(f"model returned unparseable output: {r.get('parsing_error')}")
-            return r["parsed"], _usage(r["raw"], model, node)
-        except Exception as e:  # noqa: BLE001  (any provider error -> try the fallback)
-            last = e
-    raise RuntimeError(f"{node}: all models failed: {type(last).__name__}: {last}")
+    async def call(model):
+        r = await _chat(model).with_structured_output(schema, method="json_schema", include_raw=True).ainvoke(text)
+        if r["parsed"] is None:
+            raise ValueError(f"model returned unparseable output: {r.get('parsing_error')}")
+        return r["parsed"], _usage(r["raw"], model, node)
+
+    return await _with_models(node, call)
 
 
 async def text(node: str, prompt: str, /, **vars) -> tuple[str, dict]:
@@ -97,11 +93,39 @@ async def text(node: str, prompt: str, /, **vars) -> tuple[str, dict]:
 
         return fake_text(prompt, vars), {"node": node, "model": "fake", "input_tokens": 0,
                                          "output_tokens": 0, "cost_usd": 0.0}
+    async def call(model):
+        msg = await _chat(model).ainvoke(t)
+        return msg.content.strip(), _usage(msg, model, node)
+
+    return await _with_models(node, call)
+
+
+def quota_wait_seconds(error: Exception) -> float | None:
+    """If the provider said 'rate limit ... try again in 1m55.7s', return how long to wait (seconds)."""
+    m = re.search(r"try again in (?:(\d+)m)?([\d.]+)s", str(error))
+    if "rate limit" not in str(error).lower() or not m:
+        return None
+    return int(m.group(1) or 0) * 60 + float(m.group(2))
+
+
+async def _with_models(node: str, call):
+    """
+    Try the node's model, then the fallbacks. Polite on quotas: if the provider says
+    "try again in N seconds" (per-minute or rolling daily limit) and N is reasonable, we WAIT
+    and retry the same model instead of failing - the job slows down, it does not break.
+    """
+    import asyncio
+
+    max_wait = float(os.getenv("GIGBID_MAX_QUOTA_WAIT", "300"))       # seconds we are willing to wait per call
     last = None
     for model in dict.fromkeys([model_for(node), profile()["fallback"], profile().get("fallback_2", profile()["fallback"])]):
-        try:
-            msg = await _chat(model).ainvoke(t)
-            return msg.content.strip(), _usage(msg, model, node)
-        except Exception as e:  # noqa: BLE001
-            last = e
+        for _ in range(6):
+            try:
+                return await call(model)
+            except Exception as e:  # noqa: BLE001  (any provider error -> wait or try the fallback)
+                last = e
+                wait = quota_wait_seconds(e)
+                if wait is None or wait > max_wait:
+                    break                                    # not a short quota wait: next model
+                await asyncio.sleep(wait + 1)
     raise RuntimeError(f"{node}: all models failed: {type(last).__name__}: {last}")

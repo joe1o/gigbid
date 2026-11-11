@@ -13,6 +13,7 @@ tool-selection accuracy, argument accuracy (expected key arguments present and e
 
 import asyncio
 import json
+import re
 
 from evals.runners import harness
 
@@ -93,7 +94,18 @@ async def evaluate(menu: str, tool_specs: list[dict], tasks: list[dict], server_
     model = llm._chat(llm.model_for("job_analyst")).bind_tools(tool_specs, tool_choice="required")
     rows = []
     for t in tasks:
-        msg = await model.ainvoke("You are a freelancer's assistant. Make exactly ONE tool call for this request:\n" + t["task"])
+        try:
+            msg = await model.ainvoke("You are a freelancer's assistant. Make exactly ONE tool call for this request:\n" + t["task"])
+        except Exception as e:
+            if "tool call validation failed" not in str(e):
+                raise                                   # quota or network problems are not results
+            # The provider rejected a call whose arguments broke our schema: right tool may be named,
+            # but the arguments are wrong by definition.
+            m = re.search(r"parameters for tool (\w+)", str(e))
+            got = m.group(1) if m else None
+            rows.append({"task": t["task"], "expected": t["tool"], "got": f"{got} (invalid args)",
+                         "tool_ok": got in (t["tool"], server_of[t["tool"]]), "args_ok": False, "tokens": 0})
+            continue
         call = (msg.tool_calls or [{}])[0]
         name, args = call.get("name"), call.get("args", {}) or {}
         if menu == "coarse":

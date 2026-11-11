@@ -39,6 +39,7 @@ PLAN = re.compile(r"^\W*(then |next |so |and |first,? |for (you|your \w+),? )?(i
                   r"i'd|i'm happy|happy to|let's|i plan|i suggest|i'm available|i'm keen|could we|would you|"
                   r"shall we|my plan|the next step)\b", re.IGNORECASE)
 NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
+REQUEST = re.compile(r"^\W*(please|kindly|feel free)\b|\blet me know\b|\bshare (any|a|your)\b", re.IGNORECASE)
 
 
 @lru_cache(maxsize=1)
@@ -53,6 +54,12 @@ def tech_vocabulary() -> set[str]:
         for idea in ideas[cat]:
             vocab |= {s.lower() for s in idea["required_skills"]}
     # drop generic words that are "skills" in name only
+    # Common tools that appear in neither portfolios nor jobs: a claim naming one must still be proven.
+    # (Bug found by the human labels: an invented "scipy" skill passed because the word was unknown.)
+    vocab |= {"scipy", "numpy", "tensorflow", "keras", "pytorch lightning", "spark", "pyspark", "hadoop", "airflow",
+              "kafka", "kubernetes", "terraform", "azure", "gcp", "bigquery", "redshift", "looker", "matplotlib",
+              "seaborn", "plotly", "django", "flask", "vue", "angular", "graphql", "mongodb", "mysql", "elasticsearch",
+              "langgraph", "llamaindex", "openai", "transformers", "spacy", "nltk", "opencv", "yolo", "r studio"}
     return {v for v in vocab if len(v) > 2} - {"communication", "documentation", "llm", "charts", "rag"}
 
 
@@ -61,7 +68,9 @@ def split_sentences(text: str) -> list[str]:
 
 
 def is_claim(sentence: str) -> bool:
-    if PLAN.search(sentence) or sentence.endswith("?"):
+    # Plans, questions and requests to the client ("Please share...", "let me know if...") are not
+    # claims about the past. (Bug found by the human labels: closing requests were being deleted.)
+    if PLAN.search(sentence) or sentence.endswith("?") or REQUEST.search(sentence):
         return False
     return bool(FIRST_PERSON.search(sentence) and (PAST_OR_FACT.search(sentence) or NUMBER.search(sentence)))
 

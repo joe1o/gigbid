@@ -24,12 +24,12 @@
   {"task": "Do I have unanswered client messages?", "tool": "list_threads", "args": {}},
   {"task": "Read the conversation in thread prop-abc1234567.", "tool": "list_messages", "args": {"thread_id": "prop-abc1234567"}},
   {"task": "What did the client say in thread prop-0011223344?", "tool": "list_messages", "args": {"thread_id": "prop-0011223344"}},
-  {"task": "Save a draft proposal for job-005 bidding $850 with this letter: 'Your churn problem needs a careful baseline, and I built one for a telecom client that cut churn by 9 percent.' Use key k-001.", "tool": "create_proposal_draft", "args": {"job_id": "job-005", "bid_amount": 850, "idempotency_key": "k-001"}},
-  {"task": "Prepare (do not send) a $1200 proposal for job-012 with letter 'Long batches belong in a background queue; my sentiment API does exactly that with Celery and Redis.' Key k-002.", "tool": "create_proposal_draft", "args": {"job_id": "job-012", "bid_amount": 1200, "idempotency_key": "k-002"}},
+  {"task": "Save a draft proposal for job-005 bidding $850 with this letter: 'Your churn problem needs a careful baseline, and I built one for a telecom client that cut churn by 9 percent.' Use key key-00001.", "tool": "create_proposal_draft", "args": {"job_id": "job-005", "bid_amount": 850, "idempotency_key": "key-00001"}},
+  {"task": "Prepare (do not send) a $1200 proposal for job-012 with letter 'Long batches belong in a background queue; my sentiment API does exactly that with Celery and Redis.' Key key-00002.", "tool": "create_proposal_draft", "args": {"job_id": "job-012", "bid_amount": 1200, "idempotency_key": "key-00002"}},
   {"task": "The user approved draft draft-0123456789. Submit it with key submit-001.", "tool": "submit_proposal", "args": {"draft_id": "draft-0123456789", "idempotency_key": "submit-001"}},
-  {"task": "Preview what would be sent for draft draft-aaaaaaaaaa without sending it. Key prev-001.", "tool": "submit_proposal", "args": {"draft_id": "draft-aaaaaaaaaa", "dry_run": true}},
-  {"task": "Send the approved reply 'Tuesday 3pm works for me.' to thread prop-abc1234567 with key msg-001.", "tool": "send_message", "args": {"thread_id": "prop-abc1234567", "idempotency_key": "msg-001"}},
-  {"task": "Show exactly what would be sent if I replied 'Thanks, happy to help' in thread prop-0011223344 (key msg-002), without sending.", "tool": "send_message", "args": {"thread_id": "prop-0011223344", "dry_run": true}},
+  {"task": "Preview what would be sent for draft draft-aaaaaaaaaa without sending it. Key prev-00001.", "tool": "submit_proposal", "args": {"draft_id": "draft-aaaaaaaaaa", "dry_run": true}},
+  {"task": "Send the approved reply 'Tuesday 3pm works for me.' to thread prop-abc1234567 with key msg-00001.", "tool": "send_message", "args": {"thread_id": "prop-abc1234567", "idempotency_key": "msg-00001"}},
+  {"task": "Show exactly what would be sent if I replied 'Thanks, happy to help' in thread prop-0011223344 (key msg-00002), without sending.", "tool": "send_message", "args": {"thread_id": "prop-0011223344", "dry_run": true}},
   {"task": "What proof do I have of Stripe webhook experience?", "tool": "search_evidence", "args": {"requirement": "stripe webhook"}},
   {"task": "Find my best 3 examples of imbalanced classification work.", "tool": "search_evidence", "args": {"requirement": "imbalanced classification", "k": 3}},
   {"task": "Which of my past proposals that won mention churn?", "tool": "search_evidence", "args": {"requirement": "churn"}},
@@ -38,5 +38,5 @@
   {"task": "Which skills does my portfolio show the most?", "tool": "list_skills", "args": {}},
   {"task": "For the requirements Python, Celery and Kubernetes, which ones can my portfolio prove?", "tool": "map_requirements", "args": {"requirements": ["Python", "Celery", "Kubernetes"]}},
   {"task": "When am I free for a 30 minute interview this week?", "tool": "get_free_slots", "args": {}},
-  {"task": "Save an email draft to myself titled 'Interview Tuesday' saying 'Call with the client at 15:00.' Key mail-001.", "tool": "create_email_draft", "args": {"subject": "interview tuesday", "idempotency_key": "mail-001"}}
+  {"task": "Save an email draft to myself titled 'Interview Tuesday' saying 'Call with the client at 15:00.' Key mail-00001.", "tool": "create_email_draft", "args": {"subject": "interview tuesday", "idempotency_key": "mail-00001"}}
 ]

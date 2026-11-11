@@ -15,6 +15,7 @@ base.py - things every agent node shares (requirements C4 and C7).
 
 import asyncio
 import functools
+import os
 
 from langgraph.errors import GraphBubbleUp
 from langgraph.graph import END
@@ -26,7 +27,7 @@ from agent.settings import CONFIG
 # Statuses after which the graph stops.
 STOP = {"skipped", "recommended_skip", "watch", "blocked", "rejected", "submitted", "needs_attention",
         "dead_letter", "nothing_to_do", "sent"}
-NODE_TIMEOUT_S = 150
+NODE_TIMEOUT_S = float(os.getenv("GIGBID_NODE_TIMEOUT", "150"))   # evals raise it to allow quota waits
 BUDGET = CONFIG["budgets"]
 
 
