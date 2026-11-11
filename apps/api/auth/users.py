@@ -89,5 +89,7 @@ async def ensure_reviewer(store) -> None:
         return
     user = await create_user(store, email, password)
     user["settings"] = settings_for_persona("ml_engineer")
+    if os.getenv("REVIEWER_SEARCH"):            # e.g. the browser tests use a narrower saved search
+        user["settings"]["searches"] = [{"query": os.getenv("REVIEWER_SEARCH"), "category": "ml"}]
     user["onboarded"] = True
     await connect_gigsim(store, user, "ml_engineer")

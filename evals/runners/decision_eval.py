@@ -22,11 +22,21 @@ if __name__ == "__main__":
     ap.add_argument("--fake", action="store_true", help="use the fake LLM (free, deterministic)")
     ap.add_argument("--smoke", action="store_true", help="30 jobs only, and check the CI thresholds")
     ap.add_argument("--profile", default=None, help="model profile: open | open_small | paid")
+    ap.add_argument("--rerun-failed", action="store_true", help="re-run only jobs that failed (e.g. rate limits) and merge")
     args = ap.parse_args()
     harness.setup(fake_llm=args.fake, extra_env={"MODEL_PROFILE": args.profile} if args.profile else None)
 
     jobs, labels = harness.load_dev(limit=30 if args.smoke else None)
-    results = asyncio.run(harness.run(labels, jobs))
+    if args.rerun_failed:
+        import json
+
+        old = json.loads((harness.RESULTS / "decision_eval.json").read_text(encoding="utf-8"))["per_job"]
+        failed = {r["job_id"] for r in old if r["status"] in ("dead_letter", "error")}
+        print("re-running", sorted(failed))
+        redo = asyncio.run(harness.run([lab for lab in labels if lab["job_id"] in failed], jobs, user_suffix="-rerun"))
+        results = [r for r in old if r["job_id"] not in failed] + redo
+    else:
+        results = asyncio.run(harness.run(labels, jobs))
     m = harness.metrics(results, labels)
     by_persona = {p: harness.metrics([r for r in results if r["persona"] == p],
                                      [lab for lab in labels if lab["persona_id"] == p])

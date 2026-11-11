@@ -1,0 +1,3713 @@
+[
+ {
+  "source": "gigbid_final",
+  "job_id": "job-025",
+  "persona": "web_developer",
+  "proposal": "You need a secure online appointment booking system for your dental clinic. The client gave the system a 4.8\u2011star rating for reliability across all locations.\n\nFor your clinic, I will set up a Node.js/Express backend with PostgreSQL, implement row locking and transaction handling to enforce concurrency control, and add email notifications for bookings and reminders. I\u2019ll also integrate authentication, input validation, and security best practices to protect patient data while keeping the design scalable for future growth.\n\nThe next step is a brief call to confirm any specific authentication requirements and preferred email service, after which I can deliver a detailed project timeline and start the implementation.",
+  "evidence": [
+   {
+    "id": "web-cs-booking",
+    "type": "case_study",
+    "title": "Appointment booking system for a clinic chain",
+    "source": "case_study:clinic-booking",
+    "project": "clinic-booking",
+    "skills": [
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "email notifications",
+     "calendar"
+    ],
+    "date": "2024-03",
+    "client_industry": "healthcare",
+    "outcome": null,
+    "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
+    "score": 0.8183
+   },
+   {
+    "id": "web-code-shop",
+    "type": "code",
+    "title": "next-shop-starter/prisma/schema.prisma",
+    "source": "code:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Prisma",
+     "PostgreSQL",
+     "database migrations"
+    ],
+    "date": "2025-05",
+    "client_industry": null,
+    "outcome": null,
+    "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
+    "score": 0.6861
+   },
+   {
+    "id": "web-rv-clinic",
+    "type": "review",
+    "title": "Client review (healthcare)",
+    "source": "review:clinic-booking",
+    "project": "clinic-booking",
+    "skills": [
+     "Node.js"
+    ],
+    "date": "2024-04",
+    "client_industry": "healthcare",
+    "outcome": null,
+    "text": "4.8 stars. Booking system works flawlessly across all our clinics. Good communicator.",
+    "score": 0.6725
+   },
+   {
+    "id": "web-cs-shop",
+    "type": "case_study",
+    "title": "Next.js storefront with Stripe for a clothing brand",
+    "source": "case_study:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Next.js",
+     "React",
+     "Stripe",
+     "TypeScript",
+     "e-commerce"
+    ],
+    "date": "2025-04",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
+    "score": 0.6715
+   },
+   {
+    "id": "web-pp-replied",
+    "type": "past_proposal",
+    "title": "Proposal: admin panel for logistics startup",
+    "source": "past_proposal:fintech-dashboard",
+    "project": "fintech-dashboard",
+    "skills": [
+     "React",
+     "PostgreSQL"
+    ],
+    "date": "2025-09",
+    "client_industry": "logistics",
+    "outcome": "replied",
+    "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours.",
+    "score": 0.6655
+   },
+   {
+    "id": "web-cs-dashboard",
+    "type": "case_study",
+    "title": "Analytics dashboard for a fintech SaaS",
+    "source": "case_study:fintech-dashboard",
+    "project": "fintech-dashboard",
+    "skills": [
+     "React",
+     "TypeScript",
+     "PostgreSQL",
+     "charts",
+     "Recharts",
+     "REST API"
+    ],
+    "date": "2024-10",
+    "client_industry": "fintech",
+    "outcome": null,
+    "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+    "score": 0.6592
+   },
+   {
+    "id": "web-cv",
+    "type": "cv",
+    "title": "CV: Omar Raza",
+    "source": "cv:web-cv",
+    "project": null,
+    "skills": [
+     "React",
+     "Next.js",
+     "TypeScript",
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "Stripe",
+     "Tailwind",
+     "Docker",
+     "AWS"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
+    "score": 1.0
+   }
+  ],
+  "id": "P01",
+  "job_title": "Appointment booking system for a dental clinic"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-048",
+  "persona": "data_analyst",
+  "proposal": "I understand you need a reliable weekly process that cleans, merges, and instantly flags errors in the branch Excel reports so your finance team can trust the data each Monday. In a recent project I wrote a pandas script that cleaned, merged, and validated 30 inconsistent Excel files from different plants into one tidy workbook every Monday, logging rejected rows and saving the finance team a full day each week. My three years of experience turning messy data into reliable outputs, with strong Python and pandas skills, match this requirement.\n\nMy plan is to (1) create a mapping of each branch\u2019s column headers to a unified schema, (2) build a pandas pipeline that normalizes formats, validates data, merges the files, and logs any bad rows, and (3) set up an automated weekly run using a task scheduler or cloud function, with a simple config file for future changes.\n\nThe next step is to receive a sample set of the current Excel reports so I can confirm the column variations and finalize the mapping.",
+  "evidence": [
+   {
+    "id": "data-cs-excel",
+    "type": "case_study",
+    "title": "Cleaning and automating messy Excel reports",
+    "source": "case_study:excel-automation",
+    "project": "excel-automation",
+    "skills": [
+     "Excel",
+     "Python",
+     "pandas",
+     "automation"
+    ],
+    "date": "2024-04",
+    "client_industry": "manufacturing",
+    "outcome": null,
+    "text": "A manufacturer had 30 inconsistent Excel files from different plants. Wrote a pandas script that cleans, merges and validates them into one tidy workbook every Monday, with a log of rejected rows. Saved the finance team a full day each week.",
+    "score": 0.8484
+   },
+   {
+    "id": "data-pp-replied",
+    "type": "past_proposal",
+    "title": "Proposal: sales dashboard",
+    "source": "past_proposal:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI"
+    ],
+    "date": "2025-08",
+    "client_industry": "wholesale",
+    "outcome": "replied",
+    "text": "I replaced 12 weekly Excel reports with one Power BI dashboard for a 40-store chain, with security per region. Could you share which numbers your managers look at first?",
+    "score": 0.7062
+   },
+   {
+    "id": "data-cs-powerbi",
+    "type": "case_study",
+    "title": "Power BI sales dashboard for a retail chain",
+    "source": "case_study:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI",
+     "DAX",
+     "SQL",
+     "data modelling"
+    ],
+    "date": "2025-01",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Built a Power BI sales dashboard for a 40-store retail chain. Star-schema model in SQL Server, DAX measures for like-for-like growth and margin, row-level security per region. Replaced 12 weekly Excel reports; managers now check it daily.",
+    "score": 0.6902
+   },
+   {
+    "id": "data-cs-dbt",
+    "type": "case_study",
+    "title": "Marketing data models with dbt and Snowflake",
+    "source": "case_study:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt",
+     "Snowflake",
+     "SQL",
+     "data pipelines"
+    ],
+    "date": "2025-06",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "Rebuilt a marketing agency's reporting layer as dbt models on Snowflake: staging, intermediate and mart layers with tests on every key. Channel spend and conversions now reconcile to the cent; report build time fell from 3 hours to 12 minutes.",
+    "score": 0.6613
+   },
+   {
+    "id": "data-cv",
+    "type": "cv",
+    "title": "CV: Hina Javed",
+    "source": "cv:data-cv",
+    "project": null,
+    "skills": [
+     "SQL",
+     "Python",
+     "pandas",
+     "Power BI",
+     "DAX",
+     "Tableau",
+     "Excel",
+     "dbt",
+     "statistics",
+     "A/B testing"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Data analyst with 3 years of experience turning messy business data into dashboards and decisions. Strong SQL and Python (pandas). Power BI with DAX, some Tableau. Modelling with dbt. Statistics background: hypothesis tests, A/B testing, cohort analysis.",
+    "score": 0.6515
+   },
+   {
+    "id": "data-code-cohort",
+    "type": "code",
+    "title": "sql-cohort-analysis/cohort.py",
+    "source": "code:cohort-analysis",
+    "project": "cohort-analysis",
+    "skills": [
+     "pandas",
+     "Python",
+     "retention"
+    ],
+    "date": "2025-03",
+    "client_industry": null,
+    "outcome": null,
+    "text": "import pandas as pd\n# each user's cohort = the month of their first order\ndf['cohort'] = df.groupby('user_id')['order_date'].transform('min').dt.to_period('M')\nretention = df.pivot_table(index='cohort', columns='months_since', values='user_id', aggfunc='nunique')",
+    "score": 0.6467
+   }
+  ],
+  "id": "P02",
+  "job_title": "Automate cleanup of messy Excel reports"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-016",
+  "persona": "ml_engineer",
+  "proposal": "I understand you need a reliable solution to extract data from your scanned supplier invoices, even when the images are blurry. In a recent project for a logistics company I achieved 94% field accuracy on a 500\u2011invoice test set using Tesseract OCR combined with a fine\u2011tuned LayoutLM model, saving the accounts team roughly 30 hours each month. I will reuse this OCR pipeline, add image\u2011preprocessing to sharpen blurry scans, and build a Python module that maps the extracted fields to JSON/CSV with robust error handling and logging.\n\nThe deliverable will include a concise README that non\u2011technical users can follow to install dependencies, run the script, and integrate it into existing workflows. I will also provide unit tests and a small sample dataset to demonstrate performance on blurry invoices, plus documentation on how to adjust preprocessing parameters for different scan qualities.\n\nTo move forward, I will share a minimal prototype in a private repository for your review. Once you confirm the approach meets your expectations, we can finalize the full script and documentation. Please let me know a convenient time for a short call to discuss specific field mappings or integration points.",
+  "evidence": [
+   {
+    "id": "ml-cs-invoice-ocr",
+    "type": "case_study",
+    "title": "Invoice field extraction for a logistics company",
+    "source": "case_study:invoice-ocr",
+    "project": "invoice-ocr",
+    "skills": [
+     "OCR",
+     "PyTorch",
+     "LayoutLM",
+     "Tesseract",
+     "document AI"
+    ],
+    "date": "2024-05",
+    "client_industry": "logistics",
+    "outcome": null,
+    "text": "Automated reading of scanned supplier invoices. Tesseract for OCR, then a fine-tuned LayoutLM model to pull out invoice number, date, totals and supplier name. Field accuracy 94% on a 500-invoice test set. Saved the accounts team about 30 hours a month.",
+    "score": 0.8367
+   },
+   {
+    "id": "ml-rd-rag-eval",
+    "type": "repo_readme",
+    "title": "rag-eval-kit (GitHub README)",
+    "source": "repo_readme:rag-eval-kit",
+    "project": "rag-eval-kit",
+    "skills": [
+     "information retrieval",
+     "BM25",
+     "embeddings",
+     "evaluation metrics",
+     "Recall@k",
+     "nDCG"
+    ],
+    "date": "2025-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+    "score": 0.732
+   },
+   {
+    "id": "ml-cv",
+    "type": "cv",
+    "title": "CV: Sara Malik",
+    "source": "cv:ml-cv",
+    "project": null,
+    "skills": [
+     "Python",
+     "PyTorch",
+     "scikit-learn",
+     "LangChain",
+     "RAG",
+     "FastAPI",
+     "Docker",
+     "AWS",
+     "NLP",
+     "SQL"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+    "score": 0.7083
+   },
+   {
+    "id": "ml-cs-legal-rag",
+    "type": "case_study",
+    "title": "Document Q&A chatbot for a law firm",
+    "source": "case_study:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "RAG",
+     "LangChain",
+     "Pinecone",
+     "FastAPI",
+     "OpenAI",
+     "embeddings"
+    ],
+    "date": "2025-06",
+    "client_industry": "legal",
+    "outcome": null,
+    "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+    "score": 0.6847
+   },
+   {
+    "id": "ml-code-sentiment",
+    "type": "code",
+    "title": "sentiment-api/worker.py",
+    "source": "code:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "Celery",
+     "Redis",
+     "background jobs"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
+    "score": 0.6838
+   },
+   {
+    "id": "ml-rd-sentiment",
+    "type": "repo_readme",
+    "title": "sentiment-api (GitHub README)",
+    "source": "repo_readme:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "FastAPI",
+     "Hugging Face",
+     "Docker",
+     "NLP"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+    "score": 0.6725
+   }
+  ],
+  "id": "P03",
+  "job_title": "Extract fields from scanned supplier invoices"
+ },
+ {
+  "source": "generic_control",
+  "job_id": "job-006",
+  "persona": "ml_engineer",
+  "proposal": "Dear Sir, I am passionate about this kind of work and I have read your job carefully. I am the best fit for this job and have many years of experience. I guarantee high quality work delivered on time. Please message me so we can discuss the details.",
+  "evidence": [
+   {
+    "id": "ml-pp-churn-won",
+    "type": "past_proposal",
+    "title": "Proposal: churn model for subscription box",
+    "source": "past_proposal:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "classification",
+     "imbalanced data"
+    ],
+    "date": "2025-03",
+    "client_industry": "ecommerce",
+    "outcome": "won",
+    "text": "Your churn rate is the number that matters, so I would start by checking how imbalanced it is. In a telecom project I faced 6% churn and used PR-AUC rather than accuracy; the final model helped cut churn 9% in a quarter. For you I would compare two models, report precision and recall at the top decile and hand over a reproducible notebook.",
+    "score": 0.7875
+   },
+   {
+    "id": "ml-rv-telecom",
+    "type": "review",
+    "title": "Client review (telecom)",
+    "source": "review:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "communication",
+     "documentation"
+    ],
+    "date": "2024-12",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+    "score": 0.7714
+   },
+   {
+    "id": "ml-cs-churn",
+    "type": "case_study",
+    "title": "Churn prediction for a telecom operator",
+    "source": "case_study:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "Python",
+     "scikit-learn",
+     "XGBoost",
+     "classification",
+     "model evaluation",
+     "imbalanced data"
+    ],
+    "date": "2024-11",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+    "score": 0.7677
+   },
+   {
+    "id": "ml-rd-rag-eval",
+    "type": "repo_readme",
+    "title": "rag-eval-kit (GitHub README)",
+    "source": "repo_readme:rag-eval-kit",
+    "project": "rag-eval-kit",
+    "skills": [
+     "information retrieval",
+     "BM25",
+     "embeddings",
+     "evaluation metrics",
+     "Recall@k",
+     "nDCG"
+    ],
+    "date": "2025-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+    "score": 0.7146
+   },
+   {
+    "id": "ml-cv",
+    "type": "cv",
+    "title": "CV: Sara Malik",
+    "source": "cv:ml-cv",
+    "project": null,
+    "skills": [
+     "Python",
+     "PyTorch",
+     "scikit-learn",
+     "LangChain",
+     "RAG",
+     "FastAPI",
+     "Docker",
+     "AWS",
+     "NLP",
+     "SQL"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+    "score": 0.7027
+   },
+   {
+    "id": "ml-cs-legal-rag",
+    "type": "case_study",
+    "title": "Document Q&A chatbot for a law firm",
+    "source": "case_study:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "RAG",
+     "LangChain",
+     "Pinecone",
+     "FastAPI",
+     "OpenAI",
+     "embeddings"
+    ],
+    "date": "2025-06",
+    "client_industry": "legal",
+    "outcome": null,
+    "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+    "score": 0.6882
+   }
+  ],
+  "id": "P04",
+  "job_title": "Churn prediction model for our subscription app"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-008",
+  "persona": "ml_engineer",
+  "proposal": "Deploying your Hugging Face sentiment model as a FastAPI service with Celery and Redis matches a project I\u2019ve already delivered: the sentiment\u2011API repository shows a FastAPI wrapper around the same type of model, a single Dockerfile, health\u2011check endpoint, and a Celery worker that processes batch jobs, achieving 120 requests per second on a 2\u2011CPU box. With four years of AI/ML engineering experience, I routinely move NLP models from notebook to production\u2011ready Dockerized FastAPI services on AWS.\n\nMy plan is to create a Dockerfile and docker\u2011compose.yml that launch FastAPI, Celery, and Redis; integrate the Hugging Face model using the proven pattern from sentiment\u2011API; add a batch endpoint that enqueues jobs to Celery, with the worker handling large text batches efficiently. I will also provide clear documentation, health\u2011check endpoints, and basic tests to verify the API and background processing.",
+  "evidence": [
+   {
+    "id": "ml-rd-sentiment",
+    "type": "repo_readme",
+    "title": "sentiment-api (GitHub README)",
+    "source": "repo_readme:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "FastAPI",
+     "Hugging Face",
+     "Docker",
+     "NLP"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+    "score": 0.7687
+   },
+   {
+    "id": "ml-code-sentiment",
+    "type": "code",
+    "title": "sentiment-api/worker.py",
+    "source": "code:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "Celery",
+     "Redis",
+     "background jobs"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
+    "score": 0.72
+   },
+   {
+    "id": "ml-cv",
+    "type": "cv",
+    "title": "CV: Sara Malik",
+    "source": "cv:ml-cv",
+    "project": null,
+    "skills": [
+     "Python",
+     "PyTorch",
+     "scikit-learn",
+     "LangChain",
+     "RAG",
+     "FastAPI",
+     "Docker",
+     "AWS",
+     "NLP",
+     "SQL"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+    "score": 0.7101
+   },
+   {
+    "id": "ml-rd-rag-eval",
+    "type": "repo_readme",
+    "title": "rag-eval-kit (GitHub README)",
+    "source": "repo_readme:rag-eval-kit",
+    "project": "rag-eval-kit",
+    "skills": [
+     "information retrieval",
+     "BM25",
+     "embeddings",
+     "evaluation metrics",
+     "Recall@k",
+     "nDCG"
+    ],
+    "date": "2025-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+    "score": 0.6404
+   },
+   {
+    "id": "ml-rv-telecom",
+    "type": "review",
+    "title": "Client review (telecom)",
+    "source": "review:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "communication",
+     "documentation"
+    ],
+    "date": "2024-12",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+    "score": 0.6404
+   },
+   {
+    "id": "ml-cs-churn",
+    "type": "case_study",
+    "title": "Churn prediction for a telecom operator",
+    "source": "case_study:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "Python",
+     "scikit-learn",
+     "XGBoost",
+     "classification",
+     "model evaluation",
+     "imbalanced data"
+    ],
+    "date": "2024-11",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+    "score": 0.6177
+   }
+  ],
+  "id": "P05",
+  "job_title": "Deploy our sentiment model as an API with background jobs"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-012",
+  "persona": "ml_engineer",
+  "proposal": "In my sentiment\u2011api project I built a FastAPI service around a Hugging Face model, achieved 120 requests per second on a 2\u2011CPU box, and used a Celery worker to process long batches in the background, keeping the API responsive. With four years of experience taking NLP models from notebook to Dockerized FastAPI deployments on AWS, I can quickly containerize your model, configure Celery with Redis, and expose both real\u2011time and batch endpoints.\n\nMy plan is to create a Dockerfile that installs the Hugging Face model, add FastAPI routes for instant inference and a `/batch` endpoint that enqueues a Celery task, and set up Redis as the broker. I will split the 100k texts into manageable chunks, run them as background jobs, and perform load testing to confirm no time\u2011outs. Documentation will cover step\u2011by\u2011step deployment and monitoring of the Celery queue.\n\nThe next step is to share a minimal repository layout (Dockerfile, FastAPI app, Celery worker) for your review, so we can confirm the structure before proceeding with the full implementation.",
+  "evidence": [
+   {
+    "id": "ml-rd-sentiment",
+    "type": "repo_readme",
+    "title": "sentiment-api (GitHub README)",
+    "source": "repo_readme:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "FastAPI",
+     "Hugging Face",
+     "Docker",
+     "NLP"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+    "score": 0.7687
+   },
+   {
+    "id": "ml-code-sentiment",
+    "type": "code",
+    "title": "sentiment-api/worker.py",
+    "source": "code:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "Celery",
+     "Redis",
+     "background jobs"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
+    "score": 0.72
+   },
+   {
+    "id": "ml-cv",
+    "type": "cv",
+    "title": "CV: Sara Malik",
+    "source": "cv:ml-cv",
+    "project": null,
+    "skills": [
+     "Python",
+     "PyTorch",
+     "scikit-learn",
+     "LangChain",
+     "RAG",
+     "FastAPI",
+     "Docker",
+     "AWS",
+     "NLP",
+     "SQL"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+    "score": 0.7101
+   },
+   {
+    "id": "ml-rd-rag-eval",
+    "type": "repo_readme",
+    "title": "rag-eval-kit (GitHub README)",
+    "source": "repo_readme:rag-eval-kit",
+    "project": "rag-eval-kit",
+    "skills": [
+     "information retrieval",
+     "BM25",
+     "embeddings",
+     "evaluation metrics",
+     "Recall@k",
+     "nDCG"
+    ],
+    "date": "2025-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+    "score": 0.6404
+   },
+   {
+    "id": "ml-rv-telecom",
+    "type": "review",
+    "title": "Client review (telecom)",
+    "source": "review:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "communication",
+     "documentation"
+    ],
+    "date": "2024-12",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+    "score": 0.6404
+   },
+   {
+    "id": "ml-cs-churn",
+    "type": "case_study",
+    "title": "Churn prediction for a telecom operator",
+    "source": "case_study:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "Python",
+     "scikit-learn",
+     "XGBoost",
+     "classification",
+     "model evaluation",
+     "imbalanced data"
+    ],
+    "date": "2024-11",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+    "score": 0.6177
+   }
+  ],
+  "id": "P06",
+  "job_title": "Deploy our sentiment model as an API with background jobs"
+ },
+ {
+  "source": "writer_raw_before_verification",
+  "job_id": "job-012",
+  "persona": "ml_engineer",
+  "proposal": "I understand you need a fast, reliable sentiment\u2011analysis API that can process large batches such as 100k texts without slowing down the service. In my sentiment\u2011api project I built a FastAPI service around a Hugging Face model, achieved 120 requests per second on a 2\u2011CPU box, and used a Celery worker to process long batches in the background, keeping the API responsive. With four years of experience taking NLP models from notebook to Dockerized FastAPI deployments on AWS, I can quickly containerize your model, configure Celery with Redis, and expose both real\u2011time and batch endpoints.\n\nMy plan is to create a Dockerfile that installs the Hugging Face model, add FastAPI routes for instant inference and a `/batch` endpoint that enqueues a Celery task, and set up Redis as the broker. I will split the 100k texts into manageable chunks, run them as background jobs, and perform load testing to confirm no time\u2011outs. Documentation will cover step\u2011by\u2011step deployment and monitoring of the Celery queue.\n\nThe next step is to share a minimal repository layout (Dockerfile, FastAPI app, Celery worker) for your review, so we can confirm the structure before proceeding with the full implementation.",
+  "evidence": [
+   {
+    "id": "ml-rd-sentiment",
+    "type": "repo_readme",
+    "title": "sentiment-api (GitHub README)",
+    "source": "repo_readme:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "FastAPI",
+     "Hugging Face",
+     "Docker",
+     "NLP"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+    "score": 0.7687
+   },
+   {
+    "id": "ml-code-sentiment",
+    "type": "code",
+    "title": "sentiment-api/worker.py",
+    "source": "code:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "Celery",
+     "Redis",
+     "background jobs"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
+    "score": 0.72
+   },
+   {
+    "id": "ml-cv",
+    "type": "cv",
+    "title": "CV: Sara Malik",
+    "source": "cv:ml-cv",
+    "project": null,
+    "skills": [
+     "Python",
+     "PyTorch",
+     "scikit-learn",
+     "LangChain",
+     "RAG",
+     "FastAPI",
+     "Docker",
+     "AWS",
+     "NLP",
+     "SQL"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+    "score": 0.7101
+   },
+   {
+    "id": "ml-rd-rag-eval",
+    "type": "repo_readme",
+    "title": "rag-eval-kit (GitHub README)",
+    "source": "repo_readme:rag-eval-kit",
+    "project": "rag-eval-kit",
+    "skills": [
+     "information retrieval",
+     "BM25",
+     "embeddings",
+     "evaluation metrics",
+     "Recall@k",
+     "nDCG"
+    ],
+    "date": "2025-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+    "score": 0.6404
+   },
+   {
+    "id": "ml-rv-telecom",
+    "type": "review",
+    "title": "Client review (telecom)",
+    "source": "review:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "communication",
+     "documentation"
+    ],
+    "date": "2024-12",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+    "score": 0.6404
+   },
+   {
+    "id": "ml-cs-churn",
+    "type": "case_study",
+    "title": "Churn prediction for a telecom operator",
+    "source": "case_study:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "Python",
+     "scikit-learn",
+     "XGBoost",
+     "classification",
+     "model evaluation",
+     "imbalanced data"
+    ],
+    "date": "2024-11",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+    "score": 0.6177
+   }
+  ],
+  "id": "P07",
+  "job_title": "Deploy our sentiment model as an API with background jobs"
+ },
+ {
+  "source": "writer_raw_before_verification",
+  "job_id": "job-008",
+  "persona": "ml_engineer",
+  "proposal": "Deploying your Hugging Face sentiment model as a FastAPI service with Celery and Redis matches a project I\u2019ve already delivered: the sentiment\u2011API repository shows a FastAPI wrapper around the same type of model, a single Dockerfile, health\u2011check endpoint, and a Celery worker that processes batch jobs, achieving 120 requests per second on a 2\u2011CPU box. With four years of AI/ML engineering experience, I routinely move NLP models from notebook to production\u2011ready Dockerized FastAPI services on AWS.\n\nMy plan is to create a Dockerfile and docker\u2011compose.yml that launch FastAPI, Celery, and Redis; integrate the Hugging Face model using the proven pattern from sentiment\u2011API; add a batch endpoint that enqueues jobs to Celery, with the worker handling large text batches efficiently. I will also provide clear documentation, health\u2011check endpoints, and basic tests to verify the API and background processing.\n\nPlease share any preferred base image or deployment constraints so I can tailor the Docker setup, and let me know if you\u2019d like to discuss details over a quick call.",
+  "evidence": [
+   {
+    "id": "ml-rd-sentiment",
+    "type": "repo_readme",
+    "title": "sentiment-api (GitHub README)",
+    "source": "repo_readme:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "FastAPI",
+     "Hugging Face",
+     "Docker",
+     "NLP"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+    "score": 0.7687
+   },
+   {
+    "id": "ml-code-sentiment",
+    "type": "code",
+    "title": "sentiment-api/worker.py",
+    "source": "code:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "Celery",
+     "Redis",
+     "background jobs"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
+    "score": 0.72
+   },
+   {
+    "id": "ml-cv",
+    "type": "cv",
+    "title": "CV: Sara Malik",
+    "source": "cv:ml-cv",
+    "project": null,
+    "skills": [
+     "Python",
+     "PyTorch",
+     "scikit-learn",
+     "LangChain",
+     "RAG",
+     "FastAPI",
+     "Docker",
+     "AWS",
+     "NLP",
+     "SQL"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+    "score": 0.7101
+   },
+   {
+    "id": "ml-rd-rag-eval",
+    "type": "repo_readme",
+    "title": "rag-eval-kit (GitHub README)",
+    "source": "repo_readme:rag-eval-kit",
+    "project": "rag-eval-kit",
+    "skills": [
+     "information retrieval",
+     "BM25",
+     "embeddings",
+     "evaluation metrics",
+     "Recall@k",
+     "nDCG"
+    ],
+    "date": "2025-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+    "score": 0.6404
+   },
+   {
+    "id": "ml-rv-telecom",
+    "type": "review",
+    "title": "Client review (telecom)",
+    "source": "review:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "communication",
+     "documentation"
+    ],
+    "date": "2024-12",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+    "score": 0.6404
+   },
+   {
+    "id": "ml-cs-churn",
+    "type": "case_study",
+    "title": "Churn prediction for a telecom operator",
+    "source": "case_study:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "Python",
+     "scikit-learn",
+     "XGBoost",
+     "classification",
+     "model evaluation",
+     "imbalanced data"
+    ],
+    "date": "2024-11",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+    "score": 0.6177
+   }
+  ],
+  "id": "P08",
+  "job_title": "Deploy our sentiment model as an API with background jobs"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-028",
+  "persona": "web_developer",
+  "proposal": "I understand you need a fast online shop that can securely accept card payments and includes Stripe webhooks for order notifications. I recently rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks, cutting page load from 4.1\u202fs to 1.3\u202fs and boosting conversion by 18% in the first two months. My open\u2011source next\u2011shop\u2011starter project also shows a fully functional cart, Stripe checkout and order webhooks, earning 300+ GitHub stars.\n\nFor your project I will create a clean Next.js storefront, integrate Stripe Checkout with secure webhooks for order emails, and apply performance optimizations to keep load times under 2\u202fs on both desktop and mobile. I\u2019ll also ensure PCI\u2011compliant handling of payment data and a user\u2011friendly checkout flow.\n\nNext step: let\u2019s schedule a brief call to confirm the exact feature set and timeline, then I can start delivering the first sprint within two weeks.",
+  "evidence": [
+   {
+    "id": "web-cs-shop",
+    "type": "case_study",
+    "title": "Next.js storefront with Stripe for a clothing brand",
+    "source": "case_study:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Next.js",
+     "React",
+     "Stripe",
+     "TypeScript",
+     "e-commerce"
+    ],
+    "date": "2025-04",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
+    "score": 0.7615
+   },
+   {
+    "id": "web-pp-won",
+    "type": "past_proposal",
+    "title": "Proposal: Stripe checkout for a candle shop",
+    "source": "past_proposal:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Stripe",
+     "Next.js"
+    ],
+    "date": "2025-07",
+    "client_industry": "retail",
+    "outcome": "won",
+    "text": "Slow checkout loses sales, so speed is where I'd start. For a clothing brand I moved to a custom Next.js store with Stripe Checkout; load time went from 4.1s to 1.3s and conversion rose 18%. I can set up the same checkout with webhooks for your order emails within two weeks.",
+    "score": 0.7319
+   },
+   {
+    "id": "web-rd-shop",
+    "type": "repo_readme",
+    "title": "next-shop-starter (GitHub README)",
+    "source": "repo_readme:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Next.js",
+     "Stripe"
+    ],
+    "date": "2025-05",
+    "client_industry": null,
+    "outcome": null,
+    "text": "next-shop-starter: an open-source Next.js e-commerce starter with cart, Stripe checkout and order webhooks. 300+ GitHub stars.",
+    "score": 0.7031
+   },
+   {
+    "id": "web-pp-replied",
+    "type": "past_proposal",
+    "title": "Proposal: admin panel for logistics startup",
+    "source": "past_proposal:fintech-dashboard",
+    "project": "fintech-dashboard",
+    "skills": [
+     "React",
+     "PostgreSQL"
+    ],
+    "date": "2025-09",
+    "client_industry": "logistics",
+    "outcome": "replied",
+    "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours.",
+    "score": 0.6805
+   },
+   {
+    "id": "web-cv",
+    "type": "cv",
+    "title": "CV: Omar Raza",
+    "source": "cv:web-cv",
+    "project": null,
+    "skills": [
+     "React",
+     "Next.js",
+     "TypeScript",
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "Stripe",
+     "Tailwind",
+     "Docker",
+     "AWS"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
+    "score": 0.6671
+   },
+   {
+    "id": "web-cs-dashboard",
+    "type": "case_study",
+    "title": "Analytics dashboard for a fintech SaaS",
+    "source": "case_study:fintech-dashboard",
+    "project": "fintech-dashboard",
+    "skills": [
+     "React",
+     "TypeScript",
+     "PostgreSQL",
+     "charts",
+     "Recharts",
+     "REST API"
+    ],
+    "date": "2024-10",
+    "client_industry": "fintech",
+    "outcome": null,
+    "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+    "score": 0.6518
+   }
+  ],
+  "id": "P09",
+  "job_title": "Next.js storefront with Stripe checkout"
+ },
+ {
+  "source": "generic_control",
+  "job_id": "job-001",
+  "persona": "ml_engineer",
+  "proposal": "Dear Sir, I am passionate about this kind of work and I have read your job carefully. I am the best fit for this job and have many years of experience. I guarantee high quality work delivered on time. Please message me so we can discuss the details.",
+  "evidence": [
+   {
+    "id": "ml-rd-rag-eval",
+    "type": "repo_readme",
+    "title": "rag-eval-kit (GitHub README)",
+    "source": "repo_readme:rag-eval-kit",
+    "project": "rag-eval-kit",
+    "skills": [
+     "information retrieval",
+     "BM25",
+     "embeddings",
+     "evaluation metrics",
+     "Recall@k",
+     "nDCG"
+    ],
+    "date": "2025-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+    "score": 0.7441
+   },
+   {
+    "id": "ml-cs-legal-rag",
+    "type": "case_study",
+    "title": "Document Q&A chatbot for a law firm",
+    "source": "case_study:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "RAG",
+     "LangChain",
+     "Pinecone",
+     "FastAPI",
+     "OpenAI",
+     "embeddings"
+    ],
+    "date": "2025-06",
+    "client_industry": "legal",
+    "outcome": null,
+    "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+    "score": 0.669
+   },
+   {
+    "id": "ml-pp-rag-replied",
+    "type": "past_proposal",
+    "title": "Proposal: internal knowledge chatbot",
+    "source": "past_proposal:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "RAG"
+    ],
+    "date": "2025-08",
+    "client_industry": "consulting",
+    "outcome": "replied",
+    "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+    "score": 0.6658
+   },
+   {
+    "id": "ml-rv-telecom",
+    "type": "review",
+    "title": "Client review (telecom)",
+    "source": "review:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "communication",
+     "documentation"
+    ],
+    "date": "2024-12",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+    "score": 0.6533
+   },
+   {
+    "id": "ml-rd-sentiment",
+    "type": "repo_readme",
+    "title": "sentiment-api (GitHub README)",
+    "source": "repo_readme:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "FastAPI",
+     "Hugging Face",
+     "Docker",
+     "NLP"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+    "score": 0.6495
+   },
+   {
+    "id": "ml-cs-churn",
+    "type": "case_study",
+    "title": "Churn prediction for a telecom operator",
+    "source": "case_study:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "Python",
+     "scikit-learn",
+     "XGBoost",
+     "classification",
+     "model evaluation",
+     "imbalanced data"
+    ],
+    "date": "2024-11",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+    "score": 0.6465
+   }
+  ],
+  "id": "P10",
+  "job_title": "Measure and improve our site search relevance"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-024",
+  "persona": "web_developer",
+  "proposal": "I see you need a reliable real\u2011time 1:1 and group chat that works across your three Node.js servers. I have already built a Socket.io chat module that uses the Redis adapter (see `realtime-chat/server.js`) to share rooms across several instances, and the accompanying README documents horizontal\u2011scaling notes. My plan is to add Socket.io to your existing codebase, configure the `@socket.io/redis-adapter` with your Redis pub/sub setup, integrate authentication hooks, write unit and integration tests, and provide deployment and scaling documentation for the three\u2011instance environment. If this approach sounds good, the next step is to share repository access so I can review the current architecture and begin the integration.",
+  "evidence": [
+   {
+    "id": "web-code-chat",
+    "type": "code",
+    "title": "realtime-chat/server.js",
+    "source": "code:realtime-chat",
+    "project": "realtime-chat",
+    "skills": [
+     "Redis",
+     "Socket.io",
+     "pub/sub"
+    ],
+    "date": "2025-08",
+    "client_industry": null,
+    "outcome": null,
+    "text": "const { createAdapter } = require('@socket.io/redis-adapter');\n// the Redis adapter lets several server instances share the same chat rooms\nio.adapter(createAdapter(pubClient, subClient));",
+    "score": 0.7839
+   },
+   {
+    "id": "web-rd-chat",
+    "type": "repo_readme",
+    "title": "realtime-chat (GitHub README)",
+    "source": "repo_readme:realtime-chat",
+    "project": "realtime-chat",
+    "skills": [
+     "WebSockets",
+     "Socket.io",
+     "Node.js"
+    ],
+    "date": "2025-08",
+    "client_industry": null,
+    "outcome": null,
+    "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included.",
+    "score": 0.7386
+   },
+   {
+    "id": "web-cs-shop",
+    "type": "case_study",
+    "title": "Next.js storefront with Stripe for a clothing brand",
+    "source": "case_study:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Next.js",
+     "React",
+     "Stripe",
+     "TypeScript",
+     "e-commerce"
+    ],
+    "date": "2025-04",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
+    "score": 0.6639
+   },
+   {
+    "id": "web-cv",
+    "type": "cv",
+    "title": "CV: Omar Raza",
+    "source": "cv:web-cv",
+    "project": null,
+    "skills": [
+     "React",
+     "Next.js",
+     "TypeScript",
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "Stripe",
+     "Tailwind",
+     "Docker",
+     "AWS"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
+    "score": 0.6433
+   },
+   {
+    "id": "web-cs-booking",
+    "type": "case_study",
+    "title": "Appointment booking system for a clinic chain",
+    "source": "case_study:clinic-booking",
+    "project": "clinic-booking",
+    "skills": [
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "email notifications",
+     "calendar"
+    ],
+    "date": "2024-03",
+    "client_industry": "healthcare",
+    "outcome": null,
+    "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
+    "score": 0.6381
+   },
+   {
+    "id": "web-cs-dashboard",
+    "type": "case_study",
+    "title": "Analytics dashboard for a fintech SaaS",
+    "source": "case_study:fintech-dashboard",
+    "project": "fintech-dashboard",
+    "skills": [
+     "React",
+     "TypeScript",
+     "PostgreSQL",
+     "charts",
+     "Recharts",
+     "REST API"
+    ],
+    "date": "2024-10",
+    "client_industry": "fintech",
+    "outcome": null,
+    "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+    "score": 0.6211
+   }
+  ],
+  "id": "P11",
+  "job_title": "Add real-time chat to our web app"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-023",
+  "persona": "web_developer",
+  "proposal": "The need is an online appointment booking system for your dental clinic that prevents double bookings and sends confirmation and reminder emails. The client gave a 4.8\u2011star review for flawless operation across multiple locations.\n\nFor your clinic I will design a PostgreSQL schema with a unique slot identifier, implement transactional row\u2011level locks on each booking request, and integrate an email service such as Nodemailer or SendGrid for confirmations and reminders. I will also provide clear API documentation, validation, and error handling, and a simple front\u2011end flow for patients to select dentists and times.",
+  "evidence": [
+   {
+    "id": "web-cs-booking",
+    "type": "case_study",
+    "title": "Appointment booking system for a clinic chain",
+    "source": "case_study:clinic-booking",
+    "project": "clinic-booking",
+    "skills": [
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "email notifications",
+     "calendar"
+    ],
+    "date": "2024-03",
+    "client_industry": "healthcare",
+    "outcome": null,
+    "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
+    "score": 0.8357
+   },
+   {
+    "id": "web-cs-shop",
+    "type": "case_study",
+    "title": "Next.js storefront with Stripe for a clothing brand",
+    "source": "case_study:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Next.js",
+     "React",
+     "Stripe",
+     "TypeScript",
+     "e-commerce"
+    ],
+    "date": "2025-04",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
+    "score": 0.684
+   },
+   {
+    "id": "web-rv-clinic",
+    "type": "review",
+    "title": "Client review (healthcare)",
+    "source": "review:clinic-booking",
+    "project": "clinic-booking",
+    "skills": [
+     "Node.js"
+    ],
+    "date": "2024-04",
+    "client_industry": "healthcare",
+    "outcome": null,
+    "text": "4.8 stars. Booking system works flawlessly across all our clinics. Good communicator.",
+    "score": 0.6764
+   },
+   {
+    "id": "web-code-shop",
+    "type": "code",
+    "title": "next-shop-starter/prisma/schema.prisma",
+    "source": "code:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Prisma",
+     "PostgreSQL",
+     "database migrations"
+    ],
+    "date": "2025-05",
+    "client_industry": null,
+    "outcome": null,
+    "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
+    "score": 0.6709
+   },
+   {
+    "id": "web-pp-replied",
+    "type": "past_proposal",
+    "title": "Proposal: admin panel for logistics startup",
+    "source": "past_proposal:fintech-dashboard",
+    "project": "fintech-dashboard",
+    "skills": [
+     "React",
+     "PostgreSQL"
+    ],
+    "date": "2025-09",
+    "client_industry": "logistics",
+    "outcome": "replied",
+    "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours.",
+    "score": 0.6653
+   },
+   {
+    "id": "web-rd-chat",
+    "type": "repo_readme",
+    "title": "realtime-chat (GitHub README)",
+    "source": "repo_readme:realtime-chat",
+    "project": "realtime-chat",
+    "skills": [
+     "WebSockets",
+     "Socket.io",
+     "Node.js"
+    ],
+    "date": "2025-08",
+    "client_industry": null,
+    "outcome": null,
+    "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included.",
+    "score": 0.6637
+   },
+   {
+    "id": "web-cv",
+    "type": "cv",
+    "title": "CV: Omar Raza",
+    "source": "cv:web-cv",
+    "project": null,
+    "skills": [
+     "React",
+     "Next.js",
+     "TypeScript",
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "Stripe",
+     "Tailwind",
+     "Docker",
+     "AWS"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
+    "score": 1.0
+   }
+  ],
+  "id": "P12",
+  "job_title": "Appointment booking system for a dental clinic"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-036",
+  "persona": "data_analyst",
+  "proposal": "I see you need to determine which page version drove higher conversions in your recent A/B test. In a recent 48k\u2011session checkout redesign test I first checked for sample\u2011ratio mismatch, then applied a two\u2011proportion z\u2011test with a 95% confidence interval, uncovering a 2.1\u2011point lift (p = 0.01). I delivered a one\u2011page decision memo that founders could read in two minutes, combining clear visuals and concise recommendations.\n\nFor this project I will replicate that rigorous workflow: verify traffic split and data integrity, run appropriate hypothesis tests, and calculate confidence intervals for key metrics. I will then craft a concise report with visual charts, a brief methodology explanation for non\u2011technical stakeholders, and a clear recommendation on the winning page version.\n\nThe next step is for you to share the raw experiment data (or access to the database) so I can begin the validation and analysis.",
+  "evidence": [
+   {
+    "id": "data-cs-abtest",
+    "type": "case_study",
+    "title": "A/B test analysis for an e-commerce checkout",
+    "source": "case_study:checkout-abtest",
+    "project": "checkout-abtest",
+    "skills": [
+     "A/B testing",
+     "statistics",
+     "Python",
+     "hypothesis testing"
+    ],
+    "date": "2024-09",
+    "client_industry": "ecommerce",
+    "outcome": null,
+    "text": "Analysed a checkout redesign test with 48k sessions. Checked sample-ratio mismatch first, then a two-proportion z-test and a 95% confidence interval. The new design lifted conversion by 2.1 points (p = 0.01). Wrote a one-page decision memo the founders could read in two minutes.",
+    "score": 0.7939
+   },
+   {
+    "id": "data-pp-won",
+    "type": "past_proposal",
+    "title": "Proposal: pricing experiment analysis",
+    "source": "past_proposal:checkout-abtest",
+    "project": "checkout-abtest",
+    "skills": [
+     "A/B testing"
+    ],
+    "date": "2025-05",
+    "client_industry": "saas",
+    "outcome": "won",
+    "text": "Before trusting the result I would check the traffic split, because a sample-ratio mismatch silently breaks tests. On a 48k-session checkout test I did exactly that, then found a 2.1-point lift with a clear confidence interval. You'd get a one-page memo with the decision, not just numbers.",
+    "score": 0.7708
+   },
+   {
+    "id": "data-rv-marketing",
+    "type": "review",
+    "title": "Client review (marketing)",
+    "source": "review:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt"
+    ],
+    "date": "2025-07",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "5 stars. Our numbers finally match across tools. Hina documented every model.",
+    "score": 0.7008
+   },
+   {
+    "id": "data-cs-dbt",
+    "type": "case_study",
+    "title": "Marketing data models with dbt and Snowflake",
+    "source": "case_study:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt",
+     "Snowflake",
+     "SQL",
+     "data pipelines"
+    ],
+    "date": "2025-06",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "Rebuilt a marketing agency's reporting layer as dbt models on Snowflake: staging, intermediate and mart layers with tests on every key. Channel spend and conversions now reconcile to the cent; report build time fell from 3 hours to 12 minutes.",
+    "score": 0.6974
+   },
+   {
+    "id": "data-rd-cohort",
+    "type": "repo_readme",
+    "title": "sql-cohort-analysis (GitHub README)",
+    "source": "repo_readme:cohort-analysis",
+    "project": "cohort-analysis",
+    "skills": [
+     "SQL",
+     "cohort analysis",
+     "retention"
+    ],
+    "date": "2025-03",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sql-cohort-analysis: SQL templates for monthly retention cohorts, plus a notebook that draws the retention triangle.",
+    "score": 0.6873
+   },
+   {
+    "id": "data-cv",
+    "type": "cv",
+    "title": "CV: Hina Javed",
+    "source": "cv:data-cv",
+    "project": null,
+    "skills": [
+     "SQL",
+     "Python",
+     "pandas",
+     "Power BI",
+     "DAX",
+     "Tableau",
+     "Excel",
+     "dbt",
+     "statistics",
+     "A/B testing"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Data analyst with 3 years of experience turning messy business data into dashboards and decisions. Strong SQL and Python (pandas). Power BI with DAX, some Tableau. Modelling with dbt. Statistics background: hypothesis tests, A/B testing, cohort analysis.",
+    "score": 0.6834
+   }
+  ],
+  "id": "P13",
+  "job_title": "Analyse our pricing A/B test"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-044",
+  "persona": "data_analyst",
+  "proposal": "I understand you need reliable dbt models in Snowflake that reconcile your marketing spend with conversion data across tools, and I can deliver a solution that ensures the numbers match to the cent. In a recent project I rebuilt a marketing agency's reporting layer as dbt models on Snowflake, creating staging, intermediate, and mart layers with tests on every key; the resulting spend and conversion figures now reconcile to the cent and report build time dropped from three hours to twelve minutes. My approach will start by mapping the raw marketing feeds to a clean staging layer, then adding incremental and mart models that mirror the required reconciliation logic, with unit tests for column\u2011level expectations and integration tests that compare aggregated spend versus conversions, all documented for you. The next step is to share a brief schema outline of your source tables so I can align the model design with your existing data \u2013 let me know when you\u2019re ready to review it.",
+  "evidence": [
+   {
+    "id": "data-cs-dbt",
+    "type": "case_study",
+    "title": "Marketing data models with dbt and Snowflake",
+    "source": "case_study:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt",
+     "Snowflake",
+     "SQL",
+     "data pipelines"
+    ],
+    "date": "2025-06",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "Rebuilt a marketing agency's reporting layer as dbt models on Snowflake: staging, intermediate and mart layers with tests on every key. Channel spend and conversions now reconcile to the cent; report build time fell from 3 hours to 12 minutes.",
+    "score": 0.8379
+   },
+   {
+    "id": "data-cs-abtest",
+    "type": "case_study",
+    "title": "A/B test analysis for an e-commerce checkout",
+    "source": "case_study:checkout-abtest",
+    "project": "checkout-abtest",
+    "skills": [
+     "A/B testing",
+     "statistics",
+     "Python",
+     "hypothesis testing"
+    ],
+    "date": "2024-09",
+    "client_industry": "ecommerce",
+    "outcome": null,
+    "text": "Analysed a checkout redesign test with 48k sessions. Checked sample-ratio mismatch first, then a two-proportion z-test and a 95% confidence interval. The new design lifted conversion by 2.1 points (p = 0.01). Wrote a one-page decision memo the founders could read in two minutes.",
+    "score": 0.672
+   },
+   {
+    "id": "data-rv-marketing",
+    "type": "review",
+    "title": "Client review (marketing)",
+    "source": "review:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt"
+    ],
+    "date": "2025-07",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "5 stars. Our numbers finally match across tools. Hina documented every model.",
+    "score": 0.6614
+   },
+   {
+    "id": "data-pp-won",
+    "type": "past_proposal",
+    "title": "Proposal: pricing experiment analysis",
+    "source": "past_proposal:checkout-abtest",
+    "project": "checkout-abtest",
+    "skills": [
+     "A/B testing"
+    ],
+    "date": "2025-05",
+    "client_industry": "saas",
+    "outcome": "won",
+    "text": "Before trusting the result I would check the traffic split, because a sample-ratio mismatch silently breaks tests. On a 48k-session checkout test I did exactly that, then found a 2.1-point lift with a clear confidence interval. You'd get a one-page memo with the decision, not just numbers.",
+    "score": 0.659
+   },
+   {
+    "id": "data-cs-powerbi",
+    "type": "case_study",
+    "title": "Power BI sales dashboard for a retail chain",
+    "source": "case_study:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI",
+     "DAX",
+     "SQL",
+     "data modelling"
+    ],
+    "date": "2025-01",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Built a Power BI sales dashboard for a 40-store retail chain. Star-schema model in SQL Server, DAX measures for like-for-like growth and margin, row-level security per region. Replaced 12 weekly Excel reports; managers now check it daily.",
+    "score": 0.6566
+   },
+   {
+    "id": "data-rd-cohort",
+    "type": "repo_readme",
+    "title": "sql-cohort-analysis (GitHub README)",
+    "source": "repo_readme:cohort-analysis",
+    "project": "cohort-analysis",
+    "skills": [
+     "SQL",
+     "cohort analysis",
+     "retention"
+    ],
+    "date": "2025-03",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sql-cohort-analysis: SQL templates for monthly retention cohorts, plus a notebook that draws the retention triangle.",
+    "score": 0.6418
+   }
+  ],
+  "id": "P14",
+  "job_title": "dbt models for marketing data in Snowflake"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-013",
+  "persona": "ml_engineer",
+  "proposal": "The client needs an automated pipeline to extract key fields from a large volume of scanned supplier invoices and output them into a spreadsheet. In a recent project for a logistics company I built an end\u2011to\u2011end solution that used Tesseract OCR followed by a fine\u2011tuned LayoutLM model, achieving 94% field accuracy on a 500\u2011invoice test set and saving the accounts team about 30 hours each month. With four years of experience delivering NLP and document\u2011AI pipelines on AWS, I can design a scalable architecture that handles the required 2,000 invoices per month while keeping accuracy high.\n\nMy plan is to set up a Dockerised FastAPI service that ingests the scanned images, runs OCR, applies the LayoutLM extractor, and writes the extracted invoice number, date, supplier name, and total amount to a CSV or Excel file. I will include configurable thresholds and a simple usage guide so your team can run the pipeline with minimal effort. To ensure performance, I will benchmark the end\u2011to\u2011end latency and adjust the OCR batch size accordingly.\n\nThe next step is to schedule a brief call to review a sample of your invoice images and confirm the output format you prefer. This will let me tailor the model fine\u2011tuning and deployment details to your exact needs.",
+  "evidence": [
+   {
+    "id": "ml-cs-invoice-ocr",
+    "type": "case_study",
+    "title": "Invoice field extraction for a logistics company",
+    "source": "case_study:invoice-ocr",
+    "project": "invoice-ocr",
+    "skills": [
+     "OCR",
+     "PyTorch",
+     "LayoutLM",
+     "Tesseract",
+     "document AI"
+    ],
+    "date": "2024-05",
+    "client_industry": "logistics",
+    "outcome": null,
+    "text": "Automated reading of scanned supplier invoices. Tesseract for OCR, then a fine-tuned LayoutLM model to pull out invoice number, date, totals and supplier name. Field accuracy 94% on a 500-invoice test set. Saved the accounts team about 30 hours a month.",
+    "score": 0.8464
+   },
+   {
+    "id": "ml-rd-rag-eval",
+    "type": "repo_readme",
+    "title": "rag-eval-kit (GitHub README)",
+    "source": "repo_readme:rag-eval-kit",
+    "project": "rag-eval-kit",
+    "skills": [
+     "information retrieval",
+     "BM25",
+     "embeddings",
+     "evaluation metrics",
+     "Recall@k",
+     "nDCG"
+    ],
+    "date": "2025-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+    "score": 0.7044
+   },
+   {
+    "id": "ml-cv",
+    "type": "cv",
+    "title": "CV: Sara Malik",
+    "source": "cv:ml-cv",
+    "project": null,
+    "skills": [
+     "Python",
+     "PyTorch",
+     "scikit-learn",
+     "LangChain",
+     "RAG",
+     "FastAPI",
+     "Docker",
+     "AWS",
+     "NLP",
+     "SQL"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+    "score": 0.698
+   },
+   {
+    "id": "ml-cs-legal-rag",
+    "type": "case_study",
+    "title": "Document Q&A chatbot for a law firm",
+    "source": "case_study:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "RAG",
+     "LangChain",
+     "Pinecone",
+     "FastAPI",
+     "OpenAI",
+     "embeddings"
+    ],
+    "date": "2025-06",
+    "client_industry": "legal",
+    "outcome": null,
+    "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+    "score": 0.6873
+   },
+   {
+    "id": "ml-code-sentiment",
+    "type": "code",
+    "title": "sentiment-api/worker.py",
+    "source": "code:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "Celery",
+     "Redis",
+     "background jobs"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
+    "score": 0.6843
+   },
+   {
+    "id": "ml-rd-sentiment",
+    "type": "repo_readme",
+    "title": "sentiment-api (GitHub README)",
+    "source": "repo_readme:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "FastAPI",
+     "Hugging Face",
+     "Docker",
+     "NLP"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+    "score": 0.6745
+   },
+   {
+    "id": "ml-pp-generic-ignored",
+    "type": "past_proposal",
+    "title": "Proposal: computer vision app",
+    "source": "past_proposal:ml-pp-generic-ignored",
+    "project": null,
+    "skills": [],
+    "date": "2025-01",
+    "client_industry": "retail",
+    "outcome": "ignored",
+    "text": "Dear Sir, I am passionate about AI and I have read your job carefully. I am the best fit for this job and can deliver high quality work on time. Please message me to discuss.",
+    "score": 1.0
+   }
+  ],
+  "id": "P15",
+  "job_title": "Extract fields from scanned supplier invoices"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-031",
+  "persona": "web_developer",
+  "proposal": "Your current slow template site is hurting sales for your handmade candle business. In a recent project for a clothing brand, I rebuilt the store as a custom Next.js storefront with Stripe Checkout and webhooks, cutting page load from 4.1\u202fs to 1.3\u202fs and boosting conversion by 18% in the first two months. I also maintain an open\u2011source Next.js e\u2011commerce starter (300+ GitHub stars) that includes a fully typed cart and Stripe webhook integration.\n\nFor your store I will create a TypeScript\u2011based Next.js codebase, design responsive product and cart pages, integrate Stripe Checkout, and implement server\u2011side webhook handlers that send order confirmation emails. I will set up a CI pipeline, run basic tests, and provide deployment guidance for Vercel.\n\nThe next step is a brief call to confirm the product catalog size and any branding requirements, after which I can deliver a detailed timeline and start the implementation within two weeks.",
+  "evidence": [
+   {
+    "id": "web-cs-shop",
+    "type": "case_study",
+    "title": "Next.js storefront with Stripe for a clothing brand",
+    "source": "case_study:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Next.js",
+     "React",
+     "Stripe",
+     "TypeScript",
+     "e-commerce"
+    ],
+    "date": "2025-04",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
+    "score": 0.8258
+   },
+   {
+    "id": "web-pp-won",
+    "type": "past_proposal",
+    "title": "Proposal: Stripe checkout for a candle shop",
+    "source": "past_proposal:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Stripe",
+     "Next.js"
+    ],
+    "date": "2025-07",
+    "client_industry": "retail",
+    "outcome": "won",
+    "text": "Slow checkout loses sales, so speed is where I'd start. For a clothing brand I moved to a custom Next.js store with Stripe Checkout; load time went from 4.1s to 1.3s and conversion rose 18%. I can set up the same checkout with webhooks for your order emails within two weeks.",
+    "score": 0.7956
+   },
+   {
+    "id": "web-rd-shop",
+    "type": "repo_readme",
+    "title": "next-shop-starter (GitHub README)",
+    "source": "repo_readme:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Next.js",
+     "Stripe"
+    ],
+    "date": "2025-05",
+    "client_industry": null,
+    "outcome": null,
+    "text": "next-shop-starter: an open-source Next.js e-commerce starter with cart, Stripe checkout and order webhooks. 300+ GitHub stars.",
+    "score": 0.7702
+   },
+   {
+    "id": "web-cs-dashboard",
+    "type": "case_study",
+    "title": "Analytics dashboard for a fintech SaaS",
+    "source": "case_study:fintech-dashboard",
+    "project": "fintech-dashboard",
+    "skills": [
+     "React",
+     "TypeScript",
+     "PostgreSQL",
+     "charts",
+     "Recharts",
+     "REST API"
+    ],
+    "date": "2024-10",
+    "client_industry": "fintech",
+    "outcome": null,
+    "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+    "score": 0.6853
+   },
+   {
+    "id": "web-cv",
+    "type": "cv",
+    "title": "CV: Omar Raza",
+    "source": "cv:web-cv",
+    "project": null,
+    "skills": [
+     "React",
+     "Next.js",
+     "TypeScript",
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "Stripe",
+     "Tailwind",
+     "Docker",
+     "AWS"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
+    "score": 0.6829
+   },
+   {
+    "id": "web-pp-replied",
+    "type": "past_proposal",
+    "title": "Proposal: admin panel for logistics startup",
+    "source": "past_proposal:fintech-dashboard",
+    "project": "fintech-dashboard",
+    "skills": [
+     "React",
+     "PostgreSQL"
+    ],
+    "date": "2025-09",
+    "client_industry": "logistics",
+    "outcome": "replied",
+    "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours.",
+    "score": 0.6759
+   }
+  ],
+  "id": "P16",
+  "job_title": "Next.js storefront with Stripe checkout"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-020",
+  "persona": "web_developer",
+  "proposal": "I understand you need a high\u2011performance internal admin dashboard that can render key metrics from a massive PostgreSQL dataset without lag. I recently built a fintech SaaS analytics dashboard using React, TypeScript and Recharts, backed by a Node API over PostgreSQL, where every chart loads in under 500\u202fms on a 3\u202fmillion\u2011row table. That experience directly matches your requirement for fast, scalable visualizations.\n\nFor your admin panel I will design a lightweight API layer that aggregates and paginates data at the database level, apply appropriate indexes, and use memoized chart components to keep rendering snappy. The frontend will be a React + TypeScript application with responsive chart libraries, and I will document both usage and API endpoints for your internal stakeholders.\n\nNext step: let\u2019s schedule a brief call to review your current schema and define the key metrics you want to display, so I can outline the exact data\u2011flow and deliver a timeline for the first prototype.",
+  "evidence": [
+   {
+    "id": "web-cs-dashboard",
+    "type": "case_study",
+    "title": "Analytics dashboard for a fintech SaaS",
+    "source": "case_study:fintech-dashboard",
+    "project": "fintech-dashboard",
+    "skills": [
+     "React",
+     "TypeScript",
+     "PostgreSQL",
+     "charts",
+     "Recharts",
+     "REST API"
+    ],
+    "date": "2024-10",
+    "client_industry": "fintech",
+    "outcome": null,
+    "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+    "score": 0.7616
+   },
+   {
+    "id": "web-pp-replied",
+    "type": "past_proposal",
+    "title": "Proposal: admin panel for logistics startup",
+    "source": "past_proposal:fintech-dashboard",
+    "project": "fintech-dashboard",
+    "skills": [
+     "React",
+     "PostgreSQL"
+    ],
+    "date": "2025-09",
+    "client_industry": "logistics",
+    "outcome": "replied",
+    "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours.",
+    "score": 0.7411
+   },
+   {
+    "id": "web-code-shop",
+    "type": "code",
+    "title": "next-shop-starter/prisma/schema.prisma",
+    "source": "code:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Prisma",
+     "PostgreSQL",
+     "database migrations"
+    ],
+    "date": "2025-05",
+    "client_industry": null,
+    "outcome": null,
+    "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
+    "score": 0.6782
+   },
+   {
+    "id": "web-cv",
+    "type": "cv",
+    "title": "CV: Omar Raza",
+    "source": "cv:web-cv",
+    "project": null,
+    "skills": [
+     "React",
+     "Next.js",
+     "TypeScript",
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "Stripe",
+     "Tailwind",
+     "Docker",
+     "AWS"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
+    "score": 0.6687
+   },
+   {
+    "id": "web-rd-chat",
+    "type": "repo_readme",
+    "title": "realtime-chat (GitHub README)",
+    "source": "repo_readme:realtime-chat",
+    "project": "realtime-chat",
+    "skills": [
+     "WebSockets",
+     "Socket.io",
+     "Node.js"
+    ],
+    "date": "2025-08",
+    "client_industry": null,
+    "outcome": null,
+    "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included.",
+    "score": 0.6612
+   },
+   {
+    "id": "web-cs-shop",
+    "type": "case_study",
+    "title": "Next.js storefront with Stripe for a clothing brand",
+    "source": "case_study:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Next.js",
+     "React",
+     "Stripe",
+     "TypeScript",
+     "e-commerce"
+    ],
+    "date": "2025-04",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
+    "score": 0.6576
+   }
+  ],
+  "id": "P17",
+  "job_title": "Admin dashboard with charts for our SaaS"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-015",
+  "persona": "ml_engineer",
+  "proposal": "Build a chatbot that answers staff questions using only the company\u2019s internal PDFs and displays the source documents. In a recent project I built a retrieval\u2011augmented chatbot over 8,000 contract PDFs for a mid\u2011size law firm, storing embeddings in Pinecone and serving answers through FastAPI with explicit citations, and added a \u201cno answer found\u201d path so the bot never guessed. With four years of experience delivering NLP pipelines and FastAPI services in Docker on AWS, I can replicate that architecture for your ~3,000 PDFs.\n\nMy plan is to (1) ingest and chunk the PDFs at the clause level, (2) embed the chunks with a Hugging Face model and index them in Pinecone, (3) wire LangChain\u2019s RAG to a FastAPI endpoint that returns both the answer and the source reference, and (4) provide clear deployment documentation for internal use. I will configure a confidence threshold that triggers a \u201cno answer found\u201d fallback, ensuring the bot never fabricates responses.",
+  "evidence": [
+   {
+    "id": "ml-cs-legal-rag",
+    "type": "case_study",
+    "title": "Document Q&A chatbot for a law firm",
+    "source": "case_study:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "RAG",
+     "LangChain",
+     "Pinecone",
+     "FastAPI",
+     "OpenAI",
+     "embeddings"
+    ],
+    "date": "2025-06",
+    "client_industry": "legal",
+    "outcome": null,
+    "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+    "score": 0.8309
+   },
+   {
+    "id": "ml-pp-rag-replied",
+    "type": "past_proposal",
+    "title": "Proposal: internal knowledge chatbot",
+    "source": "past_proposal:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "RAG"
+    ],
+    "date": "2025-08",
+    "client_industry": "consulting",
+    "outcome": "replied",
+    "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+    "score": 0.7924
+   },
+   {
+    "id": "ml-cs-contract-qa",
+    "type": "case_study",
+    "title": "Contract assistant (internal write-up)",
+    "source": "case_study:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "vector search",
+     "LLM",
+     "citations"
+    ],
+    "date": "2025-06",
+    "client_industry": "legal",
+    "outcome": null,
+    "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
+    "score": 0.7486
+   },
+   {
+    "id": "ml-cv",
+    "type": "cv",
+    "title": "CV: Sara Malik",
+    "source": "cv:ml-cv",
+    "project": null,
+    "skills": [
+     "Python",
+     "PyTorch",
+     "scikit-learn",
+     "LangChain",
+     "RAG",
+     "FastAPI",
+     "Docker",
+     "AWS",
+     "NLP",
+     "SQL"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+    "score": 0.7281
+   },
+   {
+    "id": "ml-rd-rag-eval",
+    "type": "repo_readme",
+    "title": "rag-eval-kit (GitHub README)",
+    "source": "repo_readme:rag-eval-kit",
+    "project": "rag-eval-kit",
+    "skills": [
+     "information retrieval",
+     "BM25",
+     "embeddings",
+     "evaluation metrics",
+     "Recall@k",
+     "nDCG"
+    ],
+    "date": "2025-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+    "score": 0.7187
+   },
+   {
+    "id": "ml-rd-sentiment",
+    "type": "repo_readme",
+    "title": "sentiment-api (GitHub README)",
+    "source": "repo_readme:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "FastAPI",
+     "Hugging Face",
+     "Docker",
+     "NLP"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+    "score": 0.7088
+   }
+  ],
+  "id": "P18",
+  "job_title": "RAG chatbot over our company PDFs"
+ },
+ {
+  "source": "writer_raw_before_verification",
+  "job_id": "job-023",
+  "persona": "web_developer",
+  "proposal": "The need is an online appointment booking system for your dental clinic that prevents double bookings and sends confirmation and reminder emails. I recently built a similar solution for a chain of six clinics, using a Node.js/Express API with PostgreSQL row\u2011level locking that guarantees a slot can be booked by only one patient, and the system automatically sent confirmation and reminder emails, reducing no\u2011shows by 22%. The client gave a 4.8\u2011star review for flawless operation across multiple locations.\n\nFor your clinic I will design a PostgreSQL schema with a unique slot identifier, implement transactional row\u2011level locks on each booking request, and integrate an email service such as Nodemailer or SendGrid for confirmations and reminders. I will also provide clear API documentation, validation, and error handling, and a simple front\u2011end flow for patients to select dentists and times.\n\nNext step: let\u2019s schedule a brief call to confirm the exact booking flow and any specific email templates you need, after which I can deliver a detailed project plan and timeline.",
+  "evidence": [
+   {
+    "id": "web-cs-booking",
+    "type": "case_study",
+    "title": "Appointment booking system for a clinic chain",
+    "source": "case_study:clinic-booking",
+    "project": "clinic-booking",
+    "skills": [
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "email notifications",
+     "calendar"
+    ],
+    "date": "2024-03",
+    "client_industry": "healthcare",
+    "outcome": null,
+    "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
+    "score": 0.8357
+   },
+   {
+    "id": "web-cs-shop",
+    "type": "case_study",
+    "title": "Next.js storefront with Stripe for a clothing brand",
+    "source": "case_study:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Next.js",
+     "React",
+     "Stripe",
+     "TypeScript",
+     "e-commerce"
+    ],
+    "date": "2025-04",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
+    "score": 0.684
+   },
+   {
+    "id": "web-rv-clinic",
+    "type": "review",
+    "title": "Client review (healthcare)",
+    "source": "review:clinic-booking",
+    "project": "clinic-booking",
+    "skills": [
+     "Node.js"
+    ],
+    "date": "2024-04",
+    "client_industry": "healthcare",
+    "outcome": null,
+    "text": "4.8 stars. Booking system works flawlessly across all our clinics. Good communicator.",
+    "score": 0.6764
+   },
+   {
+    "id": "web-code-shop",
+    "type": "code",
+    "title": "next-shop-starter/prisma/schema.prisma",
+    "source": "code:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Prisma",
+     "PostgreSQL",
+     "database migrations"
+    ],
+    "date": "2025-05",
+    "client_industry": null,
+    "outcome": null,
+    "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
+    "score": 0.6709
+   },
+   {
+    "id": "web-pp-replied",
+    "type": "past_proposal",
+    "title": "Proposal: admin panel for logistics startup",
+    "source": "past_proposal:fintech-dashboard",
+    "project": "fintech-dashboard",
+    "skills": [
+     "React",
+     "PostgreSQL"
+    ],
+    "date": "2025-09",
+    "client_industry": "logistics",
+    "outcome": "replied",
+    "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours.",
+    "score": 0.6653
+   },
+   {
+    "id": "web-rd-chat",
+    "type": "repo_readme",
+    "title": "realtime-chat (GitHub README)",
+    "source": "repo_readme:realtime-chat",
+    "project": "realtime-chat",
+    "skills": [
+     "WebSockets",
+     "Socket.io",
+     "Node.js"
+    ],
+    "date": "2025-08",
+    "client_industry": null,
+    "outcome": null,
+    "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included.",
+    "score": 0.6637
+   },
+   {
+    "id": "web-cv",
+    "type": "cv",
+    "title": "CV: Omar Raza",
+    "source": "cv:web-cv",
+    "project": null,
+    "skills": [
+     "React",
+     "Next.js",
+     "TypeScript",
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "Stripe",
+     "Tailwind",
+     "Docker",
+     "AWS"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
+    "score": 1.0
+   }
+  ],
+  "id": "P19",
+  "job_title": "Appointment booking system for a dental clinic"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-042",
+  "persona": "data_analyst",
+  "proposal": "Help analyze customer return behavior to determine if customers come back. I have built a full cohort analysis pipeline in SQL, documented in a GitHub repo with templates for monthly retention cohorts and a notebook that visualizes the retention triangle, and I routinely use Python pandas to assign users to their first\u2011order month cohort and calculate retention tables. In a recent Power BI project for a 40\u2011store retail chain I created a star\u2011schema model in SQL Server and DAX measures that replaced 12 weekly Excel reports, delivering daily insights to non\u2011technical managers.\n\nFor this project I will first connect to your transaction database and write SQL queries to extract first\u2011order dates, assign each customer to a monthly cohort, and compute a retention matrix. I will then build a concise report with visualizations and a one\u2011page summary of key findings and actionable recommendations, using clear language for stakeholders.\n\nNext, please share a sample of the transaction data schema (or a safe data extract) so I can validate the query structure and confirm the cohort definitions before proceeding.",
+  "evidence": [
+   {
+    "id": "data-code-cohort",
+    "type": "code",
+    "title": "sql-cohort-analysis/cohort.py",
+    "source": "code:cohort-analysis",
+    "project": "cohort-analysis",
+    "skills": [
+     "pandas",
+     "Python",
+     "retention"
+    ],
+    "date": "2025-03",
+    "client_industry": null,
+    "outcome": null,
+    "text": "import pandas as pd\n# each user's cohort = the month of their first order\ndf['cohort'] = df.groupby('user_id')['order_date'].transform('min').dt.to_period('M')\nretention = df.pivot_table(index='cohort', columns='months_since', values='user_id', aggfunc='nunique')",
+    "score": 0.7372
+   },
+   {
+    "id": "data-rd-cohort",
+    "type": "repo_readme",
+    "title": "sql-cohort-analysis (GitHub README)",
+    "source": "repo_readme:cohort-analysis",
+    "project": "cohort-analysis",
+    "skills": [
+     "SQL",
+     "cohort analysis",
+     "retention"
+    ],
+    "date": "2025-03",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sql-cohort-analysis: SQL templates for monthly retention cohorts, plus a notebook that draws the retention triangle.",
+    "score": 0.7212
+   },
+   {
+    "id": "data-cs-powerbi",
+    "type": "case_study",
+    "title": "Power BI sales dashboard for a retail chain",
+    "source": "case_study:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI",
+     "DAX",
+     "SQL",
+     "data modelling"
+    ],
+    "date": "2025-01",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Built a Power BI sales dashboard for a 40-store retail chain. Star-schema model in SQL Server, DAX measures for like-for-like growth and margin, row-level security per region. Replaced 12 weekly Excel reports; managers now check it daily.",
+    "score": 0.6617
+   },
+   {
+    "id": "data-cv",
+    "type": "cv",
+    "title": "CV: Hina Javed",
+    "source": "cv:data-cv",
+    "project": null,
+    "skills": [
+     "SQL",
+     "Python",
+     "pandas",
+     "Power BI",
+     "DAX",
+     "Tableau",
+     "Excel",
+     "dbt",
+     "statistics",
+     "A/B testing"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Data analyst with 3 years of experience turning messy business data into dashboards and decisions. Strong SQL and Python (pandas). Power BI with DAX, some Tableau. Modelling with dbt. Statistics background: hypothesis tests, A/B testing, cohort analysis.",
+    "score": 0.6551
+   },
+   {
+    "id": "data-cs-abtest",
+    "type": "case_study",
+    "title": "A/B test analysis for an e-commerce checkout",
+    "source": "case_study:checkout-abtest",
+    "project": "checkout-abtest",
+    "skills": [
+     "A/B testing",
+     "statistics",
+     "Python",
+     "hypothesis testing"
+    ],
+    "date": "2024-09",
+    "client_industry": "ecommerce",
+    "outcome": null,
+    "text": "Analysed a checkout redesign test with 48k sessions. Checked sample-ratio mismatch first, then a two-proportion z-test and a 95% confidence interval. The new design lifted conversion by 2.1 points (p = 0.01). Wrote a one-page decision memo the founders could read in two minutes.",
+    "score": 0.6484
+   },
+   {
+    "id": "data-cs-dbt",
+    "type": "case_study",
+    "title": "Marketing data models with dbt and Snowflake",
+    "source": "case_study:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt",
+     "Snowflake",
+     "SQL",
+     "data pipelines"
+    ],
+    "date": "2025-06",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "Rebuilt a marketing agency's reporting layer as dbt models on Snowflake: staging, intermediate and mart layers with tests on every key. Channel spend and conversions now reconcile to the cent; report build time fell from 3 hours to 12 minutes.",
+    "score": 0.6421
+   }
+  ],
+  "id": "P20",
+  "job_title": "Customer retention cohort analysis"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-035",
+  "persona": "data_analyst",
+  "proposal": "The client\u2019s challenge is that disorganized Excel spreadsheets currently consume a full day to clean and merge.\n\nIn a recent project for a manufacturer, I wrote a pandas script that processed 30 inconsistent Excel files from different plants, producing a tidy workbook every Monday and saving the finance team a full day each week.\n\nI will build a Python script (or Jupyter notebook) that reads all supplied Excel files, maps varying column names to a unified schema, applies the necessary cleaning rules, merges the sheets, and outputs a single organized CSV or Excel file. I will include inline comments, a README for non\u2011technical users, and validation checks that log any rejected rows. The next step is to receive a sample set of the messy files so I can design the column\u2011mapping logic and start coding.",
+  "evidence": [
+   {
+    "id": "data-cs-excel",
+    "type": "case_study",
+    "title": "Cleaning and automating messy Excel reports",
+    "source": "case_study:excel-automation",
+    "project": "excel-automation",
+    "skills": [
+     "Excel",
+     "Python",
+     "pandas",
+     "automation"
+    ],
+    "date": "2024-04",
+    "client_industry": "manufacturing",
+    "outcome": null,
+    "text": "A manufacturer had 30 inconsistent Excel files from different plants. Wrote a pandas script that cleans, merges and validates them into one tidy workbook every Monday, with a log of rejected rows. Saved the finance team a full day each week.",
+    "score": 0.8509
+   },
+   {
+    "id": "data-pp-replied",
+    "type": "past_proposal",
+    "title": "Proposal: sales dashboard",
+    "source": "past_proposal:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI"
+    ],
+    "date": "2025-08",
+    "client_industry": "wholesale",
+    "outcome": "replied",
+    "text": "I replaced 12 weekly Excel reports with one Power BI dashboard for a 40-store chain, with security per region. Could you share which numbers your managers look at first?",
+    "score": 0.6829
+   },
+   {
+    "id": "data-cs-powerbi",
+    "type": "case_study",
+    "title": "Power BI sales dashboard for a retail chain",
+    "source": "case_study:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI",
+     "DAX",
+     "SQL",
+     "data modelling"
+    ],
+    "date": "2025-01",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Built a Power BI sales dashboard for a 40-store retail chain. Star-schema model in SQL Server, DAX measures for like-for-like growth and margin, row-level security per region. Replaced 12 weekly Excel reports; managers now check it daily.",
+    "score": 0.6713
+   },
+   {
+    "id": "data-cs-dbt",
+    "type": "case_study",
+    "title": "Marketing data models with dbt and Snowflake",
+    "source": "case_study:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt",
+     "Snowflake",
+     "SQL",
+     "data pipelines"
+    ],
+    "date": "2025-06",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "Rebuilt a marketing agency's reporting layer as dbt models on Snowflake: staging, intermediate and mart layers with tests on every key. Channel spend and conversions now reconcile to the cent; report build time fell from 3 hours to 12 minutes.",
+    "score": 0.6695
+   },
+   {
+    "id": "data-cv",
+    "type": "cv",
+    "title": "CV: Hina Javed",
+    "source": "cv:data-cv",
+    "project": null,
+    "skills": [
+     "SQL",
+     "Python",
+     "pandas",
+     "Power BI",
+     "DAX",
+     "Tableau",
+     "Excel",
+     "dbt",
+     "statistics",
+     "A/B testing"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Data analyst with 3 years of experience turning messy business data into dashboards and decisions. Strong SQL and Python (pandas). Power BI with DAX, some Tableau. Modelling with dbt. Statistics background: hypothesis tests, A/B testing, cohort analysis.",
+    "score": 0.6591
+   },
+   {
+    "id": "data-cs-abtest",
+    "type": "case_study",
+    "title": "A/B test analysis for an e-commerce checkout",
+    "source": "case_study:checkout-abtest",
+    "project": "checkout-abtest",
+    "skills": [
+     "A/B testing",
+     "statistics",
+     "Python",
+     "hypothesis testing"
+    ],
+    "date": "2024-09",
+    "client_industry": "ecommerce",
+    "outcome": null,
+    "text": "Analysed a checkout redesign test with 48k sessions. Checked sample-ratio mismatch first, then a two-proportion z-test and a 95% confidence interval. The new design lifted conversion by 2.1 points (p = 0.01). Wrote a one-page decision memo the founders could read in two minutes.",
+    "score": 0.6455
+   }
+  ],
+  "id": "P21",
+  "job_title": "Automate cleanup of messy Excel reports"
+ },
+ {
+  "source": "generic_control",
+  "job_id": "job-050",
+  "persona": "data_analyst",
+  "proposal": "Dear Sir, I am passionate about this kind of work and I have read your job carefully. I am the best fit for this job and have many years of experience. I guarantee high quality work delivered on time. Please message me so we can discuss the details.",
+  "evidence": [
+   {
+    "id": "data-cs-powerbi",
+    "type": "case_study",
+    "title": "Power BI sales dashboard for a retail chain",
+    "source": "case_study:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI",
+     "DAX",
+     "SQL",
+     "data modelling"
+    ],
+    "date": "2025-01",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Built a Power BI sales dashboard for a 40-store retail chain. Star-schema model in SQL Server, DAX measures for like-for-like growth and margin, row-level security per region. Replaced 12 weekly Excel reports; managers now check it daily.",
+    "score": 0.8199
+   },
+   {
+    "id": "data-pp-replied",
+    "type": "past_proposal",
+    "title": "Proposal: sales dashboard",
+    "source": "past_proposal:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI"
+    ],
+    "date": "2025-08",
+    "client_industry": "wholesale",
+    "outcome": "replied",
+    "text": "I replaced 12 weekly Excel reports with one Power BI dashboard for a 40-store chain, with security per region. Could you share which numbers your managers look at first?",
+    "score": 0.8109
+   },
+   {
+    "id": "data-cs-excel",
+    "type": "case_study",
+    "title": "Cleaning and automating messy Excel reports",
+    "source": "case_study:excel-automation",
+    "project": "excel-automation",
+    "skills": [
+     "Excel",
+     "Python",
+     "pandas",
+     "automation"
+    ],
+    "date": "2024-04",
+    "client_industry": "manufacturing",
+    "outcome": null,
+    "text": "A manufacturer had 30 inconsistent Excel files from different plants. Wrote a pandas script that cleans, merges and validates them into one tidy workbook every Monday, with a log of rejected rows. Saved the finance team a full day each week.",
+    "score": 0.7014
+   },
+   {
+    "id": "data-rv-retail",
+    "type": "review",
+    "title": "Client review (retail)",
+    "source": "review:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI"
+    ],
+    "date": "2025-02",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "5 stars. Hina's dashboard replaced a mess of spreadsheets. Clear, fast and accurate.",
+    "score": 0.6707
+   },
+   {
+    "id": "data-pp-ignored",
+    "type": "past_proposal",
+    "title": "Proposal: data entry",
+    "source": "past_proposal:data-pp-ignored",
+    "project": null,
+    "skills": [],
+    "date": "2024-12",
+    "client_industry": "real estate",
+    "outcome": "ignored",
+    "text": "Dear hiring manager, I am passionate about data and I am a hard worker. I can do this job perfectly. Kindly consider me.",
+    "score": 0.6667
+   },
+   {
+    "id": "data-cs-dbt",
+    "type": "case_study",
+    "title": "Marketing data models with dbt and Snowflake",
+    "source": "case_study:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt",
+     "Snowflake",
+     "SQL",
+     "data pipelines"
+    ],
+    "date": "2025-06",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "Rebuilt a marketing agency's reporting layer as dbt models on Snowflake: staging, intermediate and mart layers with tests on every key. Channel spend and conversions now reconcile to the cent; report build time fell from 3 hours to 12 minutes.",
+    "score": 0.6572
+   }
+  ],
+  "id": "P22",
+  "job_title": "Power BI sales dashboard for our stores"
+ },
+ {
+  "source": "writer_raw_before_verification",
+  "job_id": "job-015",
+  "persona": "ml_engineer",
+  "proposal": "Build a chatbot that answers staff questions using only the company\u2019s internal PDFs and displays the source documents. In a recent project I built a retrieval\u2011augmented chatbot over 8,000 contract PDFs for a mid\u2011size law firm, storing embeddings in Pinecone and serving answers through FastAPI with explicit citations, and added a \u201cno answer found\u201d path so the bot never guessed. With four years of experience delivering NLP pipelines and FastAPI services in Docker on AWS, I can replicate that architecture for your ~3,000 PDFs.\n\nMy plan is to (1) ingest and chunk the PDFs at the clause level, (2) embed the chunks with a Hugging Face model and index them in Pinecone, (3) wire LangChain\u2019s RAG to a FastAPI endpoint that returns both the answer and the source reference, and (4) provide clear deployment documentation for internal use. I will configure a confidence threshold that triggers a \u201cno answer found\u201d fallback, ensuring the bot never fabricates responses.\n\nLet\u2019s schedule a 15\u2011minute call to discuss the PDF volume, vector store choice, and deployment preferences so I can tailor the solution to your environment.",
+  "evidence": [
+   {
+    "id": "ml-cs-legal-rag",
+    "type": "case_study",
+    "title": "Document Q&A chatbot for a law firm",
+    "source": "case_study:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "RAG",
+     "LangChain",
+     "Pinecone",
+     "FastAPI",
+     "OpenAI",
+     "embeddings"
+    ],
+    "date": "2025-06",
+    "client_industry": "legal",
+    "outcome": null,
+    "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+    "score": 0.8309
+   },
+   {
+    "id": "ml-pp-rag-replied",
+    "type": "past_proposal",
+    "title": "Proposal: internal knowledge chatbot",
+    "source": "past_proposal:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "RAG"
+    ],
+    "date": "2025-08",
+    "client_industry": "consulting",
+    "outcome": "replied",
+    "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+    "score": 0.7924
+   },
+   {
+    "id": "ml-cs-contract-qa",
+    "type": "case_study",
+    "title": "Contract assistant (internal write-up)",
+    "source": "case_study:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "vector search",
+     "LLM",
+     "citations"
+    ],
+    "date": "2025-06",
+    "client_industry": "legal",
+    "outcome": null,
+    "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
+    "score": 0.7486
+   },
+   {
+    "id": "ml-cv",
+    "type": "cv",
+    "title": "CV: Sara Malik",
+    "source": "cv:ml-cv",
+    "project": null,
+    "skills": [
+     "Python",
+     "PyTorch",
+     "scikit-learn",
+     "LangChain",
+     "RAG",
+     "FastAPI",
+     "Docker",
+     "AWS",
+     "NLP",
+     "SQL"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+    "score": 0.7281
+   },
+   {
+    "id": "ml-rd-rag-eval",
+    "type": "repo_readme",
+    "title": "rag-eval-kit (GitHub README)",
+    "source": "repo_readme:rag-eval-kit",
+    "project": "rag-eval-kit",
+    "skills": [
+     "information retrieval",
+     "BM25",
+     "embeddings",
+     "evaluation metrics",
+     "Recall@k",
+     "nDCG"
+    ],
+    "date": "2025-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+    "score": 0.7187
+   },
+   {
+    "id": "ml-rd-sentiment",
+    "type": "repo_readme",
+    "title": "sentiment-api (GitHub README)",
+    "source": "repo_readme:sentiment-api",
+    "project": "sentiment-api",
+    "skills": [
+     "FastAPI",
+     "Hugging Face",
+     "Docker",
+     "NLP"
+    ],
+    "date": "2025-02",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
+    "score": 0.7088
+   }
+  ],
+  "id": "P23",
+  "job_title": "RAG chatbot over our company PDFs"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-047",
+  "persona": "data_analyst",
+  "proposal": "You need a Power BI dashboard that visualizes sales for 25 stores, includes growth and margin measures, and limits each regional manager to their own stores. I recently built a Power BI sales dashboard for a 40\u2011store retail chain using a star\u2011schema in SQL Server, DAX measures for like\u2011for\u2011like growth and margin, and row\u2011level security per region, which replaced 12 weekly Excel reports and is now used daily by managers. For your project I will (1) create a clean star\u2011schema in SQL Server, (2) develop the required DAX measures, (3) configure row\u2011level security so each manager sees only their region, and (4) deliver the .pbix file, SQL scripts, and clear documentation for non\u2011technical stakeholders. The next step is to share a sample of your sales tables so I can design the data model and confirm the security requirements.",
+  "evidence": [
+   {
+    "id": "data-cs-powerbi",
+    "type": "case_study",
+    "title": "Power BI sales dashboard for a retail chain",
+    "source": "case_study:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI",
+     "DAX",
+     "SQL",
+     "data modelling"
+    ],
+    "date": "2025-01",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Built a Power BI sales dashboard for a 40-store retail chain. Star-schema model in SQL Server, DAX measures for like-for-like growth and margin, row-level security per region. Replaced 12 weekly Excel reports; managers now check it daily.",
+    "score": 0.8994
+   },
+   {
+    "id": "data-pp-replied",
+    "type": "past_proposal",
+    "title": "Proposal: sales dashboard",
+    "source": "past_proposal:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI"
+    ],
+    "date": "2025-08",
+    "client_industry": "wholesale",
+    "outcome": "replied",
+    "text": "I replaced 12 weekly Excel reports with one Power BI dashboard for a 40-store chain, with security per region. Could you share which numbers your managers look at first?",
+    "score": 0.8247
+   },
+   {
+    "id": "data-rv-retail",
+    "type": "review",
+    "title": "Client review (retail)",
+    "source": "review:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI"
+    ],
+    "date": "2025-02",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "5 stars. Hina's dashboard replaced a mess of spreadsheets. Clear, fast and accurate.",
+    "score": 0.7181
+   },
+   {
+    "id": "data-cv",
+    "type": "cv",
+    "title": "CV: Hina Javed",
+    "source": "cv:data-cv",
+    "project": null,
+    "skills": [
+     "SQL",
+     "Python",
+     "pandas",
+     "Power BI",
+     "DAX",
+     "Tableau",
+     "Excel",
+     "dbt",
+     "statistics",
+     "A/B testing"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Data analyst with 3 years of experience turning messy business data into dashboards and decisions. Strong SQL and Python (pandas). Power BI with DAX, some Tableau. Modelling with dbt. Statistics background: hypothesis tests, A/B testing, cohort analysis.",
+    "score": 0.6961
+   },
+   {
+    "id": "data-cs-dbt",
+    "type": "case_study",
+    "title": "Marketing data models with dbt and Snowflake",
+    "source": "case_study:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt",
+     "Snowflake",
+     "SQL",
+     "data pipelines"
+    ],
+    "date": "2025-06",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "Rebuilt a marketing agency's reporting layer as dbt models on Snowflake: staging, intermediate and mart layers with tests on every key. Channel spend and conversions now reconcile to the cent; report build time fell from 3 hours to 12 minutes.",
+    "score": 0.6934
+   },
+   {
+    "id": "data-cs-abtest",
+    "type": "case_study",
+    "title": "A/B test analysis for an e-commerce checkout",
+    "source": "case_study:checkout-abtest",
+    "project": "checkout-abtest",
+    "skills": [
+     "A/B testing",
+     "statistics",
+     "Python",
+     "hypothesis testing"
+    ],
+    "date": "2024-09",
+    "client_industry": "ecommerce",
+    "outcome": null,
+    "text": "Analysed a checkout redesign test with 48k sessions. Checked sample-ratio mismatch first, then a two-proportion z-test and a 95% confidence interval. The new design lifted conversion by 2.1 points (p = 0.01). Wrote a one-page decision memo the founders could read in two minutes.",
+    "score": 0.6926
+   },
+   {
+    "id": "data-rd-cohort",
+    "type": "repo_readme",
+    "title": "sql-cohort-analysis (GitHub README)",
+    "source": "repo_readme:cohort-analysis",
+    "project": "cohort-analysis",
+    "skills": [
+     "SQL",
+     "cohort analysis",
+     "retention"
+    ],
+    "date": "2025-03",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sql-cohort-analysis: SQL templates for monthly retention cohorts, plus a notebook that draws the retention triangle.",
+    "score": 1.0
+   }
+  ],
+  "id": "P24",
+  "job_title": "Power BI sales dashboard for our stores"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-005",
+  "persona": "ml_engineer",
+  "proposal": "I see you\u2019re looking to reduce churn for your subscription app, where only about 5% of users leave each month. In a telecom project with a 6% churn rate I evaluated models using PR\u2011AUC rather than accuracy, achieving a 0.71 PR\u2011AUC and helping the retention team cut churn by 9% in one quarter. I will begin by quantifying the class imbalance, then build a scikit\u2011learn pipeline with class\u2011weighting and compare logistic regression, random forest, and XGBoost, reporting precision\u2011recall metrics for the top decile.\n\nThe deliverable will be a reproducible Jupyter notebook that loads your CSV data, performs preprocessing, trains the selected model, and outputs churn predictions. I will also provide a brief report with evaluation metrics and clear usage documentation so non\u2011technical stakeholders can understand the results and integrate the code into your existing pipeline.\n\nNext step: please share a sample of your data schema so I can confirm preprocessing requirements and finalize the timeline.",
+  "evidence": [
+   {
+    "id": "ml-pp-churn-won",
+    "type": "past_proposal",
+    "title": "Proposal: churn model for subscription box",
+    "source": "past_proposal:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "classification",
+     "imbalanced data"
+    ],
+    "date": "2025-03",
+    "client_industry": "ecommerce",
+    "outcome": "won",
+    "text": "Your churn rate is the number that matters, so I would start by checking how imbalanced it is. In a telecom project I faced 6% churn and used PR-AUC rather than accuracy; the final model helped cut churn 9% in a quarter. For you I would compare two models, report precision and recall at the top decile and hand over a reproducible notebook.",
+    "score": 0.7968
+   },
+   {
+    "id": "ml-cs-churn",
+    "type": "case_study",
+    "title": "Churn prediction for a telecom operator",
+    "source": "case_study:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "Python",
+     "scikit-learn",
+     "XGBoost",
+     "classification",
+     "model evaluation",
+     "imbalanced data"
+    ],
+    "date": "2024-11",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+    "score": 0.7742
+   },
+   {
+    "id": "ml-rv-telecom",
+    "type": "review",
+    "title": "Client review (telecom)",
+    "source": "review:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "communication",
+     "documentation"
+    ],
+    "date": "2024-12",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+    "score": 0.7559
+   },
+   {
+    "id": "ml-cv",
+    "type": "cv",
+    "title": "CV: Sara Malik",
+    "source": "cv:ml-cv",
+    "project": null,
+    "skills": [
+     "Python",
+     "PyTorch",
+     "scikit-learn",
+     "LangChain",
+     "RAG",
+     "FastAPI",
+     "Docker",
+     "AWS",
+     "NLP",
+     "SQL"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+    "score": 0.6912
+   },
+   {
+    "id": "ml-rd-rag-eval",
+    "type": "repo_readme",
+    "title": "rag-eval-kit (GitHub README)",
+    "source": "repo_readme:rag-eval-kit",
+    "project": "rag-eval-kit",
+    "skills": [
+     "information retrieval",
+     "BM25",
+     "embeddings",
+     "evaluation metrics",
+     "Recall@k",
+     "nDCG"
+    ],
+    "date": "2025-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+    "score": 0.6878
+   },
+   {
+    "id": "ml-pp-rag-replied",
+    "type": "past_proposal",
+    "title": "Proposal: internal knowledge chatbot",
+    "source": "past_proposal:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "RAG"
+    ],
+    "date": "2025-08",
+    "client_industry": "consulting",
+    "outcome": "replied",
+    "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+    "score": 0.6667
+   }
+  ],
+  "id": "P25",
+  "job_title": "Churn prediction model for our subscription app"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-010",
+  "persona": "ml_engineer",
+  "proposal": "I see you need to boost the relevance of your product search by building a labeled test set and evaluating BM25, embeddings, and hybrid methods. I created rag\u2011eval\u2011kit, a set of scripts that benchmark these retrieval approaches on custom query sets and report Recall@k, MRR, and nDCG; it was used to demonstrate that a hybrid search fixed exact product\u2011code queries for a previous client. My experience building a retrieval\u2011augmented chatbot with Pinecone embeddings also shows I can set up reproducible evaluation pipelines and explain results to non\u2011technical stakeholders.\n\nMy plan starts with a small, manually labeled test set of representative product queries and expected results. I will then run rag\u2011eval\u2011kit to compute Recall@k and nDCG for BM25, dense embeddings, and a hybrid fusion, documenting the test\u2011set creation process and translating the metrics into clear business impact for your team.\n\nNext step: I will send you a concise test\u2011set design outline within two days for your review, so we can confirm the query scope before proceeding with the evaluation.",
+  "evidence": [
+   {
+    "id": "ml-rd-rag-eval",
+    "type": "repo_readme",
+    "title": "rag-eval-kit (GitHub README)",
+    "source": "repo_readme:rag-eval-kit",
+    "project": "rag-eval-kit",
+    "skills": [
+     "information retrieval",
+     "BM25",
+     "embeddings",
+     "evaluation metrics",
+     "Recall@k",
+     "nDCG"
+    ],
+    "date": "2025-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+    "score": 0.7924
+   },
+   {
+    "id": "ml-cs-legal-rag",
+    "type": "case_study",
+    "title": "Document Q&A chatbot for a law firm",
+    "source": "case_study:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "RAG",
+     "LangChain",
+     "Pinecone",
+     "FastAPI",
+     "OpenAI",
+     "embeddings"
+    ],
+    "date": "2025-06",
+    "client_industry": "legal",
+    "outcome": null,
+    "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
+    "score": 0.6988
+   },
+   {
+    "id": "ml-cs-invoice-ocr",
+    "type": "case_study",
+    "title": "Invoice field extraction for a logistics company",
+    "source": "case_study:invoice-ocr",
+    "project": "invoice-ocr",
+    "skills": [
+     "OCR",
+     "PyTorch",
+     "LayoutLM",
+     "Tesseract",
+     "document AI"
+    ],
+    "date": "2024-05",
+    "client_industry": "logistics",
+    "outcome": null,
+    "text": "Automated reading of scanned supplier invoices. Tesseract for OCR, then a fine-tuned LayoutLM model to pull out invoice number, date, totals and supplier name. Field accuracy 94% on a 500-invoice test set. Saved the accounts team about 30 hours a month.",
+    "score": 0.6844
+   },
+   {
+    "id": "ml-pp-churn-won",
+    "type": "past_proposal",
+    "title": "Proposal: churn model for subscription box",
+    "source": "past_proposal:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "classification",
+     "imbalanced data"
+    ],
+    "date": "2025-03",
+    "client_industry": "ecommerce",
+    "outcome": "won",
+    "text": "Your churn rate is the number that matters, so I would start by checking how imbalanced it is. In a telecom project I faced 6% churn and used PR-AUC rather than accuracy; the final model helped cut churn 9% in a quarter. For you I would compare two models, report precision and recall at the top decile and hand over a reproducible notebook.",
+    "score": 0.6802
+   },
+   {
+    "id": "ml-pp-rag-replied",
+    "type": "past_proposal",
+    "title": "Proposal: internal knowledge chatbot",
+    "source": "past_proposal:legal-rag",
+    "project": "legal-rag",
+    "skills": [
+     "RAG"
+    ],
+    "date": "2025-08",
+    "client_industry": "consulting",
+    "outcome": "replied",
+    "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+    "score": 0.6763
+   },
+   {
+    "id": "ml-rv-telecom",
+    "type": "review",
+    "title": "Client review (telecom)",
+    "source": "review:telecom-churn",
+    "project": "telecom-churn",
+    "skills": [
+     "communication",
+     "documentation"
+    ],
+    "date": "2024-12",
+    "client_industry": "telecom",
+    "outcome": null,
+    "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+    "score": 0.6747
+   }
+  ],
+  "id": "P26",
+  "job_title": "Measure and improve our site search relevance"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-051",
+  "persona": "data_analyst",
+  "proposal": "The client\u2019s marketing reports are inconsistent and need data correction. In a recent project I rebuilt a marketing agency\u2019s reporting layer as dbt models on Snowflake, adding tests on every key so channel spend and conversions now reconcile to the cent and report build time fell from three hours to twelve minutes. The client gave a 5\u2011star review for the thorough documentation of every model.\n\nMy approach will begin with an audit of the current dbt project to map existing sources to the required marketing metrics, then add schema and data tests for each key field, refactor the models for consistent outputs, and create clear documentation of data lineage for non\u2011technical stakeholders. I will also deliver an automated test suite that runs on each deployment to ensure ongoing data quality.\n\nThe next step is a brief call to review the current model structure, confirm the documentation format, and agree on the test coverage plan.",
+  "evidence": [
+   {
+    "id": "data-cs-dbt",
+    "type": "case_study",
+    "title": "Marketing data models with dbt and Snowflake",
+    "source": "case_study:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt",
+     "Snowflake",
+     "SQL",
+     "data pipelines"
+    ],
+    "date": "2025-06",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "Rebuilt a marketing agency's reporting layer as dbt models on Snowflake: staging, intermediate and mart layers with tests on every key. Channel spend and conversions now reconcile to the cent; report build time fell from 3 hours to 12 minutes.",
+    "score": 0.7973
+   },
+   {
+    "id": "data-rv-marketing",
+    "type": "review",
+    "title": "Client review (marketing)",
+    "source": "review:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt"
+    ],
+    "date": "2025-07",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "5 stars. Our numbers finally match across tools. Hina documented every model.",
+    "score": 0.6931
+   },
+   {
+    "id": "data-rv-retail",
+    "type": "review",
+    "title": "Client review (retail)",
+    "source": "review:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI"
+    ],
+    "date": "2025-02",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "5 stars. Hina's dashboard replaced a mess of spreadsheets. Clear, fast and accurate.",
+    "score": 0.6676
+   },
+   {
+    "id": "data-pp-won",
+    "type": "past_proposal",
+    "title": "Proposal: pricing experiment analysis",
+    "source": "past_proposal:checkout-abtest",
+    "project": "checkout-abtest",
+    "skills": [
+     "A/B testing"
+    ],
+    "date": "2025-05",
+    "client_industry": "saas",
+    "outcome": "won",
+    "text": "Before trusting the result I would check the traffic split, because a sample-ratio mismatch silently breaks tests. On a 48k-session checkout test I did exactly that, then found a 2.1-point lift with a clear confidence interval. You'd get a one-page memo with the decision, not just numbers.",
+    "score": 0.6663
+   },
+   {
+    "id": "data-cs-abtest",
+    "type": "case_study",
+    "title": "A/B test analysis for an e-commerce checkout",
+    "source": "case_study:checkout-abtest",
+    "project": "checkout-abtest",
+    "skills": [
+     "A/B testing",
+     "statistics",
+     "Python",
+     "hypothesis testing"
+    ],
+    "date": "2024-09",
+    "client_industry": "ecommerce",
+    "outcome": null,
+    "text": "Analysed a checkout redesign test with 48k sessions. Checked sample-ratio mismatch first, then a two-proportion z-test and a 95% confidence interval. The new design lifted conversion by 2.1 points (p = 0.01). Wrote a one-page decision memo the founders could read in two minutes.",
+    "score": 0.6545
+   },
+   {
+    "id": "data-cs-powerbi",
+    "type": "case_study",
+    "title": "Power BI sales dashboard for a retail chain",
+    "source": "case_study:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI",
+     "DAX",
+     "SQL",
+     "data modelling"
+    ],
+    "date": "2025-01",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Built a Power BI sales dashboard for a 40-store retail chain. Star-schema model in SQL Server, DAX measures for like-for-like growth and margin, row-level security per region. Replaced 12 weekly Excel reports; managers now check it daily.",
+    "score": 0.63
+   }
+  ],
+  "id": "P27",
+  "job_title": "dbt models for marketing data in Snowflake"
+ },
+ {
+  "source": "generic_control",
+  "job_id": "job-043",
+  "persona": "data_analyst",
+  "proposal": "Dear Sir, I am passionate about this kind of work and I have read your job carefully. I am the best fit for this job and have many years of experience. I guarantee high quality work delivered on time. Please message me so we can discuss the details.",
+  "evidence": [
+   {
+    "id": "data-rd-cohort",
+    "type": "repo_readme",
+    "title": "sql-cohort-analysis (GitHub README)",
+    "source": "repo_readme:cohort-analysis",
+    "project": "cohort-analysis",
+    "skills": [
+     "SQL",
+     "cohort analysis",
+     "retention"
+    ],
+    "date": "2025-03",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sql-cohort-analysis: SQL templates for monthly retention cohorts, plus a notebook that draws the retention triangle.",
+    "score": 0.8049
+   },
+   {
+    "id": "data-code-cohort",
+    "type": "code",
+    "title": "sql-cohort-analysis/cohort.py",
+    "source": "code:cohort-analysis",
+    "project": "cohort-analysis",
+    "skills": [
+     "pandas",
+     "Python",
+     "retention"
+    ],
+    "date": "2025-03",
+    "client_industry": null,
+    "outcome": null,
+    "text": "import pandas as pd\n# each user's cohort = the month of their first order\ndf['cohort'] = df.groupby('user_id')['order_date'].transform('min').dt.to_period('M')\nretention = df.pivot_table(index='cohort', columns='months_since', values='user_id', aggfunc='nunique')",
+    "score": 0.7917
+   },
+   {
+    "id": "data-cs-dbt",
+    "type": "case_study",
+    "title": "Marketing data models with dbt and Snowflake",
+    "source": "case_study:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt",
+     "Snowflake",
+     "SQL",
+     "data pipelines"
+    ],
+    "date": "2025-06",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "Rebuilt a marketing agency's reporting layer as dbt models on Snowflake: staging, intermediate and mart layers with tests on every key. Channel spend and conversions now reconcile to the cent; report build time fell from 3 hours to 12 minutes.",
+    "score": 0.6936
+   },
+   {
+    "id": "data-cs-powerbi",
+    "type": "case_study",
+    "title": "Power BI sales dashboard for a retail chain",
+    "source": "case_study:retail-powerbi",
+    "project": "retail-powerbi",
+    "skills": [
+     "Power BI",
+     "DAX",
+     "SQL",
+     "data modelling"
+    ],
+    "date": "2025-01",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Built a Power BI sales dashboard for a 40-store retail chain. Star-schema model in SQL Server, DAX measures for like-for-like growth and margin, row-level security per region. Replaced 12 weekly Excel reports; managers now check it daily.",
+    "score": 0.6841
+   },
+   {
+    "id": "data-cv",
+    "type": "cv",
+    "title": "CV: Hina Javed",
+    "source": "cv:data-cv",
+    "project": null,
+    "skills": [
+     "SQL",
+     "Python",
+     "pandas",
+     "Power BI",
+     "DAX",
+     "Tableau",
+     "Excel",
+     "dbt",
+     "statistics",
+     "A/B testing"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Data analyst with 3 years of experience turning messy business data into dashboards and decisions. Strong SQL and Python (pandas). Power BI with DAX, some Tableau. Modelling with dbt. Statistics background: hypothesis tests, A/B testing, cohort analysis.",
+    "score": 0.6807
+   },
+   {
+    "id": "data-cs-excel",
+    "type": "case_study",
+    "title": "Cleaning and automating messy Excel reports",
+    "source": "case_study:excel-automation",
+    "project": "excel-automation",
+    "skills": [
+     "Excel",
+     "Python",
+     "pandas",
+     "automation"
+    ],
+    "date": "2024-04",
+    "client_industry": "manufacturing",
+    "outcome": null,
+    "text": "A manufacturer had 30 inconsistent Excel files from different plants. Wrote a pandas script that cleans, merges and validates them into one tidy workbook every Monday, with a log of rejected rows. Saved the finance team a full day each week.",
+    "score": 0.6624
+   }
+  ],
+  "id": "P28",
+  "job_title": "Customer retention cohort analysis"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-026",
+  "persona": "web_developer",
+  "proposal": "I see you need real\u2011time messaging integrated into your existing web app. I have built a realtime\u2011chat system with Socket.io on Node.js that includes rooms, typing indicators, read receipts, and documented horizontal scaling notes, using the @socket.io/redis-adapter so multiple server instances can share chat rooms.\n\nFor this project I will set up a Socket.io server with the Redis adapter, create the required API endpoints, and add a lightweight React UI for sending and receiving messages. I\u2019ll also implement error handling, reconnection logic, basic security checks, and run load tests to ensure reliable performance under traffic.\n\nTo move forward, let\u2019s schedule a 15\u2011minute call tomorrow at 10\u202fAM\u202fUTC (or suggest another time that works for you) to confirm requirements and finalize the implementation plan.",
+  "evidence": [
+   {
+    "id": "web-rd-chat",
+    "type": "repo_readme",
+    "title": "realtime-chat (GitHub README)",
+    "source": "repo_readme:realtime-chat",
+    "project": "realtime-chat",
+    "skills": [
+     "WebSockets",
+     "Socket.io",
+     "Node.js"
+    ],
+    "date": "2025-08",
+    "client_industry": null,
+    "outcome": null,
+    "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included.",
+    "score": 0.7245
+   },
+   {
+    "id": "web-code-chat",
+    "type": "code",
+    "title": "realtime-chat/server.js",
+    "source": "code:realtime-chat",
+    "project": "realtime-chat",
+    "skills": [
+     "Redis",
+     "Socket.io",
+     "pub/sub"
+    ],
+    "date": "2025-08",
+    "client_industry": null,
+    "outcome": null,
+    "text": "const { createAdapter } = require('@socket.io/redis-adapter');\n// the Redis adapter lets several server instances share the same chat rooms\nio.adapter(createAdapter(pubClient, subClient));",
+    "score": 0.7129
+   },
+   {
+    "id": "web-cv",
+    "type": "cv",
+    "title": "CV: Omar Raza",
+    "source": "cv:web-cv",
+    "project": null,
+    "skills": [
+     "React",
+     "Next.js",
+     "TypeScript",
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "Stripe",
+     "Tailwind",
+     "Docker",
+     "AWS"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
+    "score": 0.6757
+   },
+   {
+    "id": "web-cs-shop",
+    "type": "case_study",
+    "title": "Next.js storefront with Stripe for a clothing brand",
+    "source": "case_study:next-shop",
+    "project": "next-shop",
+    "skills": [
+     "Next.js",
+     "React",
+     "Stripe",
+     "TypeScript",
+     "e-commerce"
+    ],
+    "date": "2025-04",
+    "client_industry": "retail",
+    "outcome": null,
+    "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
+    "score": 0.6719
+   },
+   {
+    "id": "web-cs-booking",
+    "type": "case_study",
+    "title": "Appointment booking system for a clinic chain",
+    "source": "case_study:clinic-booking",
+    "project": "clinic-booking",
+    "skills": [
+     "Node.js",
+     "Express",
+     "PostgreSQL",
+     "email notifications",
+     "calendar"
+    ],
+    "date": "2024-03",
+    "client_industry": "healthcare",
+    "outcome": null,
+    "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
+    "score": 0.6365
+   },
+   {
+    "id": "web-cs-dashboard",
+    "type": "case_study",
+    "title": "Analytics dashboard for a fintech SaaS",
+    "source": "case_study:fintech-dashboard",
+    "project": "fintech-dashboard",
+    "skills": [
+     "React",
+     "TypeScript",
+     "PostgreSQL",
+     "charts",
+     "Recharts",
+     "REST API"
+    ],
+    "date": "2024-10",
+    "client_industry": "fintech",
+    "outcome": null,
+    "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+    "score": 0.6264
+   }
+  ],
+  "id": "P29",
+  "job_title": "Add real-time chat to our web app"
+ },
+ {
+  "source": "gigbid_final",
+  "job_id": "job-045",
+  "persona": "data_analyst",
+  "proposal": "I see you need a rigorous analysis of your 3\u2011week pricing page A/B test, complete with confidence intervals and a clear recommendation. In a recent 48\u202fk\u2011session checkout pricing experiment I first verified the traffic split to avoid a sample\u2011ratio mismatch, then applied a two\u2011proportion z\u2011test that revealed a 2.1\u2011point lift with a well\u2011defined confidence interval. I delivered a one\u2011page decision memo that founders could read in two minutes, combining concise interpretation and visual summaries for non\u2011technical stakeholders. My CV shows three years of data\u2011analysis experience, strong Python (pandas, scipy) and SQL skills, and a proven track record of turning messy data into actionable insights.\n\nFor this project I will replicate that workflow: validate the allocation of users to each variant, run appropriate hypothesis tests in Python, compute effect size and 95\u202f% confidence intervals, and create clear visualizations of key metrics. I will also document the methodology, assumptions, and provide an executive summary with a recommendation.\n\nThe next step is for you to share a sample of the raw experiment data so I can begin the validation and set up the analysis pipeline.",
+  "evidence": [
+   {
+    "id": "data-pp-won",
+    "type": "past_proposal",
+    "title": "Proposal: pricing experiment analysis",
+    "source": "past_proposal:checkout-abtest",
+    "project": "checkout-abtest",
+    "skills": [
+     "A/B testing"
+    ],
+    "date": "2025-05",
+    "client_industry": "saas",
+    "outcome": "won",
+    "text": "Before trusting the result I would check the traffic split, because a sample-ratio mismatch silently breaks tests. On a 48k-session checkout test I did exactly that, then found a 2.1-point lift with a clear confidence interval. You'd get a one-page memo with the decision, not just numbers.",
+    "score": 0.7446
+   },
+   {
+    "id": "data-cs-abtest",
+    "type": "case_study",
+    "title": "A/B test analysis for an e-commerce checkout",
+    "source": "case_study:checkout-abtest",
+    "project": "checkout-abtest",
+    "skills": [
+     "A/B testing",
+     "statistics",
+     "Python",
+     "hypothesis testing"
+    ],
+    "date": "2024-09",
+    "client_industry": "ecommerce",
+    "outcome": null,
+    "text": "Analysed a checkout redesign test with 48k sessions. Checked sample-ratio mismatch first, then a two-proportion z-test and a 95% confidence interval. The new design lifted conversion by 2.1 points (p = 0.01). Wrote a one-page decision memo the founders could read in two minutes.",
+    "score": 0.7349
+   },
+   {
+    "id": "data-cs-dbt",
+    "type": "case_study",
+    "title": "Marketing data models with dbt and Snowflake",
+    "source": "case_study:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt",
+     "Snowflake",
+     "SQL",
+     "data pipelines"
+    ],
+    "date": "2025-06",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "Rebuilt a marketing agency's reporting layer as dbt models on Snowflake: staging, intermediate and mart layers with tests on every key. Channel spend and conversions now reconcile to the cent; report build time fell from 3 hours to 12 minutes.",
+    "score": 0.6947
+   },
+   {
+    "id": "data-cv",
+    "type": "cv",
+    "title": "CV: Hina Javed",
+    "source": "cv:data-cv",
+    "project": null,
+    "skills": [
+     "SQL",
+     "Python",
+     "pandas",
+     "Power BI",
+     "DAX",
+     "Tableau",
+     "Excel",
+     "dbt",
+     "statistics",
+     "A/B testing"
+    ],
+    "date": "2026-09",
+    "client_industry": null,
+    "outcome": null,
+    "text": "Data analyst with 3 years of experience turning messy business data into dashboards and decisions. Strong SQL and Python (pandas). Power BI with DAX, some Tableau. Modelling with dbt. Statistics background: hypothesis tests, A/B testing, cohort analysis.",
+    "score": 0.6807
+   },
+   {
+    "id": "data-rv-marketing",
+    "type": "review",
+    "title": "Client review (marketing)",
+    "source": "review:marketing-dbt",
+    "project": "marketing-dbt",
+    "skills": [
+     "dbt"
+    ],
+    "date": "2025-07",
+    "client_industry": "marketing",
+    "outcome": null,
+    "text": "5 stars. Our numbers finally match across tools. Hina documented every model.",
+    "score": 0.6752
+   },
+   {
+    "id": "data-rd-cohort",
+    "type": "repo_readme",
+    "title": "sql-cohort-analysis (GitHub README)",
+    "source": "repo_readme:cohort-analysis",
+    "project": "cohort-analysis",
+    "skills": [
+     "SQL",
+     "cohort analysis",
+     "retention"
+    ],
+    "date": "2025-03",
+    "client_industry": null,
+    "outcome": null,
+    "text": "sql-cohort-analysis: SQL templates for monthly retention cohorts, plus a notebook that draws the retention triangle.",
+    "score": 0.654
+   }
+  ],
+  "id": "P30",
+  "job_title": "Analyse our pricing A/B test"
+ }
+]

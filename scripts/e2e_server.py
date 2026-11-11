@@ -24,6 +24,7 @@ os.environ.update({
     "MARKETPLACE_MCP_DB": f"{tmp}/marketplace.sqlite", "WORKSPACE_DB": f"{tmp}/workspace.sqlite",
     "REVIEWER_EMAIL": "reviewer@gigbid.app", "REVIEWER_PASSWORD": "review-local-only",
     "LANGSMITH_TRACING": "false", "GIGBID_RUN_SLOTS": "8", "GIGBID_SCHEDULER": "0",
+    "REVIEWER_SEARCH": "model",          # 8 jobs (6 drafts) instead of 17: fast enough for a 2-core CI machine
 })
 sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)

@@ -63,13 +63,13 @@ def load_dev(kinds: tuple[str, ...] | None = None, personas: tuple[str, ...] | N
     return jobs, labels[:limit] if limit else labels
 
 
-async def run(labels: list[dict], jobs: dict, approve: bool = True, concurrency: int = 2,
+async def run(labels: list[dict], jobs: dict, approve: bool = True, concurrency: int | None = None,
               settings_patch: dict | None = None, user_suffix: str = "") -> list[dict]:
     """Run each labelled job through the bid graph; return one result dict per job."""
     from agent import runtime as R
     from rag.verify import verify_claims
 
-    sem = asyncio.Semaphore(concurrency)
+    sem = asyncio.Semaphore(concurrency or int(os.getenv("EVAL_CONCURRENCY", "1")))
     out = []
     async with R.open_runtime() as rt:
         async def one(lab):
@@ -97,6 +97,7 @@ async def run(labels: list[dict], jobs: dict, approve: bool = True, concurrency:
                                unsupported_before=sum(c["label"] == "unsupported" for c in claims),
                                unsupported_after=sum(c["label"] == "unsupported" for c in after["claims"]),
                                critic_rounds=len(v.get("critiques", [])),
+                               connects_cost_preview=v["marketplace_draft"]["preview"]["connects_cost"],
                                compliance_fixes=len((v.get("compliance") or {}).get("fixes", [])))
                     if approve:
                         snap = await R.resume_bid(rt, user, job["job_id"], {"action": "approve"}, settings)
