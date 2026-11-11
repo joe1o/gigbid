@@ -1,12 +1,30 @@
 # Data card
 
-All data is **synthetic** (written by me for this project) and safe to show publicly.
-No real client data is used anywhere.
+## Summary: real vs synthetic
 
-## Why our own data
-The course GigSim simulator, persona corpora and dev set were not in the starter kit I
-received. I built smaller stand-ins with the same structure. This limits how far the
-numbers generalise, and the report says so.
+| Dataset | Real or synthetic | Source | License |
+|---|---|---|---|
+| Persona portfolios (3) | Synthetic | written for this project | MIT, same as the repository |
+| Job ideas and 54 job posts | Synthetic | written for this project, expanded by `gigsim/seed.py` | MIT |
+| Clients (15) with histories and hidden preferences | Synthetic | written for this project | MIT |
+| Market price history (450 budgets) | Synthetic | log-normal samples per category, `gigsim/seed.py` | MIT |
+| Gold labels (dev set) | Synthetic | derived from the hand-written job ideas | MIT |
+| Human judge labels (30 proposals) | Real human judgement | labelled by the author, `evals/datasets/judge_labels.csv` | MIT |
+| Policy pack | Course material + synthetic | starter kit rules, extended for the policy update | as provided |
+
+No real client, freelancer or platform data is used anywhere. Everything above is safe to
+show publicly. All synthetic files are marked as synthetic in this card and in their folders.
+
+## Why synthetic data, and the Kaggle datasets
+The course GigSim simulator, persona corpora and dev set were not in the starter kit. The
+teaching team later listed Kaggle datasets of real Upwork postings and contracts as an option.
+They were considered but not used, for three reasons: the evaluation needs gold labels (should
+bid, is scam, which portfolio items prove fit, fair price band), which real postings do not
+have; scams and planted prompt injections had to be controlled; and the time left before the
+deadline. The cost is that price statistics and job wording are less varied than real Upwork
+data, and results may not transfer directly to real postings. Replacing the synthetic price
+history with real budgets from the "Upwork Job Postings 2024" dataset is the first planned
+improvement; only `data/gigsim/market_history.json` would change.
 
 ## Persona portfolios: `data/personas/<persona>/portfolio.json`
 | Persona | Items | Item types |
