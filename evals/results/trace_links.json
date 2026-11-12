@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-11-12 09:55",
+  "traces": [
+    {
+      "what": "scam job skipped before any writing",
+      "job_id": "job-002",
+      "status": "recommended_skip",
+      "run_id": "01a1ce16-7967-7400-ac6c-84919549ab89",
+      "url": "https://eu.smith.langchain.com/public/9658d6fb-b18d-484b-ad71-2329b764e776/r"
+    },
+    {
+      "what": "good job: analysis, Writer, claim check, Critic, Compliance, paused for approval",
+      "job_id": "job-006",
+      "status": "awaiting_approval",
+      "critic_rounds": 2,
+      "run_id": "01a1ce16-7dd0-76dd-89f9-293384bd0b98",
+      "url": "https://eu.smith.langchain.com/public/0ab2f0fc-ca53-4a62-9aca-d37c584b724e/r"
+    },
+    {
+      "what": "after a restart: new runtime resumes the paused thread, human approves, submitted once",
+      "job_id": "job-006",
+      "status": "submitted",
+      "run_id": "01a1ce1c-2199-7640-b524-4f4718851be5",
+      "url": "https://eu.smith.langchain.com/public/b6c10839-f9be-4e47-be7a-cfea81347f75/r"
+    }
+  ]
+}

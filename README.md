@@ -5,7 +5,7 @@ scams, checks every requirement against the freelancer's real portfolio, prices 
 drafts a proposal in which every claim is backed by evidence. A human approves, edits or
 rejects every proposal, message and Connects spend before anything leaves the system.
 
-**Live app:** LIVE_URL_PLACEHOLDER (reviewer login in the private submission comment)
+**Live app:** https://gigbid-vkhw.onrender.com (reviewer login in the private submission comment)
 
 ![GigBid demo](docs/images/demo.gif)
 
@@ -74,8 +74,16 @@ Decision record: [docs/adr/001-rag-design.md](docs/adr/001-rag-design.md).
 | System | Bid or skip accuracy | Scams skipped | Unsupported claims per proposal | Reply rate | Tokens per job |
 |---|---|---|---|---|---|
 | One ReAct agent with all tools | 0.75 | 3/3 | 0.5 | 66.7% | 3,799 |
-| Prebuilt supervisor | not completed (provider daily quota) | | | | |
+| Prebuilt supervisor (researcher + writer) | 0.833 | 3/3 | 1.29 | 85.7% (6 of 7) | 2,231 (undercounted, see below) |
 | GigBid hand-built graph | 1.00 | 3/3 | 0 | 66.7% | 6,062 |
+
+GigBid is the only system that never sent an unsupported claim and the only one that got every
+bid or skip right; it pays for that with more tokens (claim checking and the Critic loop). The
+supervisor's higher reply rate rests on 7 proposals, too few to separate from the others. Its token
+count covers only the messages left in the final state (each worker hands back just its last
+message), so the true cost is higher. One supervisor job needed 3 attempts because gpt-oss wrote a
+malformed tool name; the first two supervisor runs failed on every job because `create_supervisor`
+drops the structured answer unless a state schema is passed (fixed in `rnd_c_compare.py`).
 
 ### Other experiments
 
@@ -89,7 +97,11 @@ Decision record: [docs/adr/001-rag-design.md](docs/adr/001-rag-design.md).
 
 ### Traces
 
-TRACE_LINKS_PLACEHOLDER
+Public LangSmith traces (made by `scripts/make_traces.py`, links in `evals/results/trace_links.json`):
+
+1. [Scam job skipped before any writing](https://eu.smith.langchain.com/public/9658d6fb-b18d-484b-ad71-2329b764e776/r) (job-002)
+2. [Good job: parallel analysis, Writer, claim check, Critic sends it back once, Compliance, pause for approval](https://eu.smith.langchain.com/public/0ab2f0fc-ca53-4a62-9aca-d37c584b724e/r) (job-006)
+3. [After a restart: a new runtime resumes the paused thread, the human approves, it is submitted once](https://eu.smith.langchain.com/public/b6c10839-f9be-4e47-be7a-cfea81347f75/r) (job-006)
 
 ## Run it
 
