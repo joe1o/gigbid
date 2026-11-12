@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-11-12 10:34",
+  "source": "evals/results/decision_eval.json",
+  "overall": {
+    "proposals_sent": 33,
+    "outcomes": {
+      "replied": 20,
+      "lost": 13
+    },
+    "reply_rate": 0.606
+  },
+  "by_persona": {
+    "data_analyst": {
+      "proposals_sent": 11,
+      "outcomes": {
+        "lost": 5,
+        "replied": 6
+      },
+      "reply_rate": 0.545
+    },
+    "ml_engineer": {
+      "proposals_sent": 11,
+      "outcomes": {
+        "replied": 7,
+        "lost": 4
+      },
+      "reply_rate": 0.636
+    },
+    "web_developer": {
+      "proposals_sent": 11,
+      "outcomes": {
+        "replied": 7,
+        "lost": 4
+      },
+      "reply_rate": 0.636
+    }
+  },
+  "by_style": {
+    "detailed": {
+      "proposals_sent": 18,
+      "outcomes": {
+        "replied": 10,
+        "lost": 8
+      },
+      "reply_rate": 0.556
+    },
+    "vague": {
+      "proposals_sent": 15,
+      "outcomes": {
+        "replied": 10,
+        "lost": 5
+      },
+      "reply_rate": 0.667
+    }
+  }
+}
