@@ -5,22 +5,22 @@ scams, checks every requirement against the freelancer's real portfolio, prices 
 drafts a proposal in which every claim is backed by evidence. A human approves, edits or
 rejects every proposal, message and Connects spend before anything leaves the system.
 
-**Live app:** https://gigbid-vkhw.onrender.com (reviewer login in the private submission comment)
+Live app: https://gigbid-vkhw.onrender.com (reviewer login in the private submission comment)
 
-**R&D report:** [docs/REPORT.pdf](docs/REPORT.pdf) (source: [docs/REPORT.md](docs/REPORT.md))
+R&D report: [docs/REPORT.pdf](docs/REPORT.pdf) (source: [docs/REPORT.md](docs/REPORT.md))
 
 ![GigBid demo](docs/images/demo.gif)
 
 ## What it does
 
-1. **Scout** pulls new jobs from saved searches on a schedule and drops duplicates.
-2. **Job Analyst, Risk Assessor and Fit Matcher run in parallel**: a typed job spec, a scam and
-   client-quality report, and a requirement to evidence matrix from the portfolio.
-3. **Decide** bids, watches or skips with reasons. **Pricing** sets a price from market statistics.
-4. **Writer** drafts from evidence only, **claim verification** removes anything unsupported,
-   the **Critic** can send it back twice, and the **Compliance Guard** enforces platform rules.
-5. The graph **pauses for human approval** (LangGraph `interrupt`). The pause survives restarts.
-6. **Client Liaison** drafts replies and interview slots for approval when clients answer.
+1. The Scout pulls new jobs from saved searches on a schedule and drops duplicates.
+2. The Job Analyst, Risk Assessor and Fit Matcher run in parallel. They produce a typed job spec,
+   a scam and client-quality report, and a table that matches each requirement to portfolio evidence.
+3. Decide bids, watches or skips, with reasons. Pricing sets a price from market statistics.
+4. The Writer drafts from evidence only and claim verification removes anything unsupported. The
+   Critic can send the draft back twice, and the Compliance Guard applies the platform rules.
+5. The graph pauses for human approval (a LangGraph `interrupt`), and the pause survives restarts.
+6. When a client answers, the Client Liaison drafts a reply or interview slots for approval.
 
 ## Architecture
 

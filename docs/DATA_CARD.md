@@ -38,9 +38,9 @@ Metadata on every item: `id, type, title, project, skills, date, client_industry
 
 Deliberately "messy", to defeat naive retrieval:
 - the same project described twice in different words (`ml-cs-legal-rag` vs `ml-cs-contract-qa`);
-- skills that appear **only in code**, not in the README (Celery in `ml-code-sentiment`,
+- skills that appear only in code, not in the README (Celery in `ml-code-sentiment`,
   Prisma in `web-code-shop`, Redis in `web-code-chat`);
-- past proposals whose **outcome** matters more than their wording (a generic one was ignored).
+- past proposals whose outcome matters more than their wording (a generic one was ignored).
 
 ## Jobs: `data/gigsim/jobs.json` (54 jobs, made by `gigsim/seed.py`, seed 42)
 Per category (ml / web / data): 10 good-fit jobs (each idea once detailed, once vague),

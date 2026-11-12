@@ -1,8 +1,8 @@
 # Architecture
 
 GigBid is a team of LangGraph agents that find freelance jobs, judge them, write grounded
-proposals and handle client replies, with **a human approving every proposal, message and
-Connects spend**. Agents touch the outside world only through MCP tools.
+proposals and handle client replies, with a human approving every proposal, message and
+Connects spend. Agents touch the outside world only through MCP tools.
 
 ```
  Browser (React + Vite + TS) ──HTTP/SSE──> FastAPI (apps/api)
@@ -74,21 +74,21 @@ agents need no model at all (cheaper, faster, deterministic). All models are set
 
 | | What | Where |
 |---|---|---|
-| **State** | what this job/conversation needs now (spec, risk, fit, draft, approval...) | `agent/state.py`, checkpointed after every step |
-| **Execution trace** | every tool name, arguments, result, trace id | MCP audit log (`data/processed/audit/*.jsonl`, PII masked) + LangSmith traces |
-| **Long-term memory** | only PROMOTED knowledge: style rules from edits (≥2 edits), outcome summaries (≥3 results) | LangGraph store, `agent/memory/` |
+| State | what this job/conversation needs now (spec, risk, fit, draft, approval...) | `agent/state.py`, checkpointed after every step |
+| Execution trace | every tool name, arguments, result, trace id | MCP audit log (`data/processed/audit/*.jsonl`, PII masked) + LangSmith traces |
+| Long-term memory | only PROMOTED knowledge: style rules from edits (≥2 edits), outcome summaries (≥3 results) | LangGraph store, `agent/memory/` |
 
 Parallel branches write through reducers (`operator.add` for steps/usage/critiques, last-write
 for status). Agents exchange Pydantic hand-offs (`agent/handoffs.py`), never free text.
 
 ## Durability, failures, degraded mode
 
-- **Postgres checkpointer**: a proposal waiting for approval survives a crash; resume submits
+- Postgres checkpointer: a proposal waiting for approval survives a crash; resume submits
   exactly once (idempotency keys derived from the thread + draft id). History can be replayed
   from any checkpoint (`/api/jobs/{id}/history`, `runtime.replay_from`).
-- **Per-node** timeouts, retries and a dead-letter status; LLM fallback model for cheap nodes;
+- Per-node timeouts, retries and a dead-letter status; LLM fallback model for cheap nodes;
   polite pacing when rate-limited (wait and retry, never fail).
-- **Marketplace down**: the job pauses at its checkpoint with status `queued`, the UI shows a
+- Marketplace down: the job pauses at its checkpoint with status `queued`, the UI shows a
   banner, a recovery loop resumes it when health returns; `scripts/run_all.py` restarts a killed server.
 
 ## Data stores

@@ -26,7 +26,7 @@ Two-proportion z-test on reply rate, two-sided, alpha 0.05.
 | A | 18 / 30 | 60% | 146 |
 | B | 20 / 29 | 69% | 126 |
 
-Difference +9 points, z = 0.72, p = 0.47. **Not significant.**
+Difference +9 points, z = 0.72, p = 0.47. Not significant.
 
 ## Conclusion
 Strategy B was shorter and got slightly more replies, but with about 30 proposals per arm a
