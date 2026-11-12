@@ -32,6 +32,15 @@ pre { background: #f4f4f4; border: 0.5pt solid #ccc; padding: 5pt; font-size: 7.
       line-height: 1.25; white-space: pre-wrap; break-inside: avoid; }
 pre code { font-size: 7.8pt; }
 a { color: #111; text-decoration: none; }
+/* cover page: title, then label/value tables, then a page break */
+.cover { break-after: page; font-family: Arial, Helvetica, sans-serif; }
+.cover h1 { text-align: center; font-size: 19pt; margin: 6pt 0 4pt; }
+.cover .sub { text-align: center; font-size: 10.5pt; margin: 0 0 16pt; line-height: 1.5; }
+.cover h3 { font-size: 11.5pt; margin: 16pt 0 5pt; }
+.cover table.kv { font-size: 9.5pt; }
+.cover table.kv th { width: 34%; background: none; font-weight: bold; }
+.cover table.kv th, .cover table.kv td { padding: 5pt 7pt; border: 0.8pt solid #222; }
+.cover a { text-decoration: underline; }
 """
 
 # Node + Playwright print the page; run from apps/web so `require("playwright")` resolves.

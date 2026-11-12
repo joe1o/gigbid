@@ -1,12 +1,45 @@
-# GigBid: R&D Report
+<div class="cover">
+<h1>Agentic AI, Assignment 2: GigBid</h1>
+<p class="sub">R&amp;D Report (AI-4016)<br>FAST School of Computing, Fall 2026</p>
 
-**AI-4016 R&D Assignment, engineering design review.**
-Repository: https://github.com/joe1o/gigbid. Live app: https://gigbid-vkhw.onrender.com.
-Every number below cites a file in `evals/results/`, a public trace, or a commit. Data is synthetic
-(`docs/DATA_CARD.md`). Models: gpt-oss-20b and gpt-oss-120b (open weights, served by Groq);
-embeddings and reranker run on CPU.
+<h3>Student details</h3>
+<table class="kv">
+<tr><th>Full name</th><td>Abdul Basit</td></tr>
+<tr><th>Roll number</th><td>22i-0866</td></tr>
+<tr><th>Class / section</th><td>Agentic AI - B</td></tr>
+<tr><th>University email</th><td>i220866@nu.edu.pk</td></tr>
+<tr><th>GitHub username</th><td>joe1o</td></tr>
+</table>
 
-**Summary.** On 51 dev jobs GigBid reached 0.957 bid or skip F1, caught all 6 scams, priced 84.8%
+<h3>Project</h3>
+<table class="kv">
+<tr><th>Project name</th><td>GigBid</td></tr>
+<tr><th>Domain</th><td>Multi-agent freelancer copilot: finds jobs, flags scams, writes grounded proposals, a human approves every send</td></tr>
+<tr><th>GitHub repository URL</th><td><a href="https://github.com/joe1o/gigbid">https://github.com/joe1o/gigbid</a></td></tr>
+<tr><th>Instructor</th><td>Muhammad Owais Idrees</td></tr>
+</table>
+
+<h3>Live links</h3>
+<table class="kv">
+<tr><th>Live app</th><td><a href="https://gigbid-vkhw.onrender.com">https://gigbid-vkhw.onrender.com</a></td></tr>
+<tr><th>Reviewer login</th><td>Shared in the private submission comment</td></tr>
+<tr><th>Health endpoint (GET)</th><td><a href="https://gigbid-vkhw.onrender.com/api/ping">https://gigbid-vkhw.onrender.com/api/ping</a></td></tr>
+<tr><th>API documentation</th><td><a href="https://gigbid-vkhw.onrender.com/docs">https://gigbid-vkhw.onrender.com/docs</a></td></tr>
+<tr><th>Public traces</th><td>Three LangSmith traces, listed in Appendix B and the README</td></tr>
+</table>
+
+<h3>Deployment and models</h3>
+<table class="kv">
+<tr><th>Hosting provider</th><td>Render (free plan, Singapore region, one process)</td></tr>
+<tr><th>Database</th><td>Neon Postgres (Singapore): checkpoints, memory store, users</td></tr>
+<tr><th>Language models</th><td>gpt-oss-120b for the Writer and Critic, gpt-oss-20b for the other model calls; open weights, served by Groq</td></tr>
+<tr><th>Retrieval models</th><td>BAAI/bge-small-en-v1.5 embeddings and ms-marco-MiniLM-L-6-v2 reranker, on CPU</td></tr>
+<tr><th>Tracing</th><td>LangSmith</td></tr>
+</table>
+</div>
+
+**Summary.** Every number in this report cites a file in `evals/results/`, a public trace or a
+commit; the data is synthetic (`docs/DATA_CARD.md`). On 51 dev jobs GigBid reached 0.957 bid or skip F1, caught all 6 scams, priced 84.8%
 of bids inside the fair band and cut unsupported claims from 0.152 to 0 per proposal, at $0.0015
 per proposal and a p95 of 116 s per job (`decision_eval.json`). The main negative result: the
 simplest retriever (one dense query over the whole post) beat every advanced variant, and our
