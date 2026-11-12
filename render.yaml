@@ -28,3 +28,5 @@ services:
         value: "true"
       - key: LANGSMITH_PROJECT
         value: gigbid
+      - key: LANGSMITH_ENDPOINT          # our LangSmith account is in the EU region
+        value: https://eu.api.smith.langchain.com
