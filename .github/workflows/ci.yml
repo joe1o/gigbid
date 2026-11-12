@@ -16,7 +16,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: data/processed/models
-          key: rag-models-nomic-v15q-minilm-l6
+          key: rag-models-bge-small-minilm-l6
       - run: python -m pip install -e ".[dev]"
       - run: ruff check .
       - run: pytest -q
@@ -34,7 +34,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: data/processed/models
-          key: rag-models-nomic-v15q-minilm-l6
+          key: rag-models-bge-small-minilm-l6
       - run: python -m pip install -e ".[dev]"
       - run: npm ci
         working-directory: apps/web

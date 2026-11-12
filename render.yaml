@@ -1,0 +1,30 @@
+# render.yaml - Render "Blueprint": tells Render how to deploy GigBid.
+# Secrets are NOT stored here: values marked `sync: false` are typed into the Render dashboard.
+services:
+  - type: web
+    name: gigbid
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/ping
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: APP_SECRET_KEY
+        generateValue: true
+      - key: TOKEN_ENCRYPTION_KEY
+        generateValue: true
+      - key: MCP_AUTH_TOKEN
+        generateValue: true
+      - key: REVIEWER_EMAIL
+        value: reviewer@gigbid.app
+      - key: REVIEWER_PASSWORD
+        sync: false
+      - key: LANGSMITH_API_KEY
+        sync: false
+      - key: LANGSMITH_TRACING
+        value: "true"
+      - key: LANGSMITH_PROJECT
+        value: gigbid

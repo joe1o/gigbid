@@ -1,10 +1,3 @@
----
-title: GigBid
-sdk: docker
-app_port: 7860
-pinned: false
----
-
 # GigBid
 
 GigBid is a multi-agent copilot for freelancers. A team of LangGraph agents finds jobs, flags
@@ -61,14 +54,18 @@ the Writer and Critic, both open-weight, served by Groq. Embeddings and reranker
 
 | Variant | Recall@5 | MRR | nDCG@10 | p95 ms | Unsupported claims per proposal | Judge score | GigSim reply rate | Cost per proposal |
 |---|---|---|---|---|---|---|---|---|
-| V0 naive dense (shipped for evidence) | 0.947 | 1.0 | 0.957 | 47 | 0.152 before, 0 after | 4.6 / 5 | 60.6% | $0.0015 |
-| V1 requirement decomposition | 0.796 | 0.838 | 0.823 | 85 | | | | |
-| V2 hybrid BM25 + dense (RRF) | 0.796 | 0.836 | 0.802 | 88 | | | | |
-| V3 cross-encoder rerank | 0.810 | 0.794 | 0.783 | 1249 | | | | |
-| V8 corrective loop (shipped for the fit matrix) | 0.854 | 0.884 | 0.854 | 1693 | | | | |
+| V0 naive dense (shipped for evidence) | 0.898 | 1.0 | 0.955 | 18 | 0.152 before, 0 after | 4.6 / 5 | 60.6% | $0.0015 |
+| V1 requirement decomposition | 0.803 | 0.857 | 0.847 | 40 | | | | |
+| V2 hybrid BM25 + dense (RRF) | 0.836 | 0.917 | 0.851 | 44 | | | | |
+| V3 cross-encoder rerank | 0.810 | 0.794 | 0.783 | 1268 | | | | |
+| V8 corrective loop (shipped for the fit matrix) | 0.854 | 0.884 | 0.854 | 1678 | | | | |
+
+Embeddings are `BAAI/bge-small-en-v1.5`. The first run used `nomic-embed-text-v1.5` (V0 Recall@5
+0.947, `rag_eval_nomic.json`), which was replaced because it does not fit in the free host's 512 MB
+of memory. The proposal-level columns (claims, judge, reply rate, cost) were measured with nomic.
 
 The pre-registered hypothesis (decomposition plus hybrid adds 15 points) was rejected: it lost
-15 points, and the ablation shows decomposition was the cause. V8 is kept for fit scoring because
+6 to 15 points depending on the embedding model, and the ablation shows decomposition was the cause. V8 is kept for fit scoring because
 it refuses evidence for 100% of poor-fit requirements and only 2% of good-fit ones.
 Decision record: [docs/adr/001-rag-design.md](docs/adr/001-rag-design.md).
 

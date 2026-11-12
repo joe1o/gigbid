@@ -53,6 +53,11 @@ def wired(monkeypatch):
     os.environ.pop("GIGBID_FAKE_LLM", None)
 
 
+def cost(job: dict) -> int:
+    # what a proposal costs: the job's own price plus the platform policy's extra Connects
+    return job["connects_cost"] + gigsim_app.load_policy()["extra_connects_per_proposal"]
+
+
 def connects() -> int:
     return TestClient(gigsim_app.app).get("/me/connects", headers={"Authorization": "Bearer gigsim-ml-token"}).json()["balance"]
 
@@ -72,14 +77,14 @@ async def test_good_job_pauses_for_approval_then_submits_once(wired):
         assert snap["status"] == "awaiting_approval", snap["values"].get("error")
         payload = snap["interrupt"]
         assert {"draft", "claims", "risk", "price", "preview"} <= set(payload)
-        assert payload["preview"]["connects_cost"] == job["connects_cost"]
+        assert payload["preview"]["connects_cost"] == cost(job)
         assert connects() == 100                                    # nothing spent before approval
         assert len(snap["values"]["critiques"]) <= 3                # Critic loop is bounded
 
         done = await rt_mod.resume_bid(rt, USER, job["job_id"], {"action": "approve"}, SETTINGS)
         again = await rt_mod.resume_bid(rt, USER, job["job_id"], {"action": "approve"}, SETTINGS)   # double click
     assert done["status"] == "submitted" and again["status"] == "submitted"
-    assert connects() == 100 - job["connects_cost"]                # charged exactly once
+    assert connects() == 100 - cost(job)                # charged exactly once
 
 
 async def test_crash_while_waiting_then_resume_submits_once(wired):
@@ -90,7 +95,7 @@ async def test_crash_while_waiting_then_resume_submits_once(wired):
     async with rt_mod.open_runtime(f"sqlite:///{wired}") as rt2:     # "restarted"
         snap = await rt_mod.resume_bid(rt2, USER, job["job_id"], {"action": "approve"}, SETTINGS)
         hist = await rt_mod.history(rt2, "bid", rt_mod.bid_thread(USER, job["job_id"]))
-    assert snap["status"] == "submitted" and connects() == 100 - job["connects_cost"]
+    assert snap["status"] == "submitted" and connects() == 100 - cost(job)
     assert len(hist) > 5                                            # every step was checkpointed
 
 

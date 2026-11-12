@@ -58,7 +58,7 @@ def test_full_flow(client):
     assert wait_for(client, good["job_id"], {"awaiting_approval"}) == "awaiting_approval"
 
     detail = client.get(f"/api/jobs/{good['job_id']}").json()
-    assert detail["approval"]["preview"]["connects_cost"] == good["connects_cost"]
+    assert detail["approval"]["preview"]["connects_cost"] == good["connects_cost"] + gigsim_app.load_policy()["extra_connects_per_proposal"]
     assert detail["state"]["fit"]["matrix"]
 
     regen = client.post(f"/api/jobs/{good['job_id']}/regenerate", json={"paragraph_index": 1}).json()

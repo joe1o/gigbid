@@ -52,11 +52,16 @@ def test_client_history_hides_preferences():
     assert c["total_spent_usd"] > 0 and "hidden" not in c
 
 
+def cost(job: dict) -> int:
+    # what a proposal costs: the job's own price plus the platform policy's extra Connects
+    return job["connects_cost"] + gigsim_app.load_policy()["extra_connects_per_proposal"]
+
+
 def test_dry_run_spends_nothing():
     job = first_job()
     body = {"job_id": job["job_id"], "cover_letter": GOOD_LETTER, "bid_amount": 600}
     preview = client.post("/proposals", params={"dry_run": True}, json=body, headers=ML).json()
-    assert preview["dry_run"] is True and preview["connects_cost"] == job["connects_cost"]
+    assert preview["dry_run"] is True and preview["connects_cost"] == cost(job)
     assert client.get("/me/connects", headers=ML).json()["balance"] == 100
 
 
@@ -67,7 +72,7 @@ def test_idempotency_key_prevents_double_submit():
     first = client.post("/proposals", json=body, headers=h).json()
     second = client.post("/proposals", json=body, headers=h).json()      # a retry
     assert first["proposal_id"] == second["proposal_id"]
-    assert client.get("/me/connects", headers=ML).json()["balance"] == 100 - job["connects_cost"]
+    assert client.get("/me/connects", headers=ML).json()["balance"] == 100 - cost(job)
 
 
 def test_write_needs_idempotency_key():

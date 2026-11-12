@@ -28,9 +28,11 @@ workspace:
 
 rag:
   # Chosen by measurement (evals/results/rag_eval.json, docs/adr/001-rag-design.md):
-  variant: v0_naive                 # evidence retrieval for the Writer: best Recall@5 (0.947), fastest
+  variant: v0_naive                 # evidence retrieval for the Writer: best Recall@5 (0.898 bge-small, 0.947 nomic), fastest
   fit_variant: v8_corrective        # requirement -> evidence matrix: refuses 100% of poor-fit reqs, 2% of good
-  embedding_model: nomic-ai/nomic-embed-text-v1.5-Q   # open, 130 MB, CPU
+  # Embeddings: bge-small replaced nomic-embed-text because nomic needs ~290 MB of RAM in use and the
+  # free 512 MB host cannot fit it; both were measured (rag_eval.json vs rag_eval_nomic.json).
+  embedding_model: BAAI/bge-small-en-v1.5           # open, 67 MB file, ~170 MB in memory, CPU
   reranker_model: Xenova/ms-marco-MiniLM-L-6-v2       # open cross-encoder, 80 MB, CPU
   chunk_words: 40                   # fixed chunk size (words) ...
   chunk_overlap: 10                 # ... with this much overlap

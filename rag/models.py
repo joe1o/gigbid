@@ -11,6 +11,7 @@ models.py - the two small open models RAG uses. Both run on a normal CPU.
 Models download once (from Hugging Face) into data/processed/models/.
 """
 
+import os
 import threading
 from functools import lru_cache
 
@@ -19,6 +20,10 @@ import numpy as np
 from agent.settings import CONFIG, PROCESSED
 
 CACHE = str(PROCESSED / "models")
+# Memory knobs for small servers (the free host has 512 MB): fewer threads and smaller batches
+# use less working memory while a model runs. Set by environment, defaults keep laptops fast.
+THREADS = int(os.getenv("GIGBID_MODEL_THREADS", "0")) or None
+BATCH = int(os.getenv("GIGBID_MODEL_BATCH", "64"))
 EMB_MODEL = CONFIG["rag"]["embedding_model"]
 RERANK_MODEL = CONFIG["rag"]["reranker_model"]
 
@@ -36,7 +41,7 @@ def _embedder():
     from fastembed import TextEmbedding
 
     with _load_lock:
-        return TextEmbedding(EMB_MODEL, cache_dir=CACHE)
+        return TextEmbedding(EMB_MODEL, cache_dir=CACHE, threads=THREADS)
 
 
 @lru_cache(maxsize=1)
@@ -44,7 +49,7 @@ def _reranker():
     from fastembed.rerank.cross_encoder import TextCrossEncoder
 
     with _load_lock:
-        return TextCrossEncoder(RERANK_MODEL, cache_dir=CACHE)
+        return TextCrossEncoder(RERANK_MODEL, cache_dir=CACHE, threads=THREADS)
 
 
 def _normalise(m: np.ndarray) -> np.ndarray:
@@ -53,15 +58,15 @@ def _normalise(m: np.ndarray) -> np.ndarray:
 
 
 def embed_documents(texts: list[str]) -> np.ndarray:
-    return _normalise(np.array(list(_embedder().embed([DOC_PREFIX + t for t in texts]))))
+    return _normalise(np.array(list(_embedder().embed([DOC_PREFIX + t for t in texts], batch_size=BATCH))))
 
 
 def embed_query(text: str) -> np.ndarray:
-    return _normalise(np.array(list(_embedder().embed([QUERY_PREFIX + text])))[0])
+    return _normalise(np.array(list(_embedder().embed([QUERY_PREFIX + text], batch_size=BATCH)))[0])
 
 
 def rerank_scores(query: str, passages: list[str]) -> list[float]:
     """Cross-encoder relevance score for each passage (higher = more relevant; roughly -10..10)."""
     if not passages:
         return []
-    return [float(s) for s in _reranker().rerank(query, passages)]
+    return [float(s) for s in _reranker().rerank(query, passages, batch_size=BATCH)]
