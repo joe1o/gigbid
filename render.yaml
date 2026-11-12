@@ -5,6 +5,7 @@ services:
     name: gigbid
     runtime: docker
     plan: free
+    region: singapore          # same region as the Neon database (ap-southeast-1) and close to Pakistan
     dockerfilePath: ./Dockerfile
     healthCheckPath: /api/ping
     envVars:

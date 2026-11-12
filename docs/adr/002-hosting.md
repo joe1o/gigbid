@@ -13,7 +13,7 @@ Render's free web service is free but has 512 MB of RAM.
 nomic: 568 MB peak. One process with `bge-small-en-v1.5`: 523 MB. One process with bge-small,
 one model thread, batch size 8 and one graph run at a time: 441 MB, which fits.
 
-**Decision.** Render free web service from `render.yaml`. One process (`scripts/serve_api.py`)
+**Decision.** Render free web service from `render.yaml`, in the Singapore region (same region as the Neon database; the first deployment in Oregon made every database call cross the Pacific, 0.7 to 1.8 s per page). One process (`scripts/serve_api.py`)
 with GigSim and the MCP servers in-process, the bge-small embedding model, Neon Postgres for
 checkpoints and memory, Groq for the open LLMs.
 
