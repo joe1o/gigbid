@@ -16,7 +16,11 @@ async function signIn(page: Page) {
 /** Open the studio for the n-th job that is waiting for approval (scouting first if needed). */
 async function openDraft(page: Page, n: number) {
   await page.goto("/inbox");
-  if (await page.getByText("No jobs yet").isVisible().catch(() => false)) {
+  // Wait until the inbox has LOADED (either the job table or the empty state is shown) before
+  // deciding whether to scout; checking during the loading skeleton made this test flaky on CI.
+  const empty = page.getByText("No jobs yet");
+  await expect(empty.or(page.locator("table.responsive"))).toBeVisible({ timeout: 30_000 });
+  if (await empty.isVisible()) {
     await page.getByRole("button", { name: "Find new jobs" }).first().click();
   }
   await page.getByRole("tab", { name: /Needs approval/ }).click();
