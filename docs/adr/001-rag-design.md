@@ -43,3 +43,21 @@ Small synthetic corpus (13 items per persona, about 2.5 gold items per job), so 
 easily. The decomposition here is rule-based. Phase 4's LLM Job Analyst produces cleaner
 requirements, which is re-measured there. The corrective threshold (-7.0) was chosen from the
 dev-set score distribution, so it may be slightly optimistic.
+
+## Addendum: embedding model changed for hosting
+
+The table above was measured with `nomic-embed-text-v1.5` (`rag_eval_nomic.json`). The free host
+has 512 MB of memory and nomic does not fit (ADR 002), so the shipped model is now
+`BAAI/bge-small-en-v1.5`. Re-run on the same 39 jobs (`rag_eval.json`):
+
+| Variant | Recall@5 | MRR | nDCG@10 | p95 ms |
+|---|---|---|---|---|
+| V0 naive | 0.898 | 1.0 | 0.955 | 18 |
+| V1 decompose | 0.803 | 0.857 | 0.847 | 40 |
+| V2 hybrid | 0.836 | 0.917 | 0.851 | 44 |
+| V3 rerank | 0.810 | 0.794 | 0.783 | 1268 |
+| V8 corrective | 0.854 | 0.884 | 0.854 | 1678 |
+
+The conclusions do not change: V0 is still the best evidence retriever and the shipped choice,
+decomposition is still the variant that hurts most, and V8 still refuses evidence for 100% of
+poor-fit requirements (2% of good-fit ones). The smaller model costs about 5 points of Recall@5.

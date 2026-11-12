@@ -1,18 +1,28 @@
-# ADR 002: Hosting on Hugging Face Spaces (Docker) with Neon Postgres
+# ADR 002: Hosting on Render (free, Docker) with Neon Postgres
 
-**Status:** accepted
+**Status:** accepted (replaces the first plan, Hugging Face Spaces)
 
 **Context.** The deployed link must run the open profile, stay live until grades are released,
-and survive the instructor's hidden test run. GigBid runs five processes, and two of them load
-open CPU models (embeddings 130 MB, reranker 80 MB, plus ONNX runtime).
+and survive the instructor's hidden test run. Locally GigBid runs five processes, and two open
+CPU models (embeddings and reranker) are loaded in memory.
 
-**Measured need:** about 700 MB RAM. Render's free web service has 512 MB, which would crash.
-Hugging Face Spaces' free CPU tier gives 2 vCPU and 16 GB RAM for a Docker Space.
+**Options.** Hugging Face Docker Spaces gave the most memory (16 GB) but now need a paid plan.
+Render's free web service is free but has 512 MB of RAM.
 
-**Decision.** One Docker image, `scripts/run_all.py` as the entrypoint (supervises and restarts
-the processes), Neon Postgres outside the container for checkpoints and memory, Groq for the
-open models.
+**Measured need.** Five processes with `nomic-embed-text-v1.5`: about 700 MB. One process with
+nomic: 568 MB peak. One process with `bge-small-en-v1.5`: 523 MB. One process with bge-small,
+one model thread, batch size 8 and one graph run at a time: 441 MB, which fits.
 
-**Trade-offs.** A free Space sleeps after long inactivity and needs about a minute to wake;
-data inside the container (GigSim's own state) resets on restart, while everything GigBid must
-keep lives in Postgres. Render works with the same image on a paid instance.
+**Decision.** Render free web service from `render.yaml`. One process (`scripts/serve_api.py`)
+with GigSim and the MCP servers in-process, the bge-small embedding model, Neon Postgres for
+checkpoints and memory, Groq for the open LLMs.
+
+**Trade-offs.**
+- Retrieval quality: bge-small has Recall@5 0.898 against 0.947 for nomic on the same 39 jobs
+  (`rag_eval.json` vs `rag_eval_nomic.json`). It still passes the CI gate of 0.85.
+- One graph run at a time, so several jobs are processed one after another, not in parallel.
+- The MCP servers are not separate network services on the host; they still run the same MCP
+  protocol in memory with the same tool allowlists. The separate-process setup is kept for local
+  runs and the degraded-mode demo.
+- The service sleeps after 15 minutes idle and takes about a minute to wake. GigSim's own state
+  inside the container resets on a restart; everything GigBid must keep is in Postgres.
