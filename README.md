@@ -9,6 +9,8 @@ Live app: https://gigbid-vkhw.onrender.com (reviewer login in the private submis
 
 R&D report: [docs/REPORT.pdf](docs/REPORT.pdf) (source: [docs/REPORT.md](docs/REPORT.md))
 
+Portfolio MCP server, usable on its own with any portfolio file: [mcp_servers/portfolio/README.md](mcp_servers/portfolio/README.md)
+
 ![GigBid demo](docs/images/demo.gif)
 
 ## What it does

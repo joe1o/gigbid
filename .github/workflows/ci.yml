@@ -1,6 +1,7 @@
 # CI: runs on every push and pull request.
 #   checks : lint + unit, integration and contract (MCP tool-schema snapshot) tests
 #   e2e    : builds the web app and runs the 5 Playwright browser tests
+#   portfolio-image : builds the published Portfolio MCP server's Docker image
 name: CI
 on: [push, pull_request]
 
@@ -51,3 +52,10 @@ jobs:
         with:
           name: playwright-report
           path: apps/web/playwright-report
+
+  portfolio-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # The command documented in mcp_servers/portfolio/README.md must keep working.
+      - run: docker build -t gigbid-portfolio-mcp -f mcp_servers/portfolio/Dockerfile .
