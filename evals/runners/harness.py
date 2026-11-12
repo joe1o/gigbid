@@ -90,7 +90,8 @@ async def run(labels: list[dict], jobs: dict, approve: bool = True, concurrency:
                 if snap["interrupt"]:
                     claims = v["claims"]["claims"]
                     final = v["draft"]["cover_letter"] + " " + " ".join(v["draft"]["screening_answers"])
-                    after = await asyncio.to_thread(verify_claims, final, v["evidence"])
+                    required = (v.get("policy") or {}).get("required_statements", [])   # policy text, not claims
+                    after = await asyncio.to_thread(verify_claims, final, v["evidence"], required)
                     res.update(draft_raw=v["draft_raw"]["cover_letter"], draft=v["draft"]["cover_letter"],
                                answers=v["draft"]["screening_answers"], evidence=v["evidence"],
                                claims=len(claims),

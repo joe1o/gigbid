@@ -73,7 +73,8 @@ async def compliance_edit(state, config):
     full = d["cover_letter"] + " " + " ".join(d["screening_answers"])
     _, found = scan(full)
     violations = [f.replace("removed sentence with", "contains") for f in found]
-    checked = await asyncio.to_thread(verify_claims, full, state["evidence"])      # CPU work off the event loop
+    required = (state.get("policy") or {}).get("required_statements", [])      # not portfolio claims
+    checked = await asyncio.to_thread(verify_claims, full, state["evidence"], required)   # CPU work off the event loop
     unsupported = [c["text"] for c in checked["claims"] if c["label"] == "unsupported"]
     violations += [f'claim not supported by your portfolio: "{u[:80]}"' for u in unsupported]
     verdict = ComplianceVerdict(passed=not violations, violations=violations)

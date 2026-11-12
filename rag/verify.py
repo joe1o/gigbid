@@ -105,8 +105,12 @@ def check_claim(claim: str, evidence: list[dict]) -> dict:
             "score": round(scores[best], 3), "missing": missing}
 
 
-def verify_claims(draft: str, evidence: list[dict]) -> dict:
+def verify_claims(draft: str, evidence: list[dict], exempt: list[str] | None = None) -> dict:
     """
+    exempt: sentences the platform policy requires (policy.yaml -> required_statements), e.g. the
+    AI disclosure. They are not claims about the freelancer's work, so they are never checked
+    against the portfolio or removed.
+
     Returns {
       "claims":            [{text, label, evidence_id, score, missing}],
       "unsupported_rate":  fraction of claims that are unsupported (before cleaning),
@@ -114,11 +118,12 @@ def verify_claims(draft: str, evidence: list[dict]) -> dict:
       "removed":           the sentences that were removed
     }
     """
+    skip = {s.strip().lower() for s in exempt or []}
     results, removed, paragraphs = [], [], []
     for para in re.split(r"\n\s*\n", draft.strip()):          # keep the writer's paragraphs
         kept = []
         for sentence in split_sentences(para):
-            if is_claim(sentence):
+            if sentence.strip().lower() not in skip and is_claim(sentence):
                 r = check_claim(sentence, evidence)
                 results.append(r)
                 if r["label"] == "unsupported":

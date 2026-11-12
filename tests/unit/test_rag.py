@@ -80,3 +80,13 @@ def test_unknown_tool_named_in_a_claim_is_caught():
     claim = "My CV shows strong Python (pandas, scipy) and SQL skills."
     r = verify.check_claim(claim, ev)
     assert "scipy" in r["missing"] and r["label"] != "supported"
+
+
+def test_policy_required_statement_is_not_a_claim():
+    # The platform policy's AI disclosure ("... reviewed by me.") is mandated text, not a claim
+    # about the portfolio: it must never be flagged or removed (found by the CI smoke eval).
+    disclosure = "This proposal was drafted with AI assistance and reviewed by me."
+    draft = "I built a churn model with 0.71 PR-AUC.\n\n" + disclosure
+    r = verify.verify_claims(draft, [], exempt=[disclosure])
+    assert disclosure in r["cleaned_draft"]
+    assert all(c["text"] != disclosure for c in r["claims"])

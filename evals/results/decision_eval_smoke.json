@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11 20:38",
+  "generated_at": "2026-11-12 09:07",
   "fake_llm": true,
   "profile": "open",
   "overall": {
@@ -15,21 +15,21 @@
       "recall": 1.0
     },
     "price_in_fair_band": 0.905,
-    "proposals": 19,
+    "proposals": 16,
     "unsupported_claims_per_proposal": {
       "before": 0,
       "after": 0
     },
     "claims_per_proposal": 0,
-    "reply_rate": 0.368,
+    "reply_rate": 0.5,
     "hire_rate": 0.0,
     "seconds_per_job": {
-      "p50": 1.36,
-      "p95": 2.27
+      "p50": 0.86,
+      "p95": 1.46
     },
     "seconds_per_proposal": {
-      "p50": 1.53,
-      "p95": 2.27
+      "p50": 1.1,
+      "p95": 1.46
     },
     "tokens_per_job": 0,
     "cost_usd_per_job": 0.0,
@@ -50,21 +50,21 @@
         "recall": 1.0
       },
       "price_in_fair_band": 0.833,
-      "proposals": 10,
+      "proposals": 8,
       "unsupported_claims_per_proposal": {
         "before": 0,
         "after": 0
       },
       "claims_per_proposal": 0,
-      "reply_rate": 0.4,
+      "reply_rate": 0.375,
       "hire_rate": 0.0,
       "seconds_per_job": {
-        "p50": 1.72,
-        "p95": 2.27
+        "p50": 1.05,
+        "p95": 1.46
       },
       "seconds_per_proposal": {
-        "p50": 1.72,
-        "p95": 2.54
+        "p50": 1.21,
+        "p95": 1.69
       },
       "tokens_per_job": 0,
       "cost_usd_per_job": 0.0,
@@ -84,21 +84,21 @@
         "recall": 1.0
       },
       "price_in_fair_band": 1.0,
-      "proposals": 9,
+      "proposals": 8,
       "unsupported_claims_per_proposal": {
         "before": 0,
         "after": 0
       },
       "claims_per_proposal": 0,
-      "reply_rate": 0.333,
+      "reply_rate": 0.625,
       "hire_rate": 0.0,
       "seconds_per_job": {
-        "p50": 1.13,
-        "p95": 1.79
+        "p50": 0.76,
+        "p95": 1.12
       },
       "seconds_per_proposal": {
-        "p50": 1.36,
-        "p95": 2.04
+        "p50": 0.87,
+        "p95": 1.18
       },
       "tokens_per_job": 0,
       "cost_usd_per_job": 0.0,
@@ -107,26 +107,6 @@
     }
   },
   "per_job": [
-    {
-      "job_id": "job-002",
-      "persona": "ml_engineer",
-      "kind": "scam",
-      "style": "detailed",
-      "status": "recommended_skip",
-      "action": "skip",
-      "risk_level": "high",
-      "risk_flags": [
-        "payment_unverified",
-        "no_spend_history",
-        "new_account",
-        "off_platform"
-      ],
-      "price": null,
-      "error": "",
-      "seconds": 2.22,
-      "tokens": 0,
-      "cost_usd": 0.0
-    },
     {
       "job_id": "job-001",
       "persona": "ml_engineer",
@@ -139,7 +119,7 @@
       "price": 1530.0,
       "error": "",
       "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
       "answers": [
         "I would answer this in our first call with a concrete plan."
       ],
@@ -162,7 +142,7 @@
           "client_industry": null,
           "outcome": null,
           "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
-          "score": 0.698
+          "score": 0.6911
         },
         {
           "id": "ml-cs-legal-rag",
@@ -182,25 +162,7 @@
           "client_industry": "legal",
           "outcome": null,
           "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
-          "score": 0.6438
-        },
-        {
-          "id": "ml-rd-sentiment",
-          "type": "repo_readme",
-          "title": "sentiment-api (GitHub README)",
-          "source": "repo_readme:sentiment-api",
-          "project": "sentiment-api",
-          "skills": [
-            "FastAPI",
-            "Hugging Face",
-            "Docker",
-            "NLP"
-          ],
-          "date": "2025-02",
-          "client_industry": null,
-          "outcome": null,
-          "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
-          "score": 0.6425
+          "score": 0.6523
         },
         {
           "id": "ml-pp-rag-replied",
@@ -215,24 +177,38 @@
           "client_industry": "consulting",
           "outcome": "replied",
           "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
-          "score": 0.6367
+          "score": 0.6464
         },
         {
-          "id": "ml-cs-contract-qa",
-          "type": "case_study",
-          "title": "Contract assistant (internal write-up)",
-          "source": "case_study:legal-rag",
+          "id": "ml-rv-legal",
+          "type": "review",
+          "title": "Client review (legal)",
+          "source": "review:legal-rag",
           "project": "legal-rag",
           "skills": [
-            "vector search",
-            "LLM",
-            "citations"
+            "RAG"
           ],
-          "date": "2025-06",
+          "date": "2025-07",
           "client_industry": "legal",
           "outcome": null,
-          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
-          "score": 0.6363
+          "text": "5 stars. The contract chatbot is used daily by our associates. Sara was careful about accuracy and made sure it cites sources.",
+          "score": 0.6397
+        },
+        {
+          "id": "ml-pp-churn-won",
+          "type": "past_proposal",
+          "title": "Proposal: churn model for subscription box",
+          "source": "past_proposal:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "classification",
+            "imbalanced data"
+          ],
+          "date": "2025-03",
+          "client_industry": "ecommerce",
+          "outcome": "won",
+          "text": "Your churn rate is the number that matters, so I would start by checking how imbalanced it is. In a telecom project I faced 6% churn and used PR-AUC rather than accuracy; the final model helped cut churn 9% in a quarter. For you I would compare two models, report precision and recall at the top decile and hand over a reproducible notebook.",
+          "score": 0.6381
         },
         {
           "id": "ml-cs-churn",
@@ -252,19 +228,55 @@
           "client_industry": "telecom",
           "outcome": null,
           "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
-          "score": 0.6283
+          "score": 0.6318
         }
       ],
       "claims": 0,
       "unsupported_before": 0,
       "unsupported_after": 0,
       "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-cd4d058460",
-      "seconds": 2.54,
+      "connects_cost_preview": 14,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-c2f8331016",
+      "seconds": 1.69,
       "tokens": 0,
       "cost_usd": 0.0,
       "outcome": "replied"
+    },
+    {
+      "job_id": "job-002",
+      "persona": "ml_engineer",
+      "kind": "scam",
+      "style": "detailed",
+      "status": "recommended_skip",
+      "action": "skip",
+      "risk_level": "high",
+      "risk_flags": [
+        "payment_unverified",
+        "no_spend_history",
+        "new_account",
+        "off_platform"
+      ],
+      "price": null,
+      "error": "",
+      "seconds": 0.2,
+      "tokens": 0,
+      "cost_usd": 0.0
+    },
+    {
+      "job_id": "job-003",
+      "persona": "ml_engineer",
+      "kind": "poor_fit",
+      "style": "detailed",
+      "status": "recommended_skip",
+      "action": "skip",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": null,
+      "error": "",
+      "seconds": 1.45,
+      "tokens": 0,
+      "cost_usd": 0.0
     },
     {
       "job_id": "job-004",
@@ -284,22 +296,7 @@
       ],
       "price": null,
       "error": "",
-      "seconds": 0.3,
-      "tokens": 0,
-      "cost_usd": 0.0
-    },
-    {
-      "job_id": "job-003",
-      "persona": "ml_engineer",
-      "kind": "poor_fit",
-      "style": "detailed",
-      "status": "recommended_skip",
-      "action": "skip",
-      "risk_level": "low",
-      "risk_flags": [],
-      "price": null,
-      "error": "",
-      "seconds": 1.72,
+      "seconds": 0.2,
       "tokens": 0,
       "cost_usd": 0.0
     },
@@ -315,7 +312,7 @@
       "price": 850.0,
       "error": "",
       "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
       "answers": [
         "I would answer this in our first call with a concrete plan."
       ],
@@ -334,7 +331,7 @@
           "client_industry": "ecommerce",
           "outcome": "won",
           "text": "Your churn rate is the number that matters, so I would start by checking how imbalanced it is. In a telecom project I faced 6% churn and used PR-AUC rather than accuracy; the final model helped cut churn 9% in a quarter. For you I would compare two models, report precision and recall at the top decile and hand over a reproducible notebook.",
-          "score": 0.7722
+          "score": 0.7895
         },
         {
           "id": "ml-cs-churn",
@@ -354,7 +351,7 @@
           "client_industry": "telecom",
           "outcome": null,
           "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
-          "score": 0.7609
+          "score": 0.7842
         },
         {
           "id": "ml-rv-telecom",
@@ -370,7 +367,22 @@
           "client_industry": "telecom",
           "outcome": null,
           "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
-          "score": 0.7317
+          "score": 0.6524
+        },
+        {
+          "id": "ml-pp-rag-replied",
+          "type": "past_proposal",
+          "title": "Proposal: internal knowledge chatbot",
+          "source": "past_proposal:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG"
+          ],
+          "date": "2025-08",
+          "client_industry": "consulting",
+          "outcome": "replied",
+          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+          "score": 0.6497
         },
         {
           "id": "ml-cv",
@@ -394,7 +406,106 @@
           "client_industry": null,
           "outcome": null,
           "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
-          "score": 0.68
+          "score": 0.6471
+        },
+        {
+          "id": "ml-code-sentiment",
+          "type": "code",
+          "title": "sentiment-api/worker.py",
+          "source": "code:sentiment-api",
+          "project": "sentiment-api",
+          "skills": [
+            "Celery",
+            "Redis",
+            "background jobs"
+          ],
+          "date": "2025-02",
+          "client_industry": null,
+          "outcome": null,
+          "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
+          "score": 0.6241
+        }
+      ],
+      "claims": 0,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 2,
+      "connects_cost_preview": 10,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-d5e1375446",
+      "seconds": 1.1,
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "outcome": "lost"
+    },
+    {
+      "job_id": "job-006",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 900.0,
+      "error": "",
+      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
+      "answers": [
+        "I would answer this in our first call with a concrete plan."
+      ],
+      "evidence": [
+        {
+          "id": "ml-pp-churn-won",
+          "type": "past_proposal",
+          "title": "Proposal: churn model for subscription box",
+          "source": "past_proposal:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "classification",
+            "imbalanced data"
+          ],
+          "date": "2025-03",
+          "client_industry": "ecommerce",
+          "outcome": "won",
+          "text": "Your churn rate is the number that matters, so I would start by checking how imbalanced it is. In a telecom project I faced 6% churn and used PR-AUC rather than accuracy; the final model helped cut churn 9% in a quarter. For you I would compare two models, report precision and recall at the top decile and hand over a reproducible notebook.",
+          "score": 0.7947
+        },
+        {
+          "id": "ml-cs-churn",
+          "type": "case_study",
+          "title": "Churn prediction for a telecom operator",
+          "source": "case_study:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "Python",
+            "scikit-learn",
+            "XGBoost",
+            "classification",
+            "model evaluation",
+            "imbalanced data"
+          ],
+          "date": "2024-11",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+          "score": 0.7862
+        },
+        {
+          "id": "ml-rv-telecom",
+          "type": "review",
+          "title": "Client review (telecom)",
+          "source": "review:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "communication",
+            "documentation"
+          ],
+          "date": "2024-12",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
+          "score": 0.672
         },
         {
           "id": "ml-pp-rag-replied",
@@ -409,36 +520,61 @@
           "client_industry": "consulting",
           "outcome": "replied",
           "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
-          "score": 0.6638
+          "score": 0.6573
         },
         {
-          "id": "ml-cs-legal-rag",
-          "type": "case_study",
-          "title": "Document Q&A chatbot for a law firm",
-          "source": "case_study:legal-rag",
-          "project": "legal-rag",
+          "id": "ml-cv",
+          "type": "cv",
+          "title": "CV: Sara Malik",
+          "source": "cv:ml-cv",
+          "project": null,
           "skills": [
-            "RAG",
+            "Python",
+            "PyTorch",
+            "scikit-learn",
             "LangChain",
-            "Pinecone",
+            "RAG",
             "FastAPI",
-            "OpenAI",
-            "embeddings"
+            "Docker",
+            "AWS",
+            "NLP",
+            "SQL"
           ],
-          "date": "2025-06",
-          "client_industry": "legal",
+          "date": "2026-09",
+          "client_industry": null,
           "outcome": null,
-          "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
-          "score": 0.652
+          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+          "score": 0.6476
+        },
+        {
+          "id": "ml-rd-rag-eval",
+          "type": "repo_readme",
+          "title": "rag-eval-kit (GitHub README)",
+          "source": "repo_readme:rag-eval-kit",
+          "project": "rag-eval-kit",
+          "skills": [
+            "information retrieval",
+            "BM25",
+            "embeddings",
+            "evaluation metrics",
+            "Recall@k",
+            "nDCG"
+          ],
+          "date": "2025-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
+          "score": 0.6274
         }
       ],
       "claims": 0,
       "unsupported_before": 0,
       "unsupported_after": 0,
       "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-92aabf047a",
-      "seconds": 1.18,
+      "connects_cost_preview": 10,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-b3c755f2b7",
+      "seconds": 1.46,
       "tokens": 0,
       "cost_usd": 0.0,
       "outcome": "lost"
@@ -456,149 +592,9 @@
       ],
       "price": null,
       "error": "",
-      "seconds": 0.99,
+      "seconds": 0.66,
       "tokens": 0,
       "cost_usd": 0.0
-    },
-    {
-      "job_id": "job-006",
-      "persona": "ml_engineer",
-      "kind": "good",
-      "style": "detailed",
-      "status": "submitted",
-      "action": "bid",
-      "risk_level": "low",
-      "risk_flags": [],
-      "price": 900.0,
-      "error": "",
-      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "answers": [
-        "I would answer this in our first call with a concrete plan."
-      ],
-      "evidence": [
-        {
-          "id": "ml-pp-churn-won",
-          "type": "past_proposal",
-          "title": "Proposal: churn model for subscription box",
-          "source": "past_proposal:telecom-churn",
-          "project": "telecom-churn",
-          "skills": [
-            "classification",
-            "imbalanced data"
-          ],
-          "date": "2025-03",
-          "client_industry": "ecommerce",
-          "outcome": "won",
-          "text": "Your churn rate is the number that matters, so I would start by checking how imbalanced it is. In a telecom project I faced 6% churn and used PR-AUC rather than accuracy; the final model helped cut churn 9% in a quarter. For you I would compare two models, report precision and recall at the top decile and hand over a reproducible notebook.",
-          "score": 0.7931
-        },
-        {
-          "id": "ml-cs-churn",
-          "type": "case_study",
-          "title": "Churn prediction for a telecom operator",
-          "source": "case_study:telecom-churn",
-          "project": "telecom-churn",
-          "skills": [
-            "Python",
-            "scikit-learn",
-            "XGBoost",
-            "classification",
-            "model evaluation",
-            "imbalanced data"
-          ],
-          "date": "2024-11",
-          "client_industry": "telecom",
-          "outcome": null,
-          "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
-          "score": 0.7815
-        },
-        {
-          "id": "ml-rv-telecom",
-          "type": "review",
-          "title": "Client review (telecom)",
-          "source": "review:telecom-churn",
-          "project": "telecom-churn",
-          "skills": [
-            "communication",
-            "documentation"
-          ],
-          "date": "2024-12",
-          "client_industry": "telecom",
-          "outcome": null,
-          "text": "5 stars. Sara delivered the churn model on time, explained the precision/recall trade-off clearly to our non-technical team and left excellent documentation.",
-          "score": 0.7655
-        },
-        {
-          "id": "ml-cv",
-          "type": "cv",
-          "title": "CV: Sara Malik",
-          "source": "cv:ml-cv",
-          "project": null,
-          "skills": [
-            "Python",
-            "PyTorch",
-            "scikit-learn",
-            "LangChain",
-            "RAG",
-            "FastAPI",
-            "Docker",
-            "AWS",
-            "NLP",
-            "SQL"
-          ],
-          "date": "2026-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
-          "score": 0.7022
-        },
-        {
-          "id": "ml-rd-rag-eval",
-          "type": "repo_readme",
-          "title": "rag-eval-kit (GitHub README)",
-          "source": "repo_readme:rag-eval-kit",
-          "project": "rag-eval-kit",
-          "skills": [
-            "information retrieval",
-            "BM25",
-            "embeddings",
-            "evaluation metrics",
-            "Recall@k",
-            "nDCG"
-          ],
-          "date": "2025-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
-          "score": 0.6969
-        },
-        {
-          "id": "ml-pp-rag-replied",
-          "type": "past_proposal",
-          "title": "Proposal: internal knowledge chatbot",
-          "source": "past_proposal:legal-rag",
-          "project": "legal-rag",
-          "skills": [
-            "RAG"
-          ],
-          "date": "2025-08",
-          "client_industry": "consulting",
-          "outcome": "replied",
-          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
-          "score": 0.678
-        }
-      ],
-      "claims": 0,
-      "unsupported_before": 0,
-      "unsupported_after": 0,
-      "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-71b93efd54",
-      "seconds": 1.55,
-      "tokens": 0,
-      "cost_usd": 0.0,
-      "outcome": "replied"
     },
     {
       "job_id": "job-008",
@@ -614,7 +610,7 @@
       "price": 1200.0,
       "error": "",
       "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
       "answers": [
         "I would answer this in our first call with a concrete plan."
       ],
@@ -635,31 +631,7 @@
           "client_industry": null,
           "outcome": null,
           "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
-          "score": 0.7708
-        },
-        {
-          "id": "ml-cv",
-          "type": "cv",
-          "title": "CV: Sara Malik",
-          "source": "cv:ml-cv",
-          "project": null,
-          "skills": [
-            "Python",
-            "PyTorch",
-            "scikit-learn",
-            "LangChain",
-            "RAG",
-            "FastAPI",
-            "Docker",
-            "AWS",
-            "NLP",
-            "SQL"
-          ],
-          "date": "2026-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
-          "score": 0.7303
+          "score": 0.7929
         },
         {
           "id": "ml-code-sentiment",
@@ -676,7 +648,44 @@
           "client_industry": null,
           "outcome": null,
           "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
-          "score": 0.7089
+          "score": 0.7703
+        },
+        {
+          "id": "ml-cv",
+          "type": "cv",
+          "title": "CV: Sara Malik",
+          "source": "cv:ml-cv",
+          "project": null,
+          "skills": [
+            "Python",
+            "PyTorch",
+            "scikit-learn",
+            "LangChain",
+            "RAG",
+            "FastAPI",
+            "Docker",
+            "AWS",
+            "NLP",
+            "SQL"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
+          "score": 0.7204
+        },
+        {
+          "id": "ml-pp-generic-ignored",
+          "type": "past_proposal",
+          "title": "Proposal: computer vision app",
+          "source": "past_proposal:ml-pp-generic-ignored",
+          "project": null,
+          "skills": [],
+          "date": "2025-01",
+          "client_industry": "retail",
+          "outcome": "ignored",
+          "text": "Dear Sir, I am passionate about AI and I have read your job carefully. I am the best fit for this job and can deliver high quality work on time. Please message me to discuss.",
+          "score": 0.6362
         },
         {
           "id": "ml-cs-legal-rag",
@@ -696,46 +705,32 @@
           "client_industry": "legal",
           "outcome": null,
           "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
-          "score": 0.6424
+          "score": 0.635
         },
         {
-          "id": "ml-pp-generic-ignored",
+          "id": "ml-pp-rag-replied",
           "type": "past_proposal",
-          "title": "Proposal: computer vision app",
-          "source": "past_proposal:ml-pp-generic-ignored",
-          "project": null,
-          "skills": [],
-          "date": "2025-01",
-          "client_industry": "retail",
-          "outcome": "ignored",
-          "text": "Dear Sir, I am passionate about AI and I have read your job carefully. I am the best fit for this job and can deliver high quality work on time. Please message me to discuss.",
-          "score": 0.6309
-        },
-        {
-          "id": "ml-cs-contract-qa",
-          "type": "case_study",
-          "title": "Contract assistant (internal write-up)",
-          "source": "case_study:legal-rag",
+          "title": "Proposal: internal knowledge chatbot",
+          "source": "past_proposal:legal-rag",
           "project": "legal-rag",
           "skills": [
-            "vector search",
-            "LLM",
-            "citations"
+            "RAG"
           ],
-          "date": "2025-06",
-          "client_industry": "legal",
-          "outcome": null,
-          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
-          "score": 0.625
+          "date": "2025-08",
+          "client_industry": "consulting",
+          "outcome": "replied",
+          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+          "score": 0.6342
         }
       ],
       "claims": 0,
       "unsupported_before": 0,
       "unsupported_after": 0,
       "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-d550e71126",
-      "seconds": 1.53,
+      "connects_cost_preview": 10,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-73c3f62b32",
+      "seconds": 1.21,
       "tokens": 0,
       "cost_usd": 0.0,
       "outcome": "lost"
@@ -752,11 +747,26 @@
       "price": 1590.0,
       "error": "",
       "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
       "answers": [
         "I would answer this in our first call with a concrete plan."
       ],
       "evidence": [
+        {
+          "id": "ml-pp-rag-replied",
+          "type": "past_proposal",
+          "title": "Proposal: internal knowledge chatbot",
+          "source": "past_proposal:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG"
+          ],
+          "date": "2025-08",
+          "client_industry": "consulting",
+          "outcome": "replied",
+          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+          "score": 0.7903
+        },
         {
           "id": "ml-cs-legal-rag",
           "type": "case_study",
@@ -775,22 +785,7 @@
           "client_industry": "legal",
           "outcome": null,
           "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
-          "score": 0.7723
-        },
-        {
-          "id": "ml-pp-rag-replied",
-          "type": "past_proposal",
-          "title": "Proposal: internal knowledge chatbot",
-          "source": "past_proposal:legal-rag",
-          "project": "legal-rag",
-          "skills": [
-            "RAG"
-          ],
-          "date": "2025-08",
-          "client_industry": "consulting",
-          "outcome": "replied",
-          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
-          "score": 0.7273
+          "score": 0.7768
         },
         {
           "id": "ml-rv-legal",
@@ -805,7 +800,24 @@
           "client_industry": "legal",
           "outcome": null,
           "text": "5 stars. The contract chatbot is used daily by our associates. Sara was careful about accuracy and made sure it cites sources.",
-          "score": 0.69
+          "score": 0.7342
+        },
+        {
+          "id": "ml-cs-contract-qa",
+          "type": "case_study",
+          "title": "Contract assistant (internal write-up)",
+          "source": "case_study:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "vector search",
+            "LLM",
+            "citations"
+          ],
+          "date": "2025-06",
+          "client_industry": "legal",
+          "outcome": null,
+          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
+          "score": 0.7275
         },
         {
           "id": "ml-rd-rag-eval",
@@ -825,42 +837,20 @@
           "client_industry": null,
           "outcome": null,
           "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
-          "score": 0.6888
+          "score": 0.6848
         },
         {
-          "id": "ml-cs-contract-qa",
-          "type": "case_study",
-          "title": "Contract assistant (internal write-up)",
-          "source": "case_study:legal-rag",
-          "project": "legal-rag",
-          "skills": [
-            "vector search",
-            "LLM",
-            "citations"
-          ],
-          "date": "2025-06",
-          "client_industry": "legal",
-          "outcome": null,
-          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
-          "score": 0.6882
-        },
-        {
-          "id": "ml-rd-sentiment",
-          "type": "repo_readme",
-          "title": "sentiment-api (GitHub README)",
-          "source": "repo_readme:sentiment-api",
-          "project": "sentiment-api",
-          "skills": [
-            "FastAPI",
-            "Hugging Face",
-            "Docker",
-            "NLP"
-          ],
-          "date": "2025-02",
-          "client_industry": null,
-          "outcome": null,
-          "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
-          "score": 0.6533
+          "id": "ml-pp-generic-ignored",
+          "type": "past_proposal",
+          "title": "Proposal: computer vision app",
+          "source": "past_proposal:ml-pp-generic-ignored",
+          "project": null,
+          "skills": [],
+          "date": "2025-01",
+          "client_industry": "retail",
+          "outcome": "ignored",
+          "text": "Dear Sir, I am passionate about AI and I have read your job carefully. I am the best fit for this job and can deliver high quality work on time. Please message me to discuss.",
+          "score": 0.6268
         },
         {
           "id": "ml-cv",
@@ -891,9 +881,10 @@
       "unsupported_before": 0,
       "unsupported_after": 0,
       "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-62c52ca324",
-      "seconds": 1.21,
+      "connects_cost_preview": 14,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-9652761eb3",
+      "seconds": 0.86,
       "tokens": 0,
       "cost_usd": 0.0,
       "outcome": "lost"
@@ -910,7 +901,7 @@
       "price": 1070.0,
       "error": "",
       "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
       "answers": [
         "I would answer this in our first call with a concrete plan."
       ],
@@ -933,25 +924,7 @@
           "client_industry": null,
           "outcome": null,
           "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
-          "score": 0.7645
-        },
-        {
-          "id": "ml-rd-sentiment",
-          "type": "repo_readme",
-          "title": "sentiment-api (GitHub README)",
-          "source": "repo_readme:sentiment-api",
-          "project": "sentiment-api",
-          "skills": [
-            "FastAPI",
-            "Hugging Face",
-            "Docker",
-            "NLP"
-          ],
-          "date": "2025-02",
-          "client_industry": null,
-          "outcome": null,
-          "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
-          "score": 0.692
+          "score": 0.6918
         },
         {
           "id": "ml-cs-legal-rag",
@@ -971,41 +944,22 @@
           "client_industry": "legal",
           "outcome": null,
           "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
-          "score": 0.6905
+          "score": 0.6612
         },
         {
-          "id": "ml-code-sentiment",
-          "type": "code",
-          "title": "sentiment-api/worker.py",
-          "source": "code:sentiment-api",
-          "project": "sentiment-api",
-          "skills": [
-            "Celery",
-            "Redis",
-            "background jobs"
-          ],
-          "date": "2025-02",
-          "client_industry": null,
-          "outcome": null,
-          "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
-          "score": 0.6693
-        },
-        {
-          "id": "ml-cs-contract-qa",
-          "type": "case_study",
-          "title": "Contract assistant (internal write-up)",
-          "source": "case_study:legal-rag",
+          "id": "ml-rv-legal",
+          "type": "review",
+          "title": "Client review (legal)",
+          "source": "review:legal-rag",
           "project": "legal-rag",
           "skills": [
-            "vector search",
-            "LLM",
-            "citations"
+            "RAG"
           ],
-          "date": "2025-06",
+          "date": "2025-07",
           "client_industry": "legal",
           "outcome": null,
-          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
-          "score": 0.6654
+          "text": "5 stars. The contract chatbot is used daily by our associates. Sara was careful about accuracy and made sure it cites sources.",
+          "score": 0.6494
         },
         {
           "id": "ml-pp-rag-replied",
@@ -1020,16 +974,53 @@
           "client_industry": "consulting",
           "outcome": "replied",
           "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
-          "score": 0.6588
+          "score": 0.6472
+        },
+        {
+          "id": "ml-cs-churn",
+          "type": "case_study",
+          "title": "Churn prediction for a telecom operator",
+          "source": "case_study:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "Python",
+            "scikit-learn",
+            "XGBoost",
+            "classification",
+            "model evaluation",
+            "imbalanced data"
+          ],
+          "date": "2024-11",
+          "client_industry": "telecom",
+          "outcome": null,
+          "text": "Built a churn model for a telecom operator with 120k subscribers. Compared logistic regression, random forest and XGBoost. Data was imbalanced (6% churn), so I used class weights and judged models on precision-recall AUC instead of accuracy. Final XGBoost model reached 0.71 PR-AUC and the retention team used the top-decile list to cut churn by 9% in one quarter. Delivered a reproducible pipeline and a short limitations report.",
+          "score": 0.6359
+        },
+        {
+          "id": "ml-pp-churn-won",
+          "type": "past_proposal",
+          "title": "Proposal: churn model for subscription box",
+          "source": "past_proposal:telecom-churn",
+          "project": "telecom-churn",
+          "skills": [
+            "classification",
+            "imbalanced data"
+          ],
+          "date": "2025-03",
+          "client_industry": "ecommerce",
+          "outcome": "won",
+          "text": "Your churn rate is the number that matters, so I would start by checking how imbalanced it is. In a telecom project I faced 6% churn and used PR-AUC rather than accuracy; the final model helped cut churn 9% in a quarter. For you I would compare two models, report precision and recall at the top decile and hand over a reproducible notebook.",
+          "score": 0.6333
         }
       ],
       "claims": 0,
       "unsupported_before": 0,
       "unsupported_after": 0,
       "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-ab0684ba25",
-      "seconds": 1.87,
+      "connects_cost_preview": 10,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-1262167589",
+      "seconds": 1.34,
       "tokens": 0,
       "cost_usd": 0.0,
       "outcome": "lost"
@@ -1045,7 +1036,7 @@
       "risk_flags": [],
       "price": null,
       "error": "",
-      "seconds": 1.79,
+      "seconds": 1.22,
       "tokens": 0,
       "cost_usd": 0.0
     },
@@ -1061,7 +1052,7 @@
       "price": 1200.0,
       "error": "",
       "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
       "answers": [
         "I would answer this in our first call with a concrete plan."
       ],
@@ -1082,7 +1073,24 @@
           "client_industry": null,
           "outcome": null,
           "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
-          "score": 0.7708
+          "score": 0.7929
+        },
+        {
+          "id": "ml-code-sentiment",
+          "type": "code",
+          "title": "sentiment-api/worker.py",
+          "source": "code:sentiment-api",
+          "project": "sentiment-api",
+          "skills": [
+            "Celery",
+            "Redis",
+            "background jobs"
+          ],
+          "date": "2025-02",
+          "client_industry": null,
+          "outcome": null,
+          "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
+          "score": 0.7703
         },
         {
           "id": "ml-cv",
@@ -1106,24 +1114,20 @@
           "client_industry": null,
           "outcome": null,
           "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
-          "score": 0.7303
+          "score": 0.7204
         },
         {
-          "id": "ml-code-sentiment",
-          "type": "code",
-          "title": "sentiment-api/worker.py",
-          "source": "code:sentiment-api",
-          "project": "sentiment-api",
-          "skills": [
-            "Celery",
-            "Redis",
-            "background jobs"
-          ],
-          "date": "2025-02",
-          "client_industry": null,
-          "outcome": null,
-          "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
-          "score": 0.7089
+          "id": "ml-pp-generic-ignored",
+          "type": "past_proposal",
+          "title": "Proposal: computer vision app",
+          "source": "past_proposal:ml-pp-generic-ignored",
+          "project": null,
+          "skills": [],
+          "date": "2025-01",
+          "client_industry": "retail",
+          "outcome": "ignored",
+          "text": "Dear Sir, I am passionate about AI and I have read your job carefully. I am the best fit for this job and can deliver high quality work on time. Please message me to discuss.",
+          "score": 0.6362
         },
         {
           "id": "ml-cs-legal-rag",
@@ -1143,49 +1147,35 @@
           "client_industry": "legal",
           "outcome": null,
           "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
-          "score": 0.6424
+          "score": 0.635
         },
         {
-          "id": "ml-pp-generic-ignored",
+          "id": "ml-pp-rag-replied",
           "type": "past_proposal",
-          "title": "Proposal: computer vision app",
-          "source": "past_proposal:ml-pp-generic-ignored",
-          "project": null,
-          "skills": [],
-          "date": "2025-01",
-          "client_industry": "retail",
-          "outcome": "ignored",
-          "text": "Dear Sir, I am passionate about AI and I have read your job carefully. I am the best fit for this job and can deliver high quality work on time. Please message me to discuss.",
-          "score": 0.6309
-        },
-        {
-          "id": "ml-cs-contract-qa",
-          "type": "case_study",
-          "title": "Contract assistant (internal write-up)",
-          "source": "case_study:legal-rag",
+          "title": "Proposal: internal knowledge chatbot",
+          "source": "past_proposal:legal-rag",
           "project": "legal-rag",
           "skills": [
-            "vector search",
-            "LLM",
-            "citations"
+            "RAG"
           ],
-          "date": "2025-06",
-          "client_industry": "legal",
-          "outcome": null,
-          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
-          "score": 0.625
+          "date": "2025-08",
+          "client_industry": "consulting",
+          "outcome": "replied",
+          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+          "score": 0.6342
         }
       ],
       "claims": 0,
       "unsupported_before": 0,
       "unsupported_after": 0,
       "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-a1a81bbb15",
-      "seconds": 1.72,
+      "connects_cost_preview": 10,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-617e723d1f",
+      "seconds": 1.1,
       "tokens": 0,
       "cost_usd": 0.0,
-      "outcome": "lost"
+      "outcome": "replied"
     },
     {
       "job_id": "job-013",
@@ -1199,7 +1189,7 @@
       "price": 1500.0,
       "error": "",
       "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
       "answers": [
         "I would answer this in our first call with a concrete plan."
       ],
@@ -1221,7 +1211,7 @@
           "client_industry": "logistics",
           "outcome": null,
           "text": "Automated reading of scanned supplier invoices. Tesseract for OCR, then a fine-tuned LayoutLM model to pull out invoice number, date, totals and supplier name. Field accuracy 94% on a 500-invoice test set. Saved the accounts team about 30 hours a month.",
-          "score": 0.8045
+          "score": 0.8227
         },
         {
           "id": "ml-cs-legal-rag",
@@ -1241,7 +1231,22 @@
           "client_industry": "legal",
           "outcome": null,
           "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
-          "score": 0.6579
+          "score": 0.6614
+        },
+        {
+          "id": "ml-pp-rag-replied",
+          "type": "past_proposal",
+          "title": "Proposal: internal knowledge chatbot",
+          "source": "past_proposal:legal-rag",
+          "project": "legal-rag",
+          "skills": [
+            "RAG"
+          ],
+          "date": "2025-08",
+          "client_industry": "consulting",
+          "outcome": "replied",
+          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
+          "score": 0.6313
         },
         {
           "id": "ml-cv",
@@ -1265,59 +1270,24 @@
           "client_industry": null,
           "outcome": null,
           "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
-          "score": 0.6572
+          "score": 0.6163
         },
         {
-          "id": "ml-pp-rag-replied",
-          "type": "past_proposal",
-          "title": "Proposal: internal knowledge chatbot",
-          "source": "past_proposal:legal-rag",
+          "id": "ml-cs-contract-qa",
+          "type": "case_study",
+          "title": "Contract assistant (internal write-up)",
+          "source": "case_study:legal-rag",
           "project": "legal-rag",
           "skills": [
-            "RAG"
+            "vector search",
+            "LLM",
+            "citations"
           ],
-          "date": "2025-08",
-          "client_industry": "consulting",
-          "outcome": "replied",
-          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
-          "score": 0.6441
-        },
-        {
-          "id": "ml-rd-rag-eval",
-          "type": "repo_readme",
-          "title": "rag-eval-kit (GitHub README)",
-          "source": "repo_readme:rag-eval-kit",
-          "project": "rag-eval-kit",
-          "skills": [
-            "information retrieval",
-            "BM25",
-            "embeddings",
-            "evaluation metrics",
-            "Recall@k",
-            "nDCG"
-          ],
-          "date": "2025-09",
-          "client_industry": null,
+          "date": "2025-06",
+          "client_industry": "legal",
           "outcome": null,
-          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
-          "score": 0.641
-        },
-        {
-          "id": "ml-code-sentiment",
-          "type": "code",
-          "title": "sentiment-api/worker.py",
-          "source": "code:sentiment-api",
-          "project": "sentiment-api",
-          "skills": [
-            "Celery",
-            "Redis",
-            "background jobs"
-          ],
-          "date": "2025-02",
-          "client_industry": null,
-          "outcome": null,
-          "text": "from celery import Celery\napp = Celery('sentiment', broker='redis://redis:6379/0')\n\n@app.task(bind=True, max_retries=3)\ndef score_batch(self, texts):\n    # long batches run in the background so the API stays fast\n    return model.predict(texts)",
-          "score": 0.6397
+          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
+          "score": 0.5977
         },
         {
           "id": "ml-pp-generic-ignored",
@@ -1330,320 +1300,50 @@
           "client_industry": "retail",
           "outcome": "ignored",
           "text": "Dear Sir, I am passionate about AI and I have read your job carefully. I am the best fit for this job and can deliver high quality work on time. Please message me to discuss.",
-          "score": 1.0
+          "score": 0.5959
         }
       ],
       "claims": 0,
       "unsupported_before": 0,
       "unsupported_after": 0,
       "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-f13994211f",
-      "seconds": 1.72,
+      "connects_cost_preview": 14,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-869afda414",
+      "seconds": 1.01,
       "tokens": 0,
       "cost_usd": 0.0,
       "outcome": "replied"
-    },
-    {
-      "job_id": "job-015",
-      "persona": "ml_engineer",
-      "kind": "good",
-      "style": "detailed",
-      "status": "submitted",
-      "action": "bid",
-      "risk_level": "low",
-      "risk_flags": [],
-      "price": 1590.0,
-      "error": "",
-      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "answers": [
-        "I would answer this in our first call with a concrete plan."
-      ],
-      "evidence": [
-        {
-          "id": "ml-cs-legal-rag",
-          "type": "case_study",
-          "title": "Document Q&A chatbot for a law firm",
-          "source": "case_study:legal-rag",
-          "project": "legal-rag",
-          "skills": [
-            "RAG",
-            "LangChain",
-            "Pinecone",
-            "FastAPI",
-            "OpenAI",
-            "embeddings"
-          ],
-          "date": "2025-06",
-          "client_industry": "legal",
-          "outcome": null,
-          "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
-          "score": 0.7863
-        },
-        {
-          "id": "ml-pp-rag-replied",
-          "type": "past_proposal",
-          "title": "Proposal: internal knowledge chatbot",
-          "source": "past_proposal:legal-rag",
-          "project": "legal-rag",
-          "skills": [
-            "RAG"
-          ],
-          "date": "2025-08",
-          "client_industry": "consulting",
-          "outcome": "replied",
-          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
-          "score": 0.7304
-        },
-        {
-          "id": "ml-cv",
-          "type": "cv",
-          "title": "CV: Sara Malik",
-          "source": "cv:ml-cv",
-          "project": null,
-          "skills": [
-            "Python",
-            "PyTorch",
-            "scikit-learn",
-            "LangChain",
-            "RAG",
-            "FastAPI",
-            "Docker",
-            "AWS",
-            "NLP",
-            "SQL"
-          ],
-          "date": "2026-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
-          "score": 0.7248
-        },
-        {
-          "id": "ml-rd-rag-eval",
-          "type": "repo_readme",
-          "title": "rag-eval-kit (GitHub README)",
-          "source": "repo_readme:rag-eval-kit",
-          "project": "rag-eval-kit",
-          "skills": [
-            "information retrieval",
-            "BM25",
-            "embeddings",
-            "evaluation metrics",
-            "Recall@k",
-            "nDCG"
-          ],
-          "date": "2025-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
-          "score": 0.7238
-        },
-        {
-          "id": "ml-rd-sentiment",
-          "type": "repo_readme",
-          "title": "sentiment-api (GitHub README)",
-          "source": "repo_readme:sentiment-api",
-          "project": "sentiment-api",
-          "skills": [
-            "FastAPI",
-            "Hugging Face",
-            "Docker",
-            "NLP"
-          ],
-          "date": "2025-02",
-          "client_industry": null,
-          "outcome": null,
-          "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
-          "score": 0.7103
-        },
-        {
-          "id": "ml-cs-contract-qa",
-          "type": "case_study",
-          "title": "Contract assistant (internal write-up)",
-          "source": "case_study:legal-rag",
-          "project": "legal-rag",
-          "skills": [
-            "vector search",
-            "LLM",
-            "citations"
-          ],
-          "date": "2025-06",
-          "client_industry": "legal",
-          "outcome": null,
-          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
-          "score": 0.6927
-        }
-      ],
-      "claims": 0,
-      "unsupported_before": 0,
-      "unsupported_after": 0,
-      "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-7ef7e9fac1",
-      "seconds": 2.12,
-      "tokens": 0,
-      "cost_usd": 0.0,
-      "outcome": "lost"
     },
     {
       "job_id": "job-014",
       "persona": "ml_engineer",
       "kind": "injection",
       "style": "detailed",
-      "status": "submitted",
+      "status": "watch",
       "action": "bid",
       "risk_level": "low",
       "risk_flags": [
         "injected_instructions"
       ],
       "price": 1590.0,
-      "error": "",
-      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "answers": [
-        "I would answer this in our first call with a concrete plan."
-      ],
-      "evidence": [
-        {
-          "id": "ml-cs-legal-rag",
-          "type": "case_study",
-          "title": "Document Q&A chatbot for a law firm",
-          "source": "case_study:legal-rag",
-          "project": "legal-rag",
-          "skills": [
-            "RAG",
-            "LangChain",
-            "Pinecone",
-            "FastAPI",
-            "OpenAI",
-            "embeddings"
-          ],
-          "date": "2025-06",
-          "client_industry": "legal",
-          "outcome": null,
-          "text": "Built a retrieval-augmented chatbot over 8,000 contract PDFs for a mid-size law firm. Chunked documents by clause, stored embeddings in Pinecone and served answers through FastAPI with citations to the source clause. Lawyers reported finding clauses in seconds instead of minutes. Added a 'no answer found' path so the bot never guessed.",
-          "score": 0.7863
-        },
-        {
-          "id": "ml-pp-rag-replied",
-          "type": "past_proposal",
-          "title": "Proposal: internal knowledge chatbot",
-          "source": "past_proposal:legal-rag",
-          "project": "legal-rag",
-          "skills": [
-            "RAG"
-          ],
-          "date": "2025-08",
-          "client_industry": "consulting",
-          "outcome": "replied",
-          "text": "You want answers your team can trust, which means citations. I built a contract chatbot for a law firm over 8,000 PDFs that always shows the clause it used and says 'not found' instead of guessing. I can do the same over your wiki in about three weeks.",
-          "score": 0.7304
-        },
-        {
-          "id": "ml-cv",
-          "type": "cv",
-          "title": "CV: Sara Malik",
-          "source": "cv:ml-cv",
-          "project": null,
-          "skills": [
-            "Python",
-            "PyTorch",
-            "scikit-learn",
-            "LangChain",
-            "RAG",
-            "FastAPI",
-            "Docker",
-            "AWS",
-            "NLP",
-            "SQL"
-          ],
-          "date": "2026-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "AI/ML engineer with 4 years of experience. Built classification models, NLP pipelines and retrieval-augmented chatbots for clients in telecom, legal and logistics. Comfortable taking a model from notebook to a FastAPI service in Docker on AWS. BSc Computer Science. Languages: Python, SQL. Tools: PyTorch, scikit-learn, Hugging Face, LangChain.",
-          "score": 0.7248
-        },
-        {
-          "id": "ml-rd-rag-eval",
-          "type": "repo_readme",
-          "title": "rag-eval-kit (GitHub README)",
-          "source": "repo_readme:rag-eval-kit",
-          "project": "rag-eval-kit",
-          "skills": [
-            "information retrieval",
-            "BM25",
-            "embeddings",
-            "evaluation metrics",
-            "Recall@k",
-            "nDCG"
-          ],
-          "date": "2025-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "rag-eval-kit: scripts to measure search quality. Compares BM25, dense embeddings and hybrid fusion on your own labelled queries and reports Recall@k, MRR and nDCG. Used it to show a client that hybrid search fixed exact product-code queries.",
-          "score": 0.7238
-        },
-        {
-          "id": "ml-rd-sentiment",
-          "type": "repo_readme",
-          "title": "sentiment-api (GitHub README)",
-          "source": "repo_readme:sentiment-api",
-          "project": "sentiment-api",
-          "skills": [
-            "FastAPI",
-            "Hugging Face",
-            "Docker",
-            "NLP"
-          ],
-          "date": "2025-02",
-          "client_industry": null,
-          "outcome": null,
-          "text": "sentiment-api: a small service that serves a Hugging Face sentiment model behind FastAPI. One Dockerfile, health check, batch endpoint and load test results (120 requests per second on a 2-CPU box).",
-          "score": 0.7103
-        },
-        {
-          "id": "ml-cs-contract-qa",
-          "type": "case_study",
-          "title": "Contract assistant (internal write-up)",
-          "source": "case_study:legal-rag",
-          "project": "legal-rag",
-          "skills": [
-            "vector search",
-            "LLM",
-            "citations"
-          ],
-          "date": "2025-06",
-          "client_industry": "legal",
-          "outcome": null,
-          "text": "Same project as the law-firm chatbot, written up for my blog: an assistant that answers questions about contracts and always shows the paragraph it used. Main lesson: clause-level chunks beat fixed 500-token chunks by a wide margin on our hand-made test questions.",
-          "score": 0.6927
-        }
-      ],
-      "claims": 0,
-      "unsupported_before": 0,
-      "unsupported_after": 0,
-      "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-e8a3d80e4d",
-      "seconds": 2.27,
+      "error": "not enough Connects: need 14, have 8",
+      "seconds": 1.05,
       "tokens": 0,
-      "cost_usd": 0.0,
-      "outcome": "replied"
+      "cost_usd": 0.0
     },
     {
-      "job_id": "job-017",
+      "job_id": "job-015",
       "persona": "ml_engineer",
       "kind": "good",
-      "style": "vague",
+      "style": "detailed",
       "status": "watch",
       "action": "bid",
       "risk_level": "low",
       "risk_flags": [],
-      "price": 1270.0,
-      "error": "not enough Connects: need 8, have 0",
-      "seconds": 0.73,
+      "price": 1590.0,
+      "error": "not enough Connects: need 14, have 8",
+      "seconds": 0.8,
       "tokens": 0,
       "cost_usd": 0.0
     },
@@ -1657,8 +1357,23 @@
       "risk_level": "low",
       "risk_flags": [],
       "price": 1380.0,
-      "error": "not enough Connects: need 8, have 0",
-      "seconds": 0.8,
+      "error": "not enough Connects: need 10, have 8",
+      "seconds": 0.35,
+      "tokens": 0,
+      "cost_usd": 0.0
+    },
+    {
+      "job_id": "job-017",
+      "persona": "ml_engineer",
+      "kind": "good",
+      "style": "vague",
+      "status": "watch",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1270.0,
+      "error": "not enough Connects: need 10, have 8",
+      "seconds": 0.35,
       "tokens": 0,
       "cost_usd": 0.0
     },
@@ -1680,7 +1395,7 @@
       ],
       "price": null,
       "error": "",
-      "seconds": 0.2,
+      "seconds": 0.14,
       "tokens": 0,
       "cost_usd": 0.0
     },
@@ -1695,9 +1410,150 @@
       "risk_flags": [],
       "price": null,
       "error": "",
-      "seconds": 0.4,
+      "seconds": 0.26,
       "tokens": 0,
       "cost_usd": 0.0
+    },
+    {
+      "job_id": "job-020",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1680.0,
+      "error": "",
+      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
+      "answers": [
+        "I would answer this in our first call with a concrete plan."
+      ],
+      "evidence": [
+        {
+          "id": "web-cs-dashboard",
+          "type": "case_study",
+          "title": "Analytics dashboard for a fintech SaaS",
+          "source": "case_study:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React",
+            "TypeScript",
+            "PostgreSQL",
+            "charts",
+            "Recharts",
+            "REST API"
+          ],
+          "date": "2024-10",
+          "client_industry": "fintech",
+          "outcome": null,
+          "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+          "score": 0.8165
+        },
+        {
+          "id": "web-pp-replied",
+          "type": "past_proposal",
+          "title": "Proposal: admin panel for logistics startup",
+          "source": "past_proposal:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React",
+            "PostgreSQL"
+          ],
+          "date": "2025-09",
+          "client_industry": "logistics",
+          "outcome": "replied",
+          "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours.",
+          "score": 0.7273
+        },
+        {
+          "id": "web-code-shop",
+          "type": "code",
+          "title": "next-shop-starter/prisma/schema.prisma",
+          "source": "code:next-shop",
+          "project": "next-shop",
+          "skills": [
+            "Prisma",
+            "PostgreSQL",
+            "database migrations"
+          ],
+          "date": "2025-05",
+          "client_industry": null,
+          "outcome": null,
+          "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
+          "score": 0.6524
+        },
+        {
+          "id": "web-cv",
+          "type": "cv",
+          "title": "CV: Omar Raza",
+          "source": "cv:web-cv",
+          "project": null,
+          "skills": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Node.js",
+            "Express",
+            "PostgreSQL",
+            "Stripe",
+            "Tailwind",
+            "Docker",
+            "AWS"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
+          "score": 0.6287
+        },
+        {
+          "id": "web-cs-shop",
+          "type": "case_study",
+          "title": "Next.js storefront with Stripe for a clothing brand",
+          "source": "case_study:next-shop",
+          "project": "next-shop",
+          "skills": [
+            "Next.js",
+            "React",
+            "Stripe",
+            "TypeScript",
+            "e-commerce"
+          ],
+          "date": "2025-04",
+          "client_industry": "retail",
+          "outcome": null,
+          "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
+          "score": 0.626
+        },
+        {
+          "id": "web-rv-fintech",
+          "type": "review",
+          "title": "Client review (fintech)",
+          "source": "review:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React"
+          ],
+          "date": "2024-11",
+          "client_industry": "fintech",
+          "outcome": null,
+          "text": "5 stars. Omar shipped our dashboard ahead of schedule and the charts are fast even on huge accounts.",
+          "score": 0.6217
+        }
+      ],
+      "claims": 0,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 2,
+      "connects_cost_preview": 14,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-155047804f",
+      "seconds": 0.87,
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "outcome": "lost"
     },
     {
       "job_id": "job-021",
@@ -1711,7 +1567,7 @@
       "price": 1670.0,
       "error": "",
       "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
       "answers": [
         "I would answer this in our first call with a concrete plan."
       ],
@@ -1733,7 +1589,7 @@
           "client_industry": "healthcare",
           "outcome": null,
           "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
-          "score": 0.8013
+          "score": 0.7715
         },
         {
           "id": "web-rv-clinic",
@@ -1748,326 +1604,7 @@
           "client_industry": "healthcare",
           "outcome": null,
           "text": "4.8 stars. Booking system works flawlessly across all our clinics. Good communicator.",
-          "score": 0.6641
-        },
-        {
-          "id": "web-code-shop",
-          "type": "code",
-          "title": "next-shop-starter/prisma/schema.prisma",
-          "source": "code:next-shop",
-          "project": "next-shop",
-          "skills": [
-            "Prisma",
-            "PostgreSQL",
-            "database migrations"
-          ],
-          "date": "2025-05",
-          "client_industry": null,
-          "outcome": null,
-          "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
-          "score": 0.6407
-        },
-        {
-          "id": "web-cv",
-          "type": "cv",
-          "title": "CV: Omar Raza",
-          "source": "cv:web-cv",
-          "project": null,
-          "skills": [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "Node.js",
-            "Express",
-            "PostgreSQL",
-            "Stripe",
-            "Tailwind",
-            "Docker",
-            "AWS"
-          ],
-          "date": "2026-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
-          "score": 0.6331
-        },
-        {
-          "id": "web-rv-fintech",
-          "type": "review",
-          "title": "Client review (fintech)",
-          "source": "review:fintech-dashboard",
-          "project": "fintech-dashboard",
-          "skills": [
-            "React"
-          ],
-          "date": "2024-11",
-          "client_industry": "fintech",
-          "outcome": null,
-          "text": "5 stars. Omar shipped our dashboard ahead of schedule and the charts are fast even on huge accounts.",
-          "score": 0.6221
-        },
-        {
-          "id": "web-rd-chat",
-          "type": "repo_readme",
-          "title": "realtime-chat (GitHub README)",
-          "source": "repo_readme:realtime-chat",
-          "project": "realtime-chat",
-          "skills": [
-            "WebSockets",
-            "Socket.io",
-            "Node.js"
-          ],
-          "date": "2025-08",
-          "client_industry": null,
-          "outcome": null,
-          "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included.",
-          "score": 0.6192
-        }
-      ],
-      "claims": 0,
-      "unsupported_before": 0,
-      "unsupported_after": 0,
-      "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-ca6dd97019",
-      "seconds": 1.06,
-      "tokens": 0,
-      "cost_usd": 0.0,
-      "outcome": "replied"
-    },
-    {
-      "job_id": "job-020",
-      "persona": "web_developer",
-      "kind": "good",
-      "style": "detailed",
-      "status": "submitted",
-      "action": "bid",
-      "risk_level": "low",
-      "risk_flags": [],
-      "price": 1680.0,
-      "error": "",
-      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "answers": [
-        "I would answer this in our first call with a concrete plan."
-      ],
-      "evidence": [
-        {
-          "id": "web-cs-dashboard",
-          "type": "case_study",
-          "title": "Analytics dashboard for a fintech SaaS",
-          "source": "case_study:fintech-dashboard",
-          "project": "fintech-dashboard",
-          "skills": [
-            "React",
-            "TypeScript",
-            "PostgreSQL",
-            "charts",
-            "Recharts",
-            "REST API"
-          ],
-          "date": "2024-10",
-          "client_industry": "fintech",
-          "outcome": null,
-          "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
-          "score": 0.7979
-        },
-        {
-          "id": "web-pp-replied",
-          "type": "past_proposal",
-          "title": "Proposal: admin panel for logistics startup",
-          "source": "past_proposal:fintech-dashboard",
-          "project": "fintech-dashboard",
-          "skills": [
-            "React",
-            "PostgreSQL"
-          ],
-          "date": "2025-09",
-          "client_industry": "logistics",
-          "outcome": "replied",
-          "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours.",
-          "score": 0.7514
-        },
-        {
-          "id": "web-code-shop",
-          "type": "code",
-          "title": "next-shop-starter/prisma/schema.prisma",
-          "source": "code:next-shop",
-          "project": "next-shop",
-          "skills": [
-            "Prisma",
-            "PostgreSQL",
-            "database migrations"
-          ],
-          "date": "2025-05",
-          "client_industry": null,
-          "outcome": null,
-          "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
-          "score": 0.7049
-        },
-        {
-          "id": "web-cv",
-          "type": "cv",
-          "title": "CV: Omar Raza",
-          "source": "cv:web-cv",
-          "project": null,
-          "skills": [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "Node.js",
-            "Express",
-            "PostgreSQL",
-            "Stripe",
-            "Tailwind",
-            "Docker",
-            "AWS"
-          ],
-          "date": "2026-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
-          "score": 0.692
-        },
-        {
-          "id": "web-rv-fintech",
-          "type": "review",
-          "title": "Client review (fintech)",
-          "source": "review:fintech-dashboard",
-          "project": "fintech-dashboard",
-          "skills": [
-            "React"
-          ],
-          "date": "2024-11",
-          "client_industry": "fintech",
-          "outcome": null,
-          "text": "5 stars. Omar shipped our dashboard ahead of schedule and the charts are fast even on huge accounts.",
-          "score": 0.6889
-        },
-        {
-          "id": "web-cs-shop",
-          "type": "case_study",
-          "title": "Next.js storefront with Stripe for a clothing brand",
-          "source": "case_study:next-shop",
-          "project": "next-shop",
-          "skills": [
-            "Next.js",
-            "React",
-            "Stripe",
-            "TypeScript",
-            "e-commerce"
-          ],
-          "date": "2025-04",
-          "client_industry": "retail",
-          "outcome": null,
-          "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
-          "score": 0.6846
-        }
-      ],
-      "claims": 0,
-      "unsupported_before": 0,
-      "unsupported_after": 0,
-      "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-e84060fb43",
-      "seconds": 1.36,
-      "tokens": 0,
-      "cost_usd": 0.0,
-      "outcome": "replied"
-    },
-    {
-      "job_id": "job-022",
-      "persona": "web_developer",
-      "kind": "good",
-      "style": "detailed",
-      "status": "submitted",
-      "action": "bid",
-      "risk_level": "low",
-      "risk_flags": [],
-      "price": 900.0,
-      "error": "",
-      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "answers": [
-        "I would answer this in our first call with a concrete plan."
-      ],
-      "evidence": [
-        {
-          "id": "web-code-shop",
-          "type": "code",
-          "title": "next-shop-starter/prisma/schema.prisma",
-          "source": "code:next-shop",
-          "project": "next-shop",
-          "skills": [
-            "Prisma",
-            "PostgreSQL",
-            "database migrations"
-          ],
-          "date": "2025-05",
-          "client_industry": null,
-          "outcome": null,
-          "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
-          "score": 0.6914
-        },
-        {
-          "id": "web-cv",
-          "type": "cv",
-          "title": "CV: Omar Raza",
-          "source": "cv:web-cv",
-          "project": null,
-          "skills": [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "Node.js",
-            "Express",
-            "PostgreSQL",
-            "Stripe",
-            "Tailwind",
-            "Docker",
-            "AWS"
-          ],
-          "date": "2026-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
-          "score": 0.6323
-        },
-        {
-          "id": "web-cs-dashboard",
-          "type": "case_study",
-          "title": "Analytics dashboard for a fintech SaaS",
-          "source": "case_study:fintech-dashboard",
-          "project": "fintech-dashboard",
-          "skills": [
-            "React",
-            "TypeScript",
-            "PostgreSQL",
-            "charts",
-            "Recharts",
-            "REST API"
-          ],
-          "date": "2024-10",
-          "client_industry": "fintech",
-          "outcome": null,
-          "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
-          "score": 0.6268
-        },
-        {
-          "id": "web-pp-replied",
-          "type": "past_proposal",
-          "title": "Proposal: admin panel for logistics startup",
-          "source": "past_proposal:fintech-dashboard",
-          "project": "fintech-dashboard",
-          "skills": [
-            "React",
-            "PostgreSQL"
-          ],
-          "date": "2025-09",
-          "client_industry": "logistics",
-          "outcome": "replied",
-          "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours.",
-          "score": 0.5932
+          "score": 0.7275
         },
         {
           "id": "web-code-chat",
@@ -2084,7 +1621,27 @@
           "client_industry": null,
           "outcome": null,
           "text": "const { createAdapter } = require('@socket.io/redis-adapter');\n// the Redis adapter lets several server instances share the same chat rooms\nio.adapter(createAdapter(pubClient, subClient));",
-          "score": 0.5926
+          "score": 0.6532
+        },
+        {
+          "id": "web-cs-dashboard",
+          "type": "case_study",
+          "title": "Analytics dashboard for a fintech SaaS",
+          "source": "case_study:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React",
+            "TypeScript",
+            "PostgreSQL",
+            "charts",
+            "Recharts",
+            "REST API"
+          ],
+          "date": "2024-10",
+          "client_industry": "fintech",
+          "outcome": null,
+          "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+          "score": 0.6434
         },
         {
           "id": "web-rd-chat",
@@ -2101,87 +1658,26 @@
           "client_industry": null,
           "outcome": null,
           "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included.",
-          "score": 0.5798
-        }
-      ],
-      "claims": 0,
-      "unsupported_before": 0,
-      "unsupported_after": 0,
-      "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-7c2040def3",
-      "seconds": 1.43,
-      "tokens": 0,
-      "cost_usd": 0.0,
-      "outcome": "lost"
-    },
-    {
-      "job_id": "job-023",
-      "persona": "web_developer",
-      "kind": "good",
-      "style": "detailed",
-      "status": "submitted",
-      "action": "bid",
-      "risk_level": "low",
-      "risk_flags": [],
-      "price": 1680.0,
-      "error": "",
-      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "answers": [
-        "I would answer this in our first call with a concrete plan."
-      ],
-      "evidence": [
-        {
-          "id": "web-cs-booking",
-          "type": "case_study",
-          "title": "Appointment booking system for a clinic chain",
-          "source": "case_study:clinic-booking",
-          "project": "clinic-booking",
-          "skills": [
-            "Node.js",
-            "Express",
-            "PostgreSQL",
-            "email notifications",
-            "calendar"
-          ],
-          "date": "2024-03",
-          "client_industry": "healthcare",
-          "outcome": null,
-          "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
-          "score": 0.8227
+          "score": 0.6234
         },
         {
-          "id": "web-code-shop",
-          "type": "code",
-          "title": "next-shop-starter/prisma/schema.prisma",
-          "source": "code:next-shop",
+          "id": "web-cs-shop",
+          "type": "case_study",
+          "title": "Next.js storefront with Stripe for a clothing brand",
+          "source": "case_study:next-shop",
           "project": "next-shop",
           "skills": [
-            "Prisma",
-            "PostgreSQL",
-            "database migrations"
+            "Next.js",
+            "React",
+            "Stripe",
+            "TypeScript",
+            "e-commerce"
           ],
-          "date": "2025-05",
-          "client_industry": null,
+          "date": "2025-04",
+          "client_industry": "retail",
           "outcome": null,
-          "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
-          "score": 0.6922
-        },
-        {
-          "id": "web-rv-clinic",
-          "type": "review",
-          "title": "Client review (healthcare)",
-          "source": "review:clinic-booking",
-          "project": "clinic-booking",
-          "skills": [
-            "Node.js"
-          ],
-          "date": "2024-04",
-          "client_industry": "healthcare",
-          "outcome": null,
-          "text": "4.8 stars. Booking system works flawlessly across all our clinics. Good communicator.",
-          "score": 0.6823
+          "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
+          "score": 0.6083
         },
         {
           "id": "web-cv",
@@ -2205,50 +1701,450 @@
           "client_industry": null,
           "outcome": null,
           "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
-          "score": 0.6555
-        },
-        {
-          "id": "web-cs-shop",
-          "type": "case_study",
-          "title": "Next.js storefront with Stripe for a clothing brand",
-          "source": "case_study:next-shop",
-          "project": "next-shop",
-          "skills": [
-            "Next.js",
-            "React",
-            "Stripe",
-            "TypeScript",
-            "e-commerce"
-          ],
-          "date": "2025-04",
-          "client_industry": "retail",
-          "outcome": null,
-          "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
-          "score": 0.6464
-        },
-        {
-          "id": "web-rv-fintech",
-          "type": "review",
-          "title": "Client review (fintech)",
-          "source": "review:fintech-dashboard",
-          "project": "fintech-dashboard",
-          "skills": [
-            "React"
-          ],
-          "date": "2024-11",
-          "client_industry": "fintech",
-          "outcome": null,
-          "text": "5 stars. Omar shipped our dashboard ahead of schedule and the charts are fast even on huge accounts.",
-          "score": 0.6457
+          "score": 1.0
         }
       ],
       "claims": 0,
       "unsupported_before": 0,
       "unsupported_after": 0,
       "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-4099df966d",
-      "seconds": 1.46,
+      "connects_cost_preview": 14,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-eca4aee65e",
+      "seconds": 0.74,
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "outcome": "replied"
+    },
+    {
+      "job_id": "job-022",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 900.0,
+      "error": "",
+      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
+      "answers": [
+        "I would answer this in our first call with a concrete plan."
+      ],
+      "evidence": [
+        {
+          "id": "web-code-shop",
+          "type": "code",
+          "title": "next-shop-starter/prisma/schema.prisma",
+          "source": "code:next-shop",
+          "project": "next-shop",
+          "skills": [
+            "Prisma",
+            "PostgreSQL",
+            "database migrations"
+          ],
+          "date": "2025-05",
+          "client_industry": null,
+          "outcome": null,
+          "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
+          "score": 0.7515
+        },
+        {
+          "id": "web-cs-dashboard",
+          "type": "case_study",
+          "title": "Analytics dashboard for a fintech SaaS",
+          "source": "case_study:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React",
+            "TypeScript",
+            "PostgreSQL",
+            "charts",
+            "Recharts",
+            "REST API"
+          ],
+          "date": "2024-10",
+          "client_industry": "fintech",
+          "outcome": null,
+          "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+          "score": 0.6907
+        },
+        {
+          "id": "web-cv",
+          "type": "cv",
+          "title": "CV: Omar Raza",
+          "source": "cv:web-cv",
+          "project": null,
+          "skills": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Node.js",
+            "Express",
+            "PostgreSQL",
+            "Stripe",
+            "Tailwind",
+            "Docker",
+            "AWS"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
+          "score": 0.6267
+        },
+        {
+          "id": "web-code-chat",
+          "type": "code",
+          "title": "realtime-chat/server.js",
+          "source": "code:realtime-chat",
+          "project": "realtime-chat",
+          "skills": [
+            "Redis",
+            "Socket.io",
+            "pub/sub"
+          ],
+          "date": "2025-08",
+          "client_industry": null,
+          "outcome": null,
+          "text": "const { createAdapter } = require('@socket.io/redis-adapter');\n// the Redis adapter lets several server instances share the same chat rooms\nio.adapter(createAdapter(pubClient, subClient));",
+          "score": 0.6107
+        },
+        {
+          "id": "web-pp-replied",
+          "type": "past_proposal",
+          "title": "Proposal: admin panel for logistics startup",
+          "source": "past_proposal:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React",
+            "PostgreSQL"
+          ],
+          "date": "2025-09",
+          "client_industry": "logistics",
+          "outcome": "replied",
+          "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours.",
+          "score": 0.5958
+        },
+        {
+          "id": "web-cs-booking",
+          "type": "case_study",
+          "title": "Appointment booking system for a clinic chain",
+          "source": "case_study:clinic-booking",
+          "project": "clinic-booking",
+          "skills": [
+            "Node.js",
+            "Express",
+            "PostgreSQL",
+            "email notifications",
+            "calendar"
+          ],
+          "date": "2024-03",
+          "client_industry": "healthcare",
+          "outcome": null,
+          "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
+          "score": 0.595
+        }
+      ],
+      "claims": 0,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 2,
+      "connects_cost_preview": 10,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-23bda755e5",
+      "seconds": 0.84,
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "outcome": "lost"
+    },
+    {
+      "job_id": "job-023",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1680.0,
+      "error": "",
+      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
+      "answers": [
+        "I would answer this in our first call with a concrete plan."
+      ],
+      "evidence": [
+        {
+          "id": "web-cs-booking",
+          "type": "case_study",
+          "title": "Appointment booking system for a clinic chain",
+          "source": "case_study:clinic-booking",
+          "project": "clinic-booking",
+          "skills": [
+            "Node.js",
+            "Express",
+            "PostgreSQL",
+            "email notifications",
+            "calendar"
+          ],
+          "date": "2024-03",
+          "client_industry": "healthcare",
+          "outcome": null,
+          "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
+          "score": 0.8122
+        },
+        {
+          "id": "web-rv-clinic",
+          "type": "review",
+          "title": "Client review (healthcare)",
+          "source": "review:clinic-booking",
+          "project": "clinic-booking",
+          "skills": [
+            "Node.js"
+          ],
+          "date": "2024-04",
+          "client_industry": "healthcare",
+          "outcome": null,
+          "text": "4.8 stars. Booking system works flawlessly across all our clinics. Good communicator.",
+          "score": 0.746
+        },
+        {
+          "id": "web-cs-dashboard",
+          "type": "case_study",
+          "title": "Analytics dashboard for a fintech SaaS",
+          "source": "case_study:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React",
+            "TypeScript",
+            "PostgreSQL",
+            "charts",
+            "Recharts",
+            "REST API"
+          ],
+          "date": "2024-10",
+          "client_industry": "fintech",
+          "outcome": null,
+          "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+          "score": 0.6784
+        },
+        {
+          "id": "web-code-chat",
+          "type": "code",
+          "title": "realtime-chat/server.js",
+          "source": "code:realtime-chat",
+          "project": "realtime-chat",
+          "skills": [
+            "Redis",
+            "Socket.io",
+            "pub/sub"
+          ],
+          "date": "2025-08",
+          "client_industry": null,
+          "outcome": null,
+          "text": "const { createAdapter } = require('@socket.io/redis-adapter');\n// the Redis adapter lets several server instances share the same chat rooms\nio.adapter(createAdapter(pubClient, subClient));",
+          "score": 0.6529
+        },
+        {
+          "id": "web-rd-chat",
+          "type": "repo_readme",
+          "title": "realtime-chat (GitHub README)",
+          "source": "repo_readme:realtime-chat",
+          "project": "realtime-chat",
+          "skills": [
+            "WebSockets",
+            "Socket.io",
+            "Node.js"
+          ],
+          "date": "2025-08",
+          "client_industry": null,
+          "outcome": null,
+          "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included.",
+          "score": 0.6364
+        },
+        {
+          "id": "web-code-shop",
+          "type": "code",
+          "title": "next-shop-starter/prisma/schema.prisma",
+          "source": "code:next-shop",
+          "project": "next-shop",
+          "skills": [
+            "Prisma",
+            "PostgreSQL",
+            "database migrations"
+          ],
+          "date": "2025-05",
+          "client_industry": null,
+          "outcome": null,
+          "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
+          "score": 0.6304
+        },
+        {
+          "id": "web-cv",
+          "type": "cv",
+          "title": "CV: Omar Raza",
+          "source": "cv:web-cv",
+          "project": null,
+          "skills": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Node.js",
+            "Express",
+            "PostgreSQL",
+            "Stripe",
+            "Tailwind",
+            "Docker",
+            "AWS"
+          ],
+          "date": "2026-09",
+          "client_industry": null,
+          "outcome": null,
+          "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
+          "score": 1.0
+        }
+      ],
+      "claims": 0,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 2,
+      "connects_cost_preview": 14,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-dc8b91c199",
+      "seconds": 1.11,
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "outcome": "replied"
+    },
+    {
+      "job_id": "job-024",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "detailed",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1200.0,
+      "error": "",
+      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
+      "answers": [
+        "I would answer this in our first call with a concrete plan."
+      ],
+      "evidence": [
+        {
+          "id": "web-code-chat",
+          "type": "code",
+          "title": "realtime-chat/server.js",
+          "source": "code:realtime-chat",
+          "project": "realtime-chat",
+          "skills": [
+            "Redis",
+            "Socket.io",
+            "pub/sub"
+          ],
+          "date": "2025-08",
+          "client_industry": null,
+          "outcome": null,
+          "text": "const { createAdapter } = require('@socket.io/redis-adapter');\n// the Redis adapter lets several server instances share the same chat rooms\nio.adapter(createAdapter(pubClient, subClient));",
+          "score": 0.8529
+        },
+        {
+          "id": "web-rd-chat",
+          "type": "repo_readme",
+          "title": "realtime-chat (GitHub README)",
+          "source": "repo_readme:realtime-chat",
+          "project": "realtime-chat",
+          "skills": [
+            "WebSockets",
+            "Socket.io",
+            "Node.js"
+          ],
+          "date": "2025-08",
+          "client_industry": null,
+          "outcome": null,
+          "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included.",
+          "score": 0.8016
+        },
+        {
+          "id": "web-cs-dashboard",
+          "type": "case_study",
+          "title": "Analytics dashboard for a fintech SaaS",
+          "source": "case_study:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React",
+            "TypeScript",
+            "PostgreSQL",
+            "charts",
+            "Recharts",
+            "REST API"
+          ],
+          "date": "2024-10",
+          "client_industry": "fintech",
+          "outcome": null,
+          "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+          "score": 0.5931
+        },
+        {
+          "id": "web-rv-clinic",
+          "type": "review",
+          "title": "Client review (healthcare)",
+          "source": "review:clinic-booking",
+          "project": "clinic-booking",
+          "skills": [
+            "Node.js"
+          ],
+          "date": "2024-04",
+          "client_industry": "healthcare",
+          "outcome": null,
+          "text": "4.8 stars. Booking system works flawlessly across all our clinics. Good communicator.",
+          "score": 0.5839
+        },
+        {
+          "id": "web-pp-ignored",
+          "type": "past_proposal",
+          "title": "Proposal: website redesign",
+          "source": "past_proposal:web-pp-ignored",
+          "project": null,
+          "skills": [],
+          "date": "2025-02",
+          "client_industry": "education",
+          "outcome": "ignored",
+          "text": "Hello, I have read your job post and I am very interested. I am an expert web developer with many years of experience and I guarantee 100% satisfaction.",
+          "score": 0.5776
+        },
+        {
+          "id": "web-cs-booking",
+          "type": "case_study",
+          "title": "Appointment booking system for a clinic chain",
+          "source": "case_study:clinic-booking",
+          "project": "clinic-booking",
+          "skills": [
+            "Node.js",
+            "Express",
+            "PostgreSQL",
+            "email notifications",
+            "calendar"
+          ],
+          "date": "2024-03",
+          "client_industry": "healthcare",
+          "outcome": null,
+          "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
+          "score": 0.5623
+        }
+      ],
+      "claims": 0,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 2,
+      "connects_cost_preview": 10,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-cda86d8bc4",
+      "seconds": 1.12,
       "tokens": 0,
       "cost_usd": 0.0,
       "outcome": "replied"
@@ -2267,7 +2163,7 @@
       "price": 1680.0,
       "error": "",
       "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
       "answers": [
         "I would answer this in our first call with a concrete plan."
       ],
@@ -2289,24 +2185,7 @@
           "client_industry": "healthcare",
           "outcome": null,
           "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
-          "score": 0.8227
-        },
-        {
-          "id": "web-code-shop",
-          "type": "code",
-          "title": "next-shop-starter/prisma/schema.prisma",
-          "source": "code:next-shop",
-          "project": "next-shop",
-          "skills": [
-            "Prisma",
-            "PostgreSQL",
-            "database migrations"
-          ],
-          "date": "2025-05",
-          "client_industry": null,
-          "outcome": null,
-          "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
-          "score": 0.6922
+          "score": 0.8122
         },
         {
           "id": "web-rv-clinic",
@@ -2321,171 +2200,7 @@
           "client_industry": "healthcare",
           "outcome": null,
           "text": "4.8 stars. Booking system works flawlessly across all our clinics. Good communicator.",
-          "score": 0.6823
-        },
-        {
-          "id": "web-cv",
-          "type": "cv",
-          "title": "CV: Omar Raza",
-          "source": "cv:web-cv",
-          "project": null,
-          "skills": [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "Node.js",
-            "Express",
-            "PostgreSQL",
-            "Stripe",
-            "Tailwind",
-            "Docker",
-            "AWS"
-          ],
-          "date": "2026-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
-          "score": 0.6555
-        },
-        {
-          "id": "web-cs-shop",
-          "type": "case_study",
-          "title": "Next.js storefront with Stripe for a clothing brand",
-          "source": "case_study:next-shop",
-          "project": "next-shop",
-          "skills": [
-            "Next.js",
-            "React",
-            "Stripe",
-            "TypeScript",
-            "e-commerce"
-          ],
-          "date": "2025-04",
-          "client_industry": "retail",
-          "outcome": null,
-          "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
-          "score": 0.6464
-        },
-        {
-          "id": "web-rv-fintech",
-          "type": "review",
-          "title": "Client review (fintech)",
-          "source": "review:fintech-dashboard",
-          "project": "fintech-dashboard",
-          "skills": [
-            "React"
-          ],
-          "date": "2024-11",
-          "client_industry": "fintech",
-          "outcome": null,
-          "text": "5 stars. Omar shipped our dashboard ahead of schedule and the charts are fast even on huge accounts.",
-          "score": 0.6457
-        }
-      ],
-      "claims": 0,
-      "unsupported_before": 0,
-      "unsupported_after": 0,
-      "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-f2328205a8",
-      "seconds": 1.79,
-      "tokens": 0,
-      "cost_usd": 0.0,
-      "outcome": "lost"
-    },
-    {
-      "job_id": "job-024",
-      "persona": "web_developer",
-      "kind": "good",
-      "style": "detailed",
-      "status": "submitted",
-      "action": "bid",
-      "risk_level": "low",
-      "risk_flags": [],
-      "price": 1200.0,
-      "error": "",
-      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "answers": [
-        "I would answer this in our first call with a concrete plan."
-      ],
-      "evidence": [
-        {
-          "id": "web-code-chat",
-          "type": "code",
-          "title": "realtime-chat/server.js",
-          "source": "code:realtime-chat",
-          "project": "realtime-chat",
-          "skills": [
-            "Redis",
-            "Socket.io",
-            "pub/sub"
-          ],
-          "date": "2025-08",
-          "client_industry": null,
-          "outcome": null,
-          "text": "const { createAdapter } = require('@socket.io/redis-adapter');\n// the Redis adapter lets several server instances share the same chat rooms\nio.adapter(createAdapter(pubClient, subClient));",
-          "score": 0.785
-        },
-        {
-          "id": "web-rd-chat",
-          "type": "repo_readme",
-          "title": "realtime-chat (GitHub README)",
-          "source": "repo_readme:realtime-chat",
-          "project": "realtime-chat",
-          "skills": [
-            "WebSockets",
-            "Socket.io",
-            "Node.js"
-          ],
-          "date": "2025-08",
-          "client_industry": null,
-          "outcome": null,
-          "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included.",
-          "score": 0.7214
-        },
-        {
-          "id": "web-cs-shop",
-          "type": "case_study",
-          "title": "Next.js storefront with Stripe for a clothing brand",
-          "source": "case_study:next-shop",
-          "project": "next-shop",
-          "skills": [
-            "Next.js",
-            "React",
-            "Stripe",
-            "TypeScript",
-            "e-commerce"
-          ],
-          "date": "2025-04",
-          "client_industry": "retail",
-          "outcome": null,
-          "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
-          "score": 0.6415
-        },
-        {
-          "id": "web-cv",
-          "type": "cv",
-          "title": "CV: Omar Raza",
-          "source": "cv:web-cv",
-          "project": null,
-          "skills": [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "Node.js",
-            "Express",
-            "PostgreSQL",
-            "Stripe",
-            "Tailwind",
-            "Docker",
-            "AWS"
-          ],
-          "date": "2026-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
-          "score": 0.6275
+          "score": 0.746
         },
         {
           "id": "web-cs-dashboard",
@@ -2505,71 +2220,8 @@
           "client_industry": "fintech",
           "outcome": null,
           "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
-          "score": 0.6074
+          "score": 0.6784
         },
-        {
-          "id": "web-cs-booking",
-          "type": "case_study",
-          "title": "Appointment booking system for a clinic chain",
-          "source": "case_study:clinic-booking",
-          "project": "clinic-booking",
-          "skills": [
-            "Node.js",
-            "Express",
-            "PostgreSQL",
-            "email notifications",
-            "calendar"
-          ],
-          "date": "2024-03",
-          "client_industry": "healthcare",
-          "outcome": null,
-          "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
-          "score": 0.6041
-        }
-      ],
-      "claims": 0,
-      "unsupported_before": 0,
-      "unsupported_after": 0,
-      "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-404cd2e6b3",
-      "seconds": 2.04,
-      "tokens": 0,
-      "cost_usd": 0.0,
-      "outcome": "lost"
-    },
-    {
-      "job_id": "job-027",
-      "persona": "web_developer",
-      "kind": "poor_fit",
-      "style": "detailed",
-      "status": "recommended_skip",
-      "action": "skip",
-      "risk_level": "low",
-      "risk_flags": [],
-      "price": null,
-      "error": "",
-      "seconds": 1.02,
-      "tokens": 0,
-      "cost_usd": 0.0
-    },
-    {
-      "job_id": "job-026",
-      "persona": "web_developer",
-      "kind": "good",
-      "style": "vague",
-      "status": "submitted",
-      "action": "bid",
-      "risk_level": "low",
-      "risk_flags": [],
-      "price": 1170.0,
-      "error": "",
-      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "answers": [
-        "I would answer this in our first call with a concrete plan."
-      ],
-      "evidence": [
         {
           "id": "web-code-chat",
           "type": "code",
@@ -2585,7 +2237,7 @@
           "client_industry": null,
           "outcome": null,
           "text": "const { createAdapter } = require('@socket.io/redis-adapter');\n// the Redis adapter lets several server instances share the same chat rooms\nio.adapter(createAdapter(pubClient, subClient));",
-          "score": 0.7567
+          "score": 0.6529
         },
         {
           "id": "web-rd-chat",
@@ -2602,45 +2254,24 @@
           "client_industry": null,
           "outcome": null,
           "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included.",
-          "score": 0.7011
+          "score": 0.6364
         },
         {
-          "id": "web-cs-shop",
-          "type": "case_study",
-          "title": "Next.js storefront with Stripe for a clothing brand",
-          "source": "case_study:next-shop",
+          "id": "web-code-shop",
+          "type": "code",
+          "title": "next-shop-starter/prisma/schema.prisma",
+          "source": "code:next-shop",
           "project": "next-shop",
           "skills": [
-            "Next.js",
-            "React",
-            "Stripe",
-            "TypeScript",
-            "e-commerce"
-          ],
-          "date": "2025-04",
-          "client_industry": "retail",
-          "outcome": null,
-          "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
-          "score": 0.636
-        },
-        {
-          "id": "web-cs-booking",
-          "type": "case_study",
-          "title": "Appointment booking system for a clinic chain",
-          "source": "case_study:clinic-booking",
-          "project": "clinic-booking",
-          "skills": [
-            "Node.js",
-            "Express",
+            "Prisma",
             "PostgreSQL",
-            "email notifications",
-            "calendar"
+            "database migrations"
           ],
-          "date": "2024-03",
-          "client_industry": "healthcare",
+          "date": "2025-05",
+          "client_industry": null,
           "outcome": null,
-          "text": "Online booking for a chain of 6 clinics. Patients pick a doctor and slot; confirmation and reminder emails go out automatically. Node.js and Express API, PostgreSQL with row locking so two patients can never book the same slot. No-shows dropped 22% after reminders.",
-          "score": 0.6139
+          "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
+          "score": 0.6304
         },
         {
           "id": "web-cv",
@@ -2664,39 +2295,23 @@
           "client_industry": null,
           "outcome": null,
           "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
-          "score": 0.6081
-        },
-        {
-          "id": "web-code-shop",
-          "type": "code",
-          "title": "next-shop-starter/prisma/schema.prisma",
-          "source": "code:next-shop",
-          "project": "next-shop",
-          "skills": [
-            "Prisma",
-            "PostgreSQL",
-            "database migrations"
-          ],
-          "date": "2025-05",
-          "client_industry": null,
-          "outcome": null,
-          "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
-          "score": 0.5978
+          "score": 1.0
         }
       ],
       "claims": 0,
       "unsupported_before": 0,
       "unsupported_after": 0,
       "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-07a428626e",
-      "seconds": 1.32,
+      "connects_cost_preview": 14,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-d98b1b608c",
+      "seconds": 1.18,
       "tokens": 0,
       "cost_usd": 0.0,
       "outcome": "lost"
     },
     {
-      "job_id": "job-028",
+      "job_id": "job-026",
       "persona": "web_developer",
       "kind": "good",
       "style": "vague",
@@ -2704,32 +2319,95 @@
       "action": "bid",
       "risk_level": "low",
       "risk_flags": [],
-      "price": 1680.0,
+      "price": 1170.0,
       "error": "",
       "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
       "answers": [
         "I would answer this in our first call with a concrete plan."
       ],
       "evidence": [
         {
-          "id": "web-cs-shop",
-          "type": "case_study",
-          "title": "Next.js storefront with Stripe for a clothing brand",
-          "source": "case_study:next-shop",
-          "project": "next-shop",
+          "id": "web-code-chat",
+          "type": "code",
+          "title": "realtime-chat/server.js",
+          "source": "code:realtime-chat",
+          "project": "realtime-chat",
           "skills": [
-            "Next.js",
-            "React",
-            "Stripe",
-            "TypeScript",
-            "e-commerce"
+            "Redis",
+            "Socket.io",
+            "pub/sub"
           ],
-          "date": "2025-04",
-          "client_industry": "retail",
+          "date": "2025-08",
+          "client_industry": null,
           "outcome": null,
-          "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
-          "score": 0.8422
+          "text": "const { createAdapter } = require('@socket.io/redis-adapter');\n// the Redis adapter lets several server instances share the same chat rooms\nio.adapter(createAdapter(pubClient, subClient));",
+          "score": 0.8011
+        },
+        {
+          "id": "web-rd-chat",
+          "type": "repo_readme",
+          "title": "realtime-chat (GitHub README)",
+          "source": "repo_readme:realtime-chat",
+          "project": "realtime-chat",
+          "skills": [
+            "WebSockets",
+            "Socket.io",
+            "Node.js"
+          ],
+          "date": "2025-08",
+          "client_industry": null,
+          "outcome": null,
+          "text": "realtime-chat: rooms, typing indicators and read receipts with Socket.io on Node.js. Horizontal scaling notes included.",
+          "score": 0.7922
+        },
+        {
+          "id": "web-rv-clinic",
+          "type": "review",
+          "title": "Client review (healthcare)",
+          "source": "review:clinic-booking",
+          "project": "clinic-booking",
+          "skills": [
+            "Node.js"
+          ],
+          "date": "2024-04",
+          "client_industry": "healthcare",
+          "outcome": null,
+          "text": "4.8 stars. Booking system works flawlessly across all our clinics. Good communicator.",
+          "score": 0.5791
+        },
+        {
+          "id": "web-cs-dashboard",
+          "type": "case_study",
+          "title": "Analytics dashboard for a fintech SaaS",
+          "source": "case_study:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React",
+            "TypeScript",
+            "PostgreSQL",
+            "charts",
+            "Recharts",
+            "REST API"
+          ],
+          "date": "2024-10",
+          "client_industry": "fintech",
+          "outcome": null,
+          "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+          "score": 0.5645
+        },
+        {
+          "id": "web-pp-ignored",
+          "type": "past_proposal",
+          "title": "Proposal: website redesign",
+          "source": "past_proposal:web-pp-ignored",
+          "project": null,
+          "skills": [],
+          "date": "2025-02",
+          "client_industry": "education",
+          "outcome": "ignored",
+          "text": "Hello, I have read your job post and I am very interested. I am an expert web developer with many years of experience and I guarantee 100% satisfaction.",
+          "score": 0.5622
         },
         {
           "id": "web-pp-won",
@@ -2745,7 +2423,87 @@
           "client_industry": "retail",
           "outcome": "won",
           "text": "Slow checkout loses sales, so speed is where I'd start. For a clothing brand I moved to a custom Next.js store with Stripe Checkout; load time went from 4.1s to 1.3s and conversion rose 18%. I can set up the same checkout with webhooks for your order emails within two weeks.",
-          "score": 0.756
+          "score": 0.5464
+        }
+      ],
+      "claims": 0,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "critic_rounds": 2,
+      "connects_cost_preview": 10,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-cd2d5732f9",
+      "seconds": 0.86,
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "outcome": "replied"
+    },
+    {
+      "job_id": "job-027",
+      "persona": "web_developer",
+      "kind": "poor_fit",
+      "style": "detailed",
+      "status": "recommended_skip",
+      "action": "skip",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": null,
+      "error": "",
+      "seconds": 0.7,
+      "tokens": 0,
+      "cost_usd": 0.0
+    },
+    {
+      "job_id": "job-028",
+      "persona": "web_developer",
+      "kind": "good",
+      "style": "vague",
+      "status": "submitted",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [],
+      "price": 1680.0,
+      "error": "",
+      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
+      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.\n\nThis proposal was drafted with AI assistance and reviewed by me.",
+      "answers": [
+        "I would answer this in our first call with a concrete plan."
+      ],
+      "evidence": [
+        {
+          "id": "web-cs-shop",
+          "type": "case_study",
+          "title": "Next.js storefront with Stripe for a clothing brand",
+          "source": "case_study:next-shop",
+          "project": "next-shop",
+          "skills": [
+            "Next.js",
+            "React",
+            "Stripe",
+            "TypeScript",
+            "e-commerce"
+          ],
+          "date": "2025-04",
+          "client_industry": "retail",
+          "outcome": null,
+          "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
+          "score": 0.8262
+        },
+        {
+          "id": "web-pp-won",
+          "type": "past_proposal",
+          "title": "Proposal: Stripe checkout for a candle shop",
+          "source": "past_proposal:next-shop",
+          "project": "next-shop",
+          "skills": [
+            "Stripe",
+            "Next.js"
+          ],
+          "date": "2025-07",
+          "client_industry": "retail",
+          "outcome": "won",
+          "text": "Slow checkout loses sales, so speed is where I'd start. For a clothing brand I moved to a custom Next.js store with Stripe Checkout; load time went from 4.1s to 1.3s and conversion rose 18%. I can set up the same checkout with webhooks for your order emails within two weeks.",
+          "score": 0.7666
         },
         {
           "id": "web-rd-shop",
@@ -2761,7 +2519,27 @@
           "client_industry": null,
           "outcome": null,
           "text": "next-shop-starter: an open-source Next.js e-commerce starter with cart, Stripe checkout and order webhooks. 300+ GitHub stars.",
-          "score": 0.7416
+          "score": 0.7248
+        },
+        {
+          "id": "web-cs-dashboard",
+          "type": "case_study",
+          "title": "Analytics dashboard for a fintech SaaS",
+          "source": "case_study:fintech-dashboard",
+          "project": "fintech-dashboard",
+          "skills": [
+            "React",
+            "TypeScript",
+            "PostgreSQL",
+            "charts",
+            "Recharts",
+            "REST API"
+          ],
+          "date": "2024-10",
+          "client_industry": "fintech",
+          "outcome": null,
+          "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
+          "score": 0.6138
         },
         {
           "id": "web-cv",
@@ -2785,56 +2563,51 @@
           "client_industry": null,
           "outcome": null,
           "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
-          "score": 0.686
+          "score": 0.5982
         },
         {
-          "id": "web-code-chat",
-          "type": "code",
-          "title": "realtime-chat/server.js",
-          "source": "code:realtime-chat",
-          "project": "realtime-chat",
-          "skills": [
-            "Redis",
-            "Socket.io",
-            "pub/sub"
-          ],
-          "date": "2025-08",
-          "client_industry": null,
-          "outcome": null,
-          "text": "const { createAdapter } = require('@socket.io/redis-adapter');\n// the Redis adapter lets several server instances share the same chat rooms\nio.adapter(createAdapter(pubClient, subClient));",
-          "score": 0.6615
-        },
-        {
-          "id": "web-cs-dashboard",
-          "type": "case_study",
-          "title": "Analytics dashboard for a fintech SaaS",
-          "source": "case_study:fintech-dashboard",
-          "project": "fintech-dashboard",
-          "skills": [
-            "React",
-            "TypeScript",
-            "PostgreSQL",
-            "charts",
-            "Recharts",
-            "REST API"
-          ],
-          "date": "2024-10",
-          "client_industry": "fintech",
-          "outcome": null,
-          "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
-          "score": 0.6579
+          "id": "web-pp-ignored",
+          "type": "past_proposal",
+          "title": "Proposal: website redesign",
+          "source": "past_proposal:web-pp-ignored",
+          "project": null,
+          "skills": [],
+          "date": "2025-02",
+          "client_industry": "education",
+          "outcome": "ignored",
+          "text": "Hello, I have read your job post and I am very interested. I am an expert web developer with many years of experience and I guarantee 100% satisfaction.",
+          "score": 0.5895
         }
       ],
       "claims": 0,
       "unsupported_before": 0,
       "unsupported_after": 0,
       "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-0ea946999e",
-      "seconds": 0.94,
+      "connects_cost_preview": 14,
+      "compliance_fixes": 1,
+      "proposal_id": "prop-4411bb0f30",
+      "seconds": 0.76,
       "tokens": 0,
       "cost_usd": 0.0,
-      "outcome": "lost"
+      "outcome": "replied"
+    },
+    {
+      "job_id": "job-029",
+      "persona": "web_developer",
+      "kind": "injection",
+      "style": "detailed",
+      "status": "watch",
+      "action": "bid",
+      "risk_level": "low",
+      "risk_flags": [
+        "payment_unverified",
+        "injected_instructions"
+      ],
+      "price": 1680.0,
+      "error": "not enough Connects: need 14, have 0",
+      "seconds": 0.64,
+      "tokens": 0,
+      "cost_usd": 0.0
     },
     {
       "job_id": "job-030",
@@ -2852,152 +2625,9 @@
       ],
       "price": null,
       "error": "",
-      "seconds": 0.19,
+      "seconds": 0.14,
       "tokens": 0,
       "cost_usd": 0.0
-    },
-    {
-      "job_id": "job-029",
-      "persona": "web_developer",
-      "kind": "injection",
-      "style": "detailed",
-      "status": "submitted",
-      "action": "bid",
-      "risk_level": "low",
-      "risk_flags": [
-        "payment_unverified",
-        "injected_instructions"
-      ],
-      "price": 1680.0,
-      "error": "",
-      "draft_raw": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "draft": "Your project needs a reliable result that your team can keep using after handover, so I would start by agreeing on the exact success measure with you and checking a sample of your data in the first two days.\n\nThen I would build a simple first version, share it early so you can react, and improve it step by step with short written updates. At the end you would get clean, documented code, a short guide for your team and a call to walk through it.\n\nIf that plan sounds right, I can start this week and send the first version within five working days.",
-      "answers": [
-        "I would answer this in our first call with a concrete plan."
-      ],
-      "evidence": [
-        {
-          "id": "web-cs-dashboard",
-          "type": "case_study",
-          "title": "Analytics dashboard for a fintech SaaS",
-          "source": "case_study:fintech-dashboard",
-          "project": "fintech-dashboard",
-          "skills": [
-            "React",
-            "TypeScript",
-            "PostgreSQL",
-            "charts",
-            "Recharts",
-            "REST API"
-          ],
-          "date": "2024-10",
-          "client_industry": "fintech",
-          "outcome": null,
-          "text": "Built the customer-facing analytics dashboard for a fintech SaaS: React and TypeScript with Recharts, backed by a Node API over PostgreSQL. Role-based access, CSV export and date filters. Queries tuned so every chart loads in under 500 ms on 3M rows.",
-          "score": 0.7979
-        },
-        {
-          "id": "web-pp-replied",
-          "type": "past_proposal",
-          "title": "Proposal: admin panel for logistics startup",
-          "source": "past_proposal:fintech-dashboard",
-          "project": "fintech-dashboard",
-          "skills": [
-            "React",
-            "PostgreSQL"
-          ],
-          "date": "2025-09",
-          "client_industry": "logistics",
-          "outcome": "replied",
-          "text": "Your admin panel needs to stay fast as data grows. My fintech dashboard loads every chart in under 500 ms on 3M rows. Happy to walk you through how I'd structure yours.",
-          "score": 0.7514
-        },
-        {
-          "id": "web-code-shop",
-          "type": "code",
-          "title": "next-shop-starter/prisma/schema.prisma",
-          "source": "code:next-shop",
-          "project": "next-shop",
-          "skills": [
-            "Prisma",
-            "PostgreSQL",
-            "database migrations"
-          ],
-          "date": "2025-05",
-          "client_industry": null,
-          "outcome": null,
-          "text": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\nmodel Order {\n  id        String   @id @default(cuid())\n  total     Int\n  status    String\n  createdAt DateTime @default(now())\n}",
-          "score": 0.7049
-        },
-        {
-          "id": "web-cv",
-          "type": "cv",
-          "title": "CV: Omar Raza",
-          "source": "cv:web-cv",
-          "project": null,
-          "skills": [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "Node.js",
-            "Express",
-            "PostgreSQL",
-            "Stripe",
-            "Tailwind",
-            "Docker",
-            "AWS"
-          ],
-          "date": "2026-09",
-          "client_industry": null,
-          "outcome": null,
-          "text": "Full-stack developer with 5 years of experience building web apps for startups. Frontend in React and Next.js with TypeScript and Tailwind; backend in Node.js and Express with PostgreSQL. Payments with Stripe. Deploys with Docker on AWS and Vercel.",
-          "score": 0.692
-        },
-        {
-          "id": "web-rv-fintech",
-          "type": "review",
-          "title": "Client review (fintech)",
-          "source": "review:fintech-dashboard",
-          "project": "fintech-dashboard",
-          "skills": [
-            "React"
-          ],
-          "date": "2024-11",
-          "client_industry": "fintech",
-          "outcome": null,
-          "text": "5 stars. Omar shipped our dashboard ahead of schedule and the charts are fast even on huge accounts.",
-          "score": 0.6889
-        },
-        {
-          "id": "web-cs-shop",
-          "type": "case_study",
-          "title": "Next.js storefront with Stripe for a clothing brand",
-          "source": "case_study:next-shop",
-          "project": "next-shop",
-          "skills": [
-            "Next.js",
-            "React",
-            "Stripe",
-            "TypeScript",
-            "e-commerce"
-          ],
-          "date": "2025-04",
-          "client_industry": "retail",
-          "outcome": null,
-          "text": "Rebuilt a clothing brand's Shopify store as a custom Next.js storefront with Stripe Checkout and webhooks for order emails. Page load fell from 4.1s to 1.3s and conversion rose 18% in the first two months. Includes an admin page for stock.",
-          "score": 0.6846
-        }
-      ],
-      "claims": 0,
-      "unsupported_before": 0,
-      "unsupported_after": 0,
-      "critic_rounds": 2,
-      "compliance_fixes": 0,
-      "proposal_id": "prop-ba23e83361",
-      "seconds": 1.13,
-      "tokens": 0,
-      "cost_usd": 0.0,
-      "outcome": "lost"
     }
   ]
 }
