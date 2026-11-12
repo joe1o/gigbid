@@ -33,7 +33,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest", "pytest-asyncio", "ruff"]
+dev = ["pytest", "pytest-asyncio", "ruff", "markdown"]   # markdown: builds docs/REPORT.pdf
 
 # We run code from the repo root, so we don't "package" our own folders.
 [tool.setuptools]

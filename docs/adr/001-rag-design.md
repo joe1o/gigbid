@@ -48,7 +48,7 @@ dev-set score distribution, so it may be slightly optimistic.
 
 The table above was measured with `nomic-embed-text-v1.5` (`rag_eval_nomic.json`). The free host
 has 512 MB of memory and nomic does not fit (ADR 002), so the shipped model is now
-`BAAI/bge-small-en-v1.5`. Re-run on the same 39 jobs (`rag_eval.json`):
+`BAAI/bge-small-en-v1.5`. Re-run on the same 36 jobs (`rag_eval.json`):
 
 | Variant | Recall@5 | MRR | nDCG@10 | p95 ms |
 |---|---|---|---|---|

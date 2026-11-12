@@ -7,6 +7,8 @@ rejects every proposal, message and Connects spend before anything leaves the sy
 
 **Live app:** https://gigbid-vkhw.onrender.com (reviewer login in the private submission comment)
 
+**R&D report:** [docs/REPORT.pdf](docs/REPORT.pdf) (source: [docs/REPORT.md](docs/REPORT.md))
+
 ![GigBid demo](docs/images/demo.gif)
 
 ## What it does
@@ -50,7 +52,7 @@ the Writer and Critic, both open-weight, served by Groq. Embeddings and reranker
 | Seconds per job, p50 / p95 | 20.6 / 116.5 |
 | Cost per job analysed / per proposal | $0.0011 / $0.0015 |
 
-### RAG variants (`rag_eval.json`, 39 jobs with gold evidence)
+### RAG variants (`rag_eval.json`, 36 jobs with gold evidence)
 
 | Variant | Recall@5 | MRR | nDCG@10 | p95 ms | Unsupported claims per proposal | Judge score | GigSim reply rate | Cost per proposal |
 |---|---|---|---|---|---|---|---|---|

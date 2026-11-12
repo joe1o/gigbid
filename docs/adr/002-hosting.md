@@ -18,7 +18,7 @@ with GigSim and the MCP servers in-process, the bge-small embedding model, Neon 
 checkpoints and memory, Groq for the open LLMs.
 
 **Trade-offs.**
-- Retrieval quality: bge-small has Recall@5 0.898 against 0.947 for nomic on the same 39 jobs
+- Retrieval quality: bge-small has Recall@5 0.898 against 0.947 for nomic on the same 36 jobs
   (`rag_eval.json` vs `rag_eval_nomic.json`). It still passes the CI gate of 0.85.
 - One graph run at a time, so several jobs are processed one after another, not in parallel.
 - The MCP servers are not separate network services on the host; they still run the same MCP
