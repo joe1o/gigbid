@@ -19,6 +19,7 @@ Because of the Groq free-tier limit (8k tokens/minute per model) this uses 12 de
 import asyncio
 import contextlib
 import json
+import sys
 import time
 import uuid
 from typing import Literal
@@ -87,7 +88,12 @@ def build(kind: str, tools, model):
                                                                          "get_case_study"}],
                                 name="writer",
                                 prompt="You find portfolio evidence and write a grounded proposal. Never invent experience.")
+    from langgraph.prebuilt.chat_agent_executor import AgentStateWithStructuredResponse
+
+    # state_schema matters: without it the outer supervisor graph keeps only `messages` and silently
+    # drops the supervisor's final structured answer (our first two runs failed 12/12 because of this).
     return create_supervisor([research, writer], model=model, response_format=Answer,
+                             state_schema=AgentStateWithStructuredResponse,
                              prompt="You manage a researcher and a writer to decide bid/skip and produce the proposal.").compile()
 
 
@@ -109,11 +115,28 @@ async def run_system(kind: str, labels, jobs) -> list[dict]:
                             job_block=wrap_untrusted("job_post", f"{job['title']}\n{job['description']}"))
         t0 = time.perf_counter()
         res = {"job_id": job["job_id"], "persona": persona, "kind": lab["kind"]}
+        # The supervisor often fails on gpt-oss (malformed tool names such as
+        # "get_policy<|channel|>commentary", or ending without a final answer), so it gets up to 3
+        # attempts per job. This favours the baseline, which only makes our comparison stricter.
+        attempts = 3 if kind == "prebuilt_supervisor" else 1
         try:
-            async with mcp_tools(persona) as tools:
-                agent = build(kind, tools, model)
-                state = await agent.ainvoke({"messages": [{"role": "user", "content": prompt}]},
-                                            {"recursion_limit": 30})
+            state, errors = None, []
+            for _ in range(attempts):
+                try:
+                    async with mcp_tools(persona) as tools:
+                        agent = build(kind, tools, model)
+                        state = await agent.ainvoke({"messages": [{"role": "user", "content": prompt}]},
+                                                    {"recursion_limit": 30})
+                    if "structured_response" not in state:
+                        raise KeyError("structured_response")       # ran but gave no final answer
+                    break
+                except Exception as e:  # noqa: BLE001
+                    sub = getattr(e, "exceptions", [e])[0]           # unwrap TaskGroup errors
+                    errors.append(f"{type(sub).__name__}: {str(sub)[:160]}")
+                    state = None
+            res["attempts"], res["attempt_errors"] = len(errors) + (state is not None), errors
+            if state is None:
+                raise RuntimeError(errors[-1])
             ans: Answer = state["structured_response"]
             res.update(action=ans.decision, is_scam=ans.is_scam, price=ans.price, draft=ans.cover_letter,
                        tokens=sum((m.usage_metadata or {}).get("total_tokens", 0) for m in state["messages"]
@@ -169,8 +192,16 @@ if __name__ == "__main__":
 
     jobs, all_labels = harness.load_dev()
     labels = pick_jobs(all_labels)
+    # `--only prebuilt_supervisor` re-runs one system and keeps the saved rows of the other
+    # (used when the provider's daily quota stopped a system part-way through).
+    only = sys.argv[sys.argv.index("--only") + 1] if "--only" in sys.argv else None
+    old = harness.RESULTS / "rnd_c_compare.json"
+    saved = json.loads(old.read_text(encoding="utf-8"))["per_job"] if only and old.exists() else {}
     systems = {}
     for kind in ("single_agent", "prebuilt_supervisor"):
+        if only and kind != only and kind in saved:
+            systems[kind] = saved[kind]
+            continue
         TestClient(gigsim_app.app).post("/admin/reset", headers={"Authorization": "Bearer gigsim-admin-token"})
         systems[kind] = asyncio.run(run_system(kind, labels, jobs))
     ours = {r["job_id"]: r for r in json.loads((harness.RESULTS / "decision_eval.json").read_text(encoding="utf-8"))["per_job"]}
