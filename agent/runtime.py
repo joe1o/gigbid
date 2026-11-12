@@ -45,9 +45,16 @@ async def open_runtime(db_url: str | None = None):
     if _is_postgres(url):
         from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
         from langgraph.store.postgres.aio import AsyncPostgresStore
+        from psycopg.rows import dict_row
+        from psycopg_pool import AsyncConnectionPool
 
-        async with AsyncPostgresSaver.from_conn_string(url) as saver, \
-                AsyncPostgresStore.from_conn_string(url) as store:
+        # A POOL of connections (not one shared connection): web requests no longer wait in line
+        # behind a background graph run that is saving checkpoints. Small, to suit the free host.
+        # prepare_threshold=0 because Neon's pooled endpoint (PgBouncer) cannot keep prepared statements.
+        async with AsyncConnectionPool(url, min_size=1, max_size=int(os.getenv("GIGBID_DB_POOL", "5")), open=False,
+                                       kwargs={"autocommit": True, "prepare_threshold": 0,
+                                               "row_factory": dict_row}) as pool:
+            saver, store = AsyncPostgresSaver(pool), AsyncPostgresStore(pool)
             await saver.setup()
             await store.setup()
             yield Runtime(build_bid_graph().compile(checkpointer=saver, store=store),
