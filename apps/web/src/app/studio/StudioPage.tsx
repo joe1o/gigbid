@@ -151,6 +151,12 @@ export default function StudioPage() {
             <button className="btn danger" style={{ width: "100%", marginTop: 8 }} onClick={() => decide("reject")} disabled={!!busy || !reason.trim()}>
               {busy === "reject" ? "Rejecting…" : "Reject"}</button>
           </div>
+          {/* The client's original post, next to the proposal, so the reviewer can compare the two. */}
+          <details className="panel" open>
+            <summary>Original job post <span className="small muted">(untrusted text, shown as written)</span></summary>
+            <p className="small" style={{ whiteSpace: "pre-wrap", marginTop: 10, maxHeight: 360, overflowY: "auto" }}>
+              {(d.data.job as { description?: string } | undefined)?.description ?? "Not available."}</p>
+          </details>
         </aside>
       </div>
     </>
